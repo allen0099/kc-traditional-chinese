@@ -50,7 +50,7 @@ Refresh token,更新權杖,,,
 remove,移除,,不跟 delete 混用,
 secret,密鑰,,與 key（金鑰）、password（密碼）區分,
 Session,工作階段,會話|工作狀態|登入階段,台灣產品介面用語（Microsoft、AWS 皆用「工作階段」）；「會話」多見於機器翻譯與簡中,
-Signature,簽章,,https://terms.naer.edu.tw/detail/72201d47c32b83a440af2550421eff52/?startswith=zh&seq=6,
+Signature,簽章,簽名,名詞譯「簽章」；動詞 sign／signed／signing 譯「簽署」（簽署金鑰、已簽署）。參照 https://terms.naer.edu.tw/detail/72201d47c32b83a440af2550421eff52/?startswith=zh&seq=6,
 token,權杖,,國家教育研究院 - https://terms.naer.edu.tw/detail/4fc5f9876aec29562f088628e1d8eef9/,
 truststore,truststore,信任庫|信任儲存庫,Java 專有名詞不翻譯,
 USB,USB,,,0
