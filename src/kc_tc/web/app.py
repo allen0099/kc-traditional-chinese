@@ -1,4 +1,4 @@
-"""本地網頁：詞彙決策、批次取代、翻譯未譯字串與上傳。"""
+"""本地網頁：詞彙決策、批次取代、翻譯未譯字串、上傳與檢閱。"""
 from __future__ import annotations
 
 import difflib
@@ -7,6 +7,7 @@ import threading
 import urllib.error
 import uuid
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from urllib.parse import quote, urlsplit
 
@@ -521,3 +522,137 @@ def push_retry(request: Request):
 @app.get("/push/progress", response_class=HTMLResponse)
 def push_progress(request: Request):
     return render(request, "_push_progress.html", job=PUSH["job"], ratelimit=RATELIMIT)
+
+
+# ---------------------------------------------------------------- 檢閱 Weblate 上等候檢閱的字串
+
+class ApproveJob:
+    """背景批次核可（同時只允許一個）。"""
+
+    def __init__(self, items: list[sync.ReviewItem]):
+        self.items = items
+        self.done: list[tuple[sync.ReviewItem, str, str]] = []   # (item, ok/fail, 訊息)
+        self.finished = False
+
+    def run(self, token: str) -> None:
+        def one(r: sync.ReviewItem) -> None:
+            try:
+                sync.approve(r, r.remote, token)
+            except urllib.error.HTTPError as e:
+                self.done.append((r, "fail", http_error_text(e)))
+            except Exception as e:  # noqa: BLE001 — 顯示在網頁上
+                self.done.append((r, "fail", str(e)))
+            else:
+                self.done.append((r, "ok", ""))
+
+        try:
+            with ThreadPoolExecutor(sync.UPLOAD_WORKERS) as pool:
+                list(pool.map(one, self.items))
+        finally:
+            self.finished = True
+
+
+REVIEW: dict = {"items": None, "job": None}
+
+
+def review_item_ctx(r: sync.ReviewItem, value: str | None = None, **extra) -> dict:
+    """單條待檢閱字串的模板資料；編輯框預設為本地譯文（沒有則用 Weblate 上的譯文）。"""
+    if value is None:
+        value = r.local if r.local is not None else r.remote
+    p = Pair(r.component, r.key, r.en, value, None)
+    hints = [t for t in store.get().terms.values() if t.ok and t.matches(r.en)]
+    hints.sort(key=lambda t: t.en.lower())
+    ctx = {"r": r, "p": p, "value": value, "hints": hints, "issues": lint_issues(p, value) if value.strip() else [],
+           "pending": r.local is not None and r.local != r.remote, "error": ""}
+    return ctx | extra
+
+
+def find_review(component: str, key: str) -> sync.ReviewItem | None:
+    return next((r for r in REVIEW["items"] or [] if r.component == component and r.key == key), None)
+
+
+@app.get("/review", response_class=HTMLResponse)
+def review_page(request: Request, component: str = "", q: str = "", only_issues: str = "", limit: int = 50):
+    items = REVIEW["items"]
+    ctx = {"loaded": items is not None, "component": component, "q": q, "only_issues": only_issues, "limit": limit,
+           "has_token": bool(load_token()), "ratelimit": RATELIMIT, "job": REVIEW["job"]}
+    todo = [r for r in items or [] if not r.done]
+    by_comp = defaultdict(int)
+    for r in todo:
+        by_comp[r.component] += 1
+    if component:
+        todo = [r for r in todo if r.component == component]
+    if q:
+        ql = q.lower()
+        todo = [r for r in todo if any(ql in s.lower() for s in (r.key, r.en, r.remote, r.local or ""))]
+    ctxs = [review_item_ctx(r) for r in todo]
+    if only_issues:
+        ctxs = [c for c in ctxs if c["issues"] or c["pending"]]
+    ctx.update(items=ctxs[:limit], total=len(ctxs), by_comp=dict(sorted(by_comp.items())))
+    tpl = "review.html" if "hx-request" not in request.headers else "_review_list.html"
+    return render(request, tpl, **ctx)
+
+
+@app.post("/review/load")
+def review_load(request: Request):
+    token = load_token()
+    try:
+        REVIEW["items"] = sync.fetch_review(token)
+    except urllib.error.HTTPError as e:
+        return HTMLResponse(f'<div class="flash error">查詢 Weblate 失敗：{escape(http_error_text(e))}</div>')
+    return HTMLResponse("", headers={"HX-Refresh": "true"})
+
+
+@app.post("/review/approve", response_class=HTMLResponse)
+def review_approve(request: Request, component: str = Form(...), key: str = Form(...), value: str = Form(""),
+                   force: str = Form("")):
+    """核可單條；譯文有修改時先寫入本地再上傳。"""
+    r, token = find_review(component, key), load_token()
+    if r is None:
+        return PlainTextResponse("清單已過期，請重新載入", status_code=404)
+    value = value.replace("\r\n", "\n")
+    ctx = review_item_ctx(r, value)
+    if not token:
+        ctx["error"] = "找不到 API key，請在 .env 設定 WEBLATE_TOKEN"
+    elif not value.strip():
+        ctx["error"] = "譯文是空的"
+    elif any(lv == "error" for lv, _, _ in ctx["issues"]) and not force:
+        ctx.update(error="有 error 等級的問題，未核可。確認無誤請勾選「仍要核可」。", need_force=True)
+    else:
+        try:
+            local = load_values(zh_path(component)).get(key)
+            if local is None:
+                insert_value(component, key, value)
+            elif local != value:
+                write_values(component, {key: (local, value)})
+            r.local = value
+            sync.approve(r, value, token)
+        except urllib.error.HTTPError as e:
+            ctx["error"] = f"核可失敗：{http_error_text(e)}"
+        except Conflict as e:
+            ctx["error"] = str(e)
+        ctx = review_item_ctx(r, value, error=ctx["error"])
+    return render(request, "_review_item.html", **ctx)
+
+
+@app.post("/review/approve-many", response_class=HTMLResponse)
+async def review_approve_many(request: Request):
+    form = await request.form(max_fields=100_000)
+    token, job = load_token(), REVIEW["job"]
+    if not token:
+        return HTMLResponse('<div class="flash error">找不到 API key，請在 .env 設定 WEBLATE_TOKEN</div>')
+    if job and not job.finished:
+        return HTMLResponse('<div class="flash error">已有核可工作進行中</div>')
+    ids = set(form.getlist("pick"))
+    # 本地有未上傳修改的字串不批次核可，以免核可到舊譯文
+    picked = [r for r in REVIEW["items"] or [] if r.id in ids and not r.done and r.local in (None, r.remote)]
+    if not picked:
+        return HTMLResponse('<div class="flash error">沒有勾選任何項目</div>')
+    REVIEW["job"] = job = ApproveJob(picked)
+    threading.Thread(target=job.run, args=(token,), daemon=True).start()
+    return render(request, "_review_progress.html", job=job, ratelimit=RATELIMIT)
+
+
+@app.get("/review/progress", response_class=HTMLResponse)
+def review_progress(request: Request):
+    return render(request, "_review_progress.html", job=REVIEW["job"], ratelimit=RATELIMIT)

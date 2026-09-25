@@ -1,0 +1,14 @@
+{% if job %}
+{% set ok = job.done | selectattr(1, "equalto", "ok") | list %}
+{% set bad = job.done | rejectattr(1, "equalto", "ok") | list %}
+<div class="result" {% if not job.finished %}hx-get="/review/progress" hx-trigger="every 1s" hx-swap="outerHTML"{% endif %}>
+  <h3>{{ '核可完成' if job.finished else '核可中…' }} {{ job.done | length }} / {{ job.items | length }}</h3>
+  <p>成功 <b>{{ ok | length }}</b>{% if bad %}，<span class="warn">失敗 <b>{{ bad | length }}</b></span>{% endif %}
+    {% if ratelimit.remaining %}<small>（API 剩餘額度 {{ ratelimit.remaining }} / {{ ratelimit.limit }}）</small>{% endif %}</p>
+  {% for r, st, msg in bad %}
+  <div class="prop has-warn"><div class="prop-head"><b>{{ r.component }}</b> <code>{{ r.key }}</code>
+    <span class="badge variant">失敗</span></div><p class="warn">{{ msg }}</p></div>
+  {% endfor %}
+  {% if job.finished %}<p><a class="button" href="/review">重新整理</a></p>{% endif %}
+</div>
+{% endif %}

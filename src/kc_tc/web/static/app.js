@@ -29,7 +29,7 @@ function markActive(a) {
 
 // 批次取代
 function pickAll(on) {
-  document.querySelectorAll(".prop:not([hidden]) input[name=pick]").forEach((cb) => (cb.checked = on));
+  document.querySelectorAll(".prop:not([hidden]) input[name=pick]:not(:disabled)").forEach((cb) => (cb.checked = on));
   countPicked();
 }
 

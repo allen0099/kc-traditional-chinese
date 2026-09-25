@@ -1,12 +1,13 @@
 """本地譯文與 Weblate 的三方比對（基準、本地、Weblate 現值）。"""
 from __future__ import annotations
 
+import json
 import threading
 from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 
-from .common import (LANG, PROJECT, TRANS_DIR, api_list, api_request, components, load_baseline,
+from .common import (LANG, PROJECT, TRANS_DIR, Conflict, api_list, api_request, components, load_baseline,
                      insert_value, load_needs_edit, load_values, parse_properties, save_baseline, save_needs_edit,
                      unescape, write_values, zh_path)
 
@@ -128,6 +129,55 @@ def mark_synced(component: str, values: dict[str, str]) -> None:
     base = load_baseline(component) or {}
     base.update(values)
     save_baseline(component, base)
+
+
+# ---------------------------------------------------------------- 檢閱（等候檢閱 → 已核可）
+
+@dataclass
+class ReviewItem:
+    component: str
+    key: str
+    en: str
+    remote: str          # 載入時 Weblate 上的譯文
+    unit_url: str
+    web_url: str
+    local: str | None    # 本地譯文（與 remote 不同表示本地有未上傳的修改）
+    done: bool = False   # 已核可
+
+    @property
+    def id(self) -> str:
+        return f"{self.component}\x1f{self.key}"
+
+
+def fetch_review(token: str | None, only: list[str] | None = None) -> list[ReviewItem]:
+    """Weblate 上等候檢閱（state 20）的字串，每個組件 1 次請求。"""
+    out = []
+    for comp in components():
+        if only and comp not in only:
+            continue
+        units = api_list(f"translations/{PROJECT}/{comp}/{LANG}/units/?q=state:translated&page_size=1000", token)
+        local = load_values(zh_path(comp))
+        for u in units:
+            key = u["context"].replace("\\", "")
+            out.append(ReviewItem(comp, key, (u["source"] or [""])[0], (u["target"] or [""])[0],
+                                  u["url"], u["web_url"], local.get(key)))
+    out.sort(key=lambda r: (r.component, r.key))
+    return out
+
+
+def approve(r: ReviewItem, value: str, token: str) -> None:
+    """確認 Weblate 現值與載入時相同後，以 value 為譯文設為已核可，並同步基準。"""
+    u = json.loads(api_request(r.unit_url, token))
+    if (u["target"] or [""])[0] != r.remote:
+        raise Conflict("Weblate 上的譯文在載入後被修改，請重新載入")
+    # Weblate 要求 state 與 target 一起送
+    api_request(r.unit_url, token, method="PATCH", data={"target": [value], "state": STATES["approved"]})
+    with _BASELINE_LOCK:
+        mark_synced(r.component, {r.key: value})
+        needs = load_needs_edit()
+        if needs.get(r.component, {}).pop(r.key, None) is not None:
+            save_needs_edit(needs)
+    r.remote, r.done = value, True
 
 
 # ---------------------------------------------------------------- pull 合併

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}待檢閱{% endblock %}
+{% block main %}
+<div class="page">
+  {% if not has_token %}
+  <div class="flash error">找不到 API key：請在專案根目錄的 <code>.env</code> 設定 <code>WEBLATE_TOKEN=…</code>。</div>
+  {% endif %}
+  <form class="filters" hx-get="/review" hx-target="#review-area" hx-push-url="true"
+        hx-trigger="change, input changed delay:400ms from:input[name=q], submit">
+    <div class="full">
+      {% if loaded %}Weblate 上等候檢閱：<b>{{ by_comp.values() | sum }}</b> 條
+      {% for comp, n in by_comp.items() %}<span class="badge">{{ comp }} {{ n }}</span>{% endfor %}{% endif %}
+      <p class="hint">載入 Weblate 上狀態為「等候檢閱」的字串（每個組件 1 次 API 請求）。按「核可」會把編輯框內的譯文上傳並設為「已核可」，
+        譯文有修改時也會寫入本地 <code>zh_Hant.properties</code> 並更新 <code>baseline/</code>。</p>
+    </div>
+    <label>組件
+      <select name="component">
+        <option value="">全部</option>
+        {% for comp in by_comp %}<option value="{{ comp }}" {{ 'selected' if comp == component }}>{{ comp }}</option>{% endfor %}
+      </select>
+    </label>
+    <label class="grow">搜尋
+      <input type="search" name="q" value="{{ q }}" placeholder="key、英文或譯文">
+    </label>
+    <label><input type="checkbox" name="only_issues" value="1" {{ 'checked' if only_issues }}> 只看有 lint 問題或本地已修改</label>
+    <button type="button" class="{{ '' if loaded else 'primary' }}" hx-post="/review/load" hx-target="#review-area"
+            hx-indicator="#review-loading">{{ '重新載入' if loaded else '從 Weblate 載入' }}</button>
+    <span id="review-loading" class="loading htmx-indicator">查詢中…</span>
+  </form>
+  <div id="review-area">
+    {% if job and not job.finished %}<div hx-get="/review/progress" hx-trigger="load" hx-swap="outerHTML"></div>{% endif %}
+    {% if loaded %}{% include "_review_list.html" %}{% else %}<p class="empty">尚未載入。</p>{% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+<form class="prop {{ 'saved' if r.done }} {{ 'has-warn' if error or issues or pending }}" hx-post="/review/approve" hx-swap="outerHTML">
+  <div class="prop-head">
+    {% if not r.done %}<input type="checkbox" name="pick" value="{{ r.id }}" form="approve-many"
+      {{ 'disabled' if pending }} onchange="countPicked()" title="{{ '本地已修改，請逐條核可' if pending }}">{% endif %}
+    <span><b>{{ r.component }}</b> <code>{{ r.key }}</code></span>
+    {% if r.done %}<span class="badge state-30">已核可</span>{% else %}<span class="badge state-20">等候檢閱</span>{% endif %}
+    {% if pending %}<span class="badge candidate">本地已修改，未上傳</span>{% endif %}
+    <span class="spacer"></span>
+    <a href="{{ r.web_url }}" target="_blank" rel="noopener">Weblate ↗</a>
+  </div>
+  <input type="hidden" name="component" value="{{ r.component }}">
+  <input type="hidden" name="key" value="{{ r.key }}">
+  <div class="en">{{ hl_en(r.en, hints | map(attribute="en") | list) if hints else r.en }}</div>
+  {% if hints %}<div class="hints">{% for t in hints %}<span class="badge ok" title="{{ t.note }}">{{ t.en }} → {{ t.ok | join("／") }}</span>{% endfor %}</div>{% endif %}
+  {% if pending %}{% set before, after = diff_html(r.remote, value) %}
+  <div class="diff"><div class="before">{{ before }}</div><div class="after">{{ after }}</div></div>{% endif %}
+  {% if r.done %}
+  <div class="zh">{{ r.remote }}</div>
+  {% else %}
+  <textarea name="value" class="edit" rows="{{ [2, (r.en | length // 60) + 1] | max }}"
+            hx-post="/translate/check" hx-trigger="input changed delay:500ms" hx-target="next .lint" hx-swap="innerHTML"
+            hx-include="closest form"
+            onkeydown="if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) { event.preventDefault(); this.form.requestSubmit(); }">{{ value }}</textarea>
+  <div class="lint">{% include "_translate_lint.html" %}</div>
+  {% if error %}<p class="warn">⚠ {{ error }}</p>{% endif %}
+  <div class="actions">
+    {% if need_force %}<label><input type="checkbox" name="force" value="1"> 仍要核可</label>{% endif %}
+    <button type="submit" class="primary">核可</button>
+    <small class="hint">Ctrl+Enter 核可；修改譯文後核可會一併上傳</small>
+  </div>
+  {% endif %}
+</form>

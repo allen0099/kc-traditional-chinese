@@ -1,0 +1,16 @@
+<form id="approve-many" hx-post="/review/approve-many" hx-target="this" hx-swap="beforebegin"
+      hx-confirm="確定將勾選的字串在 Weblate 上設為「已核可」？">
+  <div class="toolbar sticky">
+    <span>共 <b>{{ total }}</b> 條{% if total > limit %}，顯示前 {{ limit }} 條{% endif %}</span>
+    <button type="button" onclick="pickAll(true)">全選</button>
+    <button type="button" onclick="pickAll(false)">全不選</button>
+    <button type="submit" class="primary">核可勾選的 <span id="picked-count">0</span> 條</button>
+    <small class="hint">本地已修改的字串請逐條核可</small>
+  </div>
+</form>
+{% if not items %}<p class="empty">沒有等候檢閱的字串。</p>{% endif %}
+{% for it in items %}{% with %}{% set r, p, value, hints, issues, pending, error = it.r, it.p, it.value, it.hints, it.issues, it.pending, it.error %}{% include "_review_item.html" %}{% endwith %}{% endfor %}
+{% if total > limit %}
+<p><button hx-get="/review?component={{ component | urlencode }}&q={{ q | urlencode }}&only_issues={{ only_issues }}&limit={{ limit + 50 }}"
+           hx-target="#review-area">顯示更多</button></p>
+{% endif %}
