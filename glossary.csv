@@ -13,6 +13,7 @@ Client,用戶端,應用程式|客戶端,台灣標準用語（Microsoft、Google 
 client scope,用戶端範圍,應用程式範圍|客戶端範圍,,
 client secret,用戶端密鑰,應用程式密鑰|應用程式金鑰|客戶端密鑰|用戶端金鑰,secret 用「密鑰」，與 key（金鑰）、password（密碼）區分；參照 Google 台灣 OAuth 文件,
 cookie,cookie,,,
+credential,認證資訊,憑據|驗證資訊,使用者／用戶端的 credential（密碼、OTP、WebAuthn、client credentials）；參照 Windows「認證管理員」。與 certificate（憑證）區分；OID4VC 的 credential 例外譯「憑證」，見 verifiable credential,
 default,預設,,,
 Direct grant,直接授權,,,
 Family name,姓氏,,,
@@ -56,5 +57,6 @@ truststore,truststore,信任庫|信任儲存庫,Java 專有名詞不翻譯,
 USB,USB,,,0
 user,使用者,,,
 user label,使用者標籤,,,
+verifiable credential,可驗證憑證,可驗證的憑證,OID4VC；參照台灣數位憑證皮夾。VC 功能區塊內單獨出現的 credential 也譯「憑證」,
 WebAuthn,WebAuthn,,專有技術名詞不翻譯,
 X-Robots-Tag,X-Robots-Tag,,,0
