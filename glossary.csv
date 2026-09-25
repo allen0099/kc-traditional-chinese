@@ -1,5 +1,6 @@
 en,zh_Hant,variants,note,reviewed
 access token,存取權杖,,參照國家教育研究院翻譯：https://terms.naer.edu.tw/detail/edb0778da6e12964146ee84c4a1e957f/  又因為 token 已採用「權杖」作為翻譯，因此這邊也一併使用權杖作為 token 的翻譯,
+account,帳號,帳戶,Account Console 譯「帳號主控台」；service account 譯「服務帳號」,
 adapter,配接器,,,
 assertion,斷言,,,
 attribute,屬性,,,
@@ -63,6 +64,7 @@ truststore,truststore,信任庫|信任儲存庫,Java 專有名詞不翻譯,
 USB,USB,,,0
 user,使用者,,,
 user label,使用者標籤,,,
+user storage,使用者儲存,使用者存放區,UserStorageProvider 譯「使用者儲存提供者」,
 verifiable credential,可驗證憑證,可驗證的憑證,OID4VC；參照台灣數位憑證皮夾。VC 功能區塊內單獨出現的 credential 也譯「憑證」,
 WebAuthn,WebAuthn,,專有技術名詞不翻譯,
 X-Robots-Tag,X-Robots-Tag,,,0
