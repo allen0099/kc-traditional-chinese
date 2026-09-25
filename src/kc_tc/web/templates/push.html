@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}上傳{% endblock %}
+{% block main %}
+<div class="page">
+  {% if not has_token %}
+  <div class="flash error">找不到 API key：請在專案根目錄的 <code>.env</code> 設定 <code>WEBLATE_TOKEN=…</code>，重新整理本頁即可（不用重啟）。未設定前只能比對，不能上傳。</div>
+  {% endif %}
+
+  <form class="filters" hx-post="/push/compare" hx-target="#push-area" hx-indicator="#push-loading">
+    <div>
+      本地尚未上傳的修改：<b>{{ n_local }}</b> 條
+      {% for comp, n in by_comp.items() %}<span class="badge">{{ comp }} {{ n }}</span>{% endfor %}
+      <p class="hint">以 <code>baseline/</code>（上次與 Weblate 同步時的譯文）為基準；比對會查詢 Weblate 現值，每個組件 1 次 API 請求。</p>
+    </div>
+    <label>組件
+      <select name="component">
+        <option value="">全部</option>
+        {% for comp in by_comp %}<option>{{ comp }}</option>{% endfor %}
+      </select>
+    </label>
+    <button type="submit" class="primary" {{ 'disabled' if not n_local }}>比對 Weblate</button>
+    <span id="push-loading" class="loading htmx-indicator">查詢中…</span>
+  </form>
+
+  <div id="push-area">
+    {% if job and not job.finished %}
+    <div hx-get="/push/progress" hx-trigger="load" hx-swap="outerHTML"></div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

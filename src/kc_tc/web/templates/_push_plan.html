@@ -1,0 +1,57 @@
+{% if error %}
+<div class="flash error">⚠ {{ error }}</div>
+{% else %}
+{% set n_push = plan | selectattr("status", "equalto", "push") | list | length %}
+{% set n_conf = plan | selectattr("status", "equalto", "conflict") | list | length %}
+{% set n_miss = plan | selectattr("status", "equalto", "missing") | list | length %}
+{% if synced %}<p class="hint">另有 {{ synced | length }} 條 Weblate 上已是本地值，已直接更新基準。</p>{% endif %}
+{% if not plan %}
+<p class="empty">沒有需要上傳的項目。</p>
+{% else %}
+<form hx-post="/push/apply" hx-target="#push-area"
+      hx-confirm="用您的 Weblate 帳號上傳勾選的譯文？">
+  <input type="hidden" name="plan_id" value="{{ plan_id }}">
+  <div class="toolbar sticky">
+    <span>可上傳 <b>{{ n_push }}</b>{% if n_conf %}，<span class="warn">衝突 <b>{{ n_conf }}</b></span>{% endif %}{% if n_miss %}，Weblate 無此 key {{ n_miss }}{% endif %}
+      ，已勾選 <b id="picked-count"></b> 條</span>
+    <span class="spacer"></span>
+    <label>上傳後狀態
+      <select name="state">
+        <option value="translated">已翻譯（需審核）</option>
+        <option value="approved">已核准（需審核權限）</option>
+      </select>
+    </label>
+    <button type="button" onclick="pickAll(true)">全選</button>
+    <button type="button" onclick="pickAll(false)">全不選</button>
+    <button type="submit" class="primary" {{ 'disabled' if not has_token }}>上傳勾選項目</button>
+  </div>
+  {% if ratelimit.remaining %}<p class="hint">Weblate API 剩餘額度：{{ ratelimit.remaining }} / {{ ratelimit.limit }}</p>{% endif %}
+  {% for c in plan %}
+  {% set i = loop.index0 %}
+  <div class="prop {{ 'has-warn' if c.status != 'push' }}">
+    <div class="prop-head">
+      <label><input type="checkbox" name="pick" value="{{ i }}" onchange="countPicked()"
+             {{ 'checked' if c.status == 'push' }} {{ 'disabled' if c.status == 'missing' }}>
+        <b>{{ c.component }}</b> <code>{{ c.key }}</code></label>
+      {% if c.status == 'conflict' %}<span class="badge variant">衝突</span>
+      {% elif c.status == 'missing' %}<span class="badge">Weblate 無此 key</span>{% endif %}
+      <span class="spacer"></span>
+      {% if c.web_url %}<a href="{{ c.web_url }}" target="_blank" rel="noopener">Weblate ↗</a>{% endif %}
+    </div>
+    <div class="en">{{ c.en }}</div>
+    {% if c.status == 'conflict' %}
+      <p class="warn">您下載後，Weblate 上有人改過這條。勾選會以本地值覆蓋 Weblate。</p>
+      {% set b1, r1 = diff_html(c.base, c.remote or "") %}
+      {% set b2, l2 = diff_html(c.base, c.local) %}
+      <div class="diff"><div class="before">{{ b1 }}</div><div class="after" title="Weblate 現值">{{ r1 }}</div></div>
+      <div class="diff"><div class="before">{{ b2 }}</div><div class="after" title="本地值">{{ l2 }}</div></div>
+      <p class="hint">上：下載時 → Weblate 現值；下：下載時 → 本地值</p>
+    {% else %}
+      {% set before, after = diff_html(c.remote or c.base, c.local) %}
+      <div class="diff"><div class="before">{{ before }}</div><div class="after">{{ after }}</div></div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</form>
+{% endif %}
+{% endif %}

@@ -1,0 +1,24 @@
+{% if not job %}
+<p class="empty">目前沒有上傳工作。</p>
+{% else %}
+{% set ok = job.done | selectattr(1, "equalto", "ok") | list %}
+{% set bad = job.done | rejectattr(1, "equalto", "ok") | list %}
+<div class="result" {% if not job.finished %}hx-get="/push/progress" hx-trigger="every 1s" hx-swap="outerHTML"{% endif %}>
+  <h3>{% if job.finished %}上傳完成{% else %}{{ job.phase }}{% endif %}
+    {{ job.done | length }} / {{ job.changes | length }}</h3>
+  <p>成功 <b>{{ ok | length }}</b>{% if bad %}，<span class="warn">失敗或略過 <b>{{ bad | length }}</b></span>{% endif %}
+    {% if ratelimit.remaining %}<small>（API 剩餘額度 {{ ratelimit.remaining }} / {{ ratelimit.limit }}）</small>{% endif %}</p>
+  {% if job.finished and job.phase.startswith("錯誤") %}<div class="flash error">{{ job.phase }}</div>{% endif %}
+  {% for c, st, msg in bad %}
+  <div class="prop has-warn">
+    <div class="prop-head"><b>{{ c.component }}</b> <code>{{ c.key }}</code>
+      <span class="badge variant">{{ '略過' if st == 'skip' else '失敗' }}</span></div>
+    <p class="warn">{{ msg }}</p>
+  </div>
+  {% endfor %}
+  {% if job.finished %}
+  <p class="hint">上傳成功的字串已更新 <code>baseline/</code>。建議 commit：<code>chore(push): 上傳 {{ ok | length }} 條譯文到 Weblate</code></p>
+  <p><a class="button" href="/push">重新整理</a></p>
+  {% endif %}
+</div>
+{% endif %}

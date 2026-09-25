@@ -4,19 +4,22 @@ from __future__ import annotations
 import difflib
 import re
 import threading
+import urllib.error
+import uuid
 from collections import defaultdict
 from pathlib import Path
-from urllib.parse import quote
+from urllib.parse import quote, urlsplit
 
 from fastapi import FastAPI, Form, Request
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.responses import HTMLResponse, PlainTextResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from markupsafe import Markup, escape
 
-from .. import lint
-from ..common import (GLOSSARY_CSV, LANG, PROJECT, TRANS_DIR, WEBLATE, Conflict, Pair,
-                      load_glossary, load_pairs, save_glossary, split_alts, write_values)
+from .. import lint, sync
+from ..common import (GLOSSARY_CSV, LANG, PROJECT, RATELIMIT, TRANS_DIR, WEBLATE, Conflict, Pair,
+                      load_glossary, load_pairs, load_token, load_values, save_glossary, split_alts,
+                      write_values, zh_path)
 from ..terms import (NgramIndex, Term, TermStat, analyze, group_by_translation, load_terms,
                      norm_key, propose_replacements, term_regex)
 
@@ -24,6 +27,17 @@ HERE = Path(__file__).parent
 app = FastAPI(title="kc-tc")
 app.mount("/static", StaticFiles(directory=HERE / "static"), name="static")
 templates = Jinja2Templates(directory=HERE / "templates")
+
+
+@app.middleware("http")
+async def csrf_guard(request: Request, call_next):
+    """擋掉跨站 POST：必須由 htmx 送出（帶 HX-Request 標頭，跨站需 CORS 預檢而不會通過），
+    且 Origin 若存在須與 Host 相同。"""
+    if request.method not in ("GET", "HEAD", "OPTIONS"):
+        origin = request.headers.get("origin")
+        if "hx-request" not in request.headers or (origin and urlsplit(origin).netloc != request.headers.get("host")):
+            return PlainTextResponse("拒絕跨站請求", status_code=403)
+    return await call_next(request)
 
 
 # ---------------------------------------------------------------- 資料快取
@@ -240,3 +254,102 @@ async def replace_apply(request: Request):
         issues = [(lv, ck, msg) for lv, ck, msg in lint.check(p, tw_rules) if lv != "info"]
         results.append({"comp": comp, "key": key, "old": old, "new": new, "issues": issues})
     return render(request, "_replace_result.html", results=results, errors=errors)
+
+
+# ---------------------------------------------------------------- 上傳到 Weblate
+
+class PushJob:
+    """背景上傳工作（同時只允許一個）。"""
+
+    def __init__(self, changes: list[sync.Change], state: int):
+        self.changes, self.state = changes, state
+        self.done: list[tuple[sync.Change, str, str]] = []   # (change, ok/skip/fail, 訊息)
+        self.finished = False
+        self.phase = "查詢 Weblate 現值…"
+
+    def run(self, token: str) -> None:
+        try:
+            # 上傳前再查一次：比對時的遠端值若已改變就略過
+            expected = {c.id: c.remote for c in self.changes}
+            fresh = sync.compare([sync.Change(c.component, c.key, c.en, c.base, c.local) for c in self.changes], token)
+            self.phase = "上傳中…"
+            for c, f in zip(self.changes, fresh):
+                if f.remote != expected[c.id]:
+                    self.done.append((c, "skip", "比對後 Weblate 又被修改，請重新比對"))
+                    continue
+                if load_values(zh_path(c.component)).get(c.key) != c.local:
+                    self.done.append((c, "skip", "本地譯文在比對後有變更，請重新比對"))
+                    continue
+                try:
+                    sync.upload(c, token, self.state)
+                    self.done.append((c, "ok", ""))
+                except urllib.error.HTTPError as e:
+                    self.done.append((c, "fail", f"HTTP {e.code} {e.read()[:200].decode(errors='replace')}"))
+                except OSError as e:
+                    self.done.append((c, "fail", str(e)))
+        except Exception as e:  # noqa: BLE001 — 顯示在網頁上
+            self.phase = f"錯誤：{e}"
+        finally:
+            self.finished = True
+
+
+PUSH: dict = {"plan": None, "plan_id": "", "job": None}
+
+
+def push_ctx() -> dict:
+    changes = sync.local_changes()
+    by_comp = defaultdict(int)
+    for c in changes:
+        by_comp[c.component] += 1
+    return {"n_local": len(changes), "by_comp": dict(sorted(by_comp.items())), "has_token": bool(load_token()),
+            "ratelimit": RATELIMIT, "job": PUSH["job"]}
+
+
+@app.get("/push", response_class=HTMLResponse)
+def push_page(request: Request):
+    return render(request, "push.html", **push_ctx())
+
+
+@app.post("/push/compare", response_class=HTMLResponse)
+def push_compare(request: Request, component: str = Form("")):
+    token = load_token()
+    changes = sync.local_changes([component] if component else None)
+    try:
+        sync.compare(changes, token)
+    except urllib.error.HTTPError as e:
+        return render(request, "_push_plan.html", error=f"查詢 Weblate 失敗：HTTP {e.code}", ratelimit=RATELIMIT)
+    synced = [c for c in changes if c.status == "synced"]
+    for c in synced:   # Weblate 已是本地值，直接更新基準
+        sync.mark_synced(c.component, {c.key: c.local})
+    plan = [c for c in changes if c.status in ("push", "conflict", "missing")]
+    order = {"conflict": 0, "push": 1, "missing": 2}
+    plan.sort(key=lambda c: (order[c.status], c.component, c.key))
+    PUSH["plan"], PUSH["plan_id"] = plan, uuid.uuid4().hex
+    return render(request, "_push_plan.html", plan=plan, plan_id=PUSH["plan_id"], synced=synced,
+                  has_token=bool(token), ratelimit=RATELIMIT, states=sync.STATES)
+
+
+@app.post("/push/apply", response_class=HTMLResponse)
+async def push_apply(request: Request):
+    form = await request.form(max_fields=100_000)
+    token = load_token()
+    job = PUSH["job"]
+    if not token:
+        return HTMLResponse('<div class="flash error">找不到 API key，請在 .env 設定 WEBLATE_TOKEN</div>')
+    if job and not job.finished:
+        return HTMLResponse('<div class="flash error">已有上傳工作進行中</div>')
+    if form.get("plan_id") != PUSH["plan_id"] or PUSH["plan"] is None:
+        return HTMLResponse('<div class="flash error">比對結果已過期，請重新比對</div>')
+    plan = PUSH["plan"]
+    picked = [plan[int(i)] for i in form.getlist("pick") if plan[int(i)].status in ("push", "conflict")]
+    if not picked:
+        return HTMLResponse('<div class="flash error">沒有勾選任何項目</div>')
+    job = PushJob(picked, sync.STATES.get(form.get("state", ""), sync.STATES["translated"]))
+    PUSH["job"], PUSH["plan"] = job, None
+    threading.Thread(target=job.run, args=(token,), daemon=True).start()
+    return render(request, "_push_progress.html", job=job, ratelimit=RATELIMIT)
+
+
+@app.get("/push/progress", response_class=HTMLResponse)
+def push_progress(request: Request):
+    return render(request, "_push_progress.html", job=PUSH["job"], ratelimit=RATELIMIT)
