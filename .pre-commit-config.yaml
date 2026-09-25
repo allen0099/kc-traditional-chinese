@@ -1,6 +1,6 @@
 # 安裝：pre-commit install --hook-type pre-commit --hook-type commit-msg
 default_install_hook_types: [pre-commit, commit-msg]
-exclude: ^(translations|glossary|reports)/
+exclude: ^(translations|glossary|reports)/|\.min\.js$
 
 repos:
   - repo: https://github.com/compilerla/conventional-pre-commit
