@@ -388,24 +388,28 @@ class PushJob:
             expected = {c.id: c.remote for c in self.changes}
             fresh = sync.compare([sync.Change(c.component, c.key, c.en, c.base, c.local) for c in self.changes], token)
             self.phase = "上傳中…"
+            local = {comp: load_values(zh_path(comp)) for comp in {c.component for c in self.changes}}
+            todo = []
             for c, f in zip(self.changes, fresh):
                 if f.remote != expected[c.id]:
                     self.done.append((c, "skip", "比對後 Weblate 又被修改，請重新比對"))
-                    continue
-                if load_values(zh_path(c.component)).get(c.key) != c.local:
+                elif local[c.component].get(c.key) != c.local:
                     self.done.append((c, "skip", "本地譯文在比對後有變更，請重新比對"))
-                    continue
-                try:
-                    sync.upload(c, token, self.state)
-                    self.done.append((c, "ok", ""))
-                except urllib.error.HTTPError as e:
-                    self.done.append((c, "fail", f"HTTP {e.code} {e.read()[:200].decode(errors='replace')}"))
-                except OSError as e:
-                    self.done.append((c, "fail", str(e)))
+                else:
+                    todo.append(c)
+            sync.upload_many(todo, token, self.state, self.record)
         except Exception as e:  # noqa: BLE001 — 顯示在網頁上
             self.phase = f"錯誤：{e}"
         finally:
             self.finished = True
+
+    def record(self, c: sync.Change, err: Exception | None) -> None:
+        if err is None:
+            self.done.append((c, "ok", ""))
+        elif isinstance(err, urllib.error.HTTPError):
+            self.done.append((c, "fail", f"HTTP {err.code} {err.read()[:200].decode(errors='replace')}"))
+        else:
+            self.done.append((c, "fail", str(err)))
 
 
 PUSH: dict = {"plan": None, "plan_id": "", "job": None}

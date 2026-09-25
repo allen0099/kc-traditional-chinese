@@ -15,10 +15,11 @@ from __future__ import annotations
 
 import argparse
 import sys
+import threading
 import urllib.error
 
 from .common import RATELIMIT, load_token
-from .sync import STATE_LABELS, STATES, compare, local_changes, mark_synced, upload
+from .sync import STATE_LABELS, STATES, compare, local_changes, mark_synced, upload_many
 
 LABEL = {"push": "可上傳", "conflict": "衝突", "synced": "已同步", "missing": "Weblate 無此 key"}
 
@@ -65,14 +66,21 @@ def main(argv: list[str] | None = None) -> None:
         print("已取消。")
         return
 
-    ok = fail = 0
-    for i, c in enumerate(todo, 1):
-        try:
-            upload(c, token, STATES[args.state])
-            ok += 1
-        except urllib.error.HTTPError as e:
-            fail += 1
-            print(f"  ✗ {c.component} {c.key}：HTTP {e.code} {e.read()[:200].decode(errors='replace')}")
-        if i % 50 == 0 or i == len(todo):
-            print(f"  {i}/{len(todo)}（剩餘額度 {RATELIMIT.get('remaining', '?')}）", flush=True)
-    print(f"\n完成：成功 {ok}，失敗 {fail}。請 commit baseline/ 的變更。")
+    count = {"ok": 0, "fail": 0}
+    lock = threading.Lock()
+
+    def done(c, err):
+        with lock:
+            if err is None:
+                count["ok"] += 1
+            else:
+                count["fail"] += 1
+                msg = (f"HTTP {err.code} {err.read()[:200].decode(errors='replace')}"
+                       if isinstance(err, urllib.error.HTTPError) else str(err))
+                print(f"  ✗ {c.component} {c.key}：{msg}")
+            i = count["ok"] + count["fail"]
+            if i % 50 == 0 or i == len(todo):
+                print(f"  {i}/{len(todo)}（剩餘額度 {RATELIMIT.get('remaining', '?')}）", flush=True)
+
+    upload_many(todo, token, STATES[args.state], done)
+    print(f"\n完成：成功 {count['ok']}，失敗 {count['fail']}。請 commit baseline/ 的變更。")

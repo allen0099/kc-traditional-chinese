@@ -1,6 +1,9 @@
 """本地譯文與 Weblate 的三方比對（基準、本地、Weblate 現值）。"""
 from __future__ import annotations
 
+import threading
+from collections.abc import Callable
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 
 from .common import (LANG, PROJECT, TRANS_DIR, api_list, api_request, components, load_baseline,
@@ -88,17 +91,37 @@ def compare(changes: list[Change], token: str | None) -> list[Change]:
     return changes
 
 
+_BASELINE_LOCK = threading.Lock()   # upload_many 平行上傳時，避免同時讀寫 baseline/
+UPLOAD_WORKERS = 4                   # 每個請求往返約 1 秒以上，平行送出才不會一條條慢慢等
+
+
 def upload(c: Change, token: str, state: int) -> None:
     """更新單一字串並同步基準。c.status 必須是 push（或使用者決定覆蓋的 conflict）。"""
     api_request(c.unit_url, token, method="PATCH", data={"target": [c.local], "state": state})
-    mark_synced(c.component, {c.key: c.local})
-    needs = load_needs_edit()
-    if c.key in needs.get(c.component, {}):
-        if state >= 20:
-            del needs[c.component][c.key]
+    with _BASELINE_LOCK:
+        mark_synced(c.component, {c.key: c.local})
+        needs = load_needs_edit()
+        if c.key in needs.get(c.component, {}):
+            if state >= 20:
+                del needs[c.component][c.key]
+            else:
+                needs[c.component][c.key]["state"] = state
+            save_needs_edit(needs)
+
+
+def upload_many(changes: list[Change], token: str, state: int,
+                on_done: Callable[[Change, Exception | None], None]) -> None:
+    """平行上傳多條字串；每條完成（或失敗）時呼叫 on_done(change, 例外或 None)。"""
+    def one(c: Change) -> None:
+        try:
+            upload(c, token, state)
+        except Exception as e:  # noqa: BLE001 — 交給呼叫端顯示
+            on_done(c, e)
         else:
-            needs[c.component][c.key]["state"] = state
-        save_needs_edit(needs)
+            on_done(c, None)
+
+    with ThreadPoolExecutor(UPLOAD_WORKERS) as pool:
+        list(pool.map(one, changes))
 
 
 def mark_synced(component: str, values: dict[str, str]) -> None:
