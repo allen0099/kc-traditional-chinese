@@ -7,7 +7,7 @@ authentication,驗證,,,
 authorization,授權,,,
 Birthdate,出生日期,,,
 Bluetooth,藍芽,,,
-certificate,憑證,,,
+certificate,憑證,證書,台灣標準用語（自然人憑證、Windows 憑證管理員）,
 Claims,聲明,,,
 Client,用戶端,應用程式|客戶端,台灣標準用語（Microsoft、Google 台灣皆用「用戶端」）。不用「應用程式」以免與 application 撞詞,1
 client scope,用戶端範圍,應用程式範圍|客戶端範圍,,
