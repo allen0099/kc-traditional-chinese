@@ -46,8 +46,9 @@ def load_tw_terms():
     for line in (DATA_DIR / "tw_terms.tsv").read_text(encoding="utf-8").splitlines():
         if not line.strip() or line.startswith("#"):
             continue
-        cols = line.split("\t") + ["", "", ""]
-        rules.append((re.compile(cols[0]), cols[1], cols[2] or "warn", cols[3]))
+        cols = line.split("\t") + ["", "", "", ""]
+        skip_en = re.compile(cols[4], re.I) if cols[4] else None
+        rules.append((re.compile(cols[0]), cols[1], cols[2] or "warn", cols[3], skip_en))
     return rules
 
 
@@ -85,7 +86,9 @@ def check(p: Pair, tw_rules) -> list[tuple[str, str, str]]:
         out.append(("error", "simplified", "疑似簡體字：" + "".join(sorted(simp))))
 
     # --- 台灣用語
-    for rx, sugg, level, note in tw_rules:
+    for rx, sugg, level, note, skip_en in tw_rules:
+        if skip_en and skip_en.search(en):
+            continue
         for m in set(rx.findall(zh)):
             out.append((level, "tw-term", f"「{m}」→「{sugg}」" + (f"（{note}）" if note else "")))
 

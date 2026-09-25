@@ -1,5 +1,5 @@
 # 中國大陸用語 → 台灣用語檢查清單
-# 欄位（Tab 分隔）：regex	建議用語	層級(error/warn/info)	說明
+# 欄位（Tab 分隔）：regex	建議用語	層級(error/warn/info)	說明	原文符合此 regex 時略過（選填，不分大小寫）
 # regex 以 Python re 語法比對「繁中譯文」；可用 lookahead 排除合法用法
 信息	訊息／資訊	warn
 默認	預設	error
@@ -21,7 +21,7 @@
 質量	品質	warn
 激活	啟用	error
 郵箱	電子郵件信箱	warn
-密鑰	金鑰	error
+密鑰	金鑰	error	key 譯「金鑰」；secret 譯「密鑰」	\bsecrets?\b
 令牌	權杖	error
 保存	儲存	warn
 創建	建立	error
