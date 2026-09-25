@@ -54,7 +54,8 @@ def local_changes(only: list[str] | None = None) -> list[Change]:
 def fetch_units(component: str, token: str | None) -> dict[str, dict]:
     """{key: unit}，unit 端點 page_size 最大 10000，通常 1 次請求即可。"""
     units = api_list(f"translations/{PROJECT}/{component}/{LANG}/units/?page_size=10000", token)
-    return {u["context"]: u for u in units}
+    # context 保留 .properties 的跳脫（如 flow.reset\ credentials），與 parse_properties 一樣去掉反斜線
+    return {u["context"].replace("\\", ""): u for u in units}
 
 
 def needs_edit_of(units: dict[str, dict]) -> dict[str, dict]:
