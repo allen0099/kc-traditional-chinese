@@ -26,6 +26,11 @@
     <button type="button" onclick="pickAll(false)">全不選</button>
     <button type="submit" class="primary" {{ 'disabled' if not has_token }}>上傳勾選項目</button>
   </div>
+  <p class="hint">Weblate 目前狀態：
+    {% for st, items in plan | groupby("remote_state") if st is not none %}<span class="badge state-{{ st }}">{{ remote_states.get(st, st) }} {{ items | length }}</span> {% endfor %}
+    {% set n_approved = plan | selectattr("remote_state", "equalto", 30) | list | length %}
+    {% if n_approved %}— 其中已核可的 {{ n_approved }} 條若以「等候檢閱」上傳，會回到待檢閱狀態。{% endif %}
+  </p>
   {% if ratelimit.remaining %}<p class="hint">Weblate API 剩餘額度：{{ ratelimit.remaining }} / {{ ratelimit.limit }}</p>{% endif %}
   {% for c in plan %}
   {% set i = loop.index0 %}
@@ -34,6 +39,9 @@
       <label><input type="checkbox" name="pick" value="{{ i }}" onchange="countPicked()"
              {{ 'checked' if c.status == 'push' }} {{ 'disabled' if c.status == 'missing' }}>
         <b>{{ c.component }}</b> <code>{{ c.key }}</code></label>
+      {% if c.remote_state is not none %}<span class="badge state-{{ c.remote_state }}" title="Weblate 目前的檢閱狀態">{{ remote_states.get(c.remote_state, c.remote_state) }}</span>{% endif %}
+      {% if c.has_suggestion %}<span class="badge" title="Weblate 上有人提出建議，上傳前可先去看看">有建議</span>{% endif %}
+      {% if c.has_comment %}<span class="badge" title="Weblate 上有留言">有留言</span>{% endif %}
       {% if c.status == 'conflict' %}<span class="badge variant">衝突</span>
       {% elif c.status == 'missing' %}<span class="badge">Weblate 無此 key</span>{% endif %}
       <span class="spacer"></span>

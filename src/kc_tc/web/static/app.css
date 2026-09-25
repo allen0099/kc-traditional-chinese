@@ -118,3 +118,10 @@ del { background: var(--del); text-decoration: line-through; color: var(--danger
 ins { background: var(--ins); text-decoration: none; color: var(--ok); font-weight: 600; }
 .prop .edit { font-size: .95rem; }
 .result h3 { margin-top: 1rem; }
+
+/* Weblate 檢閱狀態 */
+.badge.state-0 { background: #eee; color: #666; }
+.badge.state-10 { background: #fdecea; color: #a4262c; }
+.badge.state-20 { background: #fff4ce; color: #7a5d00; }
+.badge.state-30 { background: #dff6dd; color: #0e6b0e; }
+.badge.state-100 { background: #e8e8e8; color: #444; }

@@ -9,6 +9,8 @@ from .common import (LANG, PROJECT, TRANS_DIR, api_list, api_request, components
 # Weblate 檢閱狀態（名稱與 Weblate 繁中介面一致）
 STATES = {"needs-editing": 10, "translated": 20, "approved": 30}
 STATE_LABELS = {"needs-editing": "需要編輯", "translated": "等候檢閱", "approved": "已核可"}
+# unit 的 state 數值 → 顯示名稱（0 未翻譯、100 唯讀不在上傳選項內）
+REMOTE_STATE_LABELS = {0: "未翻譯", 10: "需要編輯", 20: "等候檢閱", 30: "已核可", 100: "唯讀"}
 
 
 @dataclass
@@ -22,6 +24,9 @@ class Change:
     unit_url: str = ""
     web_url: str = ""
     status: str = "local"       # local（未比對）/ push / conflict / synced / missing
+    remote_state: int | None = None   # Weblate 上的檢閱狀態（見 REMOTE_STATE_LABELS）
+    has_suggestion: bool = False
+    has_comment: bool = False
 
     @property
     def id(self) -> str:
@@ -63,6 +68,8 @@ def compare(changes: list[Change], token: str | None) -> list[Change]:
                 continue
             c.remote = (u["target"] or [""])[0]
             c.unit_url, c.web_url = u["url"], u["web_url"]
+            c.remote_state = u.get("state")
+            c.has_suggestion, c.has_comment = bool(u.get("has_suggestion")), bool(u.get("has_comment"))
             if c.remote == c.local:
                 c.status = "synced"
             elif c.remote == c.base:
