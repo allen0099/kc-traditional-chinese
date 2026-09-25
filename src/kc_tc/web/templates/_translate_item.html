@@ -1,0 +1,23 @@
+<form class="prop {{ 'saved' if saved }} {{ 'has-warn' if error or issues }}" hx-post="/translate/save" hx-swap="outerHTML">
+  <div class="prop-head">
+    <span><b>{{ p.component }}</b> <code>{{ p.key }}</code></span>
+    {% if saved %}<span class="badge ok">已儲存</span>{% endif %}
+    <span class="spacer"></span>
+    <a href="{{ weblate_url(p) }}" target="_blank" rel="noopener">Weblate ↗</a>
+  </div>
+  <input type="hidden" name="component" value="{{ p.component }}">
+  <input type="hidden" name="key" value="{{ p.key }}">
+  {% if old is not none %}<textarea name="old" hidden>{{ old }}</textarea>{% endif %}
+  <div class="en">{{ hl_en(p.en, hints | map(attribute="en") | list) if hints else p.en }}</div>
+  {% if hints %}<div class="hints">{% for t in hints %}<span class="badge ok" title="{{ t.note }}">{{ t.en }} → {{ t.ok | join("／") }}</span>{% endfor %}</div>{% endif %}
+  <textarea name="value" class="edit" rows="{{ [2, (p.en | length // 60) + 1] | max }}"
+            hx-post="/translate/check" hx-trigger="input changed delay:500ms" hx-target="next .lint"
+            hx-include="closest form"
+            onkeydown="if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) { event.preventDefault(); this.form.requestSubmit(); }">{{ value }}</textarea>
+  <div class="lint">{% include "_translate_lint.html" %}</div>
+  {% if error %}<p class="warn">⚠ {{ error }}</p>{% endif %}
+  <div class="actions">
+    {% if need_force %}<label><input type="checkbox" name="force" value="1"> 仍要儲存</label>{% endif %}
+    <button type="submit" class="primary">{{ '更新' if saved else '儲存' }}</button>
+  </div>
+</form>

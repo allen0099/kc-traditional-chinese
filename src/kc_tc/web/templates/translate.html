@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}未翻譯{% endblock %}
+{% block main %}
+<div class="page">
+  <form class="filters" hx-get="/translate" hx-target="#translate-area" hx-push-url="true"
+        hx-trigger="change, input changed delay:400ms from:input[name=q], submit">
+    <label>組件
+      <select name="component">
+        <option value="">全部（{{ by_comp.values() | sum }}）</option>
+        {% for comp, n in by_comp.items() %}<option value="{{ comp }}" {{ 'selected' if comp == component }}>{{ comp }}（{{ n }}）</option>{% endfor %}
+      </select>
+    </label>
+    <label>搜尋
+      <input type="search" name="q" value="{{ q }}" placeholder="key 或英文原文">
+    </label>
+    <p class="hint">輸入時自動以 lint 檢查；Ctrl+Enter 儲存。儲存只寫入本地 <code>zh_Hant.properties</code>，要到「上傳」頁送到 Weblate。</p>
+  </form>
+  <div id="translate-area">{% include "_translate_list.html" %}</div>
+</div>
+{% endblock %}

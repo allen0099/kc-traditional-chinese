@@ -1,4 +1,4 @@
-"""本地網頁：詞彙決策與批次取代。"""
+"""本地網頁：詞彙決策、批次取代、翻譯未譯字串與上傳。"""
 from __future__ import annotations
 
 import difflib
@@ -18,8 +18,8 @@ from markupsafe import Markup, escape
 
 from .. import lint, sync
 from ..common import (GLOSSARY_CSV, LANG, PROJECT, RATELIMIT, TRANS_DIR, WEBLATE, Conflict, Pair,
-                      load_glossary, load_pairs, load_token, load_values, save_glossary, split_alts,
-                      write_values, zh_path)
+                      insert_value, load_glossary, load_pairs, load_token, load_values, save_glossary,
+                      split_alts, write_values, zh_path)
 from ..terms import (NgramIndex, Term, TermStat, analyze, group_by_translation, load_terms,
                      norm_key, propose_replacements, term_regex)
 
@@ -274,6 +274,76 @@ async def replace_apply(request: Request):
         issues = [(lv, ck, msg) for lv, ck, msg in lint.check(p, tw_rules) if lv != "info"]
         results.append({"comp": comp, "key": key, "old": old, "new": new, "issues": issues})
     return render(request, "_replace_result.html", results=results, errors=errors)
+
+
+# ---------------------------------------------------------------- 未翻譯
+
+def item_ctx(p: Pair, value: str = "", old: str | None = None, **extra) -> dict:
+    """單條未翻譯字串的模板資料；old 為 None 表示 zh_Hant.properties 中還沒有這個 key。"""
+    hints = [t for t in store.get().terms.values() if t.ok and t.matches(p.en)]
+    hints.sort(key=lambda t: t.en.lower())
+    return {"p": p, "value": value, "old": old, "hints": hints, "issues": [], "saved": False,
+            "error": "", **extra}
+
+
+def lint_issues(p: Pair, value: str) -> list[tuple[str, str, str]]:
+    return lint.check(Pair(p.component, p.key, p.en, value, None), lint.load_tw_terms())
+
+
+def find_pair(component: str, key: str) -> Pair | None:
+    return next((p for p in load_pairs([component]) if p.key == key), None)
+
+
+@app.get("/translate", response_class=HTMLResponse)
+def translate_page(request: Request, component: str = "", q: str = "", limit: int = 50):
+    todo = [p for p in load_pairs() if not p.zh]
+    by_comp = defaultdict(int)
+    for p in todo:
+        by_comp[p.component] += 1
+    if component:
+        todo = [p for p in todo if p.component == component]
+    if q:
+        ql = q.lower()
+        todo = [p for p in todo if ql in p.key.lower() or ql in p.en.lower()]
+    zh_keys = {c: set(load_values(zh_path(c))) for c in {p.component for p in todo[:limit]}}
+    items = [item_ctx(p, old="" if p.key in zh_keys[p.component] else None) for p in todo[:limit]]
+    tpl = "translate.html" if "hx-request" not in request.headers else "_translate_list.html"
+    return render(request, tpl, items=items, total=len(todo), limit=limit, component=component, q=q,
+                  by_comp=dict(sorted(by_comp.items())))
+
+
+@app.post("/translate/check", response_class=HTMLResponse)
+def translate_check(request: Request, component: str = Form(...), key: str = Form(...), value: str = Form("")):
+    p = find_pair(component, key)
+    value = value.replace("\r\n", "\n")
+    issues = lint_issues(p, value) if p and value.strip() else []
+    return render(request, "_translate_lint.html", issues=issues)
+
+
+@app.post("/translate/save", response_class=HTMLResponse)
+def translate_save(request: Request, component: str = Form(...), key: str = Form(...), value: str = Form(""),
+                   old: str | None = Form(None), force: str = Form("")):
+    p = find_pair(component, key)
+    if p is None:
+        return PlainTextResponse(f"找不到 {component} {key}", status_code=404)
+    value = value.replace("\r\n", "\n")
+    issues = lint_issues(p, value) if value.strip() else []
+    ctx = item_ctx(p, value, old, issues=issues)
+    if not value.strip():
+        ctx["error"] = "譯文是空的"
+    elif any(lv == "error" for lv, _, _ in issues) and not force:
+        ctx["error"] = "有 error 等級的問題，未儲存。確認無誤請勾選「仍要儲存」。"
+        ctx["need_force"] = True
+    else:
+        try:
+            if old is None:
+                insert_value(component, key, value)
+            else:
+                write_values(component, {key: (old, value)})
+            ctx.update(saved=True, old=value)
+        except Conflict as e:
+            ctx["error"] = str(e)
+    return render(request, "_translate_item.html", **ctx)
 
 
 # ---------------------------------------------------------------- 上傳到 Weblate

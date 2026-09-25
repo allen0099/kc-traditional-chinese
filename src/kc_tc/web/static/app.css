@@ -130,3 +130,12 @@ ins { background: var(--ins); text-decoration: none; color: var(--ok); font-weig
 .reviewed-list { border-top: 1px solid var(--line, #e2e8f0); }
 .reviewed-list summary { cursor: pointer; padding: .4rem .75rem; color: var(--muted); font-size: .85rem; }
 .term-list li.reviewed .en { color: var(--muted); }
+
+/* 未翻譯 */
+.prop.saved { border-color: var(--ok); }
+.prop .hints { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .4rem; }
+.prop .actions { justify-content: flex-end; align-items: center; }
+.prop .actions label { display: flex; gap: .3rem; align-items: center; }
+.prop .actions input { width: auto; }
+.lint-error { color: var(--danger); }
+.lint-info { color: var(--muted); }

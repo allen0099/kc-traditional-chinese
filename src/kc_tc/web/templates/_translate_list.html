@@ -1,0 +1,7 @@
+<p class="hint">共 <b>{{ total }}</b> 條未翻譯{% if q %}（符合「{{ q }}」）{% endif %}{% if total > limit %}，顯示前 {{ limit }} 條{% endif %}。</p>
+{% if not items %}<p class="empty">沒有未翻譯的字串。</p>{% endif %}
+{% for it in items %}{% with %}{% set p, value, old, hints, issues, saved, error = it.p, it.value, it.old, it.hints, it.issues, it.saved, it.error %}{% include "_translate_item.html" %}{% endwith %}{% endfor %}
+{% if total > limit %}
+<p><button hx-get="/translate?component={{ component | urlencode }}&q={{ q | urlencode }}&limit={{ limit + 50 }}"
+           hx-target="#translate-area">顯示更多</button></p>
+{% endif %}
