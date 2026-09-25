@@ -5,9 +5,10 @@ import sys
 
 COMMANDS = {
     "pull": "從 Hosted Weblate 下載原文與繁中譯文",
+    "push": "把本地修改逐條上傳到 Weblate（需要 API key）",
     "terms": "詞彙一致性報告",
     "lint": "格式與用語檢查",
-    "serve": "啟動本地網頁（詞彙決策、批次取代）",
+    "serve": "啟動本地網頁（詞彙決策、批次取代、上傳）",
 }
 
 

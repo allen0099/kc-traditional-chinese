@@ -3,6 +3,9 @@
 用法：
     uv run kc-tc pull                 # 下載全部組件
     uv run kc-tc pull admin-ui        # 只下載指定組件
+
+本地尚未上傳的修改會保留：Weblate 沒動的直接保留，雙方都改的列為衝突（保留本地值，
+上傳頁會標示衝突讓你決定）。基準存於 baseline/<組件>.json。
 """
 from __future__ import annotations
 
@@ -16,6 +19,7 @@ from datetime import datetime, timezone
 
 from .common import (GLOSSARY_COMPONENT, GLOSSARY_CSV, LANG, MANIFEST, PROJECT,
                     ROOT, TRANS_DIR, api_get, api_list, load_token)
+from .sync import merge_pull
 
 XML_LANG = "{http://www.w3.org/XML/1998/namespace}lang"
 
@@ -55,8 +59,16 @@ def main(argv: list[str] | None = None) -> None:
             manifest["components"][slug] = {"name": c["name"], "filemask": c["filemask"],
                                             "translated_percent": 0, "missing": True}
             continue
-        (d / f"{LANG}.properties").write_bytes(
-            api_get(f"translations/{PROJECT}/{slug}/{LANG}/file/", token))
+        res = merge_pull(slug, api_get(f"translations/{PROJECT}/{slug}/{LANG}/file/", token))
+        if res.updated:
+            print(f"  Weblate 更新 {res.updated} 條")
+        if res.kept:
+            print(f"  保留本地未上傳的修改 {len(res.kept)} 條")
+        if res.conflicts:
+            print(f"  ⚠ 衝突 {len(res.conflicts)} 條（雙方都改過，已保留本地值）：{', '.join(res.conflicts[:10])}"
+                  + (" …" if len(res.conflicts) > 10 else ""))
+        if res.dropped:
+            print(f"  ⚠ Weblate 已移除，捨棄本地修改 {len(res.dropped)} 條：{', '.join(res.dropped[:10])}")
 
         manifest["components"][slug] = {
             "name": c["name"],

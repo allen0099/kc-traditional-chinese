@@ -35,6 +35,7 @@ REPORT_DIR = ROOT / "reports"
 DATA_DIR = ROOT / "data"
 GLOSSARY_CSV = ROOT / "glossary.csv"
 MANIFEST = TRANS_DIR / "manifest.json"
+BASELINE_DIR = ROOT / "baseline"   # 上次與 Weblate 同步時的譯文，用來判斷本地修改與衝突
 
 
 # ---------------------------------------------------------------- Weblate API
@@ -50,24 +51,45 @@ def load_token() -> str | None:
     return token or None
 
 
-def api_get(url: str, token: str | None = None, retries: int = 5) -> bytes:
+RATELIMIT: dict[str, str] = {}   # 最近一次回應的 X-RateLimit-* 標頭
+
+
+def api_request(url: str, token: str | None = None, method: str = "GET",
+                data: dict | None = None, retries: int = 5) -> bytes:
     if not url.startswith("http"):
         url = f"{WEBLATE}/api/{url.lstrip('/')}"
     headers = {"User-Agent": "kc-zh-Hant-tools/1.0"}
     if token:
         headers["Authorization"] = f"Token {token}"
+    body = None
+    if data is not None:
+        body = json.dumps(data).encode()
+        headers["Content-Type"] = "application/json"
     for attempt in range(retries):
+        req = urllib.request.Request(url, data=body, headers=headers, method=method)
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=60) as r:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                _record_ratelimit(r.headers)
                 return r.read()
         except urllib.error.HTTPError as e:
+            _record_ratelimit(e.headers)
             if e.code == 429 and attempt < retries - 1:
                 wait = int(e.headers.get("Retry-After", "30"))
-                print(f"  觸發速率限制，等待 {wait} 秒…", file=sys.stderr)
+                print(f"  觸發速率限制，等待 {wait} 秒…", file=sys.stderr, flush=True)
                 time.sleep(wait)
                 continue
             raise
     raise RuntimeError("unreachable")
+
+
+def _record_ratelimit(headers) -> None:
+    for k in ("Limit", "Remaining", "Reset"):
+        if v := headers.get(f"X-RateLimit-{k}"):
+            RATELIMIT[k.lower()] = v
+
+
+def api_get(url: str, token: str | None = None) -> bytes:
+    return api_request(url, token)
 
 
 def api_list(url: str, token: str | None = None) -> list[dict]:
@@ -149,12 +171,21 @@ class Conflict(Exception):
     """檔案中的值已被其他地方修改。"""
 
 
-def write_values(component: str, changes: dict[str, tuple[str, str]]) -> None:
+def zh_path(component: str) -> Path:
+    return TRANS_DIR / component / f"{LANG}.properties"
+
+
+def load_values(path: Path) -> dict[str, str]:
+    """{key: unescape 後的值}；檔案不存在時回傳空 dict。"""
+    return {k: unescape(e.value) for k, e in parse_properties(path).items()} if path.exists() else {}
+
+
+def write_values(component: str, changes: dict[str, tuple[str, str]], path: Path | None = None) -> None:
     """把 {key: (舊值, 新值)} 寫回 zh_Hant.properties（值皆為 unescape 後的形式）。
 
     只替換該 key 所在的行，其餘內容保持不變；若舊值與檔案中不符則拋出 Conflict。
     """
-    path = TRANS_DIR / component / f"{LANG}.properties"
+    path = path or zh_path(component)
     entries = parse_properties(path)
     text = path.read_text(encoding="utf-8")
     lines = text.splitlines()
@@ -222,3 +253,21 @@ def split_alts(s: str | None) -> list[str]:
 
 
 CJK = r"㐀-䶿一-鿿豈-﫿"
+
+
+# ---------------------------------------------------------------- 同步基準
+
+def baseline_path(component: str) -> Path:
+    return BASELINE_DIR / f"{component}.json"
+
+
+def load_baseline(component: str) -> dict[str, str] | None:
+    """上次同步時 Weblate 上的譯文；尚未建立基準時回傳 None。"""
+    p = baseline_path(component)
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else None
+
+
+def save_baseline(component: str, values: dict[str, str]) -> None:
+    BASELINE_DIR.mkdir(exist_ok=True)
+    text = json.dumps(dict(sorted(values.items())), ensure_ascii=False, indent=0)
+    baseline_path(component).write_text(text + "\n", encoding="utf-8")
