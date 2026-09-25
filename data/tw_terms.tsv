@@ -1,0 +1,55 @@
+# 中國大陸用語 → 台灣用語檢查清單
+# 欄位（Tab 分隔）：regex	建議用語	層級(error/warn/info)	說明
+# regex 以 Python re 語法比對「繁中譯文」；可用 lookahead 排除合法用法
+信息	訊息／資訊	warn
+默認	預設	error
+缺省	預設	error
+服務器	伺服器	error
+服務端	伺服器端	error
+登錄	登入	warn	「登錄」在台灣指 register/record，login 應為「登入」
+用戶(?!端)	使用者	warn	「用戶端」為合法用語
+設置	設定	warn
+網絡	網路	error
+軟件	軟體	error
+硬件	硬體	error
+數據	資料	warn
+視頻	影片	error
+鏈接	連結	error
+刷新	重新整理	warn
+屏幕	螢幕	error
+界面	介面	error
+質量	品質	warn
+激活	啟用	error
+郵箱	電子郵件信箱	warn
+密鑰	金鑰	error
+令牌	權杖	error
+保存	儲存	warn
+創建	建立	error
+導入	匯入	error
+導出	匯出	error
+支持	支援	warn	「支持」在台灣多指 support（擁護）
+加載	載入	error
+運行	執行	warn
+在線	線上	warn
+菜單	選單	error
+字段	欄位	error
+對象	物件	warn
+回調	回呼	warn
+端口	連接埠	error
+地址	位址／網址	warn	IP/記憶體用「位址」，網頁用「網址」，住址可保留
+異步	非同步	error
+賬	帳	error
+文檔	文件	error
+響應	回應	error
+請求頭	請求標頭	warn
+標識	識別碼	warn
+憑據	憑證	warn
+主機名	主機名稱	warn
+用戶名	使用者名稱	error
+帳戶名	帳號名稱	info
+配置	設定	info	台灣亦使用「配置」，視語境決定
+項目	專案／項目	info	project 應為「專案」
+程序	程式	info	program 應為「程式」；procedure 可用「程序」
+兼容	相容	error
+優化	最佳化	info
+高級	進階	warn

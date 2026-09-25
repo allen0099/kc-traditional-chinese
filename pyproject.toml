@@ -1,0 +1,17 @@
+[project]
+name = "kc-tc"
+version = "0.1.0"
+description = "Keycloak 繁體中文（zh_Hant）翻譯工具：從 Hosted Weblate 下載、檢查詞彙一致性與用語"
+readme = "README.md"
+authors = [
+    { name = "allen0099", email = "s96016641@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+kc-tc = "kc_tc:main"
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"

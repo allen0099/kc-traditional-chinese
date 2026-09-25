@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE martif PUBLIC "ISO 12200:1999A//DTD MARTIF core (DXFcdV04)//EN" "TBXcdv04.dtd">
+<martif type="TBX" xml:lang="en">
+    <martifHeader>
+        <fileDesc>
+            <sourceDesc>
+                <p>Translate Toolkit</p>
+            </sourceDesc>
+        </fileDesc>
+    </martifHeader>
+    <text>
+        <body>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Google Authenticator</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>Google Authenticator</term></tig></langSet>
+            </termEntry>
+            <termEntry id="usb">
+                <langSet xml:lang="en"><tig><term>USB</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>USB</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>client scope</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>應用程式範圍</term></tig></langSet>
+                <descrip>client scope</descrip>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>First name</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>名字</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>WebAuthn</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>WebAuthn</term></tig></langSet>
+                <note from="translator">專有技術名詞不翻譯</note>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Clients</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>客戶端</term></tig></langSet>
+                <note from="translator">Applications → 應用程式&#13;
+Clients → 客戶端</note>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Privacy policy</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>隱私權政策</term></tig></langSet>
+            </termEntry>
+            <termEntry id="phoneNumber">
+                <langSet xml:lang="en"><tig><term>Phone number</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>電話號碼</term></tig></langSet>
+            </termEntry>
+            <termEntry id="invalidPasswordMaxLengthMessage">
+                <langSet xml:lang="en"><tig><term>Invalid password: maximum length {0}.</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>無效的密碼：最長長度為 {0}。</term></tig></langSet>
+            </termEntry>
+            <termEntry id="Identificatorio de la app">
+                <langSet xml:lang="en"><tig><term>Realm</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>領域</term></tig></langSet>
+                <note from="translator">在 Keycloak 專案中，realm 指的是一個包含使用者群體及應用程式群體的最大的組織，可以與其他組織進行乾淨的切割並共用相同的 Keycloak 實體。</note>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Given name</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>名字</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Last name</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>姓氏</term></tig></langSet>
+            </termEntry>
+            <termEntry id="birthday">
+                <langSet xml:lang="en"><tig><term>Birthdate</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>出生日期</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>user label</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>使用者標籤</term></tig></langSet>
+                <descrip>A user can add a user label to for example a credential so they can recognize it (it is "password", "my office phone", etc.)</descrip>
+            </termEntry>
+            <termEntry id="gender">
+                <langSet xml:lang="en"><tig><term>Gender</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>性別</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>assertion</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>斷言</term></tig></langSet>
+            </termEntry>
+            <termEntry id="invalidPasswordNotContainsUsernameMessage">
+                <langSet xml:lang="en"><tig><term>Invalid password: Can not contain the username.</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>無效的密碼：不可包含使用者名稱。</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Direct grant</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>直接授權</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Passkey</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>通行金鑰</term></tig></langSet>
+                <note from="translator">翻譯參考：&#13;
+- Google：密碼金鑰&#13;
+- 1password：通行金鑰&#13;
+- Amazon：金鑰&#13;
+- Microsoft：金鑰、安全性金鑰&#13;
+- Discord：安全性金鑰</note>
+            </termEntry>
+            <termEntry id="invalidPasswordNotEmailMessage">
+                <langSet xml:lang="en"><tig><term>Invalid password: must not be equal to the email.</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>無效的密碼：不可與電子信箱相同。</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>privacy policy.</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>隱私權政策</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Family name</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>姓氏</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Claims</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>聲明</term></tig></langSet>
+            </termEntry>
+            <termEntry id="FreeOTP">
+                <langSet xml:lang="en"><tig><term>FreeOTP</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>FreeOTP</term></tig></langSet>
+            </termEntry>
+            <termEntry id="error-invalid-length">
+                <langSet xml:lang="en"><tig><term>Length must be between {1} and {2}.</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>長度必須介於 {1} 和 {2} 之間。</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>X-Robots-Tag</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>X-Robots-Tag</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Kerberos</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>Kerberos</term></tig></langSet>
+            </termEntry>
+            <termEntry id="invalidPasswordMinLengthMessage">
+                <langSet xml:lang="en"><tig><term>Invalid password: minimum length {0}.</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>無效的密碼：最短長度為 {0}。</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Microsoft Authenticator</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>Microsoft Authenticator</term></tig></langSet>
+            </termEntry>
+            <termEntry id="Should assertions inside SAML documents be signed? This setting is not needed if document is already being signed.">
+                <langSet xml:lang="en"><tig><term>assertions</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>斷言</term></tig></langSet>
+            </termEntry>
+            <termEntry id="bluetooth">
+                <langSet xml:lang="en"><tig><term>Bluetooth</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>藍芽</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Session</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>工作狀態</term></tig></langSet>
+            </termEntry>
+            <termEntry id="nfc">
+                <langSet xml:lang="en"><tig><term>NFC</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>NFC</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Client</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>客戶端</term></tig></langSet>
+                <note from="translator">Applications → 應用程式&#13;
+Clients → 客戶端</note>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>provider</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>提供者</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>attribute</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>屬性</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>user</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>使用者</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>record</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>記錄</term></tig></langSet>
+            </termEntry>
+            <termEntry id="複數型態">
+                <langSet xml:lang="en"><tig><term>realms</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>領域</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Passkeys</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>通行金鑰</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>federation</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>邦聯</term></tig></langSet>
+                <note from="translator">用於連結外部服務 (Google, Facebook, etc.)</note>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>access token</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>存取權杖</term></tig></langSet>
+                <note from="translator">參照國家教育研究院翻譯：https://terms.naer.edu.tw/detail/edb0778da6e12964146ee84c4a1e957f/&#13;
+&#13;
+又因為 token 已採用「權杖」作為翻譯，因此這邊也一併使用權杖作為 token 的翻譯</note>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>token</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>權杖</term></tig></langSet>
+                <note from="translator">國家教育研究院&#13;
+- https://terms.naer.edu.tw/detail/4fc5f9876aec29562f088628e1d8eef9/</note>
+            </termEntry>
+            <termEntry id="you">
+                <langSet xml:lang="en"><tig><term>you</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>您</term></tig></langSet>
+                <note from="translator">「您」和「你」基本上是相同含義，選一個統一就好</note>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Mutual TLS</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>相互 TLS</term></tig></langSet>
+                <note from="translator">常見簡寫為 mTLS</note>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>authorization</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>授權</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>authentication</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>驗證</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>certificate</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>憑證</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>mapper</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>映射</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>protocol</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>協定</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Signature</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>簽章</term></tig></langSet>
+                <note from="translator">https://terms.naer.edu.tw/detail/72201d47c32b83a440af2550421eff52/?startswith=zh&amp;seq=6</note>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>policy</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>政策</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Introspect</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>內省</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>refresh</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>更新</term></tig></langSet>
+                <note from="translator">國家教育研究院&#13;
+&#13;
+https://terms.naer.edu.tw/detail/241d0259db7135b172ae6fafdbd0e10e/?startswith=zh</note>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>Refresh token</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>更新權杖</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>default</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>預設</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>metadata</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>元資料</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>adapter</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>配接器</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>remove</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>移除</term></tig></langSet>
+                <note from="translator">不跟 delete 混用</note>
+            </termEntry>
+            <termEntry id="issuer">
+                <langSet xml:lang="en"><tig><term>issuer</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>簽發者</term></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>cookie</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>cookie</term></tig></langSet>
+                <descrip>cookie</descrip>
+            </termEntry>
+            <termEntry id="token">
+                <langSet xml:lang="en"><tig><term>token</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>權杖</term></tig></langSet>
+            </termEntry>
+            <termEntry id="loa">
+                <langSet xml:lang="en"><tig><term>LoA</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term/></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>federated identity</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term>聯邦身分識別</term></tig></langSet>
+            </termEntry>
+            <termEntry id="reclamació">
+                <langSet xml:lang="en"><tig><term>The ID token issued by the identity provider does not match the configured essential claim. Please contact your administrator.</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term/></tig></langSet>
+            </termEntry>
+            <termEntry>
+                <langSet xml:lang="en"><tig><term>claim</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term/></tig></langSet>
+            </termEntry>
+            <termEntry id="ded">
+                <langSet xml:lang="en"><tig><term>Identity (DID)</term></tig></langSet>
+                <langSet xml:lang="zh_Hant"><tig><term></term></tig></langSet>
+            </termEntry>
+        </body>
+    </text>
+</martif>

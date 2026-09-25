@@ -1,0 +1,224 @@
+# Lint 報告
+
+| 層級 | 檢查 | 數量 |
+|---|---|---:|
+| error | placeholder | 1 |
+| error | tw-term | 67 |
+
+## 未翻譯字串
+
+- admin-ui: 348
+- keycloak-e-mail-theme: 1
+- keycloak-login-theme: 1
+- keycloak-v2-login-theme: 1
+- keycloak-welcome-theme: 1
+
+## [error] placeholder
+
+- `admin-ui:1172` **passwordHelp** — 缺少 ${vault.ID}；多出 ${valut.ID}
+  - en: SMTP password. This field is able to obtain its value from vault, use ${vault.ID} format.
+  - zh: SMTP 密碼。這個欄位可使用來自 vault 的數值，使用 ${valut.ID} 格式。
+
+## [error] tw-term
+
+- `admin-ui:1954` **secretHasExpired** — 「密鑰」→「金鑰」
+  - en: Secret has expired, please generate a new one by clicking the "Regenerate" button above
+  - zh: 密鑰已過期，請透過點擊上方的「重新產生」按鈕重產生密鑰
+- `admin-ui:2259` **openIdConnectCompatibilityModesHelp** — 「兼容」→「相容」
+  - en: This section is used to configure settings for backward compatibility with older OpenID Connect / OAuth 2 adaptors. It is useful especially if your client uses an older version of Keycloak / RH-SSO adapter.
+  - zh: 這個區段用於配置與較舊的 OpenID Connect / OAuth 2 配接器的往前兼容設定。這在您的應用程式使用較舊版本的 Keycloak / RH-SSO 配接器時特別有用。
+- `admin-ui:794` **secretRotated** — 「密鑰」→「金鑰」
+  - en: Secret rotated
+  - zh: 已輪替密鑰
+- `admin-ui:1963` **invalidateRotatedSecret** — 「密鑰」→「金鑰」
+  - en: Invalidate rotated secret?
+  - zh: 廢止輪替密鑰?
+- `admin-ui:2215` **allow-default-scopes.label** — 「默認」→「預設」
+  - en: Allow Default Scopes
+  - zh: 允許默認範圍
+- `admin-ui:2296` **minuteHelp** — 「字段」→「欄位」
+  - en: Defines the minute when the policy MUST be granted. You can also provide a range by filling the second field. In this case, permission is granted only if the current minute is between or equal to the two values you provided.
+  - zh: 定義政策必須授予的分鐘。您還可以通過填寫第二個字段來提供範圍。在這種情況下，僅當當前分鐘在您提供的兩個值之間或等於這兩個值時，才授予權限。
+- `admin-ui:2302` **createIdentityProviderError** — 「創建」→「建立」
+  - en: Could not create the identity provider: {{error}}
+  - zh: 無法創建身份提供者：{{error}}
+- `admin-ui:2341` **createIdentityProviderSuccess** — 「創建」→「建立」
+  - en: Identity provider successfully created
+  - zh: 成功創建身份提供者
+- `admin-ui:1955` **confirmClientSecretTitle** — 「密鑰」→「金鑰」
+  - en: Regenerate secret for this client?
+  - zh: 重新生成此應用程式的密鑰？
+- `admin-ui:3669` **clientSecretAuthenticationAllowedMethodHelp** — 「密鑰」→「金鑰」
+  - en: Allowed method for client secret authentication. If set to client_secret_basic, then client secret needs to be sent in the HTTP 'Authorization: Basic' header when authenticating this client. When set to client_secret_post, then client secret needs to be sent as a parameter in the request body togeth…
+  - zh: 應用程式密鑰認證的允許方法。如果設定為 client_secret_basic，則在對該應用程式進行驗證時，需要在 HTTP 的「Authorization: Basic」標頭中傳送應用程式金鑰。如果設定為 client_secret_post，則需要在請求正文中將應用程式金鑰與 client_id 一起作為參數傳送。如果設定為空，則允許同時使用 Authorization 標頭和請求正文參數。
+- `admin-ui:2588` **userInfoResponseEncryptionContentEncryptionAlgorithmHelp** — 「響應」→「回應」
+  - en: JWA Algorithm used for content encryption in encrypting User Info Endpoint responses. If User Info response encryption key management algorithm is specified, the default for this value is A128CBC-HS256.
+  - zh: 用於加密使用者資訊端點響應的內容加密的 JWA 演算法。如果指定了使用者資訊響應加密金鑰管理演算法，則此值的預設值為 A128CBC-HS256。
+- `admin-ui:2593` **oidcAttributeImporter** — 「導入」→「匯入」
+  - en: Import declared claim if it exists in ID, access token, or the claim set returned by the user profile endpoint into the specified user property or attribute.
+  - zh: 如果 ID、訪問權杖或使用者資訊端點返回的聲明集中存在聲明，則將其導入到指定的使用者屬性或屬性中。
+- `admin-ui:3687` **clientPkceRequiredHelp** — 「密鑰」→「金鑰」
+  - en: Require Proof Key for Code Exchange (PKCE) to protect against authorization code interception attacks. Public clients (client authentication disabled) should always require PKCE as they cannot securely store client secrets. It is also recommended for confidential clients as an additional layer of se…
+  - zh: 為了避免授權代碼攔截攻擊，Keycloak 要求使用代碼交換驗證金鑰 (PKCE) 。公開的應用程式 (未使用應用程式身分授權) 應該總是要求使用 PKCE，因為它們無法安全的儲存應用程式密鑰。也建議機密應用程式也使用此方式作為額外的一層安全性。如果不是強制要求，Keycloak 只會在應用程式在其授權請求中包含代碼驗證及方法時才使用 PKCE。
+- `admin-ui:2599` **enableClientSignatureRequiredExplain** — 「導入」→「匯入」
+  - en: If you enable "{{key}}", the adapter of this client will be updated. You may need to download a new adapter for this client. You need to generate or import keys for this client otherwise the authentication will not work.
+  - zh: 如果您啟用「{{key}}」，則此應用程式的適配器將被更新。您可能需要為此應用程式下載新的適配器。否則，身份驗證將無法工作，您需要為此應用程式生成或導入金鑰。
+- `admin-ui:2612` **createClientProfileSuccess** — 「創建」→「建立」
+  - en: New client profile created
+  - zh: 成功創建新的應用程式配置檔
+- `admin-ui:1964` **invalidateRotatedSuccess** — 「密鑰」→「金鑰」
+  - en: Rotated secret successfully removed
+  - zh: 成功移除輪替密鑰
+- `admin-ui:2630` **reloadKeys** — 「加載」→「載入」
+  - en: Reload keys
+  - zh: 重新加載金鑰
+- `admin-ui:2631` **useMetadataDescriptorUrlHelp** — 「加載」→「載入」
+  - en: If the switch is on, the certificates to validate signatures will be downloaded and cached from the given "Metadata descriptor URL". The "Reload keys" action can be used to refresh the certificates in the cache. If the switch is off, certificates from "Validating X509 certificates" option are used, …
+  - zh: 如果啟用，則用於驗證簽名的證書將從給定的「元數據描述符 URL」下載並緩存。可以使用「重新加載金鑰」操作來刷新緩存中的證書。如果關閉，則使用「驗證 X509 證書」選項中的證書，當 IDP 中更改時，需要手動更新它們。
+- `admin-ui:2634` **reloadKeysSuccess** — 「加載」→「載入」
+  - en: Keys successfully reloaded
+  - zh: 金鑰成功重新加載
+- `admin-ui:2635` **reloadKeysError** — 「加載」→「載入」
+  - en: Error reloading keys. {{error}}
+  - zh: 重新加載金鑰時出錯：{{error}}
+- `admin-ui:2636` **reloadKeysSuccessButFalse** — 「加載」→「載入」
+  - en: The reload was not executed, maybe the time between request was too short.
+  - zh: 未執行重新加載，可能是請求之間的時間太短。
+- `admin-ui:2647` **flowCreateError** — 「創建」→「建立」
+  - en: Could not create flow: {{error}}
+  - zh: 無法創建流程：{{error}}
+- `admin-ui:2662` **client-updater-source-groups.tooltip** — 「創建」→「建立」
+  - en: Path of groups to check. The condition evaluates to true if the entity who creates or updates the client is a member of one or more of the specified groups. Configured groups are specified by their full path, for example /topGroup/level2group. No support for group hierarchy is used here.
+  - zh: 檢查群組的路徑。創建或更新應用程式的實體是否為一個或多個指定群組的成員，如果是，則條件評估為 true。配置的群組由其完整路徑決定，例如「/topGroup/level2group」。此處不使用群組層次結構的支持。
+- `admin-ui:2667` **createClientScopeError** — 「創建」→「建立」
+  - en: Could not create client scope: '{{error}}'
+  - zh: 無法創建應用程式範圍：{{error}}
+- `admin-ui:2669` **client-updater-source-roles.tooltip** — 「創建」→「建立」
+  - en: The condition is checked during client registration or update request; it evaluates to true if the entity (usually a user) is creating or updating client is a member of the specified role. To reference the realm role, you can use the realm role name such as 'my_realm_role'. To reference the client r…
+  - zh: 在應用程式註冊或更新請求期間檢查條件；如果創建或更新應用程式的實體（通常是使用者）是指定角色的成員，則評估為 true。要引用領域角色，您可以使用領域角色名稱，例如「my_realm_role」。要引用應用程式角色，您可以使用 client_id.role_name；例如，「my_client.my_client_role」指的是應用程式「my_client」的應用程式角色「my_client_role」。
+- `admin-ui:2050` **editModeLdapHelp** — 「導入」→「匯入」
+  - en: READ_ONLY is a read-only LDAP store. WRITABLE means data will be synced back to LDAP on demand. UNSYNCED means user data will be imported, but not synced back to LDAP.
+  - zh: READ_ONLY 是唯讀的 LDAP 存儲。WRITABLE 意味著數據將根據需要同步回 LDAP。UNSYNCED 意味著用戶數據將被導入，但不會同步回 LDAP。
+- `admin-ui:2690` **noScopeCreateHint** — 「創建」→「建立」
+  - en: You'll need to create an authorization scope first.
+  - zh: 您需要先創建授權範圍。
+- `admin-ui:2698` **confirmClientSecretBody** — 「密鑰」→「金鑰」
+  - en: If you regenerate the secret, the Keycloak database will be updated and you will need to download a new adapter for this client.
+  - zh: 如果您重新生成密鑰，Keycloak 數據庫將被更新，您需要為此應用程式下載新的適配器。
+- `admin-ui:1268` **displayDescriptionHintHelp** — 「界面」→「介面」
+  - en: A text that should be used as a tooltip when rendering user-facing forms.
+  - zh: 在呈現使用者界面表單時應用的工具提示文本。
+- `admin-ui:2704` **chooseResources** — 「導入」→「匯入」
+  - en: Choose the resources you want to import
+  - zh: 選擇您要導入的資源
+- `admin-ui:2716` **noKeys** — 「密鑰」→「金鑰」
+  - en: No keys
+  - zh: 沒有密鑰
+- `admin-ui:2717` **activeHelp** — 「密鑰」→「金鑰」
+  - en: Set if the keys can be used for signing
+  - zh: 設置密鑰是否可以用於簽名
+- `admin-ui:2734` **syncModeHelp** — 「導入」→「匯入」
+  - en: Default sync mode for all mappers. The sync mode determines when user data is synced using the mappers. Three possible values exist: 'legacy' to keep the behavior before this option was introduced, 'import' to import the user only once, specifically during the first login of the user with this ident…
+  - zh: 所有映射器的預設同步模式。同步模式決定何時使用映射器同步使用者資料。存在三個可能的值：「legacy」以保持在引入此選項之前的行為，「import」僅導入使用者一次，特別是在使用此身份提供者首次登錄使用者期間，以及「force」以在每次使用此身份提供者登錄時始終更新使用者。
+- `admin-ui:2741` **addExecutorSuccess** — 「創建」→「建立」
+  - en: Success! Executor created successfully
+  - zh: 成功！執行者創建成功
+- `admin-ui:1525` **useDiscoveryEndpointHelp** — 「加載」→「載入」
+  - en: If this setting is enabled, the discovery endpoint will be used to fetch the provider config. Keycloak can load the config from the endpoint and automatically update the config if the source has any updates.
+  - zh: 如果啟用此設定，將使用探索端點來擷取提供者配置。Keycloak 可以從該端點加載配置，並在來源有任何更新時自動更新配置。
+- `admin-ui:2743` **createUserProviderError** — 「創建」→「建立」
+  - en: User federation provider could not be created: {{error}}
+  - zh: 無法創建使用者聯邦提供者：{{error}}
+- `admin-ui:2747` **userModelAttributeNameHelp** — 「導入」→「匯入」
+  - en: Name of the model attribute to be added when importing user from LDAP
+  - zh: 在從 LDAP 導入使用者時要添加的模型屬性名稱
+- `admin-ui:2981` **templateHelp** — 「導入」→「匯入」
+  - en: Template to use to format the username to import. Substitutions are enclosed in ${}. For example: '${ALIAS}.${CLAIM.sub}'. ALIAS is the provider alias. CLAIM.<NAME> references an ID or Access token claim. The substitution can be converted to upper or lower case by appending |uppercase or |lowercase …
+  - zh: 用於格式化要導入的使用者名稱的模板。替換項用 ${} 括起來。例如：「${ALIAS}.${CLAIM.sub}」。ALIAS 是提供者別名。CLAIM.<NAME> 參考 ID 或訪問權杖聲明。通過在替換值後附加 |uppercase 或 |lowercase，可以將替換項轉換為大寫或小寫，例如，「${CLAIM.sub | lowercase}」。
+- `admin-ui:2753` **createClientError** — 「創建」→「建立」
+  - en: Could not create client: '{{error}}'
+  - zh: 無法創建應用程式：{{error}}
+- `admin-ui:363` **clientAuthentications.client_secret_post** — 「密鑰」→「金鑰」
+  - en: Client secret sent in the request body
+  - zh: 在請求主體中傳送的應用程式密鑰
+- `admin-ui:2772` **roleCreated** — 「創建」→「建立」
+  - en: Role created
+  - zh: 角色已創建
+- `admin-ui:2785` **couldNotCreateGroup** — 「創建」→「建立」
+  - en: Could not create group {{error}}
+  - zh: 無法創建群組：{{error}}
+- `admin-ui:2788` **saveRealmSuccess** — 「創建」→「建立」
+  - en: Realm created successfully
+  - zh: 領域創建成功
+- `admin-ui:2789` **createScopeSuccess** — 「創建」→「建立」
+  - en: Authorization scope created successfully
+  - zh: 授權範圍創建成功
+- `admin-ui:2814` **forceArtifactBindingHelp** — 「響應」→「回應」
+  - en: Should response messages be returned to the client through the SAML ARTIFACT binding system?
+  - zh: 是否應通過 SAML ARTIFACT 綁定系統將響應消息返回給應用程式？
+- `admin-ui:3001` **encryptionKeysConfigExplain** — 「導入」→「匯入」
+  - en: If you enable the "Encrypt assertions" below, the SAML assertions will be encrypted with the client's public key. If the client provides a SP Metadata Descriptor URL with signing and encryption keys, you can enable automatic management of keys with the option "Use metadata descriptor URL" in the "Si…
+  - zh: 如果您啟用下面的「加密斷言」，則 SAML 斷言將使用應用程式的公鑰進行加密。如果應用程式提供帶有簽名和加密金鑰的 SP 元資料描述符 URL，您可以在「設定」標籤的「簽名和加密」部分中使用「使用元資料描述符 URL」選項來啟用金鑰的自動管理。您也可以在啟用時手動生成或導入來配置加密金鑰。啟用此選項後，可以在「設定」標籤的「簽名和加密」部分修改加密詳細資訊。
+- `admin-ui:2836` **createScopeBasedPermission** — 「創建」→「建立」
+  - en: Create scope-based permission
+  - zh: 創建基於範圍的權限
+- `admin-ui:2843` **usernameTemplateImporter** — 「導入」→「匯入」
+  - en: Format the username to import.
+  - zh: 格式化要導入的使用者名稱。
+- `admin-ui:2852` **targetHelp** — 「導入」→「匯入」
+  - en: Destination field for the mapper. LOCAL (default) means that the changes are applied to the username stored in the local database upon user import. BROKER_ID and BROKER_USERNAME means that the changes are stored into the ID or username used for federation user lookup, respectively.
+  - zh: 映射器的目標欄位。LOCAL（預設值）表示更改將應用於導入使用者時存儲在本地資料庫中的使用者名稱。BROKER_ID 和 BROKER_USERNAME 分別表示更改存儲到用於聯邦使用者查找的 ID 或使用者名稱中。
+- `admin-ui:2860` **createPolicySuccess** — 「創建」→「建立」
+  - en: Successfully created the policy
+  - zh: 成功創建政策
+- `admin-ui:2880` **createClientScopeSuccess** — 「創建」→「建立」
+  - en: Client scope created
+  - zh: 應用程式範圍已創建
+- `admin-ui:3014` **signingKeysConfigExplain** — 「導入」→「匯入」
+  - en: If you enable the "Client signature required" below, the client should sign their SAML requests and responses and the signature will be validated by the server. If the client provides a SP Metadata Descriptor URL with signing and encryption keys, you can enable automatic management of keys with the …
+  - zh: 如果您啟用下面的「需要應用程式簽名」，則應用程式應簽署其 SAML 請求和回應，並且伺服器將驗證該簽名。如果應用程式提供帶有簽名和加密金鑰的 SP 元資料描述符 URL，您可以在「設定」標籤的「簽名和加密」部分中使用「使用元資料描述符 URL」選項來啟用金鑰的自動管理。您也可以在啟用時手動生成或導入來配置簽名金鑰。
+- `admin-ui:1965` **invalidateRotatedSecretExplain** — 「密鑰」→「金鑰」
+  - en: After invalidating rotated secret, the rotated secret will be removed automatically
+  - zh: 廢止輪替密鑰之後，輪替密鑰會被自動移除
+- `admin-ui:2919` **mapperCreateError** — 「創建」→「建立」
+  - en: Error creating mapper: {{error}}
+  - zh: 無法創建映射器：{{error}}
+- `admin-ui:2924` **pkceEnabledHelp** — 「密鑰」→「金鑰」
+  - en: Use PKCE (Proof of Key-code exchange) for IdP Brokering
+  - zh: 對 IdP 代理使用 PKCE（密鑰代碼交換證明）
+- `admin-ui:3184` **clientSecretError** — 「密鑰」→「金鑰」
+  - en: Could not regenerate client secret due to: {{error}}
+  - zh: 無法重新生成應用程式密鑰，原因：{{error}}
+- `admin-ui:3238` **useLowerCaseBearerTypeHelp** — 「令牌」→「權杖」
+  - en: If this is on, token responses will be set the with the type "bearer" in lower-case. By default, the server sets the type as "Bearer" as defined by RFC6750. This switch is deprecated and might be removed in future version.
+  - zh: 如果啟用此選項，則令牌回應的類型將設置為小寫的「bearer」。預設情況下，伺服器會根據 RFC6750 將類型設置為「Bearer」。此開關已棄用並且將會在未來版本中移除。
+- `admin-ui:2109` **createClientConditionError** — 「創建」→「建立」
+  - en: Error creating condition: {{error}}
+  - zh: 創建條件時出錯：{{error}}
+- `admin-ui:1966` **invalidateRotatedError** — 「密鑰」→「金鑰」
+  - en: Could not remove rotated secret: {{error}}
+  - zh: 無法移除輪替密鑰：{{error}}
+- `admin-ui:3368` **clientSecretSuccess** — 「密鑰」→「金鑰」
+  - en: Client secret regenerated
+  - zh: 應用程式密鑰已重新產生
+- `admin-ui:1612` **clientAssertionSigningAlgHelp** — 「密鑰」→「金鑰」
+  - en: Signature algorithm to create JWT assertion as client authentication. In the case of JWT signed with private key or JWT signed with client secret, it is required. If no algorithm is specified, the following algorithm is adapted. RS256 is adapted in the case of JWT signed with private key. HS256 is a…
+  - zh: 用於建立 JWT 斷言作為應用程式驗證的簽名演算法。在使用私鑰簽署的 JWT 或使用應用程式密鑰簽署的 JWT 時，均需要此演算法。如果未指定演算法，則會使用以下演算法：在使用私鑰簽署的 JWT 時，會使用 RS256；在使用應用程式密鑰簽署的 JWT 時，會使用 HS256。
+- `admin-ui:3469` **jwtX509HeadersEnabledHelp** — 「密鑰」→「金鑰」
+  - en: If enabled, the x5t (X.509 Certificate SHA-1 Thumbprint) header will be added to the JWT to reference the certificate used to sign it. Otherwise, the kid (Key ID) header will be used instead.
+  - zh: 如果啟用，x5t（X.509 證書 SHA-1 指紋）標頭將被添加到 JWT 中，以引用用於簽名的證書。否則，將使用 kid（密鑰 ID）標頭。
+- `admin-ui:1473` **clientSecretHelp** — 「密鑰」→「金鑰」
+  - en: The client secret registered with the identity provider. This field is able to obtain its value from vault, use ${vault.ID} format.
+  - zh: 應用程式在身分提供者中註冊的密鑰。此欄位能夠從保險庫取得其值，使用 ${vault.ID} 格式。
+- `admin-ui:3688` **oidcClientSecretHelp** — 「密鑰」→「金鑰」
+  - en: The client secret registered with the client. This field is able to obtain its value from vault, use ${vault.ID} format.
+  - zh: 該應用程式密鑰已被註冊到應用程式。這個欄位可以從資料庫中存取值，使用 ${vault.ID} 格式。
+- `admin-ui:1171` **authTokenClientSecret** — 「密鑰」→「金鑰」
+  - en: Auth Token Client Secret
+  - zh: 驗證權杖應用程式密鑰
+- `theme-baseadmin:88` **workflowConditionTypesIncompatible** — 「兼容」→「相容」
+  - en: Provided condition types ({0}) are not compatible with workflow type ({1}).
+  - zh: 提供的條件類型 ({0}) 與工作流程類型 ({1}) 不兼容。
+- `theme-baseadmin:102` **workflowStepsIncompatible** — 「兼容」→「相容」
+  - en: Steps provided are not compatible with each other.
+  - zh: 提供的步驟不兼容其他的步驟。

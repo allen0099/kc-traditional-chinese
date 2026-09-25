@@ -1,0 +1,89 @@
+{
+  "components": {
+    "account-ui": {
+      "name": "Account UI",
+      "filemask": "js/apps/account-ui/maven-resources-community/theme/keycloak.v3/account/messages/messages_*.properties",
+      "repo_file": "js/apps/account-ui/maven-resources-community/theme/keycloak.v3/account/messages/messages_zh_Hant.properties",
+      "translated_percent": 100.0,
+      "translated": 242,
+      "total": 242,
+      "last_change": "2026-09-17T10:08:21.090128+02:00",
+      "url": "https://hosted.weblate.org/translate/keycloak/account-ui/zh_Hant/"
+    },
+    "theme-baseemail": {
+      "name": "Base E-mail templates",
+      "filemask": "themes/src/main/resources-community/theme/base/email/messages/messages_*.properties",
+      "repo_file": "themes/src/main/resources-community/theme/base/email/messages/messages_zh_Hant.properties",
+      "translated_percent": 100.0,
+      "translated": 68,
+      "total": 68,
+      "last_change": "2026-08-26T20:52:54.928759+02:00",
+      "url": "https://hosted.weblate.org/translate/keycloak/theme-baseemail/zh_Hant/"
+    },
+    "theme-baselogin": {
+      "name": "Base Login theme",
+      "filemask": "themes/src/main/resources-community/theme/base/login/messages/messages_*.properties",
+      "repo_file": "themes/src/main/resources-community/theme/base/login/messages/messages_zh_Hant.properties",
+      "translated_percent": 100.0,
+      "translated": 525,
+      "total": 525,
+      "last_change": "2026-09-17T10:08:16.313248+02:00",
+      "url": "https://hosted.weblate.org/translate/keycloak/theme-baselogin/zh_Hant/"
+    },
+    "theme-baseaccount": {
+      "name": "Account backend",
+      "filemask": "themes/src/main/resources-community/theme/base/account/messages/messages_*.properties",
+      "repo_file": "themes/src/main/resources-community/theme/base/account/messages/messages_zh_Hant.properties",
+      "translated_percent": 100.0,
+      "translated": 385,
+      "total": 385,
+      "last_change": "2026-09-17T10:08:18.674605+02:00",
+      "url": "https://hosted.weblate.org/translate/keycloak/theme-baseaccount/zh_Hant/"
+    },
+    "theme-baseadmin": {
+      "name": "Admin backend",
+      "filemask": "themes/src/main/resources-community/theme/base/admin/messages/messages_*.properties",
+      "repo_file": "themes/src/main/resources-community/theme/base/admin/messages/messages_zh_Hant.properties",
+      "translated_percent": 100.0,
+      "translated": 117,
+      "total": 117,
+      "last_change": "2026-08-26T20:52:45.216713+02:00",
+      "url": "https://hosted.weblate.org/translate/keycloak/theme-baseadmin/zh_Hant/"
+    },
+    "admin-ui": {
+      "name": "Admin UI",
+      "filemask": "js/apps/admin-ui/maven-resources-community/theme/keycloak.v2/admin/messages/messages_*.properties",
+      "repo_file": "js/apps/admin-ui/maven-resources-community/theme/keycloak.v2/admin/messages/messages_zh_Hant.properties",
+      "translated_percent": 91.7,
+      "translated": 3898,
+      "total": 4248,
+      "last_change": "2026-09-24T21:04:44.216764+02:00",
+      "url": "https://hosted.weblate.org/translate/keycloak/admin-ui/zh_Hant/"
+    },
+    "keycloak-e-mail-theme": {
+      "name": "Keycloak E-mail theme",
+      "filemask": "themes/src/main/resources-community/theme/keycloak/email/messages/messages_*.properties",
+      "translated_percent": 0,
+      "missing": true
+    },
+    "keycloak-welcome-theme": {
+      "name": "Keycloak Welcome theme",
+      "filemask": "themes/src/main/resources-community/theme/keycloak/welcome/messages/messages_*.properties",
+      "translated_percent": 0,
+      "missing": true
+    },
+    "keycloak-login-theme": {
+      "name": "Keycloak Login theme",
+      "filemask": "themes/src/main/resources-community/theme/keycloak/login/messages/messages_*.properties",
+      "translated_percent": 0,
+      "missing": true
+    },
+    "keycloak-v2-login-theme": {
+      "name": "Keycloak v2 Login theme",
+      "filemask": "themes/src/main/resources-community/theme/keycloak.v2/login/messages/messages_*.properties",
+      "translated_percent": 0,
+      "missing": true
+    }
+  },
+  "pulled_at": "2026-09-25T14:12:04+00:00"
+}
