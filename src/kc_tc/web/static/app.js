@@ -46,8 +46,8 @@ function filterState(btn) {
 }
 
 function countPicked() {
-  const el = document.getElementById("picked-count");
-  if (el) el.textContent = document.querySelectorAll(".prop input[name=pick]:checked").length;
+  const n = document.querySelectorAll(".prop input[name=pick]:checked").length;
+  document.querySelectorAll("#picked-count, .picked-count").forEach((el) => (el.textContent = n));
 }
 
 document.addEventListener("DOMContentLoaded", countPicked);

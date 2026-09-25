@@ -693,15 +693,31 @@ async def review_mark_many(request: Request):
     return HTMLResponse("", headers={"HX-Refresh": "true"})
 
 
+@app.post("/review/unmark-many")
+async def review_unmark_many(request: Request):
+    """取消勾選字串的已檢閱標記。"""
+    ids = set((await request.form(max_fields=100_000)).getlist("pick"))
+    with REVIEW_LOCK:
+        for r in REVIEW["items"] or []:
+            if r.id in ids:
+                r.reviewed = None
+        sync.save_review(REVIEW["items"])
+    return HTMLResponse("", headers={"HX-Refresh": "true"})
+
+
 @app.post("/review/approve", response_class=HTMLResponse)
-def review_approve(request: Request):
-    """把已檢閱的字串批次上傳到 Weblate 並設為已核可。"""
+async def review_approve(request: Request):
+    """把已檢閱的字串批次上傳到 Weblate 並設為已核可；有勾選時只處理勾選的。"""
     token, job = load_token(), REVIEW["job"]
     if not token:
         return HTMLResponse('<div class="flash error">找不到 API key，請在 .env 設定 WEBLATE_TOKEN</div>')
     if job and not job.finished:
         return HTMLResponse('<div class="flash error">已有核可工作進行中</div>')
-    picked = [r for r in review_items() or [] if r.reviewed is not None]
+    form = await request.form(max_fields=100_000)
+    ids = set(form.getlist("pick"))
+    if form.get("picked_only") and not ids:
+        return HTMLResponse('<div class="flash error">沒有勾選任何字串</div>')
+    picked = [r for r in review_items() or [] if r.reviewed is not None and (not form.get("picked_only") or r.id in ids)]
     if not picked:
         return HTMLResponse('<div class="flash error">沒有已檢閱的字串</div>')
     REVIEW["job"] = job = ApproveJob(picked)

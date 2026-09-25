@@ -1,10 +1,17 @@
-<form id="mark-many" hx-post="/review/mark-many" hx-target="this" hx-swap="beforebegin"
-      hx-confirm="將勾選的字串以目前譯文標記為已檢閱？">
+{# 勾選框以 form="mark-many" 歸屬此表單；各按鈕自帶 hx-post，送出時一併帶上勾選的 pick #}
+<form id="mark-many" hx-target="this" hx-swap="beforebegin" onsubmit="return false">
   <div class="toolbar sticky">
     <span>共 <b>{{ total }}</b> 條{% if total > limit %}，顯示前 {{ limit }} 條{% endif %}</span>
     <button type="button" onclick="pickAll(true)">全選</button>
     <button type="button" onclick="pickAll(false)">全不選</button>
-    <button type="submit">將勾選的 <span id="picked-count">0</span> 條標記為已檢閱</button>
+    {% if status != "reviewed" %}<button type="button" hx-post="/review/mark-many"
+            hx-confirm="將勾選的字串以目前譯文標記為已檢閱？">將勾選的 <span class="picked-count">0</span> 條標記為已檢閱</button>{% endif %}
+    {% if status != "todo" %}<button type="button" hx-post="/review/unmark-many"
+            hx-confirm="取消勾選字串的已檢閱標記？">取消標記勾選的 <span class="picked-count">0</span> 條</button>
+    <button type="button" class="primary" hx-post="/review/approve" hx-vals='{"picked_only": "1"}'
+            hx-target="#review-area" hx-swap="afterbegin"
+            hx-confirm="將勾選的字串中已檢閱的上傳到 Weblate 並設為「已核可」？（未檢閱的會略過）"
+            {{ 'disabled' if not has_token }}>核可勾選的 <span class="picked-count">0</span> 條</button>{% endif %}
   </div>
 </form>
 {% if not items %}<p class="empty">沒有符合的字串。</p>{% endif %}
