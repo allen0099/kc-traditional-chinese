@@ -62,3 +62,11 @@ uv run kc-tc lint --check placeholder,quote
 
 - 直接修改 `zh_Hant.properties` 時，保留原本的 key 與跳脫格式（例如行尾 `\` 表示續行）。
 - 上傳回 Weblate（`kc-tc push`）尚未實作，需要 API key。上傳前應重新 pull 並比對，避免覆蓋別人在這段期間的修改。
+
+## 開發
+
+```bash
+pre-commit install    # 啟用 commit-msg（Conventional Commits）與基本檢查
+```
+
+Commit 規範見 CLAUDE.md。
