@@ -55,3 +55,45 @@
 高級	進階	warn
 身份	身分	warn	教育部標準用字
 配置(檔|文件)	設定檔	warn	profile 譯「設定檔」，見詞彙表
+上下文	情境	warn	context
+可選(?!擇)	選用	warn	optional
+適配器	配接器	warn	adapter，見詞彙表
+(?<!主)控制台	主控台	warn	console，見詞彙表
+當前	目前	warn
+訪問	存取	warn	access
+通過(?!(身分)?驗證|檢查|測試)	透過	warn	through／via 用「透過」；pass（通過驗證）可保留
+獲取	取得	warn
+擴展	擴充	warn	extension
+集群	叢集	error
+協議	協定	warn	protocol，見詞彙表
+正則|正規表達式	正規表示式	warn	regular expression
+(?<!正規)(?<!正則)表達式	運算式	warn	expression
+匹配	符合	warn	match
+禁用	停用	warn	disable
+拖動	拖曳	warn
+調用	呼叫	warn	call／invoke
+模板	範本	warn	template
+客戶端	用戶端	error	client，見詞彙表
+過濾	篩選	warn	filter
+搜索	搜尋	error
+消息	訊息	warn
+聯繫	聯絡	warn
+文本	文字	warn
+(?<![網領])域名	網域名稱	warn	domain name；「領域名稱」為 realm name
+函數	函式	warn	function
+自定義	自訂	warn
+存儲	儲存	warn
+頭像	大頭貼	warn	avatar
+導航	導覽	warn
+閾值	門檻	warn	threshold
+登陸	登入／到達	warn	login 用「登入」；landing page 用「到達頁面」
+時間戳(?!記)	時間戳記	warn
+(?<!產)生成	產生	warn	generate
+列表	清單	warn	list
+添加	新增	warn	add
+(?<!網際)連接(?!埠)	連線	warn	connection；「連接埠」為 port
+幫助	說明	warn	help
+後台	背景	warn	background
+遞歸	遞迴	error
+捆綁	組合／套件	warn	bundle
+示例	範例	warn
