@@ -30,7 +30,7 @@ uv run kc-tc terms                     # 依 glossary.csv 產生 reports/terms.m
 uv run kc-tc terms --term session      # 查某個英文詞目前有哪些譯法
 
 # 3. 網頁介面：詞彙決策、批次取代（http://127.0.0.1:8765）
-uv run kc-tc serve
+uv run kc-tc serve                     # 加 --host 0.0.0.0 開放給區網（無登入驗證，請注意）
 
 # 4. 格式與用語檢查
 uv run kc-tc lint                      # 產生 reports/lint.md
