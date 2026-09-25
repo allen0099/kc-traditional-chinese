@@ -125,10 +125,12 @@ ins { background: var(--ins); text-decoration: none; color: var(--ok); font-weig
 
 /* Weblate 檢閱狀態 */
 .badge.state-0 { background: #eee; color: #666; }
-.badge.state-10 { background: #fdecea; color: #a4262c; }
+.badge.state-10, .badge.state-11, .badge.state-12 { background: #fdecea; color: #a4262c; }
 .badge.state-20 { background: #fff4ce; color: #7a5d00; }
 .badge.state-30 { background: #dff6dd; color: #0e6b0e; }
 .badge.state-100 { background: #e8e8e8; color: #444; }
+button.badge { border: 0; cursor: pointer; }
+button.badge:hover { filter: brightness(.93); }
 
 /* 已檢視的詞彙 */
 .reviewed-list { border-top: 1px solid var(--line, #e2e8f0); }

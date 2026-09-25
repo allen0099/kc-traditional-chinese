@@ -26,7 +26,7 @@
     <button type="submit" class="primary" {{ 'disabled' if not has_token }}>上傳勾選項目</button>
   </div>
   <p class="hint">Weblate 目前狀態：
-    {% for st, items in plan | rejectattr("remote_state", "none") | groupby("remote_state") %}<span class="badge state-{{ st }}">{{ remote_states.get(st, st) }} {{ items | length }}</span> {% endfor %}
+    {% for st, items in plan | rejectattr("remote_state", "none") | groupby("remote_state") %}<button type="button" class="badge state-{{ st }}" onclick="pickState('{{ st }}')" title="只勾選這個狀態的項目">{{ remote_states.get(st, st) }} {{ items | length }}</button> {% endfor %}
     {% set n_approved = plan | selectattr("remote_state", "equalto", 30) | list | length %}
     {% if n_approved %}— 其中已核可的 {{ n_approved }} 條若以「等候檢閱」上傳，會回到待檢閱狀態。{% endif %}
   </p>

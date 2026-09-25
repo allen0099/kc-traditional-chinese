@@ -33,6 +33,12 @@ function pickAll(on) {
   countPicked();
 }
 
+// 只勾選 Weblate 目前為指定檢閱狀態的項目
+function pickState(st) {
+  document.querySelectorAll(".prop input[name=pick]").forEach((cb) => (cb.checked = !cb.disabled && cb.dataset.state === st));
+  countPicked();
+}
+
 function countPicked() {
   const el = document.getElementById("picked-count");
   if (el) el.textContent = document.querySelectorAll(".prop input[name=pick]:checked").length;
