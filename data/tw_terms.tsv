@@ -97,3 +97,4 @@
 遞歸	遞迴	error
 捆綁	組合／套件	warn	bundle
 示例	範例	warn
+聯邦|邦聯|聯盟|同盟	聯合	warn	federation（User Federation、federated identity）
