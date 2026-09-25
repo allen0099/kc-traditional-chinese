@@ -28,3 +28,4 @@
     <small class="hint">Ctrl+Enter 標記；只存本地，修改的譯文會寫入 zh_Hant.properties</small>
   </div>
 </form>
+{% if oob_count %}{% with oob=true, part="" %}{% include "_review_count.html" %}{% endwith %}{% endif %}

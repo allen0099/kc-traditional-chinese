@@ -8,7 +8,7 @@
   <form class="filters" hx-get="/review" hx-target="#review-area" hx-push-url="true"
         hx-trigger="change, input changed delay:400ms from:input[name=q], submit">
     <div class="full">
-      {% if loaded %}Weblate 上等候檢閱：<b>{{ by_comp.values() | sum }}</b> 條，本地已檢閱 <b>{{ n_reviewed }}</b> 條
+      {% if loaded %}Weblate 上等候檢閱：<b>{{ by_comp.values() | sum }}</b> 條，本地已檢閱 {% with part="count" %}{% include "_review_count.html" %}{% endwith %} 條
       {% for comp, n in by_comp.items() %}<span class="badge">{{ comp }} {{ n }}</span>{% endfor %}{% endif %}
       <p class="hint">① 從 Weblate 載入等候檢閱的清單（每個組件 1 次 API 請求，存在 <code>.cache/review.json</code>）
         ② 在本地逐條檢閱，修改譯文或按「標記已檢閱」，這一步不連線 Weblate
@@ -34,8 +34,7 @@
     <button type="button" class="{{ '' if loaded else 'primary' }}" hx-post="/review/load" hx-target="#review-area"
             hx-indicator="#review-loading"
             {% if loaded %}hx-confirm="重新從 Weblate 載入？譯文沒變的字串會保留已檢閱標記。"{% endif %}>{{ '重新載入' if loaded else '從 Weblate 載入' }}</button>
-    {% if loaded %}<button type="button" class="primary" hx-post="/review/approve" hx-target="#review-area" hx-swap="afterbegin"
-            hx-confirm="將本地已檢閱的 {{ n_reviewed }} 條上傳到 Weblate 並設為「已核可」？" {{ 'disabled' if not n_reviewed or not has_token }}>核可已檢閱的 {{ n_reviewed }} 條</button>{% endif %}
+    {% if loaded %}{% with part="button" %}{% include "_review_count.html" %}{% endwith %}{% endif %}
     <span id="review-loading" class="loading htmx-indicator">查詢中…</span>
   </form>
   <div id="review-area">

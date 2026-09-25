@@ -1,0 +1,5 @@
+{# 已檢閱條數與核可按鈕；oob 為真時由標記／取消標記的回應順帶更新（hx-swap-oob） #}
+{% if part != "button" %}<b id="n-reviewed"{{ ' hx-swap-oob="true"' | safe if oob }}>{{ n_reviewed }}</b>{% endif %}
+{% if part != "count" %}<button type="button" id="approve-btn" class="primary" hx-post="/review/approve" hx-target="#review-area"
+        hx-swap="afterbegin"{{ ' hx-swap-oob="true"' | safe if oob }}
+        hx-confirm="將本地已檢閱的 {{ n_reviewed }} 條上傳到 Weblate 並設為「已核可」？" {{ 'disabled' if not n_reviewed or not has_token }}>核可已檢閱的 {{ n_reviewed }} 條</button>{% endif %}

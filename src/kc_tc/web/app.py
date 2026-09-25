@@ -583,6 +583,12 @@ def review_item_ctx(r: sync.ReviewItem, value: str | None = None, **extra) -> di
     return ctx | extra
 
 
+def review_count_ctx() -> dict:
+    """標記狀態改變後，順帶更新頁面上的已檢閱條數與核可按鈕（_review_count.html）。"""
+    return {"oob_count": True, "n_reviewed": sum(r.reviewed is not None for r in review_items() or []),
+            "has_token": bool(load_token())}
+
+
 def find_review(component: str, key: str) -> sync.ReviewItem | None:
     return next((r for r in review_items() or [] if r.component == component and r.key == key), None)
 
@@ -659,7 +665,7 @@ def review_mark(request: Request, component: str = Form(...), key: str = Form(..
     with REVIEW_LOCK:
         r.reviewed = value
         sync.save_review(REVIEW["items"])
-    return render(request, "_review_item.html", **review_item_ctx(r, value))
+    return render(request, "_review_item.html", **review_item_ctx(r, value, **review_count_ctx()))
 
 
 @app.post("/review/unmark", response_class=HTMLResponse)
@@ -671,7 +677,7 @@ def review_unmark(request: Request, component: str = Form(...), key: str = Form(
         r.reviewed = None
         sync.save_review(REVIEW["items"])
     sync.refresh_local([r])
-    return render(request, "_review_item.html", **review_item_ctx(r))
+    return render(request, "_review_item.html", **review_item_ctx(r, **review_count_ctx()))
 
 
 @app.post("/review/mark-many")
