@@ -1,12 +1,1 @@
-{
-  "admin-ui": {
-    "fullScopeAllowedHelp": {
-      "state": 11,
-      "previous_source": "Allows you to disable all restrictions."
-    },
-    "kubernetesIssuerUrlHelp": {
-      "state": 11,
-      "previous_source": "The issuer of the Kubernetes service account tokens"
-    }
-  }
-}
+{}
