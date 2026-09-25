@@ -103,3 +103,11 @@
 點擊率	點閱率	warn	click-through rate
 點擊	點選	warn	click（台灣用「點選」；英文為 select 時用「選取」）
 冒充|仿冒	模擬	warn	impersonate（Impersonation）
+通配符	萬用字元	warn	wildcard
+描述符	描述元	warn	descriptor
+重定向|跳轉	重導向	warn	redirect
+嵌套	巢狀	warn	nested
+反斜杠	反斜線	warn	backslash
+轉義	跳脫	warn	escape
+提供商	提供者	warn	provider
+交互	互動	warn	interaction
