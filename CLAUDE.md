@@ -24,6 +24,12 @@
 - 有需要時才加入 pre-commit hook 或 CI；新增前先說明理由。
 - hook 不可改動 `translations/`、`glossary/` 內從 Weblate 下載的檔案（例如自動去除行尾空白），以免與 Weblate 產生無意義的差異。
 
+## 詞彙表
+
+- 以本地 `glossary.csv` 為唯一標準；`glossary/weblate.*` 只是 Weblate 詞彙表的參考副本。
+- 不把詞彙表同步回 Weblate：Weblate 的 glossary 組件會把詞條同步到所有語言，維護者認為不好用。
+- 詞彙表只放術語與不翻譯的專有名詞，不放完整句子或代名詞（「您／你」由 lint 的 pronoun 檢查處理）。
+
 ## 翻譯慣例（lint 規則依據）
 
 - 中文與英數字之間加半形空白；使用全形標點；人稱用「您」。
