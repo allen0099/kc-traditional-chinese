@@ -121,6 +121,39 @@ def check(p: Pair, tw_rules) -> list[tuple[str, str, str]]:
     if zh == en and re.search(r"[a-z]{3,}\s+[a-z]{3,}", en):
         out.append(("info", "untranslated", "譯文與原文相同"))
 
+    out += [("warn", "weblate", msg) for msg in weblate_checks(en, zh)]
+    return out
+
+
+# Weblate 品質檢查（weblate/checks/chars.py）中與繁中相關的句尾標點與換行檢查，
+# 讓上傳前就能發現 Weblate 會標記的問題。中文的「。」「：」可對應英文句點。
+END_MARKS = [
+    # (check_id, 原文結尾, 譯文可接受的結尾, 說明)
+    ("end_ellipsis", ("...", "…"), ("...", "…"), "刪節號"),
+    ("end_stop", (".",), (".", "。"), "句號"),
+    ("end_colon", (":",), (":", "："), "冒號"),
+    ("end_question", ("?",), ("?", "？"), "問號"),
+    ("end_exclamation", ("!",), ("!", "！"), "驚嘆號"),
+]
+
+
+def weblate_checks(en: str, zh: str) -> list[str]:
+    out = []
+    s, t = en.rstrip(), zh.rstrip()
+    if s and t:
+        src_end = next((cid for cid, src, _, _ in END_MARKS if s.endswith(src)), None)
+        tgt_end = next((cid for cid, _, tgt, _ in END_MARKS if t.endswith(tgt)), None)
+        # 原文以句點結尾時，譯文用「：」也可接受（Weblate 對中日韓語言的規則）
+        if src_end == "end_stop" and t.endswith("："):
+            tgt_end = src_end
+        if src_end != tgt_end:
+            cid, name = next((cid, name) for cid, _, _, name in END_MARKS if cid in (src_end or tgt_end))
+            if src_end:
+                out.append(f"{cid}：原文以{name}結尾，譯文沒有")
+            else:
+                out.append(f"{cid}：譯文以{name}結尾，原文沒有")
+    if en.count("\n") != zh.count("\n"):
+        out.append(f"newline_count：換行數不一致（原文 {en.count(chr(10))}，譯文 {zh.count(chr(10))}）")
     return out
 
 
