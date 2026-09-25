@@ -1,7 +1,7 @@
 # Keycloak 繁體中文（zh_Hant）翻譯工作區
 
 從 [Hosted Weblate](https://hosted.weblate.org/projects/keycloak/) 下載 Keycloak 各組件的繁中翻譯，在本地統一詞彙、優化文字。
-使用 [uv](https://docs.astral.sh/uv/) 管理（Python 3.14），沒有第三方相依套件。
+使用 [uv](https://docs.astral.sh/uv/) 管理（Python 3.14）；網頁介面使用 FastAPI、Jinja2、htmx。
 
 ## 目錄結構
 
@@ -13,6 +13,7 @@ translations/<組件>/
     en.properties         ← 英文原文
     zh_Hant.properties    ← 繁中譯文（直接修改這個檔案）
 translations/manifest.json ← 各組件的翻譯進度與下載時間
+baseline/<組件>.json      ← 上次與 Weblate 同步時的譯文（判斷本地修改與衝突用，pull/push 自動維護）
 reports/                  ← 產生的報告
 src/kc_tc/                ← 工具原始碼（kc-tc 指令）
 ```
@@ -20,10 +21,10 @@ src/kc_tc/                ← 工具原始碼（kc-tc 指令）
 ## 使用流程
 
 ```bash
-# 1. 下載（不需要 API key）
-uv run kc-tc pull                      # 全部組件
+# 1. 下載（匿名每天只有 100 次 API 額度，建議設定 API key）
+uv run kc-tc pull                      # 全部組件；本地未上傳的修改會保留
 uv run kc-tc pull admin-ui             # 單一組件
-git add -A && git commit -m "pull"     # 每次下載後 commit，之後用 git diff 追蹤修改
+git add -A && git commit -m "chore(pull): 同步 Weblate"
 
 # 2. 詞彙一致性
 uv run kc-tc terms                     # 依 glossary.csv 產生 reports/terms.md
@@ -36,7 +37,15 @@ uv run kc-tc serve                     # 加 --host 0.0.0.0 開放給區網（�
 uv run kc-tc lint                      # 產生 reports/lint.md
 uv run kc-tc lint -l warn -c admin-ui
 uv run kc-tc lint --check placeholder,quote
+
+# 5. 上傳到 Weblate（需要 API key，也可在網頁的「上傳」頁操作）
+uv run kc-tc push --dry-run            # 比對本地修改與 Weblate 現值
+uv run kc-tc push                      # 上傳（詢問確認）
+git add baseline && git commit -m "chore(push): 上傳譯文到 Weblate"
 ```
+
+API key 在 Weblate 個人設定的「API access」取得，寫進專案根目錄的 `.env`（見 `.env.example`，已在 .gitignore）。
+Weblate API 限制：匿名每天 100 次、登入後每小時 5000 次。
 
 ## 網頁介面（`kc-tc serve`）
 
@@ -44,6 +53,10 @@ uv run kc-tc lint --check placeholder,quote
   在分組上點「設為標準」或「設為變體」，再按「儲存詞彙表」寫回 `glossary.csv`。左上角可輸入新的英文詞彙來探索譯法。
 - **批次取代**：依詞彙表把變體取代為標準譯法，逐條顯示修改前後的差異，可勾選、手動改寫後寫入 `zh_Hant.properties`。
   寫入時只替換該行，並檢查檔案是否已被其他地方修改；寫入後會即時顯示 lint 結果。
+
+- **上傳**：列出本地與 `baseline/` 不同的字串，按「比對 Weblate」查詢現值後分成「可上傳」與「衝突」
+  （下載後 Weblate 上有人改過同一條，預設不勾選）。勾選後在背景逐條上傳並即時顯示進度；
+  上傳前會再確認 Weblate 現值沒有變動。上傳後的狀態可選「已翻譯」（需審核）或「已核准」（需審核權限）。
 
 網頁直接讀寫 repo 內的檔案，修改都能用 `git diff` 檢視、用 `git checkout` 還原。
 在遠端機器上執行時，可用 `ssh -L 8765:127.0.0.1:8765 <主機>` 轉發後在本機瀏覽器開啟。
@@ -74,7 +87,10 @@ uv run kc-tc lint --check placeholder,quote
 ## 注意事項
 
 - 直接修改 `zh_Hant.properties` 時，保留原本的 key 與跳脫格式（例如行尾 `\` 表示續行）。
-- 上傳回 Weblate（`kc-tc push`）尚未實作，需要 API key。上傳前應重新 pull 並比對，避免覆蓋別人在這段期間的修改。
+- pull 採三方合併：Weblate 更新、本地沒改的直接套用；本地改過、Weblate 沒動的保留本地值；
+  雙方都改的保留本地值並在上傳時標為衝突。
+- 網頁沒有登入驗證，但會擋掉跨站請求（POST 必須由頁面上的 htmx 送出）。開放 0.0.0.0 時，
+  同網段的人都能用你的 API key 上傳，請只在可信任的網路使用。
 
 ## 開發
 

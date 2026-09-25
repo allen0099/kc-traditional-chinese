@@ -10,13 +10,14 @@
 |---|---|
 | feat / fix / refactor | `src/kc_tc/` 工具程式的功能、修正、重構 |
 | i18n | 修改 `translations/*/zh_Hant.properties` 譯文 |
-| chore | 從 Weblate 下載（`chore(pull): ...`）、相依套件、設定 |
+| chore | 從 Weblate 下載（`chore(pull): ...`）、上傳後更新基準（`chore(push): ...`）、相依套件、設定 |
 | docs | README、CLAUDE.md 等文件 |
 | ci | pre-commit、GitHub Actions |
 
 常用 scope：`pull`、`terms`、`lint`、`glossary`、組件名稱（如 `i18n(admin-ui): 統一 client 譯法`）。
 
 - 從 Weblate 下載的更新與本地譯文修改要分開 commit，方便日後比對與上傳。
+- `baseline/` 記錄上次與 Weblate 同步時的譯文，只由 pull/push 更新，不要手動修改。
 - commit-msg 格式由 pre-commit 檢查（`.pre-commit-config.yaml`）。
 
 ## pre-commit / CI
