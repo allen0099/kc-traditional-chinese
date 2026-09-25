@@ -102,9 +102,10 @@ def check(p: Pair, tw_rules) -> list[tuple[str, str, str]]:
         out.append(("warn", "punct", "中文後使用半形標點：" + " ".join(sorted(set(m)))))
     if re.search(C + r"\.$", zh_np):
         out.append(("warn", "punct", "中文句尾使用半形句點，應為「。」"))
-    if re.search(r"\([^()]*" + C + r"[^()]*\)", zh_np):
+    # 「(」「)」是引用半形括號本身，不算
+    if re.search(r"(?<!「)\((?!」)[^()]*" + C + r"[^()]*(?<!「)\)(?!」)", zh_np):
         out.append(("info", "punct", "括號內含中文，建議使用全形括號（）"))
-    if re.search(r"[，。：；！？]\s", zh_np):
+    if re.search(r"[，。：；！？][ \t]", zh):   # 換行不算；用原文以免佔位符去掉後留下空白
         out.append(("info", "punct", "全形標點後多了空白"))
 
     # --- 中英文間距（專案慣例：中文與英數之間加半形空白）

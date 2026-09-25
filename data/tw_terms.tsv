@@ -48,8 +48,8 @@
 用戶名	使用者名稱	error
 帳戶名	帳號名稱	info
 配置	設定	info	台灣亦使用「配置」，視語境決定
-項目	專案／項目	info	project 應為「專案」
-程序	程式	info	program 應為「程式」；procedure 可用「程序」
+項目	專案	info	project 應為「專案」；item、entry 等可用「項目」	^(?!.*\bprojects?\b)
+程序	程式	info	program 應為「程式」；procedure 可用「程序」	^(?!.*\bprograms?\b)
 兼容	相容	error
 優化	最佳化	info
 高級	進階	warn
