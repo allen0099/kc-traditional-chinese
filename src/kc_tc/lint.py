@@ -37,7 +37,7 @@ def placeholders(s: str) -> Counter:
 
 
 def is_theme(component: str) -> bool:
-    """theme-* / keycloak-* 組件經由 Java MessageFormat 處理，單引號需寫成 ''。"""
+    """theme-* 組件經由 Java MessageFormat 處理，單引號需寫成 ''。"""
     return not component.endswith("-ui")
 
 

@@ -34,4 +34,4 @@
 ## 翻譯慣例（lint 規則依據）
 
 - 中文與英數字之間加半形空白；使用全形標點；人稱用「您」。
-- theme-* / keycloak-* 組件經 Java MessageFormat 處理，單引號寫成 `''`；*-ui 組件用單一 `'`。
+- theme-* 組件經 Java MessageFormat 處理，單引號寫成 `''`；*-ui 組件用單一 `'`。

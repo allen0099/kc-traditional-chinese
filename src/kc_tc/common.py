@@ -10,6 +10,7 @@ import time
 import urllib.error
 import urllib.request
 from dataclasses import dataclass
+from fnmatch import fnmatch
 from pathlib import Path
 
 
@@ -29,6 +30,8 @@ WEBLATE = "https://hosted.weblate.org"
 PROJECT = "keycloak"
 LANG = "zh_Hant"
 GLOSSARY_COMPONENT = "glossary"
+# 不翻譯的組件（fnmatch 樣式）：keycloak-*-theme 是 Keycloak 自帶主題的少量字串，由上游維護
+IGNORED_COMPONENTS = ("keycloak-*-theme",)
 
 TRANS_DIR = ROOT / "translations"
 REPORT_DIR = ROOT / "reports"
@@ -256,8 +259,12 @@ class Pair:
     line: int | None
 
 
+def is_ignored(slug: str) -> bool:
+    return any(fnmatch(slug, pat) for pat in IGNORED_COMPONENTS)
+
+
 def components() -> list[str]:
-    return sorted(p.name for p in TRANS_DIR.iterdir() if p.is_dir())
+    return sorted(p.name for p in TRANS_DIR.iterdir() if p.is_dir() and not is_ignored(p.name))
 
 
 def load_pairs(only: list[str] | None = None) -> list[Pair]:

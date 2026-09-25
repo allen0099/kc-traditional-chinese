@@ -19,7 +19,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 
 from .common import (GLOSSARY_COMPONENT, GLOSSARY_CSV, LANG, MANIFEST, PROJECT,
-                    ROOT, TRANS_DIR, api_get, api_list, load_needs_edit, load_token, save_needs_edit)
+                    ROOT, TRANS_DIR, api_get, api_list, is_ignored, load_needs_edit, load_token, save_needs_edit)
 from .sync import fetch_units, merge_pull, needs_edit_of
 
 XML_LANG = "{http://www.w3.org/XML/1998/namespace}lang"
@@ -41,6 +41,9 @@ def main(argv: list[str] | None = None) -> None:
     for c in comps:
         slug = c["slug"]
         if args.components and slug not in args.components:
+            continue
+        if is_ignored(slug):
+            manifest["components"].pop(slug, None)
             continue
         if slug == GLOSSARY_COMPONENT:
             pull_glossary(token)

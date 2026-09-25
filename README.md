@@ -22,7 +22,7 @@ src/kc_tc/                ← 工具原始碼（kc-tc 指令）
 
 ```bash
 # 1. 下載（匿名每天只有 100 次 API 額度，建議設定 API key）
-uv run kc-tc pull                      # 全部組件；本地未上傳的修改會保留
+uv run kc-tc pull                      # 全部組件（略過 common.py 的 IGNORED_COMPONENTS）；本地未上傳的修改會保留
 uv run kc-tc pull admin-ui             # 單一組件
 git add -A && git commit -m "chore(pull): 同步 Weblate"
 
