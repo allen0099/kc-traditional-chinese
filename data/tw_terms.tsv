@@ -98,3 +98,5 @@
 捆綁	組合／套件	warn	bundle
 示例	範例	warn
 聯邦|邦聯|聯盟|同盟	聯合	warn	federation（User Federation、federated identity）
+帳戶	帳號	warn	account
+使用者存放區	使用者儲存	warn	user storage
