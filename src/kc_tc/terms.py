@@ -161,8 +161,10 @@ def group_by_translation(ts: TermStat, index: NgramIndex, extra: list[str] = ())
     labels += [(x, "candidate") for x in extra if x not in t.ok + t.var]
     rest = [p for p in ts.matched if not any(lb in p.zh for lb, _ in labels)]
     known = {lb for lb, _ in labels}
-    for g, _ in index.candidates(rest, 8) if len(rest) >= 2 else []:
-        if not any(g in k or k in g for k in known):
+    # 樣本少時容易抓到重複句型的片段（例如兩句幾乎相同的說明文字），因此要求足夠的出現次數與覆蓋率
+    min_count = max(3, round(len(rest) * 0.2))
+    for g, c in index.candidates(rest, 8) if len(rest) >= 3 else []:
+        if c >= min_count and not any(g in k or k in g for k in known):
             labels.append((g, "candidate"))
             known.add(g)
 
