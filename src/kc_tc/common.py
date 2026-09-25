@@ -86,7 +86,9 @@ def api_list(url: str, token: str | None = None) -> list[dict]:
 class Entry:
     key: str
     value: str       # 檔案中的原始值（續行已合併，跳脫字元保留）
-    line: int
+    line: int        # 起始行號（1-based）
+    end: int = 0     # 結束行號（含），有續行時大於 line
+    raw_key: str = ""  # 檔案中的原始 key（保留跳脫）
 
 
 _KEY_SEP = re.compile(r"(?<!\\)[=:]|(?<!\\)\s")
@@ -116,7 +118,7 @@ def parse_properties(path: Path) -> dict[str, Entry]:
             if rest[:1] in ("=", ":"):
                 rest = rest[1:].lstrip()
             value = rest
-        entries[key.replace("\\", "")] = Entry(key.replace("\\", ""), value, start + 1)
+        entries[key.replace("\\", "")] = Entry(key.replace("\\", ""), value, start + 1, i, key)
     return entries
 
 
@@ -133,6 +135,38 @@ def unescape(value: str) -> str:
             return chr(int(s[1:], 16))
         return {"n": "\n", "t": "\t", "r": "\r", "f": "\f"}.get(s, s)
     return re.sub(r"\\(u[0-9a-fA-F]{4}|.)", rep, value)
+
+
+def escape(value: str) -> str:
+    """unescape 的反向操作，採用與 Weblate 相同的 UTF-8 形式（不轉 \\uXXXX）。"""
+    s = value.replace("\\", "\\\\").replace("\n", "\\n").replace("\t", "\\t").replace("\r", "\\r")
+    if s[:1] == " ":
+        s = "\\" + s
+    return s
+
+
+class Conflict(Exception):
+    """檔案中的值已被其他地方修改。"""
+
+
+def write_values(component: str, changes: dict[str, tuple[str, str]]) -> None:
+    """把 {key: (舊值, 新值)} 寫回 zh_Hant.properties（值皆為 unescape 後的形式）。
+
+    只替換該 key 所在的行，其餘內容保持不變；若舊值與檔案中不符則拋出 Conflict。
+    """
+    path = TRANS_DIR / component / f"{LANG}.properties"
+    entries = parse_properties(path)
+    text = path.read_text(encoding="utf-8")
+    lines = text.splitlines()
+    for key, (old, new) in changes.items():
+        e = entries.get(key)
+        if e is None:
+            raise Conflict(f"{component}: 找不到 {key}")
+        if unescape(e.value) != old:
+            raise Conflict(f"{component}: {key} 已被修改，請重新整理")
+        lines[e.line - 1:e.end] = [f"{e.raw_key}={escape(new)}"] + [None] * (e.end - e.line)
+    out = "\n".join(l for l in lines if l is not None)
+    path.write_text(out + ("\n" if text.endswith("\n") else ""), encoding="utf-8")
 
 
 # ---------------------------------------------------------------- 翻譯資料
@@ -171,6 +205,16 @@ def load_glossary() -> list[dict]:
         return []
     with GLOSSARY_CSV.open(encoding="utf-8") as f:
         return [r for r in csv.DictReader(f) if r.get("en", "").strip() and not r["en"].startswith("#")]
+
+
+GLOSSARY_FIELDS = ["en", "zh_Hant", "variants", "note"]
+
+
+def save_glossary(rows: list[dict]) -> None:
+    with GLOSSARY_CSV.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=GLOSSARY_FIELDS, extrasaction="ignore")
+        w.writeheader()
+        w.writerows(rows)
 
 
 def split_alts(s: str | None) -> list[str]:

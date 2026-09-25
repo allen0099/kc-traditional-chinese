@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}kc-tc{% endblock %} · Keycloak 繁中翻譯</title>
+  <link rel="stylesheet" href="/static/app.css">
+  <script src="/static/htmx.min.js"></script>
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <strong class="brand">kc-tc</strong>
+    <nav>
+      {% set path = request.url.path %}
+      <a href="/terms" class="{{ 'active' if path.startswith('/terms') }}">詞彙決策</a>
+      <a href="/replace" class="{{ 'active' if path.startswith('/replace') }}">批次取代</a>
+    </nav>
+  </header>
+  <main>{% block main %}{% endblock %}</main>
+</body>
+</html>

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}批次取代{% endblock %}
+{% block main %}
+<div class="page">
+  <form class="filters" method="get" action="/replace">
+    <fieldset>
+      <legend>詞彙 <small>（未勾選＝全部；只列出同時有標準譯法與變體的詞彙）</small></legend>
+      <div class="chips">
+        {% for t in terms %}
+        <label class="chip"><input type="checkbox" name="term" value="{{ t.key }}" {{ 'checked' if t.key in selected }}>
+          {{ t.en }} <small>{{ t.var | join("、") }} → {{ t.ok[0] }}</small></label>
+        {% else %}
+        <span class="empty">詞彙表中還沒有設定變體的詞彙。請先到「詞彙決策」把舊譯法設為變體。</span>
+        {% endfor %}
+      </div>
+    </fieldset>
+    <label>組件
+      <select name="component">
+        <option value="">全部</option>
+        {% for c in components %}<option {{ 'selected' if c == component }}>{{ c }}</option>{% endfor %}
+      </select>
+    </label>
+    <button type="submit">產生建議</button>
+  </form>
+
+  <div id="replace-area">
+  {% if props %}
+  <form hx-post="/replace/apply" hx-target="#replace-area" hx-confirm="寫入勾選的修改到 zh_Hant.properties？">
+    <div class="toolbar sticky">
+      <span>共 <b>{{ props | length }}</b> 條建議，已勾選 <b id="picked-count"></b> 條
+        {% set nwarn = props | selectattr("warnings") | list | length %}
+        {% if nwarn %}（{{ nwarn }} 條有警告，預設不勾選）{% endif %}</span>
+      <span class="spacer"></span>
+      <button type="button" onclick="pickAll(true)">全選</button>
+      <button type="button" onclick="pickAll(false)">全不選</button>
+      <button type="submit" class="primary">寫入勾選項目</button>
+    </div>
+    {% for pr in props %}
+    {% set i = loop.index0 %}
+    {% set before, after = diff_html(pr.pair.zh, pr.new) %}
+    <div class="prop {{ 'has-warn' if pr.warnings }}">
+      <div class="prop-head">
+        <label><input type="checkbox" name="pick" value="{{ i }}" {{ '' if pr.warnings else 'checked' }} onchange="countPicked()">
+          <b>{{ pr.pair.component }}</b> <code>{{ pr.pair.key }}</code></label>
+        {% for tn in pr.terms %}<span class="badge ok">{{ tn }}</span>{% endfor %}
+        <span class="spacer"></span>
+        <a href="{{ weblate_url(pr.pair) }}" target="_blank" rel="noopener">Weblate ↗</a>
+      </div>
+      <input type="hidden" name="comp_{{ i }}" value="{{ pr.pair.component }}">
+      <input type="hidden" name="key_{{ i }}" value="{{ pr.pair.key }}">
+      <textarea name="old_{{ i }}" hidden>{{ pr.pair.zh }}</textarea>
+      <div class="en">{{ hl_en(pr.pair.en, pr.terms) }}</div>
+      <div class="diff">
+        <div class="before">{{ before }}</div>
+        <div class="after">{{ after }}</div>
+      </div>
+      <textarea name="new_{{ i }}" class="edit" rows="{{ [2, (pr.new | length // 60) + 1] | max }}"
+                oninput="this.closest('.prop').querySelector('[name=pick]').checked = true; countPicked()">{{ pr.new }}</textarea>
+      {% for w in pr.warnings %}<p class="warn">⚠ {{ w }}</p>{% endfor %}
+    </div>
+    {% endfor %}
+  </form>
+  {% else %}
+  <p class="empty">沒有需要取代的字串。</p>
+  {% endif %}
+  </div>
+</div>
+{% endblock %}

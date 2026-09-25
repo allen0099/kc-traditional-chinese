@@ -7,6 +7,7 @@ COMMANDS = {
     "pull": "從 Hosted Weblate 下載原文與繁中譯文",
     "terms": "詞彙一致性報告",
     "lint": "格式與用語檢查",
+    "serve": "啟動本地網頁（詞彙決策、批次取代）",
 }
 
 

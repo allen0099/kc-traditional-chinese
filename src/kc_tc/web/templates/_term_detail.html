@@ -1,0 +1,74 @@
+{% if detail %}
+{% set t = detail.t %}{% set ts = detail.ts %}
+{% set extra = detail.extra | default("") %}
+{% if saved %}<div class="flash">已儲存到 glossary.csv</div>{% endif %}
+<form id="term-form" class="term-form" hx-post="/terms/save" hx-target="#terms-main">
+  <input type="hidden" name="orig" value="{{ '' if detail.is_new else t.key }}">
+  <div class="term-head">
+    <input name="en" value="{{ t.en }}" class="en-input" required>
+    {% if detail.is_new %}<span class="badge candidate">新詞彙（尚未儲存）</span>{% endif %}
+    <span class="stat">出現 <b>{{ ts.n }}</b> 條{% if ts.n %}，一致率 <b>{{ (ts.consistency * 100) | round | int }}%</b>{% endif %}</span>
+  </div>
+  <div class="fields">
+    <label>標準譯法 <small>多個以 | 分隔，第一個為取代目標</small>
+      <input id="f-ok" name="zh_Hant" value="{{ t.ok | join('|') }}" oninput="markDirty()"></label>
+    <label>變體 <small>會被取代為標準譯法</small>
+      <input id="f-var" name="variants" value="{{ t.var | join('|') }}" oninput="markDirty()"></label>
+    <label class="wide">備註
+      <textarea name="note" rows="2" oninput="markDirty()">{{ t.note }}</textarea></label>
+  </div>
+  <div class="actions">
+    <button type="submit" class="primary">儲存詞彙表</button>
+    <span id="dirty" class="dirty" hidden>有未儲存的變更</span>
+    <span class="spacer"></span>
+    {% if not detail.is_new and t.var %}
+    <a class="button" href="/replace?term={{ t.key | urlencode }}">預覽批次取代 →</a>
+    {% endif %}
+    {% if not detail.is_new %}
+    <button type="button" class="danger" hx-post="/terms/delete" hx-include="#term-form [name=orig]"
+            hx-target="#terms-main" hx-confirm="確定從詞彙表刪除「{{ t.en }}」？">刪除</button>
+    {% endif %}
+  </div>
+</form>
+
+<div class="groups-head">
+  <h3>目前譯法分組</h3>
+  <form hx-get="/terms/detail" hx-target="#detail" class="extra-form">
+    <input type="hidden" name="key" value="{{ t.key }}">
+    {% if detail.is_new %}<input type="hidden" name="new" value="{{ t.en }}">{% endif %}
+    <input name="extra" value="{{ extra }}" placeholder="手動指定分組片段，如：應用程式|客戶端">
+    <button type="submit">重新分組</button>
+  </form>
+</div>
+<p class="hint">字串依序歸入第一個符合的分組：標準 → 變體 → 手動片段 → 自動候選。在分組上點「設為標準／變體」後記得按「儲存詞彙表」。</p>
+
+{% set kind_names = {"ok": "標準", "variant": "變體", "candidate": "候選", "rest": "其他"} %}
+{% for g in detail.groups %}
+<details class="group {{ g.kind }}" data-label="{{ g.label }}">
+  <summary>
+    <span class="label">{{ g.label or "（未歸類）" }}</span>
+    <span class="badge {{ g.kind }}">{{ kind_names[g.kind] }}</span>
+    <span class="count">{{ g.pairs | length }} 條</span>
+    {% if g.label %}
+    <span class="group-actions">
+      <button type="button" onclick="setRole(event, 'ok')">設為標準</button>
+      <button type="button" onclick="setRole(event, 'var')">設為變體</button>
+      <button type="button" onclick="setRole(event, 'none')">取消</button>
+    </span>
+    {% endif %}
+  </summary>
+  <div class="group-body"
+       hx-get="/terms/group?key={{ t.key | urlencode }}&label={{ g.label | urlencode }}&kind={{ g.kind }}&extra={{ extra | urlencode }}{% if detail.is_new %}&new={{ t.en | urlencode }}{% endif %}"
+       hx-trigger="toggle once from:closest details">
+    <p class="loading">載入中…</p>
+  </div>
+</details>
+{% else %}
+<p class="empty">沒有任何字串包含「{{ t.en }}」。</p>
+{% endfor %}
+{% else %}
+<div class="empty-state">
+  <p>從左側選擇詞彙，或在左上角輸入英文詞彙來探索目前的譯法。</p>
+  <p>清單依「不一致條數」排序，越上面越需要處理。</p>
+</div>
+{% endif %}

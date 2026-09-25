@@ -1,0 +1,16 @@
+<div class="result">
+  {% for e in errors %}<div class="flash error">⚠ {{ e }}</div>{% endfor %}
+  <h3>已寫入 {{ results | length }} 條</h3>
+  {% set with_issues = results | selectattr("issues") | list %}
+  {% if with_issues %}<p class="warn">其中 {{ with_issues | length }} 條仍有 lint 問題，請檢查。</p>{% endif %}
+  {% for r in results %}
+  {% set before, after = diff_html(r.old, r.new) %}
+  <div class="prop {{ 'has-warn' if r.issues }}">
+    <div class="prop-head"><b>{{ r.comp }}</b> <code>{{ r.key }}</code></div>
+    <div class="diff"><div class="before">{{ before }}</div><div class="after">{{ after }}</div></div>
+    {% for lv, ck, msg in r.issues %}<p class="warn">[{{ lv }}] {{ ck }}：{{ msg }}</p>{% endfor %}
+  </div>
+  {% endfor %}
+  <p class="hint">用 <code>git diff translations/</code> 檢視完整變更。建議 commit 訊息：<code>i18n: 統一詞彙譯法</code></p>
+  <p><a class="button" href="">重新產生建議</a></p>
+</div>

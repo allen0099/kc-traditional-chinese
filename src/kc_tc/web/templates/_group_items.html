@@ -1,0 +1,16 @@
+{% if group %}
+<table class="pairs">
+  <thead><tr><th>位置</th><th>英文原文</th><th>繁中譯文</th></tr></thead>
+  <tbody>
+  {% for p in group.pairs %}
+  <tr>
+    <td class="loc"><a href="{{ weblate_url(p) }}" target="_blank" rel="noopener" title="在 Weblate 開啟">{{ p.component }}</a><code>{{ p.key }}</code></td>
+    <td>{{ hl_en(p.en, t.en) }}</td>
+    <td>{{ hl_zh(p.zh, t.ok, t.var, group.label) }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="empty">分組已變動，請重新整理。</p>
+{% endif %}

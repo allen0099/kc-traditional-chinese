@@ -29,11 +29,24 @@ git add -A && git commit -m "pull"     # 每次下載後 commit，之後用 git 
 uv run kc-tc terms                     # 依 glossary.csv 產生 reports/terms.md
 uv run kc-tc terms --term session      # 查某個英文詞目前有哪些譯法
 
-# 3. 格式與用語檢查
+# 3. 網頁介面：詞彙決策、批次取代（http://127.0.0.1:8765）
+uv run kc-tc serve
+
+# 4. 格式與用語檢查
 uv run kc-tc lint                      # 產生 reports/lint.md
 uv run kc-tc lint -l warn -c admin-ui
 uv run kc-tc lint --check placeholder,quote
 ```
+
+## 網頁介面（`kc-tc serve`）
+
+- **詞彙決策**：左側依「不一致條數」排序列出詞彙；點進去後，含有該詞的字串會依目前譯法分組（標準／變體／自動候選）。
+  在分組上點「設為標準」或「設為變體」，再按「儲存詞彙表」寫回 `glossary.csv`。左上角可輸入新的英文詞彙來探索譯法。
+- **批次取代**：依詞彙表把變體取代為標準譯法，逐條顯示修改前後的差異，可勾選、手動改寫後寫入 `zh_Hant.properties`。
+  寫入時只替換該行，並檢查檔案是否已被其他地方修改；寫入後會即時顯示 lint 結果。
+
+網頁直接讀寫 repo 內的檔案，修改都能用 `git diff` 檢視、用 `git checkout` 還原。
+在遠端機器上執行時，可用 `ssh -L 8765:127.0.0.1:8765 <主機>` 轉發後在本機瀏覽器開啟。
 
 ## glossary.csv
 

@@ -1,0 +1,13 @@
+<div class="split">
+  <aside class="sidebar">
+    <form class="new-term" hx-get="/terms" hx-target="#terms-main" hx-push-url="true">
+      <input name="new" placeholder="新增／探索英文詞彙，Enter 送出" autocomplete="off">
+    </form>
+    <input type="search" name="q" value="{{ q }}" placeholder="篩選詞彙（英文或中文）"
+           hx-get="/terms/list" hx-trigger="input changed delay:200ms, search" hx-target="#term-list"
+           hx-vals='{"sel": "{{ sel }}"}'>
+    <div class="list-head"><span>詞彙</span><span>不一致／出現</span></div>
+    <div id="term-list">{% include "_term_list.html" %}</div>
+  </aside>
+  <section id="detail">{% include "_term_detail.html" %}</section>
+</div>
