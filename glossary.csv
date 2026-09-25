@@ -3,6 +3,7 @@ access token,存取權杖,,參照國家教育研究院翻譯：https://terms.nae
 account,帳號,帳戶,Account Console 譯「帳號主控台」；service account 譯「服務帳號」,
 adapter,配接器,,,
 assertion,斷言,,,
+attestation,證明,聲明|驗證,裝置／金鑰由製造商簽章證明其型號與來源（WebAuthn attestation、OID4VCI key attestation）；attestation statement 譯「證明聲明」、conveyance preference 譯「證明傳達偏好」；不可譯「驗證」（authentication）或「聲明」（claim）
 attribute,屬性,,,
 authentication,驗證,,,
 authorization,授權,,,
