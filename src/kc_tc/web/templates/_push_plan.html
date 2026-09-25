@@ -15,10 +15,11 @@
     <span>可上傳 <b>{{ n_push }}</b>{% if n_conf %}，<span class="warn">衝突 <b>{{ n_conf }}</b></span>{% endif %}{% if n_miss %}，Weblate 無此 key {{ n_miss }}{% endif %}
       ，已勾選 <b id="picked-count"></b> 條</span>
     <span class="spacer"></span>
-    <label>上傳後狀態
+    <label>檢閱狀態
       <select name="state">
-        <option value="translated">已翻譯（需審核）</option>
-        <option value="approved">已核准（需審核權限）</option>
+        {% for value, label in states.items() %}
+        <option value="{{ value }}" {{ 'selected' if value == 'translated' }}>{{ label }}</option>
+        {% endfor %}
       </select>
     </label>
     <button type="button" onclick="pickAll(true)">全選</button>

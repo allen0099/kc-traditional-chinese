@@ -4,7 +4,9 @@
     uv run kc-tc push --dry-run            # 只比對，不上傳
     uv run kc-tc push                      # 比對後詢問是否上傳
     uv run kc-tc push admin-ui -y          # 只上傳指定組件，不詢問
-    uv run kc-tc push --state approved     # 上傳後標為「已核准」（需要審核權限）
+    uv run kc-tc push --state approved     # 上傳後標為「已核可」（需要檢閱權限）
+
+檢閱狀態：needs-editing＝需要編輯、translated＝等候檢閱（預設）、approved＝已核可
 
 只上傳 Weblate 現值仍等於上次同步基準的字串；有人在 Weblate 上改過的會列為衝突並略過，
 請到網頁的「上傳」頁逐條決定。上傳成功的字串會更新 baseline/，記得 commit。
@@ -16,7 +18,7 @@ import sys
 import urllib.error
 
 from .common import RATELIMIT, load_token
-from .sync import STATES, compare, local_changes, mark_synced, upload
+from .sync import STATE_LABELS, STATES, compare, local_changes, mark_synced, upload
 
 LABEL = {"push": "可上傳", "conflict": "衝突", "synced": "已同步", "missing": "Weblate 無此 key"}
 
@@ -27,7 +29,7 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("components", nargs="*", help="只處理這些組件")
     ap.add_argument("--dry-run", action="store_true", help="只比對，不上傳")
     ap.add_argument("-y", "--yes", action="store_true", help="不詢問直接上傳")
-    ap.add_argument("--state", choices=list(STATES), default="translated", help="上傳後的狀態（預設 translated）")
+    ap.add_argument("--state", choices=list(STATES), default="translated", help="上傳後的檢閱狀態（預設 translated＝等候檢閱）")
     args = ap.parse_args(argv)
 
     token = load_token()
@@ -59,7 +61,7 @@ def main(argv: list[str] | None = None) -> None:
         mark_synced(c.component, {c.key: c.local})
     if not todo:
         return
-    if not args.yes and input(f"\n上傳 {len(todo)} 條並標為 {args.state}？[y/N] ").strip().lower() != "y":
+    if not args.yes and input(f"\n上傳 {len(todo)} 條並標為「{STATE_LABELS[args.state]}」？[y/N] ").strip().lower() != "y":
         print("已取消。")
         return
 

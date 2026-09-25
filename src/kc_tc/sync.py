@@ -6,8 +6,9 @@ from dataclasses import dataclass
 from .common import (LANG, PROJECT, TRANS_DIR, api_list, api_request, components, load_baseline,
                      load_values, parse_properties, save_baseline, unescape, write_values, zh_path)
 
-# Weblate unit 狀態
-STATES = {"translated": 20, "approved": 30}
+# Weblate 檢閱狀態（名稱與 Weblate 繁中介面一致）
+STATES = {"needs-editing": 10, "translated": 20, "approved": 30}
+STATE_LABELS = {"needs-editing": "需要編輯", "translated": "等候檢閱", "approved": "已核可"}
 
 
 @dataclass
