@@ -8,6 +8,9 @@
     {{ job.done | length }} / {{ job.changes | length }}</h3>
   <p>成功 <b>{{ ok | length }}</b>{% if bad %}，<span class="warn">失敗或略過 <b>{{ bad | length }}</b></span>{% endif %}
     {% if ratelimit.remaining %}<small>（API 剩餘額度 {{ ratelimit.remaining }} / {{ ratelimit.limit }}）</small>{% endif %}</p>
+  {% set n_fail = bad | selectattr(1, "equalto", "fail") | list | length %}
+  {% if job.finished and n_fail %}<p><button type="button" class="primary" hx-post="/push/retry" hx-target="closest .result" hx-swap="outerHTML">重試失敗的 {{ n_fail }} 條</button>
+    {% if n_fail < bad | length %}<small class="hint">略過的項目請重新比對後再上傳</small>{% endif %}</p>{% endif %}
   {% if job.finished and job.phase.startswith("錯誤") %}<div class="flash error">{{ job.phase }}</div>{% endif %}
   {% for c, st, msg in bad %}
   <div class="prop has-warn">

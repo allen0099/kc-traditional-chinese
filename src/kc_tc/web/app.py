@@ -18,7 +18,7 @@ from markupsafe import Markup, escape
 
 from .. import lint, sync
 from ..common import (GLOSSARY_CSV, LANG, PROJECT, RATELIMIT, TRANS_DIR, WEBLATE, Conflict, Pair,
-                      insert_value, load_baseline, load_glossary, load_needs_edit, load_pairs, load_token,
+                      http_error_text, insert_value, load_baseline, load_glossary, load_needs_edit, load_pairs, load_token,
                       load_values, remove_value, save_glossary,
                       split_alts, write_values, zh_path)
 from ..terms import (NgramIndex, Term, TermStat, analyze, group_by_translation, load_terms,
@@ -391,7 +391,10 @@ class PushJob:
             local = {comp: load_values(zh_path(comp)) for comp in {c.component for c in self.changes}}
             todo = []
             for c, f in zip(self.changes, fresh):
-                if f.remote != expected[c.id]:
+                if f.remote == c.local:   # 例如上次回 503 但其實已寫入
+                    sync.mark_synced(c.component, {c.key: c.local})
+                    self.done.append((c, "ok", ""))
+                elif f.remote != expected[c.id]:
                     self.done.append((c, "skip", "比對後 Weblate 又被修改，請重新比對"))
                 elif local[c.component].get(c.key) != c.local:
                     self.done.append((c, "skip", "本地譯文在比對後有變更，請重新比對"))
@@ -407,7 +410,7 @@ class PushJob:
         if err is None:
             self.done.append((c, "ok", ""))
         elif isinstance(err, urllib.error.HTTPError):
-            self.done.append((c, "fail", f"HTTP {err.code} {err.read()[:200].decode(errors='replace')}"))
+            self.done.append((c, "fail", http_error_text(err)))
         else:
             self.done.append((c, "fail", str(err)))
 
@@ -495,6 +498,22 @@ async def push_apply(request: Request):
         return HTMLResponse('<div class="flash error">沒有勾選任何項目</div>')
     job = PushJob(picked, sync.STATES.get(form.get("state", ""), sync.STATES["translated"]))
     PUSH["job"], PUSH["plan"] = job, None
+    threading.Thread(target=job.run, args=(token,), daemon=True).start()
+    return render(request, "_push_progress.html", job=job, ratelimit=RATELIMIT)
+
+
+@app.post("/push/retry", response_class=HTMLResponse)
+def push_retry(request: Request):
+    """重新上傳上次工作中失敗的項目（略過的需要重新比對，不在此列）。"""
+    job, token = PUSH["job"], load_token()
+    if not token:
+        return HTMLResponse('<div class="flash error">找不到 API key，請在 .env 設定 WEBLATE_TOKEN</div>')
+    if not job or not job.finished:
+        return HTMLResponse('<div class="flash error">已有上傳工作進行中</div>')
+    failed = [c for c, st, _ in job.done if st == "fail"]
+    if not failed:
+        return render(request, "_push_progress.html", job=job, ratelimit=RATELIMIT)
+    PUSH["job"] = job = PushJob(failed, job.state)
     threading.Thread(target=job.run, args=(token,), daemon=True).start()
     return render(request, "_push_progress.html", job=job, ratelimit=RATELIMIT)
 

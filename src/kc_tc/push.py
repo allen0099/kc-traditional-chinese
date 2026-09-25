@@ -18,7 +18,7 @@ import sys
 import threading
 import urllib.error
 
-from .common import RATELIMIT, load_token
+from .common import RATELIMIT, http_error_text, load_token
 from .sync import STATE_LABELS, STATES, compare, local_changes, mark_synced, upload_many
 
 LABEL = {"push": "可上傳", "conflict": "衝突", "synced": "已同步", "missing": "Weblate 無此 key"}
@@ -75,8 +75,7 @@ def main(argv: list[str] | None = None) -> None:
                 count["ok"] += 1
             else:
                 count["fail"] += 1
-                msg = (f"HTTP {err.code} {err.read()[:200].decode(errors='replace')}"
-                       if isinstance(err, urllib.error.HTTPError) else str(err))
+                msg = http_error_text(err) if isinstance(err, urllib.error.HTTPError) else str(err)
                 print(f"  ✗ {c.component} {c.key}：{msg}")
             i = count["ok"] + count["fail"]
             if i % 50 == 0 or i == len(todo):

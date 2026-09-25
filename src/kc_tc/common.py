@@ -78,8 +78,19 @@ def api_request(url: str, token: str | None = None, method: str = "GET",
                 print(f"  觸發速率限制，等待 {wait} 秒…", file=sys.stderr, flush=True)
                 time.sleep(wait)
                 continue
+            if e.code in (502, 503, 504) and attempt < retries - 1:   # Weblate 忙碌時的暫時性錯誤
+                time.sleep(2 ** (attempt + 1))
+                continue
             raise
     raise RuntimeError("unreachable")
+
+
+def http_error_text(e: urllib.error.HTTPError) -> str:
+    """HTTP 錯誤的簡短說明；HTML 錯誤頁只取 <title>。"""
+    body = e.read()[:4000].decode(errors="replace")
+    if m := re.search(r"<title>(.*?)</title>", body, re.S | re.I):
+        body = m.group(1)
+    return f"HTTP {e.code} {' '.join(body.split())[:200]}"
 
 
 def _record_ratelimit(headers) -> None:
