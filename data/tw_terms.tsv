@@ -100,3 +100,5 @@
 聯邦|邦聯|聯盟|同盟	聯合	warn	federation（User Federation、federated identity）
 帳戶	帳號	warn	account
 使用者存放區	使用者儲存	warn	user storage
+點擊率	點閱率	warn	click-through rate
+點擊	點選	warn	click（台灣用「點選」；英文為 select 時用「選取」）
