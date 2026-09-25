@@ -200,10 +200,10 @@ def write_values(component: str, changes: dict[str, tuple[str, str]], path: Path
     path.write_text(out + ("\n" if text.endswith("\n") else ""), encoding="utf-8")
 
 
-def insert_value(component: str, key: str, value: str) -> None:
+def insert_value(component: str, key: str, value: str, path: Path | None = None) -> None:
     """新增 zh_Hant.properties 中尚不存在的 key，依 en.properties 的順序插在前一個已存在的 key 之後
     （與 Weblate 產生的檔案順序一致）；key 已存在時拋出 Conflict。"""
-    path = zh_path(component)
+    path = path or zh_path(component)
     entries = parse_properties(path)
     if key in entries:
         raise Conflict(f"{component}: {key} 已存在，請重新整理")

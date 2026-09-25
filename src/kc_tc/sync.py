@@ -4,7 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from .common import (LANG, PROJECT, TRANS_DIR, api_list, api_request, components, load_baseline,
-                     load_needs_edit, load_values, parse_properties, save_baseline, save_needs_edit,
+                     insert_value, load_needs_edit, load_values, parse_properties, save_baseline, save_needs_edit,
                      unescape, write_values, zh_path)
 
 # Weblate 檢閱狀態（名稱與 Weblate 繁中介面一致）
@@ -110,7 +110,7 @@ def mark_synced(component: str, values: dict[str, str]) -> None:
 
 @dataclass
 class MergeResult:
-    kept: list[str]        # 保留本地修改（Weblate 沒動）
+    kept: list[str]        # 保留本地修改（Weblate 沒動；含 Weblate 上仍未翻譯的新翻譯）
     conflicts: list[str]   # 雙方都改：保留本地值，基準維持舊值，上傳時會標為衝突
     dropped: list[str]     # Weblate 已沒有這個 key，本地修改捨棄
     updated: int           # Weblate 端更新、直接套用的條數
@@ -130,6 +130,8 @@ def merge_pull(component: str, remote_bytes: bytes) -> MergeResult:
         return res
 
     reapply: dict[str, tuple[str, str]] = {}
+    added: dict[str, str] = {}
+    source = parse_properties(TRANS_DIR / component / "en.properties")
     new_base = dict(remote)
     for key, lv in local.items():
         bv = base.get(key, "")
@@ -137,7 +139,12 @@ def merge_pull(component: str, remote_bytes: bytes) -> MergeResult:
         if lv == bv:
             continue                          # 本地沒改
         if rv is None:
-            res.dropped.append(key)
+            # Weblate 匯出的檔案不含未翻譯的 key：原文還在就是本地新翻譯，原文也沒了才捨棄
+            if key in source:
+                added[key] = lv
+                res.kept.append(key)
+            else:
+                res.dropped.append(key)
         elif rv == lv:
             continue                          # 已同步
         elif rv == bv:
@@ -150,5 +157,7 @@ def merge_pull(component: str, remote_bytes: bytes) -> MergeResult:
     res.updated = sum(1 for k, rv in remote.items() if rv != base.get(k, "") and local.get(k) == base.get(k, ""))
     if reapply:
         write_values(component, reapply, path)
+    for key, lv in added.items():
+        insert_value(component, key, lv, path)
     save_baseline(component, new_base)
     return res
