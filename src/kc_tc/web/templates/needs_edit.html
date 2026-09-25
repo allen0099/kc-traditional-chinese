@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}需要編輯{% endblock %}
+{% block main %}
+<div class="page">
+  <p class="hint">Weblate 上標為「需要編輯」的字串（通常是英文原文改過，舊譯文需要跟著更新），資料來自上次 <code>kc-tc pull</code>。
+    修改後按儲存（Ctrl+Enter）寫入本地，再到「上傳」頁送出；上傳時檢閱狀態選「等候檢閱」或「已核可」就會離開此清單。</p>
+  <p class="hint">共 <b>{{ items | length }}</b> 條，其中 <b>{{ items | selectattr("pending") | list | length }}</b> 條已修改、待上傳。</p>
+  {% if not items %}<p class="empty">沒有需要編輯的字串。</p>{% endif %}
+  {% for it in items %}{% with %}{% set p, value, old, hints, issues, saved, error = it.p, it.value, it.old, it.hints, it.issues, it.saved, it.error %}{% set need, state_label, pending = it.need, it.state_label, it.pending %}{% include "_translate_item.html" %}{% endwith %}{% endfor %}
+</div>
+{% endblock %}

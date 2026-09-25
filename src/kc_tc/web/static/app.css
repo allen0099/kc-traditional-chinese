@@ -139,3 +139,5 @@ ins { background: var(--ins); text-decoration: none; color: var(--ok); font-weig
 .prop .actions input { width: auto; }
 .lint-error { color: var(--danger); }
 .lint-info { color: var(--muted); }
+.en-diff .before::before { content: "英文舊原文"; }
+.en-diff .after::before { content: "英文新原文"; }

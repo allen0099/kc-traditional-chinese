@@ -4,13 +4,15 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from .common import (LANG, PROJECT, TRANS_DIR, api_list, api_request, components, load_baseline,
-                     load_values, parse_properties, save_baseline, unescape, write_values, zh_path)
+                     load_needs_edit, load_values, parse_properties, save_baseline, save_needs_edit,
+                     unescape, write_values, zh_path)
 
 # Weblate 檢閱狀態（名稱與 Weblate 繁中介面一致）
 STATES = {"needs-editing": 10, "translated": 20, "approved": 30}
 STATE_LABELS = {"needs-editing": "需要編輯", "translated": "等候檢閱", "approved": "已核可"}
 # unit 的 state 數值 → 顯示名稱（0 未翻譯、100 唯讀不在上傳選項內）
-REMOTE_STATE_LABELS = {0: "未翻譯", 10: "需要編輯", 20: "等候檢閱", 30: "已核可", 100: "唯讀"}
+REMOTE_STATE_LABELS = {0: "未翻譯", 10: "需要編輯", 11: "需要重寫", 12: "需要檢查", 20: "等候檢閱", 30: "已核可",
+                       100: "唯讀"}
 
 
 @dataclass
@@ -55,6 +57,12 @@ def fetch_units(component: str, token: str | None) -> dict[str, dict]:
     return {u["context"]: u for u in units}
 
 
+def needs_edit_of(units: dict[str, dict]) -> dict[str, dict]:
+    """從 unit 列表取出需要編輯的字串（state 10–19：需要編輯／需要重寫／需要檢查，通常是英文原文改過）。"""
+    return {k: {"state": u["state"], "previous_source": u.get("previous_source") or ""}
+            for k, u in units.items() if 10 <= (u.get("state") or 0) < 20}
+
+
 def compare(changes: list[Change], token: str | None) -> list[Change]:
     """查詢 Weblate 現值並判斷每條的狀態。"""
     for comp in sorted({c.component for c in changes}):
@@ -83,6 +91,13 @@ def upload(c: Change, token: str, state: int) -> None:
     """更新單一字串並同步基準。c.status 必須是 push（或使用者決定覆蓋的 conflict）。"""
     api_request(c.unit_url, token, method="PATCH", data={"target": [c.local], "state": state})
     mark_synced(c.component, {c.key: c.local})
+    needs = load_needs_edit()
+    if c.key in needs.get(c.component, {}):
+        if state >= 20:
+            del needs[c.component][c.key]
+        else:
+            needs[c.component][c.key]["state"] = state
+        save_needs_edit(needs)
 
 
 def mark_synced(component: str, values: dict[str, str]) -> None:

@@ -1,6 +1,8 @@
 <form class="prop {{ 'saved' if saved }} {{ 'has-warn' if error or issues }}" hx-post="/translate/save" hx-swap="outerHTML">
   <div class="prop-head">
     <span><b>{{ p.component }}</b> <code>{{ p.key }}</code></span>
+    {% if need %}<span class="badge variant">{{ state_label }}</span>{% endif %}
+    {% if pending %}<span class="badge candidate">已修改，待上傳</span>{% endif %}
     {% if saved %}<span class="badge ok">已儲存</span>{% endif %}
     <span class="spacer"></span>
     <a href="{{ weblate_url(p) }}" target="_blank" rel="noopener">Weblate ↗</a>
@@ -8,7 +10,12 @@
   <input type="hidden" name="component" value="{{ p.component }}">
   <input type="hidden" name="key" value="{{ p.key }}">
   {% if old is not none %}<textarea name="old" hidden>{{ old }}</textarea>{% endif %}
+  {% if need and need.previous_source %}
+  {% set before, after = diff_html(need.previous_source, p.en) %}
+  <div class="diff en-diff"><div class="before">{{ before }}</div><div class="after">{{ after }}</div></div>
+  {% else %}
   <div class="en">{{ hl_en(p.en, hints | map(attribute="en") | list) if hints else p.en }}</div>
+  {% endif %}
   {% if hints %}<div class="hints">{% for t in hints %}<span class="badge ok" title="{{ t.note }}">{{ t.en }} → {{ t.ok | join("／") }}</span>{% endfor %}</div>{% endif %}
   <textarea name="value" class="edit" rows="{{ [2, (p.en | length // 60) + 1] | max }}"
             hx-post="/translate/check" hx-trigger="input changed delay:500ms" hx-target="next .lint"

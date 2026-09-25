@@ -5,7 +5,8 @@
     uv run kc-tc pull admin-ui        # 只下載指定組件
 
 本地尚未上傳的修改會保留：Weblate 沒動的直接保留，雙方都改的列為衝突（保留本地值，
-上傳頁會標示衝突讓你決定）。基準存於 baseline/<組件>.json。
+上傳頁會標示衝突讓你決定）。基準存於 baseline/<組件>.json；Weblate 上需要編輯的字串
+（英文原文改過等）記錄在 baseline/needs_edit.json。
 """
 from __future__ import annotations
 
@@ -18,8 +19,8 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 
 from .common import (GLOSSARY_COMPONENT, GLOSSARY_CSV, LANG, MANIFEST, PROJECT,
-                    ROOT, TRANS_DIR, api_get, api_list, load_token)
-from .sync import merge_pull
+                    ROOT, TRANS_DIR, api_get, api_list, load_needs_edit, load_token, save_needs_edit)
+from .sync import fetch_units, merge_pull, needs_edit_of
 
 XML_LANG = "{http://www.w3.org/XML/1998/namespace}lang"
 
@@ -35,6 +36,7 @@ def main(argv: list[str] | None = None) -> None:
     comps = api_list(f"projects/{PROJECT}/components/?page_size=100", token)
     manifest = json.loads(MANIFEST.read_text()) if MANIFEST.exists() else {}
     manifest.setdefault("components", {})
+    needs = load_needs_edit()
 
     for c in comps:
         slug = c["slug"]
@@ -69,6 +71,9 @@ def main(argv: list[str] | None = None) -> None:
                   + (" …" if len(res.conflicts) > 10 else ""))
         if res.dropped:
             print(f"  ⚠ Weblate 已移除，捨棄本地修改 {len(res.dropped)} 條：{', '.join(res.dropped[:10])}")
+        needs[slug] = needs_edit_of(fetch_units(slug, token))
+        if needs[slug]:
+            print(f"  需要編輯 {len(needs[slug])} 條（通常是英文原文改過）")
 
         manifest["components"][slug] = {
             "name": c["name"],
@@ -82,6 +87,7 @@ def main(argv: list[str] | None = None) -> None:
         }
         print(f"  {stats['translated']}/{stats['total']} ({stats['translated_percent']}%)")
 
+    save_needs_edit(needs)
     manifest["pulled_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
     MANIFEST.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
     print("完成。可用 `git diff` 檢視與上次下載的差異。")

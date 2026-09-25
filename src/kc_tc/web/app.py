@@ -18,7 +18,8 @@ from markupsafe import Markup, escape
 
 from .. import lint, sync
 from ..common import (GLOSSARY_CSV, LANG, PROJECT, RATELIMIT, TRANS_DIR, WEBLATE, Conflict, Pair,
-                      insert_value, load_glossary, load_pairs, load_token, load_values, save_glossary,
+                      insert_value, load_baseline, load_glossary, load_needs_edit, load_pairs, load_token,
+                      load_values, save_glossary,
                       split_alts, write_values, zh_path)
 from ..terms import (NgramIndex, Term, TermStat, analyze, group_by_translation, load_terms,
                      norm_key, propose_replacements, term_regex)
@@ -279,11 +280,17 @@ async def replace_apply(request: Request):
 # ---------------------------------------------------------------- 未翻譯
 
 def item_ctx(p: Pair, value: str = "", old: str | None = None, **extra) -> dict:
-    """單條未翻譯字串的模板資料；old 為 None 表示 zh_Hant.properties 中還沒有這個 key。"""
+    """單條待翻譯字串的模板資料；old 為 None 表示 zh_Hant.properties 中還沒有這個 key。
+    若是 Weblate 上需要編輯的字串，另外帶上狀態、英文舊原文，以及本地是否已修改待上傳。"""
     hints = [t for t in store.get().terms.values() if t.ok and t.matches(p.en)]
     hints.sort(key=lambda t: t.en.lower())
-    return {"p": p, "value": value, "old": old, "hints": hints, "issues": [], "saved": False,
-            "error": "", **extra}
+    ctx = {"p": p, "value": value, "old": old, "hints": hints, "issues": [], "saved": False, "error": "",
+           "need": None, "pending": False}
+    if need := load_needs_edit().get(p.component, {}).get(p.key):
+        base = (load_baseline(p.component) or {}).get(p.key, "")
+        ctx.update(need=need, state_label=sync.REMOTE_STATE_LABELS.get(need["state"], need["state"]),
+                   pending=(old if old is not None else value) != base)
+    return ctx | extra
 
 
 def lint_issues(p: Pair, value: str) -> list[tuple[str, str, str]]:
@@ -310,6 +317,18 @@ def translate_page(request: Request, component: str = "", q: str = "", limit: in
     tpl = "translate.html" if "hx-request" not in request.headers else "_translate_list.html"
     return render(request, tpl, items=items, total=len(todo), limit=limit, component=component, q=q,
                   by_comp=dict(sorted(by_comp.items())))
+
+
+@app.get("/needs-edit", response_class=HTMLResponse)
+def needs_edit_page(request: Request):
+    needs = load_needs_edit()
+    items = []
+    for comp, keys in needs.items():
+        pairs = {p.key: p for p in load_pairs([comp])}
+        for key in keys:
+            if p := pairs.get(key):
+                items.append(item_ctx(p, p.zh or "", p.zh if p.zh is not None else None))
+    return render(request, "needs_edit.html", items=items)
 
 
 @app.post("/translate/check", response_class=HTMLResponse)

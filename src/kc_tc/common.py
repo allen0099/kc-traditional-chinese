@@ -293,3 +293,17 @@ def save_baseline(component: str, values: dict[str, str]) -> None:
     BASELINE_DIR.mkdir(exist_ok=True)
     text = json.dumps(dict(sorted(values.items())), ensure_ascii=False, indent=0)
     baseline_path(component).write_text(text + "\n", encoding="utf-8")
+
+
+NEEDS_EDIT = BASELINE_DIR / "needs_edit.json"
+
+
+def load_needs_edit() -> dict[str, dict[str, dict]]:
+    """上次同步時 Weblate 上需要編輯的字串：{組件: {key: {"state": 10–19, "previous_source": 英文舊原文}}}"""
+    return json.loads(NEEDS_EDIT.read_text(encoding="utf-8")) if NEEDS_EDIT.exists() else {}
+
+
+def save_needs_edit(data: dict[str, dict[str, dict]]) -> None:
+    BASELINE_DIR.mkdir(exist_ok=True)
+    data = {c: dict(sorted(v.items())) for c, v in sorted(data.items()) if v}
+    NEEDS_EDIT.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
