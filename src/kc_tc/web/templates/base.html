@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}kc-tc{% endblock %} · Keycloak 繁中翻譯</title>
-  <link rel="stylesheet" href="/static/app.css">
+  <link rel="stylesheet" href="{{ static_url('app.css') }}">
   <script src="/static/htmx.min.js"></script>
-  <script src="/static/app.js" defer></script>
+  <script src="{{ static_url('app.js') }}" defer></script>
 </head>
 <body>
   <header class="topbar">

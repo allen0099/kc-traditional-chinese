@@ -128,7 +128,13 @@ def weblate_url(p: Pair) -> str:
     return f"{WEBLATE}/translate/{PROJECT}/{p.component}/{LANG}/?q=" + quote(f'key:"{p.key}"')
 
 
-templates.env.globals.update(hl_en=hl_en, hl_zh=hl_zh, diff_html=diff_html, weblate_url=weblate_url)
+def static_url(name: str) -> str:
+    """加上修改時間當版本號，改過 JS/CSS 後重新整理即載入新版，不會用到瀏覽器快取的舊檔。"""
+    return f"/static/{name}?v={int((HERE / 'static' / name).stat().st_mtime)}"
+
+
+templates.env.globals.update(hl_en=hl_en, hl_zh=hl_zh, diff_html=diff_html, weblate_url=weblate_url,
+                             static_url=static_url)
 
 
 def render(request: Request, name: str, **ctx) -> HTMLResponse:
