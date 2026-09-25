@@ -5,6 +5,7 @@ glossary.csv 欄位：
     zh_Hant   標準譯法，多個可接受譯法以 | 分隔
     variants  已知的非標準譯法，以 | 分隔（報告中會分別統計）
     note      備註
+    reviewed  已檢視標記：標記當下的不一致條數（空白＝未檢視）；之後條數增加會視為有新變動
 
 用法：
     uv run kc-tc terms                      # 產生 reports/terms.md、reports/terms.csv
@@ -89,6 +90,7 @@ class Term:
     var: list[str]
     note: str = ""
     longer: list[re.Pattern] = field(default_factory=list)
+    reviewed: int | None = None   # 標記已檢視時的不一致條數
 
     @property
     def rx(self) -> re.Pattern:
@@ -113,6 +115,8 @@ def load_terms(rows: list[dict] | None = None) -> dict[str, Term]:
     for r in rows if rows is not None else load_glossary():
         k = norm_key(r["en"])
         t = terms.setdefault(k, Term(k, r["en"].strip(), [], [], r.get("note") or ""))
+        if (r.get("reviewed") or "").strip().isdigit():
+            t.reviewed = int(r["reviewed"])
         t.ok += [x for x in split_alts(r.get("zh_Hant")) if x not in t.ok]
         t.var += [x for x in split_alts(r.get("variants")) if x not in t.var]
     # 較長的詞彙優先：檢查 "client" 時先遮蔽 "client scope"
@@ -146,6 +150,18 @@ class TermStat:
     @property
     def inconsistent(self) -> int:
         return self.n - self.stat["ok"]
+
+    @property
+    def review(self) -> str:
+        """"" 未檢視／done 已檢視／changed 已檢視但之後不一致條數增加"""
+        r = self.term.reviewed
+        if r is None:
+            return ""
+        return "done" if self.inconsistent <= r else "changed"
+
+    @property
+    def new_since_review(self) -> int:
+        return self.inconsistent - (self.term.reviewed or 0)
 
 
 def analyze(term: Term, pairs: list[Pair]) -> TermStat:

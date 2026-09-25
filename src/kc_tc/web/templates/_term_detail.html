@@ -8,6 +8,8 @@
     <input name="en" value="{{ t.en }}" class="en-input" required>
     {% if detail.is_new %}<span class="badge candidate">新詞彙（尚未儲存）</span>{% endif %}
     <span class="stat">出現 <b>{{ ts.n }}</b> 條{% if ts.n %}，一致率 <b>{{ (ts.consistency * 100) | round | int }}%</b>{% endif %}</span>
+    {% if ts.review == 'done' %}<span class="badge ok" title="標記時不一致 {{ t.reviewed }} 條">已檢視</span>
+    {% elif ts.review == 'changed' %}<span class="badge variant" title="標記時不一致 {{ t.reviewed }} 條">已檢視，但有新變動 +{{ ts.new_since_review }}</span>{% endif %}
   </div>
   <div class="fields">
     <label>標準譯法 <small>多個以 | 分隔，第一個為取代目標</small>
@@ -25,6 +27,15 @@
     <a class="button" href="/replace?term={{ t.key | urlencode }}">預覽批次取代 →</a>
     {% endif %}
     {% if not detail.is_new %}
+    {% if ts.review == 'done' %}
+    <button type="button" hx-post="/terms/review" hx-vals='{"mark": "0"}' hx-include="#term-form [name=orig]"
+            hx-target="#terms-main">取消已檢視</button>
+    {% else %}
+    <button type="button" hx-post="/terms/review" hx-vals='{"mark": "1"}' hx-include="#term-form [name=orig]"
+            hx-target="#terms-main"
+            title="剩下的 {{ ts.inconsistent }} 條不一致視為合理例外；之後條數增加會移回待處理">
+      {{ '重新標記已檢視' if ts.review == 'changed' else '標記為已檢視' }}</button>
+    {% endif %}
     <button type="button" class="danger" hx-post="/terms/delete" hx-include="#term-form [name=orig]"
             hx-target="#terms-main" hx-confirm="確定從詞彙表刪除「{{ t.en }}」？">刪除</button>
     {% endif %}

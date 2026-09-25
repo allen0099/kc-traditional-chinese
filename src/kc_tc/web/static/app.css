@@ -125,3 +125,8 @@ ins { background: var(--ins); text-decoration: none; color: var(--ok); font-weig
 .badge.state-20 { background: #fff4ce; color: #7a5d00; }
 .badge.state-30 { background: #dff6dd; color: #0e6b0e; }
 .badge.state-100 { background: #e8e8e8; color: #444; }
+
+/* 已檢視的詞彙 */
+.reviewed-list { border-top: 1px solid var(--line, #e2e8f0); }
+.reviewed-list summary { cursor: pointer; padding: .4rem .75rem; color: var(--muted); font-size: .85rem; }
+.term-list li.reviewed .en { color: var(--muted); }

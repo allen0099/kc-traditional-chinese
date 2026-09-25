@@ -1,16 +1,25 @@
-<ul class="term-list">
-  {% for s in stats %}
+{% macro item(s) %}
   {% set url = "/terms?sel=" ~ (s.term.key | urlencode) %}
-  <li class="{{ 'active' if s.term.key == sel }} {{ 'unused' if not s.n }}">
+  <li class="{{ 'active' if s.term.key == sel }} {{ 'unused' if not s.n }} {{ 'reviewed' if s.review == 'done' }}">
     <a href="{{ url }}" hx-get="/terms/detail?key={{ s.term.key | urlencode }}" hx-target="#detail"
        hx-push-url="{{ url }}" onclick="markActive(this)">
-      <span class="en">{{ s.term.en }}</span>
+      <span class="en">{{ s.term.en }}
+        {% if s.review == 'changed' %}<span class="badge variant" title="標記已檢視後不一致條數增加">有新變動 +{{ s.new_since_review }}</span>{% endif %}</span>
       <span class="num">{% if s.n %}{{ s.inconsistent }}/{{ s.n }}{% else %}未出現{% endif %}</span>
       <span class="zh">{{ s.term.ok | join(" / ") or "（未定）" }}</span>
       {% if s.n %}<span class="meter"><span style="width: {{ (s.consistency * 100) | round }}%"></span></span>{% endif %}
     </a>
   </li>
-  {% else %}
-  <li class="empty">沒有符合的詞彙</li>
-  {% endfor %}
+{% endmacro %}
+<ul class="term-list">
+  {% for s in stats.pending %}{{ item(s) }}{% endfor %}
+  {% if not stats.pending and not stats.done %}<li class="empty">沒有符合的詞彙</li>{% endif %}
 </ul>
+{% if stats.done %}
+<details class="reviewed-list" {{ 'open' if stats.done | selectattr("term.key", "equalto", sel) | list }}>
+  <summary>已檢視 {{ stats.done | length }}</summary>
+  <ul class="term-list">
+    {% for s in stats.done %}{{ item(s) }}{% endfor %}
+  </ul>
+</details>
+{% endif %}

@@ -238,7 +238,7 @@ def load_glossary() -> list[dict]:
         return [r for r in csv.DictReader(f) if r.get("en", "").strip() and not r["en"].startswith("#")]
 
 
-GLOSSARY_FIELDS = ["en", "zh_Hant", "variants", "note"]
+GLOSSARY_FIELDS = ["en", "zh_Hant", "variants", "note", "reviewed"]
 
 
 def save_glossary(rows: list[dict]) -> None:

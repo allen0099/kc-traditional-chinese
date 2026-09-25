@@ -64,11 +64,14 @@ class Store:
                 self._sig = sig
         return self
 
-    def sorted_stats(self, q: str = "") -> list[TermStat]:
+    def sorted_stats(self, q: str = "") -> dict[str, list[TermStat]]:
+        """{"pending": 待處理（含已檢視但有新變動）, "done": 已檢視}"""
         q = q.strip().lower()
         stats = [s for s in self.stats.values()
                  if not q or q in s.term.en.lower() or any(q in x for x in s.term.ok + s.term.var)]
-        return sorted(stats, key=lambda s: (-s.inconsistent, s.term.en.lower()))
+        stats.sort(key=lambda s: (s.review != "changed", -s.inconsistent, s.term.en.lower()))
+        return {"pending": [s for s in stats if s.review != "done"],
+                "done": [s for s in stats if s.review == "done"]}
 
 
 store = Store()
@@ -193,6 +196,8 @@ def term_save(request: Request, orig: str = Form(""), en: str = Form(...), zh_Ha
     rows = load_glossary()
     drop = {orig, new_key} - {""}
     idx = next((i for i, r in enumerate(rows) if norm_key(r["en"]) in drop), None)
+    if idx is not None:
+        row["reviewed"] = rows[idx].get("reviewed", "")
     rows = [r for r in rows if norm_key(r["en"]) not in drop]
     if idx is None:
         rows.append(row)
@@ -202,6 +207,21 @@ def term_save(request: Request, orig: str = Form(""), en: str = Form(...), zh_Ha
     s = store.get()
     return render(request, "_terms_main.html", stats=s.sorted_stats(), q="", sel=new_key,
                   detail=term_detail_ctx(s, new_key), total_pairs=len(s.pairs), saved=True)
+
+
+@app.post("/terms/review", response_class=HTMLResponse)
+def term_review(request: Request, orig: str = Form(...), mark: str = Form("1")):
+    """標記／取消已檢視；標記時記下當下的不一致條數。"""
+    s = store.get()
+    ts = s.stats.get(orig)
+    rows = load_glossary()
+    for r in rows:
+        if norm_key(r["en"]) == orig:
+            r["reviewed"] = str(ts.inconsistent) if (mark == "1" and ts) else ""
+    save_glossary(rows)
+    s = store.get()
+    return render(request, "_terms_main.html", stats=s.sorted_stats(), q="", sel=orig,
+                  detail=term_detail_ctx(s, orig), total_pairs=len(s.pairs))
 
 
 @app.post("/terms/delete", response_class=HTMLResponse)
