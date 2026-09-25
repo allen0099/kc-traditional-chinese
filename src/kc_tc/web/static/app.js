@@ -29,13 +29,19 @@ function markActive(a) {
 
 // 批次取代
 function pickAll(on) {
-  document.querySelectorAll(".prop input[name=pick]").forEach((cb) => (cb.checked = on));
+  document.querySelectorAll(".prop:not([hidden]) input[name=pick]").forEach((cb) => (cb.checked = on));
   countPicked();
 }
 
-// 只勾選 Weblate 目前為指定檢閱狀態的項目
-function pickState(st) {
-  document.querySelectorAll(".prop input[name=pick]").forEach((cb) => (cb.checked = !cb.disabled && cb.dataset.state === st));
+// 上傳頁：點 Weblate 狀態標籤只顯示並勾選該狀態的項目，再點一次恢復全部顯示
+function filterState(btn) {
+  const on = !btn.classList.contains("active");
+  btn.parentElement.querySelectorAll("button.badge").forEach((b) => b.classList.toggle("active", b === btn && on));
+  document.querySelectorAll(".prop input[name=pick]").forEach((cb) => {
+    const match = cb.dataset.state === btn.dataset.state;
+    cb.closest(".prop").hidden = on && !match;
+    if (on) cb.checked = !cb.disabled && match;
+  });
   countPicked();
 }
 
