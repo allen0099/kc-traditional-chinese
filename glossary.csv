@@ -9,8 +9,9 @@ Birthdate,出生日期,,
 Bluetooth,藍芽,,
 certificate,憑證,,
 Claims,聲明,,
-Client,客戶端,,Applications → 應用程式 Clients → 客戶端
-client scope,應用程式範圍,,
+Client,用戶端,應用程式|客戶端,台灣標準用語（Microsoft、Google 台灣皆用「用戶端」）。不用「應用程式」以免與 application 撞詞
+client scope,用戶端範圍,應用程式範圍|客戶端範圍,
+client secret,用戶端密鑰,應用程式密鑰|應用程式金鑰|客戶端密鑰|用戶端金鑰,secret 用「密鑰」，與 key（金鑰）、password（密碼）區分；參照 Google 台灣 OAuth 文件
 cookie,cookie,,
 default,預設,,
 Direct grant,直接授權,,
@@ -25,6 +26,7 @@ Google Authenticator,Google Authenticator,,
 Introspect,內省,,
 issuer,簽發者,,
 Kerberos,Kerberos,,
+key,金鑰,秘鑰,加密用的 key；secret 另譯「密鑰」
 Last name,姓氏,,
 mapper,映射,,
 metadata,元資料,,
@@ -43,6 +45,7 @@ refresh,更新,,國家教育研究院  https://terms.naer.edu.tw/detail/241d0259
 Refresh token,更新權杖,,
 remove,移除,,不跟 delete 混用
 Session,工作狀態,,
+secret,密鑰,,與 key（金鑰）、password（密碼）區分
 Signature,簽章,,https://terms.naer.edu.tw/detail/72201d47c32b83a440af2550421eff52/?startswith=zh&seq=6
 token,權杖,,國家教育研究院 - https://terms.naer.edu.tw/detail/4fc5f9876aec29562f088628e1d8eef9/
 USB,USB,,
