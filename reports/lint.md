@@ -4,6 +4,11 @@
 |---|---|---:|
 | error | placeholder | 1 |
 | error | tw-term | 67 |
+| warn | punct | 1 |
+| warn | spacing | 2 |
+| warn | tw-term | 121 |
+| info | punct | 50 |
+| info | tw-term | 104 |
 
 ## 未翻譯字串
 
@@ -222,3 +227,852 @@
 - `theme-baseadmin:102` **workflowStepsIncompatible** — 「兼容」→「相容」
   - en: Steps provided are not compatible with each other.
   - zh: 提供的步驟不兼容其他的步驟。
+
+## [warn] punct
+
+- `admin-ui:1963` **invalidateRotatedSecret** — 中文後使用半形標點：?
+  - en: Invalidate rotated secret?
+  - zh: 廢止輪替密鑰?
+
+## [warn] spacing
+
+- `admin-ui:2063` **usernameLdapAttributeHelp** — 中文與英數字之間缺少空白
+  - en: Name of the LDAP attribute, which is mapped as Keycloak username. For many LDAP server vendors it can be 'uid'. For Active directory it can be 'sAMAccountName' or 'cn'. The attribute should be filled for all LDAP user records you want to import from LDAP to Keycloak.
+  - zh: LDAP 屬性名稱，對應到 Keycloak 使用者名稱。對於許多 LDAP 伺服器供應商來說，它可以是「uid」。對於 Active Directory，它可以是「sAMAccountName」或「cn」。您想要從 LDAP匯入到 Keycloak 的所有 LDAP 使用者記錄都應該填寫此屬性。
+- `admin-ui:2123` **removeInvalidUsersHelp** — 中文與英數字之間缺少空白
+  - en: Remove users from the local database if they are not available from the user storage when executing searches. If this is true, users no longer available from their corresponding user storage will be deleted from the local database whenever trying to look up users. If false, then users previously imp…
+  - zh: 在執行搜尋時，如果使用者無法從使用者存放區取得，則會從本機資料庫中移除該使用者。如果此選項為 true，則在嘗試查找使用者時，將從其對應的使用者存放區中不再可用的使用者從本機資料庫中刪除。如果為 false，則先前從使用者存放區匯入的使用者將保留在本機資料庫中，以唯讀和已停用的狀態，即使該使用者不再可從使用者存放區取得。例如，使用者是直接從 LDAP刪除的或 `Users DN` 無效。請注意，只有在使用者尚未快取時，才會發生此行為。
+
+## [warn] tw-term
+
+- `account-ui:37` **invalidEmailMessage** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: '{{0}}': Invalid email address.
+  - zh: {{0}}：無效的電子郵件地址。
+- `account-ui:83` **error-invalid-email** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Invalid email address.
+  - zh: 無效的電子郵件地址。
+- `account-ui:219` **error-non-ascii-local-part-email** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Local part of the address must contain only ASCII characters.
+  - zh: 電子郵件地址的名稱部分僅允許包含 ASCII 字元。
+- `account-ui:202` **emailScopeConsentText** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Email address
+  - zh: 電子郵件地址
+- `account-ui:203` **addressScopeConsentText** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Address
+  - zh: 地址
+- `admin-ui:2258` **policyRolesHelp** — 「設置」→「設定」
+  - en: Click on 'Add roles' to include accepted roles for this policy. Checking the 'required field' checkbox on a role indicates that the selected role MUST be present while evaluating policy, regardless of other roles. Leaving all relevant roles for the policy unchecked is the equivalent of setting a dec…
+  - zh: 點擊「新增角色」來加入此政策的接受角色。在角色上勾選「必要欄位」勾選方塊表示在評估政策時，該角色必須存在，無論其他角色如何。將所有相關角色保持未勾選相當於設置「肯定」的決策策略。
+- `admin-ui:1816` **cibaIntervalHelp** — 「設置」→「設定」
+  - en: The minimum amount of time in seconds that the CD (Consumption Device) must wait between polling requests to the token endpoint. If set to 0, the CD must use 5 as the default value according to the CIBA specification.
+  - zh: CD（消費裝置）在對權杖端點進行輪詢請求之間必須等待的最短時間（以秒為單位）。如果設置為 0，則 CD 必須根據 CIBA 規範使用 5 作為預設值。
+- `admin-ui:1668` **offlineSessionIdleHelp** — 「刷新」→「重新整理」
+  - en: Time an offline session is allowed to be idle before it expires. You need to use offline token to refresh at least once within this period; otherwise offline session will expire.
+  - zh: 離線工作階段允許閒置的時間，超過此時間後即會過期。您需要在此期間內至少使用離線權杖來刷新一次；否則，離線工作階段將會過期。
+- `admin-ui:2292` **validatingPublicKeyIdHelp** — 「設置」→「設定」
+  - en: Explicit ID of the validating public key given above if the key ID. Leave blank if the key above should be used always, regardless of key ID specified by external IDP; set it if the key should only be used for verifying if the key ID from external IDP matches.
+  - zh: 如果是金鑰 ID，則為上面給出的驗證金鑰的顯式 ID。如果應始終使用上面的金鑰，則可以留空，不需要管外部 IDP 指定的金鑰 ID；如果金鑰應僅用於驗證外部 IDP 的金鑰 ID 是否匹配，則設置它。
+- `admin-ui:2257` **userNotYetConfirmedNewEmail** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: The user has not confirmed the new email address {{email}}.
+  - zh: 使用者尚未確認這個新的電子信箱地址 {{email}}。
+- `admin-ui:2390` **signServiceProviderMetadataHelp** — 「數據」→「資料」
+  - en: Enable/disable signature of the provider SAML metadata.
+  - zh: 啟用/禁用提供者 SAML 元數據的簽名。
+- `admin-ui:2589` **validRequestURIsHelp** — 「支持」→「支援」（「支持」在台灣多指 support（擁護））
+  - en: List of valid URIs that can be used as values of the 'request_uri' parameter during an OpenID Connect authentication request. No support exists for the same capabilities as for Valid Redirect URIs. For example, wildcards or relative paths.
+  - zh: 可以用作 OpenID Connect 身份驗證請求期間「request_uri」參數值的有效 URI 列表。對於有效的重定向 URI，則不支持相同的功能。例如，通配符或相對路徑。
+- `admin-ui:1073` **testConnectionHint.withoutEmail** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: To test the connection you must first configure an e-mail address for the current user ({{userName}}).
+  - zh: 為了測試連線，您必須為目前的使用者 {{userName}} 設定一組電子郵件地址。
+- `admin-ui:2596` **requestObjectRequiredHelp** — 「設置」→「設定」
+  - en: Specifies if the client needs to provide a request object with their authorization requests, and what method they can use for this. If set to "not required", providing a request object is optional. In all other cases, providing a request object is mandatory. If set to "request", the request object m…
+  - zh: 指定應用程式是否需要在其授權請求中提供請求對象，以及他們可以使用的方法。如果設置為「非必要」，則提供請求對象是可選的。在所有其他情況下，提供請求對象是強制性的。如果設置為「僅限請求」，則必須通過值提供請求對象。如果設置為「僅限請求 URI」，則必須通過引用提供請求對象。如果設置為「請求或請求 URI」，則可以使用任一方法。
+- `admin-ui:2596` **requestObjectRequiredHelp** — 「對象」→「物件」
+  - en: Specifies if the client needs to provide a request object with their authorization requests, and what method they can use for this. If set to "not required", providing a request object is optional. In all other cases, providing a request object is mandatory. If set to "request", the request object m…
+  - zh: 指定應用程式是否需要在其授權請求中提供請求對象，以及他們可以使用的方法。如果設置為「非必要」，則提供請求對象是可選的。在所有其他情況下，提供請求對象是強制性的。如果設置為「僅限請求」，則必須通過值提供請求對象。如果設置為「僅限請求 URI」，則必須通過引用提供請求對象。如果設置為「請求或請求 URI」，則可以使用任一方法。
+- `admin-ui:1097` **loginWithEmailHelpText** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Allow users to log in with their email address.
+  - zh: 允許使用者透過他們的電子信箱地址登入。
+- `admin-ui:2600` **firstBrokerLoginFlowAliasOverrideHelp** — 「登錄」→「登入」（「登錄」在台灣指 register/record，login 應為「登入」）
+  - en: Alias of authentication flow, which is triggered after the first login with this identity provider. The term 'First Login' means that no Keycloak account is currently linked to the authenticated identity provider account.
+  - zh: 身份提供者首次登錄後觸發的身份驗證流程的別名。「首次登錄」意味著當前沒有 Keycloak 帳戶連接到已驗證的身份提供者帳戶。
+- `admin-ui:2605` **attributesHelp** — 「設置」→「設定」
+  - en: Name and (regex) value of the attributes to search for in token. The configured name of an attribute is searched in SAML attribute name and attribute friendly name fields. Every given attribute description must be met to set the role. If the attribute is an array, then the value must be contained in…
+  - zh: 要在權杖中搜索的屬性的名稱和（正則表達式）值。配置的屬性名稱會在 SAML 屬性名稱和屬性友好名稱欄位中進行搜索。必須滿足每個給定的屬性描述才能設置角色。如果屬性是數組，則該值必須包含在數組中。如果可以多次找到屬性，則匹配一次即可。
+- `admin-ui:2615` **policyProvider.role** — 「對象」→「物件」
+  - en: Define conditions for your permissions where a set of one or more roles is permitted to access an object.
+  - zh: 定義您的權限條件，其中允許一組一個或多個角色訪問對象。
+- `admin-ui:1074` **testConnectionHint.withoutEmailAction** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Configure e-mail address
+  - zh: 設定電子郵件地址
+- `admin-ui:2621` **syncLDAPGroupsSuccessful** — 「數據」→「資料」
+  - en: Data successfully synced {{result}}
+  - zh: 數據已成功同步 {{result}}
+- `admin-ui:2631` **useMetadataDescriptorUrlHelp** — 「數據」→「資料」
+  - en: If the switch is on, the certificates to validate signatures will be downloaded and cached from the given "Metadata descriptor URL". The "Reload keys" action can be used to refresh the certificates in the cache. If the switch is off, certificates from "Validating X509 certificates" option are used, …
+  - zh: 如果啟用，則用於驗證簽名的證書將從給定的「元數據描述符 URL」下載並緩存。可以使用「重新加載金鑰」操作來刷新緩存中的證書。如果關閉，則使用「驗證 X509 證書」選項中的證書，當 IDP 中更改時，需要手動更新它們。
+- `admin-ui:2631` **useMetadataDescriptorUrlHelp** — 「刷新」→「重新整理」
+  - en: If the switch is on, the certificates to validate signatures will be downloaded and cached from the given "Metadata descriptor URL". The "Reload keys" action can be used to refresh the certificates in the cache. If the switch is off, certificates from "Validating X509 certificates" option are used, …
+  - zh: 如果啟用，則用於驗證簽名的證書將從給定的「元數據描述符 URL」下載並緩存。可以使用「重新加載金鑰」操作來刷新緩存中的證書。如果關閉，則使用「驗證 X509 證書」選項中的證書，當 IDP 中更改時，需要手動更新它們。
+- `admin-ui:2632` **metadataDescriptorUrl** — 「數據」→「資料」
+  - en: Metadata descriptor URL
+  - zh: 元數據描述符 URL
+- `admin-ui:2633` **metadataDescriptorUrlHelp** — 「信息」→「訊息／資訊」
+  - en: External URL where Identity Provider publishes the metadata information needed by the client (certificates, keys, other URLs,...).
+  - zh: 身份提供者發布應用程式所需的元數據信息（證書、金鑰、其他 URL 等）的外部 URL。
+- `admin-ui:2633` **metadataDescriptorUrlHelp** — 「數據」→「資料」
+  - en: External URL where Identity Provider publishes the metadata information needed by the client (certificates, keys, other URLs,...).
+  - zh: 身份提供者發布應用程式所需的元數據信息（證書、金鑰、其他 URL 等）的外部 URL。
+- `admin-ui:2637` **importKeysSuccess** — 「保存」→「儲存」
+  - en: Keys successfully re-imported. Please save the provider to store the new certificates.
+  - zh: 金鑰成功重新匯入。請保存提供者以存儲新的證書。
+- `admin-ui:2639` **importKeysErrorNoSigningCertificate** — 「數據」→「資料」
+  - en: The option "signingCertificate" is not defined in the metadata.
+  - zh: 元數據中未定義選項「signingCertificate」。
+- `admin-ui:2649` **validatorDeletedSuccess** — 「保存」→「儲存」
+  - en: Success! User Profile configuration has been saved.
+  - zh: 成功！使用者配置已保存。
+- `admin-ui:2662` **client-updater-source-groups.tooltip** — 「支持」→「支援」（「支持」在台灣多指 support（擁護））
+  - en: Path of groups to check. The condition evaluates to true if the entity who creates or updates the client is a member of one or more of the specified groups. Configured groups are specified by their full path, for example /topGroup/level2group. No support for group hierarchy is used here.
+  - zh: 檢查群組的路徑。創建或更新應用程式的實體是否為一個或多個指定群組的成員，如果是，則條件評估為 true。配置的群組由其完整路徑決定，例如「/topGroup/level2group」。此處不使用群組層次結構的支持。
+- `admin-ui:2664` **ldapRolesDnHelp** — 「保存」→「儲存」
+  - en: LDAP DN where roles of this tree are saved. For example, 'ou=finance,dc=example,dc=org'.
+  - zh: 保存此樹的角色的 LDAP DN。例如，「ou=finance,dc=example,dc=org」。
+- `admin-ui:2050` **editModeLdapHelp** — 「用戶」→「使用者」（「用戶端」為合法用語）
+  - en: READ_ONLY is a read-only LDAP store. WRITABLE means data will be synced back to LDAP on demand. UNSYNCED means user data will be imported, but not synced back to LDAP.
+  - zh: READ_ONLY 是唯讀的 LDAP 存儲。WRITABLE 意味著數據將根據需要同步回 LDAP。UNSYNCED 意味著用戶數據將被導入，但不會同步回 LDAP。
+- `admin-ui:2050` **editModeLdapHelp** — 「數據」→「資料」
+  - en: READ_ONLY is a read-only LDAP store. WRITABLE means data will be synced back to LDAP on demand. UNSYNCED means user data will be imported, but not synced back to LDAP.
+  - zh: READ_ONLY 是唯讀的 LDAP 存儲。WRITABLE 意味著數據將根據需要同步回 LDAP。UNSYNCED 意味著用戶數據將被導入，但不會同步回 LDAP。
+- `admin-ui:2677` **saveSuccess** — 「保存」→「儲存」
+  - en: User federation provider successfully saved
+  - zh: 使用者邦聯提供者已成功保存
+- `admin-ui:2679` **requestObjectEncryptionHelp** — 「設置」→「設定」
+  - en: JWE algorithm, which a client needs to use when sending an OIDC request object specified by 'request' or 'request_uri' parameters. If set to 'any', encryption is optional and any algorithm is allowed.
+  - zh: JWE 演算法，應用程式在發送由「request」或「request_uri」參數指定的 OIDC 請求對象時需要使用該演算法。如果設置為「任何」，則加密是可選的，並允許使用任何演算法。
+- `admin-ui:2679` **requestObjectEncryptionHelp** — 「對象」→「物件」
+  - en: JWE algorithm, which a client needs to use when sending an OIDC request object specified by 'request' or 'request_uri' parameters. If set to 'any', encryption is optional and any algorithm is allowed.
+  - zh: JWE 演算法，應用程式在發送由「request」或「request_uri」參數指定的 OIDC 請求對象時需要使用該演算法。如果設置為「任何」，則加密是可選的，並允許使用任何演算法。
+- `admin-ui:2682` **invalidJsonError** — 「信息」→「訊息／資訊」
+  - en: Unable to save user profile, the provided information is not valid JSON: {{error}}
+  - zh: 無法儲存使用者設定，提供的信息不是有效的 JSON：{{error}}
+- `admin-ui:2683` **invalidJsonClientProfilesError** — 「信息」→「訊息／資訊」
+  - en: Unable to save client profiles, the provided information is not valid JSON: {{error}}
+  - zh: 無法儲存應用程式設定，提供的信息不是有效的 JSON：{{error}}
+- `admin-ui:2684` **invalidJsonClientPoliciesError** — 「信息」→「訊息／資訊」
+  - en: Unable to save client policies, the provided information is not valid JSON: {{error}}
+  - zh: 無法儲存應用程式政策，提供的信息不是有效的 JSON：{{error}}
+- `admin-ui:2698` **confirmClientSecretBody** — 「數據」→「資料」
+  - en: If you regenerate the secret, the Keycloak database will be updated and you will need to download a new adapter for this client.
+  - zh: 如果您重新生成密鑰，Keycloak 數據庫將被更新，您需要為此應用程式下載新的適配器。
+- `admin-ui:2710` **assertionLifespanHelp** — 「設置」→「設定」
+  - en: Lifespan set in the SAML assertion conditions. After that time the assertion will be invalid. The "SessionNotOnOrAfter" attribute is not modified and continue using the "SSO Session Max" time defined at realm level.
+  - zh: SAML 斷言條件中設置的壽命。超過該時間後，斷言將無效。「SessionNotOnOrAfter」屬性不會被修改，並繼續使用在領域級別定義的「SSO Session Max」時間。
+- `admin-ui:2711` **ldapAttributeValueHelp** — 「支持」→「支援」（「支持」在台灣多指 support（擁護））
+  - en: Value of the LDAP attribute, which will be added to the new user during registration. You can either hardcode any value like 'foo' but you can also use some special tokens. Only supported token right now is '${RANDOM}', which will be replaced with some randomly generated string.
+  - zh: LDAP 屬性的值，該屬性將在註冊期間添加到新使用者。您可以硬編碼任何值，例如「foo」，但您也可以使用一些特殊的標記。目前僅支持的標記是「${RANDOM}」，它將被替換為一些隨機生成的字符串。
+- `admin-ui:2717` **activeHelp** — 「設置」→「設定」
+  - en: Set if the keys can be used for signing
+  - zh: 設置密鑰是否可以用於簽名
+- `admin-ui:2720` **setToNowError** — 「設置」→「設定」
+  - en: Error! Failed to set notBefore to current date and time: {{error}}
+  - zh: 錯誤！無法將 notBefore 設置為當前日期和時間：{{error}}
+- `admin-ui:2730` **webAuthnPolicyAcceptableAaguidsHelp** — 「標識」→「識別碼」
+  - en: The list of allowed AAGUIDs of which an authenticator can be registered. An AAGUID is a 128-bit identifier indicating the authenticator's type (e.g., make and model). This option needs the Attestation conveyance preference to be configured (normally `Direct`) to ensure a trusted AAGUID is passed. De…
+  - zh: 可註冊驗證器的允許 AAGUID 清單。AAGUID 是 128 位元的標識符，用於標示驗證器的類型（例如：製造商與型號）。此選項需要配置「證明傳遞偏好」(Attestation conveyance preference)（通常為 `Direct`），以確保傳遞的是受信任的 AAGUID。預設的證明 `None` 不具可靠性，且可能會將 AAGUID 匿名化為零值。
+- `admin-ui:2731` **sectorIdentifierUri.tooltip** — 「支持」→「支援」（「支持」在台灣多指 support（擁護））
+  - en: Providers that use pairwise sub values and support Dynamic Client Registration SHOULD use the sector_identifier_uri parameter. It provides a way for a group of websites under common administrative control to have consistent pairwise sub values independent of the individual domain names. It also prov…
+  - zh: 使用成對子值並支持動態應用程式註冊的提供者應使用 sector_identifier_uri 參數。它為在共同管理控制下的一組網站提供了一種方法，以便獨立於各個域名擁有一致的成對子值。它還為應用程式提供了一種更改 redirect_uri 域而無需重新註冊所有使用者的方法。
+- `admin-ui:2733` **contextualInfo** — 「信息」→「訊息／資訊」
+  - en: Contextual Information
+  - zh: 上下文信息
+- `admin-ui:2734` **syncModeHelp** — 「登錄」→「登入」（「登錄」在台灣指 register/record，login 應為「登入」）
+  - en: Default sync mode for all mappers. The sync mode determines when user data is synced using the mappers. Three possible values exist: 'legacy' to keep the behavior before this option was introduced, 'import' to import the user only once, specifically during the first login of the user with this ident…
+  - zh: 所有映射器的預設同步模式。同步模式決定何時使用映射器同步使用者資料。存在三個可能的值：「legacy」以保持在引入此選項之前的行為，「import」僅導入使用者一次，特別是在使用此身份提供者首次登錄使用者期間，以及「force」以在每次使用此身份提供者登錄時始終更新使用者。
+- `admin-ui:2740` **privateKeyMask** — 「設置」→「設定」
+  - en: PRIVATE KEY NOT SET UP OR KNOWN
+  - zh: 未設置或未知的私鑰
+- `admin-ui:2751` **mapperSaveError** — 「保存」→「儲存」
+  - en: Error saving mapper: {{error}}
+  - zh: 保存映射器時出錯：{{error}}
+- `admin-ui:2784` **hideOnLoginPage** — 「登錄」→「登入」（「登錄」在台灣指 register/record，login 應為「登入」）
+  - en: Hide on login page
+  - zh: 在登錄頁面上隱藏
+- `admin-ui:2791` **accessTokenLifespanImplicitFlowHelp** — 「刷新」→「重新整理」
+  - en: Max time before an access token issued during OpenID Connect Implicit Flow is expired. This value is recommended to be shorter than the SSO timeout. There is no possibility to refresh token during implicit flow, that's why there is a separate timeout different to 'Access Token Lifespan'.
+  - zh: 在 OpenID Connect 隱式流程期間發出的訪問權杖過期之前的最大時間。建議此值短於 SSO 超時。在隱式流期間無法刷新權杖，這就是為什麼有一個與「訪問權杖壽命」不同的單獨超時的原因。
+- `admin-ui:1532` **serviceProviderEntityIdHelp** — 「標識」→「識別碼」
+  - en: The Entity ID that will be used to uniquely identify this SAML Service Provider.
+  - zh: 將用於唯一標識此 SAML 服務提供者的實體 ID。
+- `admin-ui:971` **addressClaim.formatted.label** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: User Attribute Name for Formatted Address
+  - zh: 格式化地址的使用者屬性名稱
+- `admin-ui:2867` **saveProviderError** — 「保存」→「儲存」
+  - en: Error saving provider: {{error}}
+  - zh: 無法保存提供者：{{error}}
+- `admin-ui:2878` **validatorDeletedError** — 「保存」→「儲存」
+  - en: Error saving User Profile: {{error}}
+  - zh: 無法保存使用者個人資料：{{error}}
+- `admin-ui:1173` **fromDisplayNameHelp** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: A user-friendly name for the 'From' address (optional).
+  - zh: 一個使用者友善的名字用於「寄件者」地址 (選擇性)。
+- `admin-ui:2883` **refreshTokenMaxReuseHelp** — 「刷新」→「重新整理」
+  - en: Maximum number of times a refresh token can be reused. When a different token is used, revocation is immediate.
+  - zh: 刷新權杖可以重複使用的最大次數。當使用不同的權杖時，將會立即撤銷。
+- `admin-ui:1174` **replyToDisplayNameHelp** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: A user-friendly name for the 'Reply-To' address (optional).
+  - zh: 一個使用者友善的名字用於「回覆給」地址 (選擇性)。
+- `admin-ui:2891` **useRefreshTokenForClientCredentialsGrant** — 「刷新」→「重新整理」
+  - en: Use refresh tokens for client credentials grant
+  - zh: 對於應用程式憑證授予，使用刷新權杖
+- `admin-ui:3018` **notBeforeHelp** — 「設置」→「設定」
+  - en: Revoke any tokens issued before this time for this client. To push the policy, you should set an effective admin URL in the Settings tab first.
+  - zh: 撤銷在此時間之前為此應用程式簽發的任何權杖。要推送該政策，您應該先在「設定」標籤中設置有效的管理 URL。
+- `admin-ui:2916` **scopeName** — 「標識」→「識別碼」
+  - en: A unique name for this scope. The name can be used to uniquely identify a scope, useful when querying for a specific scope.
+  - zh: 此範圍的唯一名稱。該名稱可用於唯一標識範圍，在查詢特定範圍時非常有用。
+- `admin-ui:2085` **oAuthDPoPHelp** — 「刷新」→「重新整理」
+  - en: This enables support for Demonstrating Proof-of-Possession (DPoP) bound tokens. For public clients, both access and refresh tokens are bound to the key stored on the client. In order to prove the possession of the key, the client must send a signed proof alongside the token. For confidential clients…
+  - zh: 這啟用對綁定權杖的擁有權證明 (DPoP) 的支援。對於公眾應用程式，存取和刷新權杖都綁定到存儲在應用程式上的金鑰。為了證明金鑰的擁有權，應用程式必須與權杖一起發送已簽名的證明。對於機密應用程式，只有存取權杖是 DPoP 綁定的，因為根據規範，刷新權杖已經由相關的身份驗證要求發送方約束。
+- `admin-ui:2939` **unsavedChangesConfirm** — 「保存」→「儲存」
+  - en: You have unsaved changes. Do you really want to leave the page?
+  - zh: 您有未保存的更改。您確定要離開此頁面嗎？
+- `admin-ui:2946` **roleSaveSuccess** — 「保存」→「儲存」
+  - en: The role has been saved
+  - zh: 角色已成功保存
+- `admin-ui:311` **copyInitialAccessToken** — 「保存」→「儲存」
+  - en: Please copy and paste the initial access token before closing as it can not be retrieved later.
+  - zh: 在關閉對話框前請妥善保存此初始存取權杖，您稍後將無法再度獲取此權杖。
+- `admin-ui:3077` **readOnlyHelp** — 「保存」→「儲存」
+  - en: Read-only attribute that is imported from LDAP to UserModel but is not saved back to LDAP when the user is updated in Keycloak.
+  - zh: 從 LDAP 匯入到 UserModel 的唯讀屬性，但在 Keycloak 中更新使用者時不會保存回 LDAP。
+- `admin-ui:3079` **requestObjectEncodingHelp** — 「設置」→「設定」
+  - en: JWE algorithm, which the client needs to use when encrypting the content of the OIDC request object specified by the 'request' or 'request_uri' parameters. If set to 'any', any algorithm is allowed.
+  - zh: JWE 演算法，應用程式在加密由「request」或「request_uri」參數指定的 OIDC 請求物件內容時需要使用該演算法。如果設置為「any」，則允許使用任何演算法。
+- `admin-ui:1560` **passwordPoliciesHelp.notEmail** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: The password cannot match the email address of the user.
+  - zh: 密碼不能與使用者的電子郵件地址相符。
+- `admin-ui:1098` **duplicateEmailsHelpText** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Allow multiple users to have the same email address. Changing this setting will also clear the user's cache. It is recommended to manually update email constraints of existing users in the database after switching off support for duplicate email addresses.
+  - zh: 允許多個使用者使用相同的電子信箱地址。變更這個設定也會清除使用者快取。建議在關閉此功能後手動更新目前資料庫中存在的使用者的電子信箱關聯。
+- `admin-ui:3145` **policyProvider.group** — 「對象」→「物件」
+  - en: Define conditions for your permissions where a set of one or more groups (and their hierarchies) is permitted to access an object.
+  - zh: 定義您的權限條件，其中允許一組一個或多個群組（及其層級）訪問對象。
+- `admin-ui:3146` **updatedUserProfileError** — 「保存」→「儲存」
+  - en: User Profile configuration hasn't been saved: {{error}}
+  - zh: 使用者設定檔配置未保存：{{error}}
+- `admin-ui:3180` **fullNameLdapReadOnlyHelp** — 「保存」→「儲存」
+  - en: For Read-only, data is imported from LDAP to the Keycloak database, but it is not saved back to LDAP when the user is updated in Keycloak.
+  - zh: 對於唯讀模式，資料會從 LDAP 匯入到 Keycloak 資料庫，但在 Keycloak 中更新使用者時不會保存回 LDAP。
+- `admin-ui:1575` **requiredUserActionsHelp** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Require an action when the user logs in. 'Verify email' sends an email to the user to verify that user's email address. 'Update profile' requires the user to enter new personal information. 'Update password' requires the user to enter a new password. 'Configure OTP' requires setup of a mobile passwo…
+  - zh: 在使用者登入時要求執行某個操作。「驗證電子郵件」會傳送一封電子郵件給使用者以驗證其電子郵件地址。「更新個人資料」要求使用者輸入新的個人資訊。「更新密碼」要求使用者輸入新密碼。「設定 OTP」要求設定行動密碼產生器。
+- `admin-ui:3181` **requestObjectSignatureAlgorithmHelp** — 「設置」→「設定」
+  - en: JWA algorithm, which the client needs to use when sending an OIDC request object specified by the 'request' or 'request_uri' parameters. If set to 'any', the Request object can be signed by any algorithm (including 'none').
+  - zh: JWA 演算法，應用程式在發送由「request」或「request_uri」參數指定的 OIDC 請求物件時需要使用該演算法。如果設置為「any」，則請求物件可以由任何演算法（包括「none」）簽署。
+- `admin-ui:736` **frontendUrlHelp** — 「主機名」→「主機名稱」
+  - en: Set the frontend URL for the realm. Use in combination with the default hostname provider to override the base URL for frontend requests for a specific realm.
+  - zh: 設定領域的前端 URL。與預設主機名稱提供者結合使用來覆寫特定領域的前端請求的基本 URL。
+- `admin-ui:452` **setup** — 「設置」→「設定」
+  - en: Setup
+  - zh: 設置
+- `admin-ui:1856` **revokeRefreshTokenHelp** — 「刷新」→「重新整理」
+  - en: If enabled, a refresh token can only be used up to 'Refresh Token Max Reuse' and it is revoked when a different token is used. Otherwise, refresh tokens are not revoked when used and can be used multiple times.
+  - zh: 如果啟用，則刷新權杖只能使用到「刷新權杖最大重用」並且在使用不同的權杖時會被撤銷。否則，刷新權杖在使用時不會被撤銷，並且可以多次使用。
+- `admin-ui:3238` **useLowerCaseBearerTypeHelp** — 「設置」→「設定」
+  - en: If this is on, token responses will be set the with the type "bearer" in lower-case. By default, the server sets the type as "Bearer" as defined by RFC6750. This switch is deprecated and might be removed in future version.
+  - zh: 如果啟用此選項，則令牌回應的類型將設置為小寫的「bearer」。預設情況下，伺服器會根據 RFC6750 將類型設置為「Bearer」。此開關已棄用並且將會在未來版本中移除。
+- `admin-ui:1463` **displayOrderHelp** — 「登錄」→「登入」（「登錄」在台灣指 register/record，login 應為「登入」）
+  - en: Number defining the order of the providers in GUI (for example, on the Login page). The lowest number will be applied first.
+  - zh: 定義提供者在 GUI 中的順序的數字（例如，在登錄頁面上）。最小的數字將顯示在最前面。
+- `admin-ui:749` **ipAddress** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: IP address
+  - zh: IP 地址
+- `admin-ui:3362` **client-updater-trusted-hosts.tooltip** — 「主機名」→「主機名稱」
+  - en: List of Hosts, which are trusted. In case that client registration/update request comes from the host/domain specified in this configuration, condition evaluates to true. You can use hostnames or IP addresses. If you use star at the beginning (for example '*.example.com' ) then whole domain example.…
+  - zh: 受信任的主機清單。如果來自此設定中指定的主機/網域的應用程式註冊/更新請求，則條件將評估為 true。您可以使用主機名稱或 IP 位址。如果在開頭使用星號（例如「*.example.com」），則整個網域 example.com 將被信任。
+- `admin-ui:3377` **resourceSaveError** — 「保存」→「儲存」
+  - en: Could not persist resource due to {{error}}
+  - zh: 因 {{error}} 而無法保存資源
+- `admin-ui:1068` **allowutf8Help** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Enable to allow UTF-8 characters in the local part of the email address. This should only be enabled if the mail server supports UTF-8 via the SMTPUTF8 extension. If disabled, domain names containing UTF-8 characters will be encoded using punycode, and addresses containing UTF-8 characters in the lo…
+  - zh: 啟用來允許在電子郵件地址中的域內部分使用 UTF-8 字元。這應該只有當郵件伺服器使用 SMTPUTF8 擴展提供 UTF-8 支援的時候啟用。如果禁用，域名如果包含 UTF-8 字元將會使用國際化域名編碼 (punycode) 進行編碼，域內部分如果包含 UTF-8 將會回傳一個錯誤。
+- `admin-ui:3408` **doNotStoreUsersHelp** — 「保存」→「儲存」
+  - en: When enabled, users from this broker are not persisted in internal database.
+  - zh: 啟用後，來自此代理的使用者不會被保存在內部資料庫中。
+- `admin-ui:3418` **trusted-hosts.tooltip** — 「主機名」→「主機名稱」
+  - en: List of Hosts, which are trusted and are allowed to invoke Client Registration Service and/or be used as values of Client URIs. You can use hostnames or IP addresses. If you use star at the beginning (for example '*.example.com' ) then whole domain example.com will be trusted.
+  - zh: 受信任的主機清單，允許調用應用程式註冊服務和/或用作應用程式 URI 的值。您可以使用主機名稱或 IP 位址。如果在開頭使用星號（例如「*.example.com」），則整個網域 example.com 將被信任。
+- `admin-ui:3489` **emailInvalid** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: You must enter a valid email.
+  - zh: 您必須輸入有效的電子郵件地址。
+- `admin-ui:1089` **verifyEmailHelpText** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Require user to verify their email address after initial login or after address changes are submitted.
+  - zh: 要求使用者在初次登入或電子信箱地址有更新後驗證他們的電子信箱地址。
+- `admin-ui:3498` **permanentLockoutHelp** — 「登錄」→「登入」（「登錄」在台灣指 register/record，login 應為「登入」）
+  - en: Configures whether a user is temporarily or permanently disabled after too many login failures. Permanent lockout can be configured to occur after a number of login failures or after a number of temporary lockouts.
+  - zh: 配置用戶在多次登錄失敗後是暫時禁用還是永久禁用。永久鎖定可以配置為在一定次數的登錄失敗後或一定次數的臨時鎖定後發生。
+- `admin-ui:3498` **permanentLockoutHelp** — 「用戶」→「使用者」（「用戶端」為合法用語）
+  - en: Configures whether a user is temporarily or permanently disabled after too many login failures. Permanent lockout can be configured to occur after a number of login failures or after a number of temporary lockouts.
+  - zh: 配置用戶在多次登錄失敗後是暫時禁用還是永久禁用。永久鎖定可以配置為在一定次數的登錄失敗後或一定次數的臨時鎖定後發生。
+- `admin-ui:1870` **error-invalid-email** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Invalid email address.
+  - zh: 無效的電子郵件地址。
+- `admin-ui:1069` **error-non-ascii-local-part-email** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Local part of the address must contain only ASCII characters.
+  - zh: 電子郵件地址中的域內部分只允許出現 ASCII 字元。
+- `admin-ui:1889` **invalidEmailMessage** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: '{{0}}': Invalid email address.
+  - zh: 「{{0}}」：無效的電子郵件地址。
+- `admin-ui:3833` **ssfTransmitterDisableConfirmBulletReceivers** — 「運行」→「執行」
+  - en: Receivers are not notified that streams went silent. They simply stop seeing events.
+  - zh: 接收端不會收到串流停止運行的通知，而是直接停止接收事件。
+- `admin-ui:1147` **senderEnvelopePlaceholder** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Sender envelope email address
+  - zh: 寄件者信封地址 (envelope address)
+- `admin-ui:3541` **organizationAliasHelp** — 「標識」→「識別碼」
+  - en: The alias uniquely identifies an organization using a format that is mainly targeted for referencing the organization internally. For instance, when issuing organization-related claims into tokens or when in a custom theme.
+  - zh: 別名使用主要用於在內部引用組織的格式來唯一標識組織。例如，在向權杖發出與組織相關的聲明或在自訂主題中時。
+- `admin-ui:2165` **forbiddenAdminConsole** — 「登錄」→「登入」（「登錄」在台灣指 register/record，login 應為「登入」）
+  - en: You do not have permission to access this resource, sign in with a user that has permission, or contact your administrator.
+  - zh: 您沒有權限存取此資源，請使用具有權限的使用者進行登錄，或聯繫您的管理員。
+- `admin-ui:3661` **enableDeflateCompressionHelp** — 「支持」→「支援」（「支持」在台灣多指 support（擁護））
+  - en: If enabled, the DEF compression algorithm is supported for credential requests. This allows clients to compress their requests to reduce payload size.
+  - zh: 如果啟用此功能，則憑證請求將支持 DEF 壓縮算法。這允許應用程式壓縮請求以減少請求大小。
+- `admin-ui:3631` **claimDisplayNamePlaceholder** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: e.g., Email Address
+  - zh: 例如，電子郵件地址
+- `theme-baseaccount:51` **address** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Address
+  - zh: 地址
+- `theme-baseaccount:66` **emailScopeConsentText** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Email address
+  - zh: 電子郵件地址
+- `theme-baseaccount:67` **addressScopeConsentText** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Address
+  - zh: 地址
+- `theme-baseaccount:163` **invalidEmailMessage** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Invalid email address.
+  - zh: 無效的電子郵件地址。
+- `theme-baseaccount:346` **error-invalid-email** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Invalid email address.
+  - zh: 無效的電子郵件地址。
+- `theme-baseaccount:360` **error-non-ascii-local-part-email** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Local part of the address must contain only ASCII characters.
+  - zh: 電子郵件地址中的域內部分只允許出現 ASCII 字元。
+- `theme-baseadmin:51` **error-invalid-email** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Invalid email address.
+  - zh: 無效的電子郵件地址。
+- `theme-baseadmin:72` **error-non-ascii-local-part-email** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Local part of the address must contain only ASCII characters.
+  - zh: 電子郵件地址的名稱部分僅允許包含 ASCII 字元。
+- `theme-baseadmin:89` **workflowStepUsesRequired** — 「設置」→「設定」
+  - en: Step ''uses'' cannot be null or empty.
+  - zh: 「使用」步驟不能為未設置或留空。
+- `theme-baseadmin:93` **workflowNameEmpty** — 「設置」→「設定」
+  - en: Workflow name cannot be null or empty.
+  - zh: 工作流程名稱不可為未設置或留空。
+- `theme-baseadmin:116` **workflowExpressionEmpty** — 「設置」→「設定」
+  - en: Expression cannot be null or empty.
+  - zh: 表達式不能為未設置或留空。
+- `theme-baseemail:2` **emailVerificationBody** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Someone has created a {2} account with this email address. If this was you, click the link below to verify your email address⏎⏎{0}⏎⏎This link will expire within {3}.⏎⏎If you didn''t create this account, just ignore this message.
+  - zh: 有人使用了這個電子郵件地址建立了一個 {2} 帳號。如果這是您的操作，請點擊下列連結驗證您的電子郵件地址⏎⏎{0}⏎⏎此連結將在 {3} 內失效。⏎⏎如果這不是您的操作，請忽略此訊息。
+- `theme-baseemail:3` **emailVerificationBodyHtml** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: <p>Someone has created a {2} account with this email address. If this was you, click the link below to verify your email address</p><p><a href="{0}">Link to e-mail address verification</a></p><p>This link will expire within {3}.</p><p>If you didn''t create this account, just ignore this message.</p>
+  - zh: <p>有人使用了這個電子郵件地址建立了一個 {2} 帳號。如果這是您的操作，請點擊下列連結驗證您的電子郵件地址</p><p><a href="{0}">驗證電子郵件地址連結</a></p><p>此連結將在 {3} 內失效。</p><p>如果您沒有建立帳號，請忽略此訊息。</p>
+- `theme-baseemail:10` **emailUpdateConfirmationBody** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: To update your {2} account with email address {1}, click the link below⏎⏎{0}⏎⏎This link will expire within {3}.⏎⏎If you don''t want to proceed with this modification, just ignore this message.
+  - zh: 為了更新您的 {2} 帳號的電子郵件地址 {1}，請點擊下列連結⏎⏎{0}⏎⏎此連結將在 {3} 內失效。⏎⏎如果您不想進行這個修改，請忽略此訊息。
+- `theme-baseemail:11` **emailUpdateConfirmationBodyHtml** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: <p>To update your {2} account with email address {1}, click the link below</p><p><a href="{0}">{0}</a></p><p>This link will expire within {3}.</p><p>If you don''t want to proceed with this modification, just ignore this message.</p>
+  - zh: <p>為了更新您的 {2} 帳號的電子郵件地址 {1}，請點擊下列連結</p><p><a href="{0}">{0}</a></p><p>此連結將在 {3} 內失效。</p><p>如果您不想進行這個修改，請忽略此訊息。</p>
+- `theme-baseemail:63` **emailVerificationBodyCode** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Please verify your email address by entering in the following code.⏎⏎{0}⏎⏎.
+  - zh: 請輸入以下代碼以驗證您的電子郵件地址。⏎⏎{0}⏎⏎.
+- `theme-baseemail:64` **emailVerificationBodyCodeHtml** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: <p>Please verify your email address by entering in the following code.</p><p><b>{0}</b></p>
+  - zh: <p>請輸入以下代碼以驗證您的電子郵件地址。</p><p><b>{0}</b></p>
+- `theme-baselogin:94` **address** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Address
+  - zh: 地址
+- `theme-baselogin:111` **addressScopeConsentText** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Address
+  - zh: 地址
+- `theme-baselogin:492` **error-non-ascii-local-part-email** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: Local part of the address must contain only ASCII characters.
+  - zh: 電子郵件地址中的域內部分只允許出現 ASCII 字元。
+- `theme-baselogin:416` **recovery-code-config-warning-message** — 「保存」→「儲存」
+  - en: Make sure to print, download, or copy them to a password manager and keep them safe. Canceling this setup will remove these recovery codes from your account.
+  - zh: 請務必列印、下載或複製至密碼管理器中並妥善保存。取消此設定將從您的帳號中移除這些復原驗證碼。
+- `theme-baselogin:507` **emailVerificationPending** — 「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）
+  - en: A verification email was sent to {0}. You can submit without changes to resend the verification email, or enter a different email address.
+  - zh: 已寄送驗證郵件至 {0}。您可以直接提交以重新發送，或輸入不同的電子郵件地址。
+
+## [info] punct
+
+- `account-ui:46` **clientDescriptionHelp** — 全形標點後多了空白
+  - en: Specifies description of the client. For example 'My Client for TimeSheets'. Supports keys for localized values as well. For example: ${my_client_description}
+  - zh: 指定客戶端的描述。 例如「我的時間表客戶端」。 也支援 i18n 鍵值。 例如：${my_client_description}
+- `account-ui:81` **scopeNameHelp** — 全形標點後多了空白
+  - en: Name of the client scope. Must be unique in the realm. Name should not contain space characters as it is used as value of scope parameter
+  - zh: 客戶端範圍的名稱。 在領域內必須是獨一無二的。 名稱不應包含空格字符，因為它被用於授權範圍的值
+- `account-ui:237` **theme.keycloak.v3.account.description** — 括號內含中文，建議使用全形括號（）
+  - en: Refined, v3 is more cohesive and dynamic. (Default for Account)
+  - zh: v3 版本經過優化，更具凝聚力且更具動態性。(預設給帳號介面)
+- `admin-ui:2006` **bindTypeHelp** — 括號內含中文，建議使用全形括號（）
+  - en: Type of the authentication method used during LDAP bind operation. It is used in most of the requests sent to the LDAP server. Currently only 'none' (anonymous LDAP authentication) or 'simple' (bind credential + bind password authentication) mechanisms are available.
+  - zh: 在 LDAP 綁定操作中使用的身份驗證方法類型。它用於發送到 LDAP 伺服器的大多數請求。目前僅提供 none (匿名 LDAP 身份驗證) 或 simple (綁定憑證 + 綁定密碼身份驗證) 機制。
+- `admin-ui:3687` **clientPkceRequiredHelp** — 括號內含中文，建議使用全形括號（）
+  - en: Require Proof Key for Code Exchange (PKCE) to protect against authorization code interception attacks. Public clients (client authentication disabled) should always require PKCE as they cannot securely store client secrets. It is also recommended for confidential clients as an additional layer of se…
+  - zh: 為了避免授權代碼攔截攻擊，Keycloak 要求使用代碼交換驗證金鑰 (PKCE) 。公開的應用程式 (未使用應用程式身分授權) 應該總是要求使用 PKCE，因為它們無法安全的儲存應用程式密鑰。也建議機密應用程式也使用此方式作為額外的一層安全性。如果不是強制要求，Keycloak 只會在應用程式在其授權請求中包含代碼驗證及方法時才使用 PKCE。
+- `admin-ui:1982` **samlClientMetadataDescriptorUrlHelp** — 括號內含中文，建議使用全形括號（）
+  - en: External URL where Service Provider publishes the metadata information needed by the server (certificates, keys, other URLs,...).
+  - zh: 服務提供者發布伺服器所需的元資料資訊 (憑證、金鑰、其他 URL …) 的外部 URL。
+- `admin-ui:1695` **xContentTypeOptionsHelp** — 全形標點後多了空白
+  - en: The default value prevents Internet Explorer and Google Chrome from MIME-sniffing a response away from the declared content-type. <formattedlink>Learn more</formattedlink>
+  - zh: 預設值可防止 Internet Explorer 和 Google Chrome 從宣告的內容類型中進行 MIME 嗅探回應。 <formattedlink>了解更多</formattedlink>
+- `admin-ui:1698` **contentSecurityPolicyHelp** — 全形標點後多了空白
+  - en: Default value prevents pages from being included by non-origin iframes. <formattedlink>Learn more</formattedlink>
+  - zh: 預設值可防止非來源 iframe 包含頁面。 <formattedlink>了解更多</formattedlink>
+- `admin-ui:2072` **userLdapFilterHelp** — 括號內含中文，建議使用全形括號（）
+  - en: Additional LDAP filter for filtering searched users. Leave this empty if you don't need an additional filter. Make sure that it starts with '(' and ends with ')'.
+  - zh: 用於篩選搜尋到的使用者的其他 LDAP 篩選條件。如果您不需要其他篩選條件，請將此欄位留空。確保它以「(」開頭並以「)」結尾。
+- `admin-ui:3008` **ldapFilterHelp** — 括號內含中文，建議使用全形括號（）
+  - en: LDAP Filter adds an additional custom filter to the whole query for retrieve LDAP groups. Leave this empty if no additional filtering is needed and you want to retrieve all groups from LDAP. Otherwise make sure that filter starts with '(' and ends with ')'.
+  - zh: LDAP 篩選器會向檢索 LDAP 群組的整個查詢新增額外的自訂篩選器。如果不需要額外的篩選並且您想要從 LDAP 檢索所有群組，請將此留空。否則，請確保篩選器以「(」開頭並以「)」結尾。
+- `admin-ui:1173` **fromDisplayNameHelp** — 括號內含中文，建議使用全形括號（）
+  - en: A user-friendly name for the 'From' address (optional).
+  - zh: 一個使用者友善的名字用於「寄件者」地址 (選擇性)。
+- `admin-ui:1174` **replyToDisplayNameHelp** — 括號內含中文，建議使用全形括號（）
+  - en: A user-friendly name for the 'Reply-To' address (optional).
+  - zh: 一個使用者友善的名字用於「回覆給」地址 (選擇性)。
+- `admin-ui:3123` **moveGroupError** — 全形標點後多了空白
+  - en: Could not move group: {{error}}
+  - zh: 無法移動群組： {{error}}
+- `admin-ui:1331` **xFrameOptionsHelp** — 全形標點後多了空白
+  - en: Default value prevents pages from being included by non-origin iframes. <formattedlink>Learn more</formattedlink>
+  - zh: 預設值會阻止頁面被非原始 iframe 所引用。 <formattedlink>了解更多</formattedlink>
+- `admin-ui:1175` **envelopeFromHelp** — 括號內含中文，建議使用全形括號（）
+  - en: An email address used for bounces (optional).
+  - zh: 用於 bounces 的電子信箱位置 (選擇性)。
+- `admin-ui:1595` **acrToLoAMappingHelp** — 括號內含中文，建議使用全形括號（）
+  - en: Define which ACR (Authentication Context Class Reference) value is mapped to which LoA (Level of Authentication). The ACR can be any value, whereas the LoA must be numeric.
+  - zh: 定義哪個 ACR (驗證上下文類別參考) 值對應到哪個 LoA (驗證層級)。ACR 可以是任何值，而 LoA 必須是數字。
+- `admin-ui:1607` **lookAroundHelp** — 括號內含中文，建議使用全形括號（）
+  - en: How far around (extra token periods or counts) should the server look just in case the token generator and server are out of time sync or counter sync?
+  - zh: 伺服器應該在多遠的範圍內 (額外的權杖週期或計數) 進行搜尋，以防止權杖產生器和伺服器之間的時間不同步或計數不同步？
+- `admin-ui:1727` **strictTransportSecurityHelp** — 括號內含中文，建議使用全形括號（）
+  - en: The Strict-Transport-Security HTTP header tells browsers to always use HTTPS. Once a browser sees this header, it will only visit the site over HTTPS for the time specified (1 year) at max-age, including the subdomains. <formattedlink>Learn more</formattedlink>
+  - zh: Strict-Transport-Security HTTP 標頭告訴瀏覽器始終使用 HTTPS。一旦瀏覽器看到此標頭，它將僅在指定的時間 (1 年) 內通過 HTTPS 訪問該網站，包括子網域。<formattedlink>進一步了解</formattedlink>
+- `admin-ui:3872` **regexGroupsNotAllowed** — 括號內含中文，建議使用全形括號（）
+  - en: Regex must not contain groups (parentheses).
+  - zh: 正則不可以包含群組 (括號)。
+- `admin-ui:2237` **referrerPolicyHelp** — 全形標點後多了空白
+  - en: Default value prevents pages from being included. <formattedlink>Learn more</formattedlink>
+  - zh: 預設值避免了頁面被包含。 <formattedlink>了解更多</formattedlink>
+- `admin-ui:3859` **ssfPendingFieldDecodedSet** — 括號內含中文，建議使用全形括號（）
+  - en: Security Event Token (decoded)
+  - zh: 安全事件權杖 (已解碼)
+- `admin-ui:1148` **smtpPortPlaceholder** — 括號內含中文，建議使用全形括號（）
+  - en: SMTP port (defaults to 25)
+  - zh: SMTP 連接埠 (預設為 25)
+- `admin-ui:3570` **policyTypeHelpText** — 括號內含中文，建議使用全形括號（）
+  - en: Specifies the access control method used to evaluate whether a permission should be granted or denied (e.g. 'User' matches specific users, 'Group' matches group members, 'Role' matches users with assigned roles).
+  - zh: 指定用於評估是否應授予或拒絕權限的存取控制方法 (例如，「使用者」匹配特定使用者，「群組」匹配群組成員，「角色」匹配具有已分配角色的使用者)。
+- `admin-ui:3677` **credentialSigningAlgorithmHelp** — 括號內含中文，建議使用全形括號（）
+  - en: Signing algorithm used to select the active realm key for signing credentials (e.g., "ES256"). If not specified, the active key will be selected using the realm's default algorithm. This option is disabled if a specific 'Signing Key ID' is selected.
+  - zh: 用於選擇用於簽發憑證的活動域金鑰 (active realm key) 的簽章演算法 (例如「ES256」)。如果未指定，將使用領域預設的演算法選擇活動金鑰 (active key)。如果選擇了特定的「簽署金鑰 ID」，則此選項將被停用。
+- `admin-ui:3675` **hashAlgorithmHelp** — 括號內含中文，建議使用全形括號（）
+  - en: Hash algorithm used for SD-JWT credentials (for example "SHA-256"). Defaults to "SHA-256" if not specified.
+  - zh: 用於 SD-JWT 憑證的雜湊演算法 (例如「SHA-256」)。預設是「SHA-256」。
+- `admin-ui:3620` **verifiableCredentialTypeHelp** — 全形標點後多了空白
+  - en: The credential type identifier for SD-JWT and ISO mDoc format credentials. This value is used in the vct claim of an issued SD-JWT credential and as the doctype of an issued ISO mDoc credential. Required for SD-JWT and ISO mDoc formats.
+  - zh: SD-JWT 及 ISO mDoc 格式憑證的憑證類型識別碼。數值將用於一個已經簽署 SD-JWT 憑證的 VCT 聲明以及已簽署的 ISO mDoc 憑證的 doctype。 SD-JWT 及 ISO mDoc 格式憑證必須包含此識別碼。
+- `admin-ui:3622` **tokenJwsTypeHelp** — 括號內含中文，建議使用全形括號（）
+  - en: The type value written into the typ header of the JWT. If empty, a format-specific default is used ("dc+sd-jwt" for SD-JWT VC and "vc+jwt" for JWT VC). Can be set to custom values if required by the wallet or system.
+  - zh: 寫入 typ 標頭的 JWT 類型的類型值。如果留空，將會使用與格式關聯的預設值 (SD-JWT VC 用「dc+sd-jwt」以及 JWT VC 用「vc+jwt」)。如果錢包或系統需要的話可以設定為自訂值。
+- `admin-ui:3624` **visibleClaimsHelp** — 括號內含中文，建議使用全形括號（）
+  - en: Comma-separated list of claims that are always disclosed in the SD-JWT body (e.g., "id,iat,nbf,exp,jti,given_name"). Defaults to "id,iat,nbf,exp,jti". Only applicable for SD-JWT format.
+  - zh: 用逗號分隔的聲明列表，這些聲明總是顯示在 SD-JWT 主體中 (例如「id,iat,nbf,exp,jti,given_name」)。預設是「id,iat,nbf,exp,jti」。只適用於 SD-JWT 格式。
+- `admin-ui:3627` **useDefaultKey** — 括號內含中文，建議使用全形括號（）
+  - en: Use default (realm's active signing key)
+  - zh: 使用預設值 (領域啟用的簽署金鑰)
+- `admin-ui:3642` **smtpConnectionTimeoutHelp** — 括號內含中文，建議使用全形括號（）
+  - en: The timeout in milliseconds for connecting to the SMTP server.
+  - zh: 連線 SMTP 伺服器的逾時時間 (毫秒)。
+- `admin-ui:3648` **smtpSocketReadTimeoutHelp** — 括號內含中文，建議使用全形括號（）
+  - en: The timeout in milliseconds for reading from the SMTP server.
+  - zh: 從 SMTP 伺服器讀取資料的逾時時間 (單位/毫秒)。
+- `admin-ui:3651` **smtpSocketWriteTimeoutHelp** — 括號內含中文，建議使用全形括號（）
+  - en: The timeout in milliseconds for writing to the SMTP server.
+  - zh: 向 SMTP 伺服器寫入資料的逾時時間 (單位/毫秒)。
+- `admin-ui:3760` **theme.keycloak.v2.admin.description** — 括號內含中文，建議使用全形括號（）
+  - en: Cleaner and more modern, v2 supports automatic light/dark mode switching. (Default for Admin)
+  - zh: 更加乾淨及現代化，V2 支援自動切換亮色/暗色模式。(預設給管理介面)
+- `admin-ui:3764` **scimApiEnabledHelp** — 括號內含中文，建議使用全形括號（）
+  - en: If enabled, exposes realm resources through an API based on the System for Cross-domain Identity Management (SCIM) specification, namely RFC7643 and RFC7644.
+  - zh: 如果啟用，將會基於跨領域身分識別管理系統 (SCIM) 規範 (即 RFC7643 及 RFC7644) 並透過 API 暴露領域資源。
+- `theme-baseadmin:15` **ldapErrorInvalidCustomFilter** — 括號內含中文，建議使用全形括號（）
+  - en: Custom configured LDAP filter does not start with "(" or does not end with ")".
+  - zh: 自訂配置的 LDAP 過濾器不以 “(” 開頭或不以 “)” 結尾。
+- `theme-baseadmin:100` **workflowResourceTypeNotSupported** — 括號內含中文，建議使用全形括號（）
+  - en: Resource type ''{0}'' is not supported for this workflow (supports {1}).
+  - zh: 資源類型「{0}」在此工作流程中不支援 (只支援 {1})。
+- `theme-baseadmin:119` **workflowExpressionInvalid** — 全形標點後多了空白
+  - en: Invalid expression: {0}⏎Error details:⏎{1}
+  - zh: 無效的表達式：{0}⏎詳細錯誤：⏎{1}
+- `theme-baseemail:2` **emailVerificationBody** — 全形標點後多了空白
+  - en: Someone has created a {2} account with this email address. If this was you, click the link below to verify your email address⏎⏎{0}⏎⏎This link will expire within {3}.⏎⏎If you didn''t create this account, just ignore this message.
+  - zh: 有人使用了這個電子郵件地址建立了一個 {2} 帳號。如果這是您的操作，請點擊下列連結驗證您的電子郵件地址⏎⏎{0}⏎⏎此連結將在 {3} 內失效。⏎⏎如果這不是您的操作，請忽略此訊息。
+- `theme-baseemail:5` **orgInviteBody** — 全形標點後多了空白
+  - en: You were invited to join the "{3}" organization. Click the link below to join.⏎⏎{0}⏎⏎This link will expire within {4}.⏎⏎If you don''t want to join the organization, just ignore this message.
+  - zh: 您已被邀請參加「{3}」組織。點擊下列連結加入。⏎⏎{0}⏎⏎此連結將在 {4} 內失效。⏎⏎如果您不想加入組織，請忽略此訊息。
+- `theme-baseemail:7` **orgInviteBodyPersonalized** — 全形標點後多了空白
+  - en: Hi, "{5}" "{6}".⏎⏎ You were invited to join the "{3}" organization. Click the link below to join.⏎⏎{0}⏎⏎This link will expire within {4}.⏎⏎If you don''t want to join the organization, just ignore this message.
+  - zh: 哈囉，"{5}" "{6}"。⏎⏎ 您已被邀請參加「{3}」組織。點擊下列連結加入。⏎⏎{0}⏎⏎此連結將在 {4} 內失效。⏎⏎如果您不想加入組織，請忽略此訊息。
+- `theme-baseemail:8` **orgInviteBodyPersonalizedHtml** — 全形標點後多了空白
+  - en: <p>Hi, {5} {6}.</p><p>You were invited to join the {3} organization. Click the link below to join. </p><p><a href="{0}">Link to join the organization</a></p><p>This link will expire within {4}.</p><p>If you don''t want to join the organization, just ignore this message.</p>
+  - zh: <p>哈囉，{5} {6}。</p><p>您已被邀請參加「{3}」組織。點擊下列連結加入。</p><p><a href="{0}">點此連結加入組織</a></p><p>此連結將在 {4} 內失效。</p><p>如果您不想加入組織，請忽略此訊息。</p>
+- `theme-baseemail:10` **emailUpdateConfirmationBody** — 全形標點後多了空白
+  - en: To update your {2} account with email address {1}, click the link below⏎⏎{0}⏎⏎This link will expire within {3}.⏎⏎If you don''t want to proceed with this modification, just ignore this message.
+  - zh: 為了更新您的 {2} 帳號的電子郵件地址 {1}，請點擊下列連結⏎⏎{0}⏎⏎此連結將在 {3} 內失效。⏎⏎如果您不想進行這個修改，請忽略此訊息。
+- `theme-baseemail:16` **identityProviderLinkBody** — 全形標點後多了空白
+  - en: Someone wants to link your "{1}" account with "{0}" account of user {2} . If this was you, click the link below to link accounts⏎⏎{3}⏎⏎This link will expire within {5}.⏎⏎If you didn''t initiate this process or don''t want to link account, just ignore this message. If you link accounts, you will be a…
+  - zh: 有人試圖連結您的 "{1}" 帳號與使用者 {2} 的 "{0}" 帳號。如果這是您的操作，請點擊下列連結連結帳號⏎⏎{3}⏎⏎此連結將在 {5} 內失效。⏎⏎如果這不是您的操作，請忽略此訊息。如果您連結帳號，您將能夠透過 {0} 登入 {1}。
+- `theme-baseemail:19` **passwordResetBody** — 全形標點後多了空白
+  - en: Someone just requested to change your {2} account''s credentials. If this was you, click on the link below to reset them.⏎⏎{0}⏎⏎This link and code will expire within {3}.⏎⏎If you don''t want to reset your credentials, just ignore this message and nothing will be changed.
+  - zh: 有人剛剛要求更改您的 {2} 帳號憑證。如果這是您本人的操作，請點擊下方連結進行重設。⏎⏎{0}⏎⏎此連結和代碼將在 {3} 內失效。⏎⏎如果您不想重新設定密碼，請直接忽略此訊息，您的帳戶不會有任何變更。
+- `theme-baseemail:22` **executeActionsBody** — 全形標點後多了空白
+  - en: Your administrator has just requested that you update your {2} account by performing the following action(s): {3}. Click on the link below to start this process.⏎⏎{0}⏎⏎This link will expire within {4}.⏎⏎If you are unaware that your administrator has requested this, just ignore this message and nothi…
+  - zh: 您的管理員剛剛要求您更新您的 {2} 帳號，透過執行以下動作：{3}。點擊下列連結開始此程序。⏎⏎{0}⏎⏎此連結將在 {4} 內失效。⏎⏎如果您不清楚管理員有提出此要求，請忽略此訊息，系統不會有任何變更。
+- `theme-baseemail:72` **verifiableCredentialOfferBody** — 全形標點後多了空白
+  - en: Your administrator has just informed you that in your {2} account you can claim verifiable credential "{3}" to your digital wallet. Click on the link below to start this process.⏎⏎{0}⏎⏎This link will expire within {4}.⏎⏎If the link is expired already, you might be still able to claim your {3} by som…
+  - zh: 您的管理員已通知您，可以在 {2} 帳號中領取可驗證憑證「{3}」至您的數位錢包。請點擊下方連結開始領取程序。⏎⏎{0}⏎⏎此連結將在 {4} 內過期。⏎⏎若連結已過期，您仍可能透過其他方式領取 {3}（例如：使用 {2} 帳戶控制台）。
+- `theme-baseemail:63` **emailVerificationBodyCode** — 全形標點後多了空白
+  - en: Please verify your email address by entering in the following code.⏎⏎{0}⏎⏎.
+  - zh: 請輸入以下代碼以驗證您的電子郵件地址。⏎⏎{0}⏎⏎.
+- `theme-baselogin:379` **console-accept-terms** — 全形標點後多了空白
+  - en: Accept Terms? [y/n]:
+  - zh: 接受服務條款？ [y/n]：
+- `theme-baselogin:440` **webauthn-registration-init-label** — 括號內含中文，建議使用全形括號（）
+  - en: Passkey (Default Label)
+  - zh: 通行金鑰(預設標籤)
+- `theme-baselogin:525` **webauthn-error-registration-attachment-mismatch** — 括號內含中文，建議使用全形括號（）
+  - en: Your organization requires a different type of security key (invalid Authenticator Attachment ''{0}''). Please use the correct type.
+  - zh: 您的組織要求使用不同類型的安全金鑰 (無效的驗證器附件「{0}」)。請使用正確的類型。
+
+## [info] tw-term
+
+- `account-ui:155` **aliasHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Name of the configuration
+  - zh: 配置名稱
+- `account-ui:198` **verifiableCredentialsConfigAlert** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Was not able to retrieve the credential configuration.
+  - zh: 無法獲取憑證配置。
+- `account-ui:200` **verifiableCredentialsSelectionDefault** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Select a credential configuration.
+  - zh: 選擇憑證配置。
+- `account-ui:237` **theme.keycloak.v3.account.description** — 「優化」→「最佳化」
+  - en: Refined, v3 is more cohesive and dynamic. (Default for Account)
+  - zh: v3 版本經過優化，更具凝聚力且更具動態性。(預設給帳號介面)
+- `admin-ui:2259` **openIdConnectCompatibilityModesHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: This section is used to configure settings for backward compatibility with older OpenID Connect / OAuth 2 adaptors. It is useful especially if your client uses an older version of Keycloak / RH-SSO adapter.
+  - zh: 這個區段用於配置與較舊的 OpenID Connect / OAuth 2 配接器的往前兼容設定。這在您的應用程式使用較舊版本的 Keycloak / RH-SSO 配接器時特別有用。
+- `admin-ui:1959` **rolesPermissionsHint** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: Determines if fine grained permissions are enabled for managing this role. Disabling will delete all current permissions that have been set up.
+  - zh: 決定是否使用細緻授權管理這個角色。取消該項目會導致所有目前已設定好的授權被刪除。
+- `admin-ui:1380` **unmanagedAttributesHelpText** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Unmanaged attributes are user attributes not explicitly defined in the user profile configuration. By default, unmanaged attributes are `Disabled` and are not available from any context such as registration, account, and the administration console. By setting `Enabled`, unmanaged attributes are full…
+  - zh: 無法管理的屬性是使用者設定檔中未明確定義的使用者屬性。預設情況下，無法管理的屬性為「禁用」，且在任何情境中（例如註冊、帳戶和管理控制台）都無法使用。透過設定「啟用」，伺服器會完全識別無法管理的屬性，並可透過所有情境存取。如果您要開始將現有領域遷移到聲明式使用者設定檔，但尚未在使用者設定檔配置中定義所有使用者屬性，這會很有用。透過設定「只有管理員能寫入」，無法管理的屬性只能透過管理控制台和 API 進行管理。如果您已經定義任何可由使用者管理的自訂屬性，但不確定是否要新增只能由管理員管理的其他屬性，這會很有用。透過設定「只有管理員能檢視」，無法管理的屬性為唯讀，且只能透過管理控制台和 API 使用…
+- `admin-ui:1385` **topLevelFlowTypeHelp** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: What kind of top level flow is it? Type 'client' is used for authentication of clients (applications) when generic is for users and everything else.
+  - zh: 甚麼類型的頂層流程？「應用程式」類型用於應用程式的驗證，而「通用」則用於使用者及其他所有項目。
+- `admin-ui:2306` **noUsersFoundErrorStorage** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: No users found, could be due to wrongly configured federated provider {{error}}
+  - zh: 未找到使用者，可能是由於錯誤配置的聯邦提供者造成的 {{error}}
+- `admin-ui:2324` **artifactBindingResponseHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Indicates whether to respond to requests using ARTIFACT binding. If false, the HTTP-POST binding configuration will be evaluated.
+  - zh: 指示是否使用 ARTIFACT 綁定來回應請求。如果為否，則將評估 HTTP-POST 綁定配置。
+- `admin-ui:1958` **identityProvidersPermissionsHint** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: Determines if fine grained permissions are enabled for managing this role. Disabling will delete all current permissions that have been set up.
+  - zh: 決定是否使用細緻授權管理這個角色。取消該項目會導致所有目前已設定好的授權被刪除。
+- `admin-ui:2329` **attributeConsumingServiceIndexHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Index of the Attribute Consuming Service profile to request during authentication.
+  - zh: 在身份驗證期間請求的屬性消費服務配置文件的索引。
+- `admin-ui:1403` **maxLifespanHelp** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: Max lifespan of cache entry in milliseconds
+  - zh: 快取項目的最大生命週期（以毫秒為單位）
+- `admin-ui:2353` **newClientProfileName** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Client profile name
+  - zh: 應用程式配置文件名稱
+- `admin-ui:2373` **fineGrainSamlEndpointConfig** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Fine Grain SAML Endpoint Configuration
+  - zh: SAML 端點精細配置
+- `admin-ui:2389` **deleteClientProfileConfirm** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: This action will permanently delete the profile {{profileName}}. This cannot be undone.
+  - zh: 此操作將永久刪除配置檔 {{profileName}}。此操作無法還原。
+- `admin-ui:2393` **updateClientProfilesError** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Could not update client profiles: {{error}}
+  - zh: 無法更新應用程式配置檔：{{error}}
+- `admin-ui:2582` **encryptionAlgorithmHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Encryption algorithm, which is used by the SAML IDP for encryption of SAML documents, assertions or IDs. The corresponding decryption key for decrypting SAML document parts is chosen based on this configured algorithm and should be available in realm keys for the encryption (ENC) usage. If no algori…
+  - zh: 加密演算法，由 SAML 身份提供者用於加密 SAML 文件、聲明或 ID。用於解密 SAML 文件部分的相應解密金鑰是根據此配置的演算法選擇的，並且應該在領域金鑰中可用於加密 (ENC) 用途。如果未配置任何演算法，則允許使用任何支援的演算法，並且根據 SAML 文件中配置的演算法選擇解密金鑰。
+- `admin-ui:2583` **masterSamlProcessingUrlHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: If configured, this URL will be used for every binding to both the SP's Assertion Consumer and Single Logout Services. This can be individually overridden for each binding and service in the Fine Grain SAML Endpoint Configuration.
+  - zh: 如果已設定，則此 URL 將用於 SP 的聲明消費者和單一登出服務的每個綁定。這可以在細粒度 SAML 端點配置中的每個綁定和服務中單獨覆蓋。
+- `admin-ui:2024` **addClientProfileSuccess** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: New client profile added
+  - zh: 已成功建立應用程式配置檔
+- `admin-ui:2591` **groupsClaimHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: If defined, the policy will fetch user's groups from the given claim within an access token or ID token representing the identity asking permissions. If not defined, user's groups are obtained from your realm configuration.
+  - zh: 如果已定義，則該政策將從代表請求權限的身份的訪問權杖或 ID 權杖中的給定聲明中獲取使用者的群組。如果未定義，則從您的領域配置中獲取使用者的群組。
+- `admin-ui:2426` **ldapAdvancedSettingsDescription** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: This section contains all the other options for more fine-grained configuration of the LDAP storage provider.
+  - zh: 此區域包含 LDAP 儲存提供者的所有其他選項，以進行更細緻的配置。
+- `admin-ui:135` **introduction** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: If you want to leave this page and manage this realm, please click the corresponding menu items in the left navigation bar.
+  - zh: 如果您想離開這畫面並管理目前領域，請點擊左邊導航欄中對應的目錄項目。
+- `admin-ui:1421` **redirectURIHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: The redirect uri to use when configuring the identity provider.
+  - zh: 在配置身份提供者時要使用的重導向 URI。
+- `admin-ui:2976` **jwtAuthorizationGrantAssertionReuseAllowedHelp** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: If enabled, the jti claim is not required and assertions can be reused.
+  - zh: 如果啟用，jti 聲明不會是必填項目，且聲明能被複用。
+- `admin-ui:2494` **onDragMove** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: Dragging item {{item}}
+  - zh: 正在拖動項目 {{item}}
+- `admin-ui:2497` **fineGrainSamlEndpointConfigHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: This section to configure exact URLs for Assertion Consumer and Single Logout Service.
+  - zh: 此部分用於配置斷言消費者和單一登出服務的確切 URL。
+- `admin-ui:1779` **cachePolicyHelp** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: Cache Policy for this storage provider. 'DEFAULT' is whatever the default settings are for the global cache. 'EVICT_DAILY' is a time of day every day that the cache will be invalidated. 'EVICT_WEEKLY' is a day of the week and time the cache will be invalidated. 'MAX_LIFESPAN' is the time in millisec…
+  - zh: 此儲存提供者的快取政策。「DEFAULT」是全域快取的預設設定。「EVICT_DAILY」是每天的某個時間，屆時快取將會失效。「EVICT_WEEKLY」是每週的某一天和時間，屆時快取將會失效。「MAX_LIFESPAN」是快取項目的壽命，以毫秒為單位。
+- `admin-ui:2605` **attributesHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Name and (regex) value of the attributes to search for in token. The configured name of an attribute is searched in SAML attribute name and attribute friendly name fields. Every given attribute description must be met to set the role. If the attribute is an array, then the value must be contained in…
+  - zh: 要在權杖中搜索的屬性的名稱和（正則表達式）值。配置的屬性名稱會在 SAML 屬性名稱和屬性友好名稱欄位中進行搜索。必須滿足每個給定的屬性描述才能設置角色。如果屬性是數組，則該值必須包含在數組中。如果可以多次找到屬性，則匹配一次即可。
+- `admin-ui:2608` **deleteClientPolicyProfileSuccess** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Profile successfully removed from the policy.
+  - zh: 成功從政策中移除配置檔。
+- `admin-ui:2612` **createClientProfileSuccess** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: New client profile created
+  - zh: 成功創建新的應用程式配置檔
+- `admin-ui:2644` **managePriorityInfo** — 「程序」→「程式」（program 應為「程式」；procedure 可用「程序」）
+  - en: Priority is the order of providers when doing a user lookup. You can drag the row handlers to change the priorities.
+  - zh: 優先順序是在進行使用者查找時提供者的順序。您可以拖動行處理程序以更改優先順序。
+- `admin-ui:2649` **validatorDeletedSuccess** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Success! User Profile configuration has been saved.
+  - zh: 成功！使用者配置已保存。
+- `admin-ui:1762` **clientProfile** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Client profile details
+  - zh: 應用程式配置檔詳細資訊
+- `admin-ui:2662` **client-updater-source-groups.tooltip** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Path of groups to check. The condition evaluates to true if the entity who creates or updates the client is a member of one or more of the specified groups. Configured groups are specified by their full path, for example /topGroup/level2group. No support for group hierarchy is used here.
+  - zh: 檢查群組的路徑。創建或更新應用程式的實體是否為一個或多個指定群組的成員，如果是，則條件評估為 true。配置的群組由其完整路徑決定，例如「/topGroup/level2group」。此處不使用群組層次結構的支持。
+- `admin-ui:2675` **deleteClientProfileConfirmTitle** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Delete profile?
+  - zh: 刪除配置檔？
+- `admin-ui:2730` **webAuthnPolicyAcceptableAaguidsHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: The list of allowed AAGUIDs of which an authenticator can be registered. An AAGUID is a 128-bit identifier indicating the authenticator's type (e.g., make and model). This option needs the Attestation conveyance preference to be configured (normally `Direct`) to ensure a trusted AAGUID is passed. De…
+  - zh: 可註冊驗證器的允許 AAGUID 清單。AAGUID 是 128 位元的標識符，用於標示驗證器的類型（例如：製造商與型號）。此選項需要配置「證明傳遞偏好」(Attestation conveyance preference)（通常為 `Direct`），以確保傳遞的是受信任的 AAGUID。預設的證明 `None` 不具可靠性，且可能會將 AAGUID 匿名化為零值。
+- `admin-ui:1525` **useDiscoveryEndpointHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: If this setting is enabled, the discovery endpoint will be used to fetch the provider config. Keycloak can load the config from the endpoint and automatically update the config if the source has any updates.
+  - zh: 如果啟用此設定，將使用探索端點來擷取提供者配置。Keycloak 可以從該端點加載配置，並在來源有任何更新時自動更新配置。
+- `admin-ui:2760` **executorsHelpText** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Executors, which will be applied for this client profile
+  - zh: 將應用於此應用程式配置檔的執行者
+- `admin-ui:2761` **authenticationAliasHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Name of the configuration
+  - zh: 配置名稱
+- `admin-ui:2992` **groupsPathHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Keycloak group path the LDAP groups are added to. For example if value '/Applications/App1' is used, then LDAP groups will be available in Keycloak under group 'App1', which is child of top level group 'Applications'. The default value is '/' so LDAP groups will be mapped to the Keycloak groups at t…
+  - zh: Keycloak 群組路徑，LDAP 群組將新增到該路徑。例如，如果使用值「/Applications/App1」，則 LDAP 群組將在 Keycloak 中的頂層群組「Applications」的子群組「App1」下可用。預設值為「/」，因此 LDAP 群組將映射到頂層的 Keycloak 群組。在建立此映射器時，必須已在 Keycloak 中存在已配置的群組路徑。
+- `admin-ui:2781` **extendToChildren** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: Extend to children
+  - zh: 擴展到子項目
+- `admin-ui:2782` **deleteClientPolicyProfileError** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Could not delete profile from the policy: {{error}}
+  - zh: 無法從政策中刪除配置檔：{{error}}
+- `admin-ui:2802` **clientProfilesSubTab** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Client profiles subtab
+  - zh: 應用程式配置檔子標籤
+- `admin-ui:2805` **emptyRealmBasedIdps** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: No realm based identity providers are configured for this realm.
+  - zh: 此領域未配置基於領域的身份提供者。
+- `admin-ui:2828` **noAdminUrlSet** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: No push sent. No admin URI configured or no registered cluster nodes available
+  - zh: 未發送推送。未配置管理 URI 或無可用的已註冊集群節點
+- `admin-ui:3001` **encryptionKeysConfigExplain** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: If you enable the "Encrypt assertions" below, the SAML assertions will be encrypted with the client's public key. If the client provides a SP Metadata Descriptor URL with signing and encryption keys, you can enable automatic management of keys with the option "Use metadata descriptor URL" in the "Si…
+  - zh: 如果您啟用下面的「加密斷言」，則 SAML 斷言將使用應用程式的公鑰進行加密。如果應用程式提供帶有簽名和加密金鑰的 SP 元資料描述符 URL，您可以在「設定」標籤的「簽名和加密」部分中使用「使用元資料描述符 URL」選項來啟用金鑰的自動管理。您也可以在啟用時手動生成或導入來配置加密金鑰。啟用此選項後，可以在「設定」標籤的「簽名和加密」部分修改加密詳細資訊。
+- `admin-ui:2862` **encryptionKeysConfig** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Encryption keys config
+  - zh: 加密金鑰配置
+- `admin-ui:2863` **updateClientProfileSuccess** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Client profile updated successfully
+  - zh: 應用程式配置檔更新成功
+- `admin-ui:2865` **forceNameIdFormatHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Ignore requested NameID subject format and use Admin UI configured one.
+  - zh: 忽略請求的 NameID 主體格式，並使用管理員 UI 配置的格式。
+- `admin-ui:2886` **importConfig** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Import config from file
+  - zh: 從檔案匯入配置
+- `admin-ui:3014` **signingKeysConfigExplain** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: If you enable the "Client signature required" below, the client should sign their SAML requests and responses and the signature will be validated by the server. If the client provides a SP Metadata Descriptor URL with signing and encryption keys, you can enable automatic management of keys with the …
+  - zh: 如果您啟用下面的「需要應用程式簽名」，則應用程式應簽署其 SAML 請求和回應，並且伺服器將驗證該簽名。如果應用程式提供帶有簽名和加密金鑰的 SP 元資料描述符 URL，您可以在「設定」標籤的「簽名和加密」部分中使用「使用元資料描述符 URL」選項來啟用金鑰的自動管理。您也可以在啟用時手動生成或導入來配置簽名金鑰。
+- `admin-ui:1904` **enabledWhenTooltip** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Specifies when the attribute is available. When scopes are used, the attribute is available when at least one of the configured scopes is applied in the login request. Both default and optional scopes of the current request are evaluated. In the Admin Console and Account Console contexts, scopes are…
+  - zh: 指定屬性何時可用。當使用範圍時，當在登入請求中套用至少一個已配置的範圍時，該屬性是可用的。目前請求的預設和選擇性範圍都會被評估。在管理主控台和帳戶主控台情境中，不會評估範圍，並且該屬性始終可用（如果沒有進一步受到權限的限制）。
+- `admin-ui:1960` **permissionsEnabledHelp** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: Determines if fine grained permissions are enabled for managing this role. Disabling deletes all current permissions.
+  - zh: 決定是否使用細緻授權管理這個角色。取消該項目會刪除所有目前的授權。
+- `admin-ui:3058` **clientScopesConditionTooltip** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: The list of expected client scopes. Condition evaluates to true if specified client request matches some of the client scopes. It depends also whether it should be default or optional client scope based on the 'Scope Type' configured.
+  - zh: 預期應用程式範圍的清單。如果指定的應用程式請求符合某些應用程式範圍，則條件評估結果為 true。這還取決於根據所配置的「範圍類型」它應該是預設還是可選的應用程式範圍。
+- `admin-ui:3136` **validateAttributeName** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Attribute configuration without a name is not allowed.
+  - zh: 不允許沒有名稱的屬性配置。
+- `admin-ui:3146` **updatedUserProfileError** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: User Profile configuration hasn't been saved: {{error}}
+  - zh: 使用者設定檔配置未保存：{{error}}
+- `admin-ui:3175` **client-scopes-condition.tooltip** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: The list of expected client scopes. Condition evaluates to true if specified client request matches some of the client scopes. It depends also whether it should be default or optional client scope based on the 'Scope Type' configured.
+  - zh: 預期應用程式範圍的清單。如果指定的應用程式請求符合某些應用程式範圍，則條件評估結果為 true。這還取決於根據所配置的「範圍類型」它應該是預設還是可選的應用程式範圍。
+- `admin-ui:3209` **CONFIGURE_TOTP** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Configure OTP (CONFIGURE_TOTP)
+  - zh: 配置 OTP（CONFIGURE_TOTP）
+- `admin-ui:3243` **clientProfilesHelpItem** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: Client profiles help item
+  - zh: 應用程式設定檔說明項目
+- `admin-ui:3246` **fullNameLdapWriteOnlyHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: For Write-only, data is propagated to LDAP when a user is created or updated in Keycloak. But this mapper is not used to propagate data from LDAP back into Keycloak. This setting is useful if you configured separate firstName and lastName attribute mappers and you want to use those to read the attri…
+  - zh: 對於僅寫入模式，當在 Keycloak 中建立或更新使用者時，資料會傳播到 LDAP。但此映射器不會用於將資料從 LDAP 傳回到 Keycloak。如果您配置了單獨的 firstName 和 lastName 屬性映射器，並且想要使用這些映射器將屬性從 LDAP 讀取到 Keycloak，則此設定非常有用。
+- `admin-ui:3268` **allowed-client-scopes.tooltip** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: List of the allowed client scopes, which can be used on a newly registered client. Attempt to register client with some client scope, which is not allowed, will be rejected. By default, the list is either empty or contains just realm default client scopes (based on 'Allow Default Scopes' configurati…
+  - zh: 新註冊的應用程式允許使用的應用程式範圍清單。嘗試使用不被允許的某些應用程式範圍來註冊應用程式將被拒絕。預設情況下，清單為空或僅包含領域預設的應用程式範圍（基於「允許預設範圍」配置屬性）
+- `admin-ui:3269` **executorsHelpItem** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: Executors help item
+  - zh: 執行者說明項目
+- `admin-ui:3283` **updatedCredentialMoveSuccess** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: User Credential configuration has been saved
+  - zh: 使用者憑證配置已儲存
+- `admin-ui:3285` **createAttributeSuccess** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Success! User Profile configuration has been saved.
+  - zh: 成功！使用者設定檔配置已儲存。
+- `admin-ui:3289` **requiredWhenTooltip** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: When scopes are used, attribute is required when at least one of configured scopes is applied in the login request. Both default and optional scopes of current request are evaluated. In the admin console and account console contexts, scopes are not evaluated and attribute is not required.
+  - zh: 當使用範圍時，當登入請求中套用至少一個已配置的範圍時，屬性為必填。評估當前請求的預設和可選範圍。在管理控制台和帳戶控制台上下文中，不評估範圍，屬性不是必填。
+- `admin-ui:3291` **max-clients.tooltip** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: It will not be allowed to register a new client if count of existing clients in realm is same or bigger than the configured limit.
+  - zh: 如果領域中現有應用程式的數量與配置的限制相同或更大，則不允許註冊新應用程式。
+- `admin-ui:3296` **optimizeLookupHelp** — 「優化」→「最佳化」
+  - en: When signing SAML documents in REDIRECT binding for SP that is secured by Keycloak adapter, should the ID of the signing key be included in SAML protocol message in <Extensions> element? This optimizes validation of the signature as the validating party uses a single key instead of trying every know…
+  - zh: 在 REDIRECT 綁定中為由 Keycloak 適配器保護的 SP 簽署 SAML 文件時，是否應在 <Extensions> 元素中的 SAML 協議訊息中包含簽署金鑰的 ID？這優化了簽名的驗證，因為驗證方使用單一金鑰，而不是嘗試使用每個已知金鑰進行驗證。
+- `admin-ui:3306` **chooseAPolicyTypeInstructions** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Choose one policy type from the list below and then you can configure a new policy for authorization. There are some types and description.
+  - zh: 從下面的清單中選擇一種政策類型，然後您可以為授權配置新政策。有一些類型和描述。
+- `admin-ui:3367` **addExecutionTitle** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: Add an execution
+  - zh: 新增執行項目
+- `admin-ui:1962` **groupsPermissionsHint** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: Determines if fine grained permissions are enabled for managing this role. Disabling will delete all current permissions that have been set up.
+  - zh: 決定是否使用細緻授權控管該身份組。取消該項目對導致所有已設定的授權被刪除。
+- `admin-ui:3324` **onDragStart** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: Dragging started for item {{item}}
+  - zh: 開始拖動 {{item}} 項目
+- `admin-ui:3795` **ssfTransmitterAuthMethodHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: How to authenticate with the SSF Transmitter. Use 'Static Token' to provide a pre-configured bearer token, or 'Client Credentials' to obtain tokens dynamically using the OAuth2 client_credentials grant.
+  - zh: 如何與 SSF 傳送端（Transmitter）進行身分驗證。使用「靜態權杖」提供預先配置的 Bearer 權杖，或使用「客戶端憑證」透過 OAuth2 client_credentials 授權動態獲取權杖。
+- `admin-ui:3803` **ssfStreamUpdatedAtHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Timestamp of the most recent change to this SSF stream, including status and configuration updates.
+  - zh: 此 SSF 串流最近一次變更的時間戳，包含狀態與配置更新。
+- `admin-ui:3412` **updatedUserProfileSuccess** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: User Profile configuration has been saved
+  - zh: 使用者設定檔配置已儲存
+- `admin-ui:2116` **krbPrincipalAttributeHelp** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: Name of the LDAP attribute, which refers to Kerberos principal. This is used to lookup appropriate LDAP user after successful Kerberos/SPNEGO authentication in Keycloak. When this is empty, the LDAP user will be looked based on LDAP username corresponding to the first part of his Kerberos principal.…
+  - zh: LDAP 屬性的名稱，該屬性參照 Kerberos 主體。這用於在 Keycloak 中成功進行 Kerberos/SPNEGO 驗證後查找適當的 LDAP 使用者。當此項目為空時，LDAP 使用者將根據其 Kerberos 主體的第一部分對應的 LDAP 使用者名稱來查找。例如，對於主體「john@KEYCLOAK.ORG」，它將假設 LDAP 使用者名稱為「john」。
+- `admin-ui:3427` **client-roles-condition.tooltip** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Client roles, which will be checked during this condition evaluation. Condition evaluates to true if client has at least one client role with the name as the client roles specified in the configuration.
+  - zh: 應用程式角色，將在此條件評估期間進行檢查。如果應用程式具有與配置中指定的應用程式角色相同名稱的至少一個應用程式角色，則條件將評估為 true。
+- `admin-ui:3434` **client-attributes-condition.tooltip** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Client attributes, that will be checked during this condition evaluation. Condition evaluates to true if the client has all client attributes with the name and value as the client attributes specified in the configuration.
+  - zh: 在此條件評估期間將檢查的應用程式屬性。如果應用程式具有與配置中指定的應用程式屬性相同名稱和值的所有應用程式屬性，則條件將評估為 true。
+- `admin-ui:3451` **clientRolesConditionTooltip** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Client roles, which will be checked during this condition evaluation. Condition evaluates to true if client has at least one client role with the name as the client roles specified in the configuration.
+  - zh: 應用程式角色，將在此條件評估期間進行檢查。如果應用程式具有與配置中指定的應用程式角色相同名稱的至少一個應用程式角色，則條件將評估為 true。
+- `admin-ui:3476` **emptyConditions** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: No conditions configured
+  - zh: 未配置任何條件
+- `admin-ui:3498` **permanentLockoutHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Configures whether a user is temporarily or permanently disabled after too many login failures. Permanent lockout can be configured to occur after a number of login failures or after a number of temporary lockouts.
+  - zh: 配置用戶在多次登錄失敗後是暫時禁用還是永久禁用。永久鎖定可以配置為在一定次數的登錄失敗後或一定次數的臨時鎖定後發生。
+- `admin-ui:3501` **emptyExecutors** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: No executors configured
+  - zh: 未配置任何執行器
+- `admin-ui:3504` **authenticatorRefConfig.value.help** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Add a custom reference name for the authenticator. When this authenticator is successfully completed during an authentication flow, the Authentication Method Reference (AMR) protocol mapper will use this value to populate the amr claim of the generated tokens. Note, the AMR protocol must be configur…
+  - zh: 為驗證器新增自訂參考名稱。當在驗證流程中成功完成此驗證器時，Authentication Method Reference (AMR) 協定映射器將使用此值來填充所產生權杖的 amr 聲明。請注意，必須為給定的應用程式配置 AMR 協定才能填充 AMR 聲明。
+- `admin-ui:3511` **loa-max-age.tooltip** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Maximum age in seconds for this level of authentication to be valid. If the particular level is requested and user already authenticated with this level earlier than specified amount of seconds ago, he will not be asked to re-authenticate. But if he authenticated later than specified amount of secon…
+  - zh: 此認證等級有效的最大秒數。如果請求特定等級，且使用者在指定秒數之前已使用此等級進行過認證，則不會要求他重新進行認證。但如果他在指定秒數之後進行了認證，則需要再次使用此等級重新進行認證。配置中的值 0 表示每當請求此等級時，使用者都需要使用此等級重新進行認證。
+- `admin-ui:3827` **ssfTransmitterEnabledHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: If enabled, this realm acts as a Shared Signals Framework (SSF) Transmitter and exposes the SSF Configuration Metadata endpoint. Disabling for a realm with active streams will delete queued events for those receivers on save; pause or delete the streams first if you want receivers notified via a str…
+  - zh: 若啟用，此領域將作為共用訊號框架（Shared Signals Framework, SSF）傳送端，並公開 SSF 配置元資料端點。若針對擁有活動串流的領域關閉此功能，儲存時將刪除該接收端的排隊事件；若您希望在停止服務前透過「串流更新」的 SET 通知接收端，請先暫停或刪除這些串流。
+- `admin-ui:3543` **validatingX509CertsHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: The public certificates used by Keycloak to validate the signatures of SAML requests and responses from the external IDP when the Use metadata descriptor URL is OFF. Multiple certificates can be entered separated by commas (,). You can reimport certificates from the Metadata descriptor URL by clicki…
+  - zh: Keycloak 用於驗證來自外部 IDP 的 SAML 請求和回應簽名的公用證書，當「使用元資料描述符 URL」關閉時。可以輸入多個以逗號 (,) 分隔的證書。您可以透過點擊身份提供者頁面上的「匯入金鑰」動作，從元資料描述符 URL 重新匯入證書。此動作會下載元資料端點中的當前證書，並將它們分配給此相同選項中的配置。點擊「儲存」以最終存儲重新匯入的證書。
+- `admin-ui:125` **clearRealmCacheHelp** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: This will clear entries for all realms.
+  - zh: 這將會清除所有領域中的項目。
+- `admin-ui:126` **clearUserCacheHelp** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: This will clear entries for all realms.
+  - zh: 這將會清除所有領域中的項目。
+- `admin-ui:127` **clearKeysCacheHelp** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: Clears all entries from the cache of external public keys. These are keys of external clients or identity providers. This will clear all entries for all realms.
+  - zh: 從外部公開金鑰快取中清理所有項目。這些是外部應用程式或身分提供者的金鑰。這將會清除所有領域中的項目。
+- `admin-ui:128` **clearCrlCacheHelp** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: Clears all entries from the CRL cache. The CRL cache improves the performance of the X.509 authenticator when Certificate Revocation List (CRL) are enabled. This action will clear all the CRL entries for all the realms.
+  - zh: 從 CRL 快取中清理所有項目。當證書撤銷清單 (CRL) 被啟用時，CRL 快取可以提升 X.509 驗證器的效能。這個操作將會清理掉所有領域中的 CRL 項目。
+- `admin-ui:2180` **openIdVerifiableCredentialsHelp** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: This section is used to configure settings related to OpenID for Verifiable Credential Issuance (OID4VCI).
+  - zh: 此區域用於配置與可驗證憑證發行 (OID4VCI) 相關的設定。
+- `theme-baseaccount:83` **role_view-consent** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: View consents
+  - zh: 檢視同意項目
+- `theme-baseaccount:93` **role_manage-consent** — 「項目」→「專案／項目」（project 應為「專案」）
+  - en: Manage consents
+  - zh: 管理同意項目
+- `theme-baseaccount:142` **totpManualStep3** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Use the following configuration values if the application allows setting them:
+  - zh: 若應用程式允許設定，請使用下列配置值：
+- `theme-baseadmin:15` **ldapErrorInvalidCustomFilter** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Custom configured LDAP filter does not start with "(" or does not end with ")".
+  - zh: 自訂配置的 LDAP 過濾器不以 “(” 開頭或不以 “)” 結尾。
+- `theme-baseemail:22` **executeActionsBody** — 「程序」→「程式」（program 應為「程式」；procedure 可用「程序」）
+  - en: Your administrator has just requested that you update your {2} account by performing the following action(s): {3}. Click on the link below to start this process.⏎⏎{0}⏎⏎This link will expire within {4}.⏎⏎If you are unaware that your administrator has requested this, just ignore this message and nothi…
+  - zh: 您的管理員剛剛要求您更新您的 {2} 帳號，透過執行以下動作：{3}。點擊下列連結開始此程序。⏎⏎{0}⏎⏎此連結將在 {4} 內失效。⏎⏎如果您不清楚管理員有提出此要求，請忽略此訊息，系統不會有任何變更。
+- `theme-baseemail:23` **executeActionsBodyHtml** — 「程序」→「程式」（program 應為「程式」；procedure 可用「程序」）
+  - en: <p>Your administrator has just requested that you update your {2} account by performing the following action(s): {3}. Click on the link below to start this process.</p><p><a href="{0}">Link to account update</a></p><p>This link will expire within {4}.</p><p>If you are unaware that your administrator…
+  - zh: <p>您的管理員剛剛要求您更新您的 {2} 帳號，透過執行以下動作：{3}。點擊下列連結開始此程序。</p><p><a href="{0}">更新帳號連結</a></p><p>此連結將在 {4} 內失效。</p><p>如果您不清楚管理員有提出此要求，請忽略此訊息，系統不會有任何變更。</p>
+- `theme-baseemail:72` **verifiableCredentialOfferBody** — 「程序」→「程式」（program 應為「程式」；procedure 可用「程序」）
+  - en: Your administrator has just informed you that in your {2} account you can claim verifiable credential "{3}" to your digital wallet. Click on the link below to start this process.⏎⏎{0}⏎⏎This link will expire within {4}.⏎⏎If the link is expired already, you might be still able to claim your {3} by som…
+  - zh: 您的管理員已通知您，可以在 {2} 帳號中領取可驗證憑證「{3}」至您的數位錢包。請點擊下方連結開始領取程序。⏎⏎{0}⏎⏎此連結將在 {4} 內過期。⏎⏎若連結已過期，您仍可能透過其他方式領取 {3}（例如：使用 {2} 帳戶控制台）。
+- `theme-baseemail:73` **verifiableCredentialOfferBodyHtml** — 「程序」→「程式」（program 應為「程式」；procedure 可用「程序」）
+  - en: <p>Your administrator has just informed you that in your {2} account you can claim verifiable credential <b>{3}</b> to your digital wallet. Click on the link below to start this process.</p><p><a href="{0}">Link to claim {3}</a></p><p>This link will expire within {4}.</p><p>If the link is expired al…
+  - zh: <p>您的管理員已通知您，可以在 {2} 帳號中領取可驗證憑證 <b>{3}</b> 至您的數位錢包。請點擊下方連結開始領取程序。</p><p><a href="{0}">領取 {3} 的連結</a></p><p>此連結將在 {4} 內過期。</p><p>若連結已過期，您仍可能透過其他方式領取 {3}（例如：使用 {2} 帳戶控制台）。</p>
+- `theme-baselogin:124` **loginTotpManualStep3** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Use the following configuration values if the application allows setting them:
+  - zh: 若應用程式允許設定，請使用以下配置值：
+- `theme-baselogin:170` **pageExpiredMsg1** — 「程序」→「程式」（program 應為「程式」；procedure 可用「程序」）
+  - en: To restart the login process
+  - zh: 重新啟動登入程序
+- `theme-baselogin:171` **pageExpiredMsg2** — 「程序」→「程式」（program 應為「程式」；procedure 可用「程序」）
+  - en: To continue the login process
+  - zh: 繼續登入程序
+- `theme-baselogin:247` **error-reset-otp-missing-id** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Please choose an OTP configuration.
+  - zh: 請選擇 OTP 配置。
+- `theme-baselogin:397` **otp-reset-description** — 「配置」→「設定」（台灣亦使用「配置」，視語境決定）
+  - en: Which OTP configuration should be removed?
+  - zh: 欲移除哪一個 OTP 配置？

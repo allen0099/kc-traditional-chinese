@@ -5,22 +5,22 @@
 | 詞彙 | 標準譯法 | 出現 | 符合 | 已知變體 | 其他 | 一致率 | 不一致譯文中的候選片段 |
 |---|---|---:|---:|---:|---:|---:|---|
 | Client | 客戶端 | 393 | 24 | 0 | 369 | 6% | 應用程式(362) 應用(364) 的應用程(58) 用程式的(48) 此應用程(41) |
-| Session | 工作狀態 | 86 | 0 | 0 | 86 | 0% | 工作階段(74) 用程式工(13) 程式工作(13) 式工作階(13) 離線工作(13) |
+| Session | 工作狀態 | 86 | 0 | 0 | 86 | 0% | 工作階段(74) 式工作階(13) 用程式工(13) 程式工作(13) 線工作階(13) |
 | Signature | 簽章 | 43 | 16 | 0 | 27 | 37% | 簽名(27) 名演算法(11) 簽名演算(11) 算法(14) 的簽名(6) |
 | certificate | 憑證 | 39 | 18 | 0 | 21 | 46% | 證書(21) 的證書(6) 用於驗證(4) 金鑰(8) 簽名的(4) |
 | federation | 邦聯 | 22 | 4 | 0 | 18 | 18% | 使用者聯(16) 用者聯邦(13) 者聯邦提(11) 聯邦提供(11) 聯邦(15) |
-| federated identity | 聯邦身分識別 | 17 | 2 | 0 | 15 | 12% | 聯邦身分(14) 邦身分綁(5) 身分綁定(5) 覆寫聯邦(4) 寫聯邦身(4) |
-| assertion | 斷言 | 46 | 32 | 0 | 14 | 70% | 聲明(14) 聲明的(4) 根據(4) 聲明中(3) 單一登(3) |
-| you | 您 | 347 | 333 | 0 | 14 | 96% | 驗證的流(2) 證的流程(2) 選擇要用(2) 擇要用於(2) 指令郵件(2) |
+| federated identity | 聯邦身分識別 | 17 | 2 | 0 | 15 | 12% | 聯邦身分(14) 身分綁定(5) 邦身分綁(5) 寫聯邦身(4) 移除聯邦(4) |
+| assertion | 斷言 | 46 | 32 | 0 | 14 | 70% | 聲明(14) 聲明的(4) 根據(4) 單一登(3) 聲明中(3) |
+| you | 您 | 347 | 333 | 0 | 14 | 96% | 寄送重設(2) 密碼的指(2) 將寄送重(2) 指令郵件(2) 擇要用於(2) |
 | authentication | 驗證 | 122 | 111 | 0 | 11 | 91% | 認證(9) 基本認證(3) 認證回應(3) 證回應中(3) 已棄用(3) |
-| user | 使用者 | 531 | 520 | 0 | 11 | 98% | 臨時(3) 管理員帳(2) 理員帳號(2) 臨時管理(2) 時管理員(2) |
-| adapter | 配接器 | 13 | 4 | 0 | 9 | 31% | 適配器(8) 為此應用(4) 此應用程(5) 式下載新(3) 要為此應(3) |
-| protocol | 協定 | 25 | 16 | 0 | 9 | 64% | 協議(6) 協議映射(4) 議映射器(4) 器和角色(3) 映射器和(3) |
+| user | 使用者 | 531 | 520 | 0 | 11 | 98% | 臨時(3) 理員帳號(2) 管理員帳(2) 時管理員(2) 臨時管理(2) |
+| adapter | 配接器 | 13 | 4 | 0 | 9 | 31% | 適配器(8) 為此應用(4) 此應用程(5) 下載新的(3) 式下載新(3) |
+| protocol | 協定 | 25 | 16 | 0 | 9 | 64% | 協議(6) 協議映射(4) 議映射器(4) 器和角色(3) 射器和角(3) |
 | remove | 移除 | 68 | 60 | 0 | 8 | 88% | 您確定要(4) 定要刪除(3) 確定要刪(3) 要刪除這(2) 刪除(5) |
 | access token | 存取權杖 | 73 | 66 | 0 | 7 | 90% | 訪問權杖(7) 的訪問權(4) 聲明(5) 問權杖或(2) 定的使用(2) |
-| client scope | 應用程式範圍 | 66 | 59 | 0 | 7 | 89% | 客戶端(7) 戶端範圍(4) 客戶端範(4) 範圍(7) 戶端權限(2) |
-| metadata | 元資料 | 41 | 34 | 0 | 7 | 83% | 元數據(5) 數據描述(2) 元數據描(2) 據描述符(2) 描述(3) |
-| issuer | 簽發者 | 14 | 8 | 0 | 6 | 57% | 發行者(6) 的發行者(2) 發行者的(2) 則不(2) 回應(2) |
+| client scope | 應用程式範圍 | 66 | 59 | 0 | 7 | 89% | 客戶端(7) 客戶端範(4) 戶端範圍(4) 範圍(7) 客戶端權(2) |
+| metadata | 元資料 | 41 | 34 | 0 | 7 | 83% | 元數據(5) 元數據描(2) 據描述符(2) 數據描述(2) 描述(3) |
+| issuer | 簽發者 | 14 | 8 | 0 | 6 | 57% | 發行者(6) 發行者的(2) 的發行者(2) 則不(2) 回應(2) |
 | provider | 提供者 | 278 | 273 | 0 | 5 | 98% | 解除(2) 確定要(2) 例如(2) 帳號(2) 使用(2) |
 | Realm | 領域 | 195 | 190 | 0 | 5 | 97% | 向到(2) 用於(2) 名稱(2) 應用程式(2) |
 | refresh | 更新 | 7 | 2 | 0 | 5 | 29% | 重新整理(4) |
@@ -28,10 +28,10 @@
 | attribute | 屬性 | 205 | 201 | 0 | 4 | 98% | 欄位(3) 唯讀(2) |
 | token | 權杖 | 184 | 180 | 0 | 4 | 98% | 標記(2) 可以使用(2) 開關(2) 特殊(2) 將會(2) |
 | Phone number | 電話號碼 | 10 | 7 | 0 | 3 | 70% | 手機號碼(3) 入您的手(2) 的手機號(2) 輸入您的(2) 您的手機(2) |
-| policy | 政策 | 110 | 107 | 0 | 3 | 97% | 策略僅(2) 策略(3) 重複時間(1) 在開始和(1) 制在特定(1) |
-| Claims | 聲明 | 16 | 14 | 0 | 2 | 88% | 明確(2) 沒有明確(1) 有明確通(1) 明確通過(1) 參數請求(1) |
-| default | 預設 | 114 | 112 | 0 | 2 | 98% | 允許默認(1) 默認範圍(1) 許默認範(1) 帳號權杖(1) 杖的簽發(1) |
-| Invalid password: must not be equal to the email. | 無效的密碼：不可與電子信箱相同。 | 3 | 1 | 0 | 2 | 33% | 與電子郵(2) 子郵件相(2) 郵件相同(2) 可與電子(2) 不可與電(2) |
+| policy | 政策 | 110 | 107 | 0 | 3 | 97% | 策略僅(2) 策略(3) 一步將策(1) 不得與任(1) 之間有效(1) |
+| Claims | 聲明 | 16 | 14 | 0 | 2 | 88% | 明確(2) 們被標記(1) 制執行的(1) 則用作自(1) 參數請求(1) |
+| default | 預設 | 114 | 112 | 0 | 2 | 98% | 允許默認(1) 務帳號權(1) 帳號權杖(1) 杖的簽發(1) 的簽發者(1) |
+| Invalid password: must not be equal to the email. | 無效的密碼：不可與電子信箱相同。 | 3 | 1 | 0 | 2 | 33% | 子郵件相(2) 與電子郵(2) 郵件相同(2) 不可與電(2) 可與電子(2) |
 | authorization | 授權 | 88 | 87 | 0 | 1 | 99% |  |
 | Bluetooth | 藍芽 | 1 | 0 | 0 | 1 | 0% |  |
 | cookie | cookie | 1 | 0 | 0 | 1 | 0% |  |
@@ -62,245 +62,6 @@
 | user label | 使用者標籤 | 5 | 5 | 0 | 0 | 100% |  |
 | WebAuthn | WebAuthn | 11 | 11 | 0 | 0 | 100% |  |
 | X-Robots-Tag | X-Robots-Tag | 1 | 1 | 0 | 0 | 100% |  |
-
-## access token → 存取權杖（7 條不一致）
-
-> 參照國家教育研究院翻譯：https://terms.naer.edu.tw/detail/edb0778da6e12964146ee84c4a1e957f/  又因為 token 已採用「權杖」作為翻譯，因此這邊也一併使用權杖作為 token 的翻譯
-
-- `admin-ui:2591` **groupsClaimHelp**
-  - en: If defined, the policy will fetch user's groups from the given claim within an access token or ID token representing the identity asking permissions. If not defined, user's groups are obtained from your realm configuration.
-  - zh: 如果已定義，則該政策將從代表請求權限的身份的訪問權杖或 ID 權杖中的給定聲明中獲取使用者的群組。如果未定義，則從您的領域配置中獲取使用者的群組。
-- `admin-ui:2593` **oidcAttributeImporter**
-  - en: Import declared claim if it exists in ID, access token, or the claim set returned by the user profile endpoint into the specified user property or attribute.
-  - zh: 如果 ID、訪問權杖或使用者資訊端點返回的聲明集中存在聲明，則將其導入到指定的使用者屬性或屬性中。
-- `admin-ui:2617` **isAccessTokenJWTHelp**
-  - en: The Access Token received from the Identity Provider is a JWT and its claims will be accessible for mappers.
-  - zh: 從身份提供者收到的訪問權杖是 JWT，其聲明將可供映射器使用。
-- `admin-ui:2678` **generatedAccessToken**
-  - en: Generated access token
-  - zh: 已生成的訪問權杖
-- `admin-ui:2729` **generatedAccessTokenHelp**
-  - en: See the example access token, which will be generated and sent to the client when the selected user is authenticated. You can see claims and roles that the token will contain based on the effective protocol mappers and role scope mappings and also based on the claims and roles assigned to the actual
-  - zh: 查看示例訪問權杖，當選定的使用者通過身份驗證時，將生成並發送給應用程式。您可以根據有效的協議映射器和角色範圍映射以及分配給實際使用者的聲明和角色來查看權杖將包含的聲明和角色。
-- `admin-ui:2981` **templateHelp**
-  - en: Template to use to format the username to import. Substitutions are enclosed in ${}. For example: '${ALIAS}.${CLAIM.sub}'. ALIAS is the provider alias. CLAIM.<NAME> references an ID or Access token claim. The substitution can be converted to upper or lower case by appending |uppercase or |lowercase 
-  - zh: 用於格式化要導入的使用者名稱的模板。替換項用 ${} 括起來。例如：「${ALIAS}.${CLAIM.sub}」。ALIAS 是提供者別名。CLAIM.<NAME> 參考 ID 或訪問權杖聲明。通過在替換值後附加 |uppercase 或 |lowercase，可以將替換項轉換為大寫或小寫，例如，「${CLAIM.sub | lowercase}」。
-- `admin-ui:2791` **accessTokenLifespanImplicitFlowHelp**
-  - en: Max time before an access token issued during OpenID Connect Implicit Flow is expired. This value is recommended to be shorter than the SSO timeout. There is no possibility to refresh token during implicit flow, that's why there is a separate timeout different to 'Access Token Lifespan'.
-  - zh: 在 OpenID Connect 隱式流程期間發出的訪問權杖過期之前的最大時間。建議此值短於 SSO 超時。在隱式流期間無法刷新權杖，這就是為什麼有一個與「訪問權杖壽命」不同的單獨超時的原因。
-
-## adapter → 配接器（9 條不一致）
-
-- `admin-ui:2293` **effectiveRoleScopeMappingsHelp**
-  - en: Selected Optional Client Scopes, which will be used when issuing access token for this client. You can see above what value of OAuth Scope Parameter needs to be used when you want to have these optional client scopes applied when the initial OpenID Connect Authentication request will be sent from yo
-  - zh: 選定的選用應用程式範圍，將在為此應用程式發出存取權杖時使用。您可以在上方看到當您想要在從您的應用程式適配器發送初始 OpenID Connect 驗證請求時套用這些選用應用程式範圍時，需要使用的 OAuth 範圍參數值。
-- `admin-ui:2380` **disableSigningExplain**
-  - en: If you disable "{{key}}", the Keycloak database will be updated and you may need to download a new adapter for this client.
-  - zh: 如果您停用「{{key}}」，Keycloak 將會更新資料庫，您可能需要為此應用程式下載新的適配器。
-- `admin-ui:2599` **enableClientSignatureRequiredExplain**
-  - en: If you enable "{{key}}", the adapter of this client will be updated. You may need to download a new adapter for this client. You need to generate or import keys for this client otherwise the authentication will not work.
-  - zh: 如果您啟用「{{key}}」，則此應用程式的適配器將被更新。您可能需要為此應用程式下載新的適配器。否則，身份驗證將無法工作，您需要為此應用程式生成或導入金鑰。
-- `admin-ui:2698` **confirmClientSecretBody**
-  - en: If you regenerate the secret, the Keycloak database will be updated and you will need to download a new adapter for this client.
-  - zh: 如果您重新生成密鑰，Keycloak 數據庫將被更新，您需要為此應用程式下載新的適配器。
-- `admin-ui:237` **adminURLHelp**
-  - en: URL to the admin interface of the client. Set this if the client supports the adapter REST API. This REST API allows the auth server to push revocation policies and other administrative tasks. Usually this is set to the base URL of the client.
-  - zh: 應用程式的管理員介面 URL。如果應用程式支援使用 REST API，請設定此數值。REST API 允許驗證伺服器推送撤銷政策及其他管理類的任務。通常設定為這個應用程式的基礎 URL。
-- `admin-ui:1324` **changeAuthenticatorConfirm**
-  - en: If you change authenticator to {{clientAuthenticatorType}}, the Keycloak database will be updated and you may need to download a new adapter configuration for this client.
-  - zh: 如果您將驗證器更改為 {{clientAuthenticatorType}}，Keycloak 資料庫將會被更新，而您可能需要下載此應用程式的新適配器設定。
-- `admin-ui:3296` **optimizeLookupHelp**
-  - en: When signing SAML documents in REDIRECT binding for SP that is secured by Keycloak adapter, should the ID of the signing key be included in SAML protocol message in <Extensions> element? This optimizes validation of the signature as the validating party uses a single key instead of trying every know
-  - zh: 在 REDIRECT 綁定中為由 Keycloak 適配器保護的 SP 簽署 SAML 文件時，是否應在 <Extensions> 元素中的 SAML 協議訊息中包含簽署金鑰的 ID？這優化了簽名的驗證，因為驗證方使用單一金鑰，而不是嘗試使用每個已知金鑰進行驗證。
-- `admin-ui:3346` **excludeSessionStateFromAuthenticationResponseHelp**
-  - en: If this is on, the parameter 'session_state' will not be included in OpenID Connect Authentication Response. It is useful if the client uses an older OIDC / OAuth2 adapter, which does not support the 'session_state' parameter. This switch is deprecated and might be removed in future version.
-  - zh: 如果啟用此選項，參數「session_state」將不包含在 OpenID Connect 認證回應中。當應用程式使用較舊的 OIDC / OAuth2 適配器且不支援「session_state」參數時，此選項非常有用。此開關已棄用並且將會在未來版本中移除。
-- `admin-ui:3443` **excludeIssuerFromAuthenticationResponseHelp**
-  - en: If this is on, the parameter 'iss' will not be included in OpenID Connect Authentication Response. It is useful if the client uses an older OIDC / OAuth2 adapter, which does not support the 'iss' parameter. This switch is deprecated and might be removed in future version.
-  - zh: 如果啟用此選項，參數「iss」將不包含在 OpenID Connect 認證回應中。當應用程式使用較舊的 OIDC / OAuth2 適配器且不支援「iss」參數時，此選項非常有用。此開關已棄用並且將會在未來版本中移除。
-
-## assertion → 斷言（14 條不一致）
-
-- `admin-ui:2322` **attributeImporter**
-  - en: Import declared SAML attribute if it exists in assertion into the specified user property or attribute.
-  - zh: 如果在聲明中存在，則將已聲明的 SAML 屬性匯入指定的使用者屬性或屬性。
-- `admin-ui:2344` **friendlyName**
-  - en: Friendly name of attribute to search for in assertion. You can leave this blank and specify a name instead.
-  - zh: 要在聲明中搜尋的屬性的友好名稱。您可以將此留空，並改為指定名稱。
-- `admin-ui:157` **clientTypeHelp**
-  - en: 'OpenID Connect' allows Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server.'SAML' enables web-based authentication and authorization scenarios including cross-domain single sign-on (SSO) and uses security tokens containing assertions to pa
-  - zh: 「OpenID Connect」允許應用程式驗證根據授權伺服器所執行的驗證來確認終端使用者的身分。「SAML」支援以網頁為基礎的驗證與授權情境，包括跨網域單一登入（SSO），並使用包含聲明的安全權杖來傳遞資訊。
-- `admin-ui:2582` **encryptionAlgorithmHelp**
-  - en: Encryption algorithm, which is used by the SAML IDP for encryption of SAML documents, assertions or IDs. The corresponding decryption key for decrypting SAML document parts is chosen based on this configured algorithm and should be available in realm keys for the encryption (ENC) usage. If no algori
-  - zh: 加密演算法，由 SAML 身份提供者用於加密 SAML 文件、聲明或 ID。用於解密 SAML 文件部分的相應解密金鑰是根據此配置的演算法選擇的，並且應該在領域金鑰中可用於加密 (ENC) 用途。如果未配置任何演算法，則允許使用任何支援的演算法，並且根據 SAML 文件中配置的演算法選擇解密金鑰。
-- `admin-ui:2583` **masterSamlProcessingUrlHelp**
-  - en: If configured, this URL will be used for every binding to both the SP's Assertion Consumer and Single Logout Services. This can be individually overridden for each binding and service in the Fine Grain SAML Endpoint Configuration.
-  - zh: 如果已設定，則此 URL 將用於 SP 的聲明消費者和單一登出服務的每個綁定。這可以在細粒度 SAML 端點配置中的每個綁定和服務中單獨覆蓋。
-- `admin-ui:2483` **clientAssertionAudienceHelp**
-  - en: The audience to use for the client assertion. The default value is the IDP's token endpoint URL.
-  - zh: 用於應用程式聲明的受眾。預設值是 IDP 的權杖端點 URL。
-- `admin-ui:2974` **jwtAuthorizationGrantIdpEnabledHelp**
-  - en: Enable the identity provider to act as a trust provider to validate authorization grant JWT assertions according to RFC 7523.
-  - zh: 根據 RFC 7523，啟用使身分提供者能作為信任提供者來驗證 JWT 授予授權聲明。
-- `admin-ui:2975` **jwtAuthorizationGrantAssertionReuseAllowed**
-  - en: Allow assertion reuse
-  - zh: 允許複用聲明
-- `admin-ui:2976` **jwtAuthorizationGrantAssertionReuseAllowedHelp**
-  - en: If enabled, the jti claim is not required and assertions can be reused.
-  - zh: 如果啟用，jti 聲明不會是必填項目，且聲明能被複用。
-- `admin-ui:158` **clientsClientTypeHelp**
-  - en: 'OpenID Connect' allows Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server.'SAML' enables web-based authentication and authorization scenarios including cross-domain single sign-on (SSO) and uses security tokens containing assertions to pa
-  - zh: 「OpenID Connect」允許應用程式驗證根據授權伺服器所執行的驗證來確認終端使用者的身分。「SAML」支援以網頁為基礎的驗證與授權情境，包括跨網域單一登入（SSO），並使用包含聲明的安全權杖來傳遞資訊。
-- `admin-ui:2945` **wantAssertionsSigned**
-  - en: Want Assertions signed
-  - zh: 希望簽署聲明
-- `admin-ui:3162` **signAssertions**
-  - en: Sign assertions
-  - zh: 簽署聲明
-- `admin-ui:3518` **selectClientAssertionSigningAlg**
-  - en: Select client assertion signing algorithm
-  - zh: 選擇應用程式聲明簽署演算法
-- `admin-ui:3670` **allowClientIdAsAudience**
-  - en: Allows Client ID as audience for assertions
-  - zh: 允許將應用程式 ID 作為聲明中的受眾
-
-## attribute → 屬性（4 條不一致）
-
-- `theme-baseaccount:169` **updateReadOnlyAttributesRejectedMessage**
-  - en: Update of read-only attribute rejected
-  - zh: 無法更新唯讀欄位
-- `theme-baseadmin:60` **error-user-attribute-required**
-  - en: Please specify attribute {0}.
-  - zh: 請提供 {0} 欄位。
-- `theme-baseadmin:61` **error-invalid-date**
-  - en: Attribute {0} is invalid date.
-  - zh: {0} 是無效的日期。
-- `theme-baseadmin:62` **error-user-attribute-read-only**
-  - en: Attribute {0} is read only.
-  - zh: {0} 欄位為唯讀。
-
-## authentication → 驗證（11 條不一致）
-
-- `account-ui:107` **basic-authentication**
-  - en: Basic authentication
-  - zh: 基本認證
-- `admin-ui:3346` **excludeSessionStateFromAuthenticationResponseHelp**
-  - en: If this is on, the parameter 'session_state' will not be included in OpenID Connect Authentication Response. It is useful if the client uses an older OIDC / OAuth2 adapter, which does not support the 'session_state' parameter. This switch is deprecated and might be removed in future version.
-  - zh: 如果啟用此選項，參數「session_state」將不包含在 OpenID Connect 認證回應中。當應用程式使用較舊的 OIDC / OAuth2 適配器且不支援「session_state」參數時，此選項非常有用。此開關已棄用並且將會在未來版本中移除。
-- `admin-ui:3375` **excludeIssuerFromAuthenticationResponse**
-  - en: Exclude Issuer From Authentication Response
-  - zh: 從認證回應中排除發行者
-- `admin-ui:365` **clientAuthentications.client_secret_basic**
-  - en: Client secret sent as HTTP Basic authentication
-  - zh: 使用 HTTP 基本認證傳送的應用程式金鑰
-- `admin-ui:2551` **clientAuthentications.client_secret_basic_unencoded**
-  - en: Client secret sent as HTTP Basic authentication without URL encoding (deprecated)
-  - zh: 使用 HTTP 基本認證傳送的應用程式金鑰，未經 URL 編碼（已棄用）
-- `admin-ui:3443` **excludeIssuerFromAuthenticationResponseHelp**
-  - en: If this is on, the parameter 'iss' will not be included in OpenID Connect Authentication Response. It is useful if the client uses an older OIDC / OAuth2 adapter, which does not support the 'iss' parameter. This switch is deprecated and might be removed in future version.
-  - zh: 如果啟用此選項，參數「iss」將不包含在 OpenID Connect 認證回應中。當應用程式使用較舊的 OIDC / OAuth2 適配器且不支援「iss」參數時，此選項非常有用。此開關已棄用並且將會在未來版本中移除。
-- `admin-ui:3448` **ssoServiceUrlHelp**
-  - en: The Url that must be used to send authentication requests (SAML AuthnRequest).
-  - zh: 必須用於發送認證請求（SAML AuthnRequest）的網址。
-- `admin-ui:3508` **loa-condition-level**
-  - en: Level of Authentication (LoA)
-  - zh: 認證等級 (LoA)
-- `admin-ui:3511` **loa-max-age.tooltip**
-  - en: Maximum age in seconds for this level of authentication to be valid. If the particular level is requested and user already authenticated with this level earlier than specified amount of seconds ago, he will not be asked to re-authenticate. But if he authenticated later than specified amount of secon
-  - zh: 此認證等級有效的最大秒數。如果請求特定等級，且使用者在指定秒數之前已使用此等級進行過認證，則不會要求他重新進行認證。但如果他在指定秒數之後進行了認證，則需要再次使用此等級重新進行認證。配置中的值 0 表示每當請求此等級時，使用者都需要使用此等級重新進行認證。
-- `theme-baseaccount:306` **authenticatorBackupCodesSetupTitle**
-  - en: Recovery Authentication Codes Setup
-  - zh: 復原代碼設定
-- `theme-baseaccount:310` **generateNewBackupCodes**
-  - en: Generate New Recovery Authentication Codes
-  - zh: 產生新的復原代碼
-
-## authorization → 授權（1 條不一致）
-
-- `admin-ui:3669` **clientSecretAuthenticationAllowedMethodHelp**
-  - en: Allowed method for client secret authentication. If set to client_secret_basic, then client secret needs to be sent in the HTTP 'Authorization: Basic' header when authenticating this client. When set to client_secret_post, then client secret needs to be sent as a parameter in the request body togeth
-  - zh: 應用程式密鑰認證的允許方法。如果設定為 client_secret_basic，則在對該應用程式進行驗證時，需要在 HTTP 的「Authorization: Basic」標頭中傳送應用程式金鑰。如果設定為 client_secret_post，則需要在請求正文中將應用程式金鑰與 client_id 一起作為參數傳送。如果設定為空，則允許同時使用 Authorization 標頭和請求正文參數。
-
-## Bluetooth → 藍芽（1 條不一致）
-
-- `theme-baselogin:62` **bluetooth**
-  - en: Bluetooth
-  - zh: 藍牙
-
-## certificate → 憑證（21 條不一致）
-
-- `admin-ui:380` **signedJWTConfirm**
-  - en: Generate a private key and certificate for the client from the Keys tab.
-  - zh: 從金鑰頁面為應用程式產生一個私鑰及證書。
-- `admin-ui:342` **generateKeysDescription**
-  - en: If you generate new keys, you can download the keystore with the private key automatically and save it on your client's side. Keycloak server will save just the certificate and public key, but not the private key. Key generation is deprecated. Keys should be imported instead.
-  - zh: 如果您產生了新的金鑰，您可以使用私鑰自動的下載 keystore 並儲存到您的應用程式。Keycloak 伺服器將只會儲存證書及公鑰，不會儲存私鑰。已棄用產生金鑰。金鑰應該只透過匯入。
-- `admin-ui:2033` **useTruststoreSpiHelp**
-  - en: Specifies whether LDAP connection will use the Truststore SPI with the truststore configured in command-line options. 'Always' means that it will always use it. 'Never' means that it will not use it. Note that even if Keycloak truststore is not configured, the default java cacerts or certificate spe
-  - zh: 指定 LDAP 連線是否會使用在命令列選項中設定的 Truststore SPI 和信任庫。「總是」表示它將會總是使用它。「從不」表示它將不會使用它。請注意，即便沒有設定 Keycloak truststore，預設的 java cacerts 或由「javax.net.ssl.trustStore」屬性指定的證書將會被使用。
-- `admin-ui:2460` **realmCertificateAlias**
-  - en: Realm certificate alias
-  - zh: 領域證書別名
-- `admin-ui:300` **validity**
-  - en: Certificate expiration
-  - zh: 證書效期
-- `admin-ui:354` **validityHelp**
-  - en: Number of years the generated certificate is valid for.
-  - zh: 生成的證書能有效多少年。
-- `admin-ui:216` **oAuthMutualHelp**
-  - en: This enables support for OAuth 2.0 Mutual TLS Certificate Bound Access Tokens, which means that Keycloak binds an access token and a refresh token with an X.509 certificate of a token requesting client exchanged in mutual TLS between keycloak's Token Endpoint and this client. These tokens can be tre
-  - zh: 這項功能可支援 OAuth 2.0 相互 TLS 證書綁定存取權杖，亦即 Keycloak 會將存取權杖與更新權杖綁定至透過相互 TLS 交換的應用程式 X.509 證書（交換發生於 Keycloak 的權杖端點與該應用程式之間）。這些權杖可視為持有者金鑰（Holder-of-Key）權杖，而非持有者（Bearer）權杖。
-- `admin-ui:2631` **useMetadataDescriptorUrlHelp**
-  - en: If the switch is on, the certificates to validate signatures will be downloaded and cached from the given "Metadata descriptor URL". The "Reload keys" action can be used to refresh the certificates in the cache. If the switch is off, certificates from "Validating X509 certificates" option are used, 
-  - zh: 如果啟用，則用於驗證簽名的證書將從給定的「元數據描述符 URL」下載並緩存。可以使用「重新加載金鑰」操作來刷新緩存中的證書。如果關閉，則使用「驗證 X509 證書」選項中的證書，當 IDP 中更改時，需要手動更新它們。
-- `admin-ui:2633` **metadataDescriptorUrlHelp**
-  - en: External URL where Identity Provider publishes the metadata information needed by the client (certificates, keys, other URLs,...).
-  - zh: 身份提供者發布應用程式所需的元數據信息（證書、金鑰、其他 URL 等）的外部 URL。
-- `admin-ui:2637` **importKeysSuccess**
-  - en: Keys successfully re-imported. Please save the provider to store the new certificates.
-  - zh: 金鑰成功重新匯入。請保存提供者以存儲新的證書。
-- `admin-ui:1265` **certificate**
-  - en: Certificate
-  - zh: 證書
-- `admin-ui:2680` **importSuccess**
-  - en: New certificate imported
-  - zh: 已匯入新證書
-- `admin-ui:3000` **certificateHelp**
-  - en: Client Certificate for validate JWT issued by client and signed by Client private key from your keystore.
-  - zh: 用於驗證由應用程式簽發並由應用程式私鑰簽名的 JWT 的應用程式證書。
-- `admin-ui:2240` **samlclientSignatureCertificateHelp**
-  - en: Client Certificate of public key for validate SAML requests and responses signed by SAML client.
-  - zh: 應用程式證書的公鑰用於驗證從 SAML 應用簽署的 SAML 請求及回應。
-- `admin-ui:2241` **samlencryptAssertionsCertificateHelp**
-  - en: Client Certificate of public key for encrypt SAML assertions.
-  - zh: 應用程式證書的公鑰用於解密 SAML 斷言。
-- `admin-ui:426` **x509Certificate**
-  - en: X509 Certificate
-  - zh: X509 證書
-- `admin-ui:3093` **derFormattedHelp**
-  - en: Activate this if the certificate is DER formatted in LDAP and not PEM formatted.
-  - zh: 如果證書在 LDAP 中是 DER 格式而非 PEM 格式，請啟用此選項。
-- `admin-ui:332` **useJwksUrlHelp**
-  - en: If the switch is ON, identity provider public keys are downloaded from a given JWKS URL. The result is great flexibility because new keys are downloaded again when the identity provider generates a new keypair. If the switch is OFF, a public key (or certificate) from the Keycloak database is used; t
-  - zh: 如果啟用，身分提供者的公開金鑰會從給定的 JWKS URL 中下載。這樣能確保彈性的設定，因為當身分提供者重新產生了新的鑰匙對的時候，新的鑰匙將會重新下載。如果關閉，將會使用 Keycloak 資料庫中的公開金鑰（或證書），當身分提供者變動鑰匙對時，您會需要重新匯入新的金鑰進 Keycloak 的資料庫。
-- `admin-ui:3469` **jwtX509HeadersEnabledHelp**
-  - en: If enabled, the x5t (X.509 Certificate SHA-1 Thumbprint) header will be added to the JWT to reference the certificate used to sign it. Otherwise, the kid (Key ID) header will be used instead.
-  - zh: 如果啟用，x5t（X.509 證書 SHA-1 指紋）標頭將被添加到 JWT 中，以引用用於簽名的證書。否則，將使用 kid（密鑰 ID）標頭。
-- `admin-ui:3543` **validatingX509CertsHelp**
-  - en: The public certificates used by Keycloak to validate the signatures of SAML requests and responses from the external IDP when the Use metadata descriptor URL is OFF. Multiple certificates can be entered separated by commas (,). You can reimport certificates from the Metadata descriptor URL by clicki
-  - zh: Keycloak 用於驗證來自外部 IDP 的 SAML 請求和回應簽名的公用證書，當「使用元資料描述符 URL」關閉時。可以輸入多個以逗號 (,) 分隔的證書。您可以透過點擊身份提供者頁面上的「匯入金鑰」動作，從元資料描述符 URL 重新匯入證書。此動作會下載元資料端點中的當前證書，並將它們分配給此相同選項中的配置。點擊「儲存」以最終存儲重新匯入的證書。
-- `admin-ui:128` **clearCrlCacheHelp**
-  - en: Clears all entries from the CRL cache. The CRL cache improves the performance of the X.509 authenticator when Certificate Revocation List (CRL) are enabled. This action will clear all the CRL entries for all the realms.
-  - zh: 從 CRL 快取中清理所有項目。當證書撤銷清單 (CRL) 被啟用時，CRL 快取可以提升 X.509 驗證器的效能。這個操作將會清理掉所有領域中的 CRL 項目。
-
-## Claims → 聲明（2 條不一致）
-
-- `admin-ui:2985` **defaultACRValuesHelp**
-  - en: Default values to be used as voluntary ACR in case that there is no explicit ACR requested by 'claims' or 'acr_values' parameter in the OIDC request.
-  - zh: 在 OIDC 請求中，如果沒有明確通過「claims」或「acr_values」參數請求 ACR，則用作自願 ACR 的預設值。
-- `admin-ui:2986` **minimumACRValueHelp**
-  - en: Minimum ACR to be enforced by Keycloak. Overrides lower ACRs explicitly requested by 'acr_values' or 'claims', unless they are marked as essential.
-  - zh: Keycloak 要強制執行的最低 ACR。會覆蓋透過「acr_values」或「claims」明確請求還低的 ACR，除非它們被標記為必要。
 
 ## Client → 客戶端（369 條不一致）
 
@@ -1414,411 +1175,6 @@
   - en: Client session max lifespan cannot exceed realm SSO session max lifespan and RememberMe Max span.
   - zh: 應用程式工作階段最大生命週期不能超過領域 SSO 工作階段最大生命週期以及 RememberMe 最大週期。
 
-## client scope → 應用程式範圍（7 條不一致）
-
-- `account-ui:47` **scopeTypeHelp**
-  - en: Client scopes, which will be added as default scopes to each created client
-  - zh: 客戶端權限範圍，將作為每個新建客戶端的預設權限範圍
-- `account-ui:68` **scopeDescriptionHelp**
-  - en: Description of the client scope
-  - zh: 客戶端權限範圍的描述
-- `account-ui:81` **scopeNameHelp**
-  - en: Name of the client scope. Must be unique in the realm. Name should not contain space characters as it is used as value of scope parameter
-  - zh: 客戶端範圍的名稱。 在領域內必須是獨一無二的。 名稱不應包含空格字符，因為它被用於授權範圍的值
-- `account-ui:100` **rolesScope**
-  - en: If there is no role scope mapping defined, each user is permitted to use this client scope. If there are role scope mappings defined, the user must be a member of at least one of the roles.
-  - zh: 若未定義角色範圍對應時，使用者將被允許存取此客戶端範圍。若有定義角色範圍對應時，使用者必須是至少一個角色的成員。
-- `admin-ui:1908` **updateErrorClientScope**
-  - en: Could not update client scope: '{{error}}'
-  - zh: 無法更新客戶端範圍：「{{error}}」
-- `admin-ui:908` **scopeTypeHelp**
-  - en: Determines how the client scope is assigned to new clients. Default scopes are automatically included in token requests. Optional scopes are only included when explicitly requested. None means the scope must be manually added to each client.
-  - zh: 決定新應用程式如何分配範圍（scope）。預設範圍會自動包含在權杖請求中；選填範圍則僅在明確要求時才包含。若選擇「無」，則必須手動將範圍新增至每個客戶端。
-- `admin-ui:3297` **deleteClientScope_one**
-  - en: Delete client scope {{name}}
-  - zh: 刪除客戶端範圍 {{name}}
-
-## cookie → cookie（1 條不一致）
-
-- `theme-baselogin:324` **cookieNotFoundMessage**
-  - en: Restart login cookie not found. It may have expired; it may have been deleted or cookies are disabled in your browser. If cookies are disabled then enable them. Click Back to Application to login again.
-  - zh: 找不到重新登入的 Cookie。可能已過期、被刪除，或瀏覽器已停用 Cookie。若 Cookie 已停用，請將其啟用。請點擊「返回應用程式」以重新登入。
-
-## default → 預設（2 條不一致）
-
-- `admin-ui:2215` **allow-default-scopes.label**
-  - en: Allow Default Scopes
-  - zh: 允許默認範圍
-- `admin-ui:3590` **kubernetesIssuerUrlHelp**
-  - en: Optional issuer of the Kubernetes service account tokens. If omitted, Keycloak resolves it from the issuer discovery URL when configured; otherwise, it uses the default Kubernetes issuer.
-  - zh: Kubernetes 服務帳號權杖的簽發者
-
-## federated identity → 聯邦身分識別（15 條不一致）
-
-- `admin-ui:492` **eventTypes.FEDERATED_IDENTITY_LINK_ERROR.description**
-  - en: Federated identity link error
-  - zh: 聯邦身分綁定錯誤
-- `admin-ui:553` **eventTypes.FEDERATED_IDENTITY_LINK.description**
-  - en: Federated identity link
-  - zh: 連結聯邦身分
-- `admin-ui:555` **eventTypes.FEDERATED_IDENTITY_OVERRIDE_LINK.name**
-  - en: Federated identity link override
-  - zh: 覆寫聯邦身分綁定
-- `admin-ui:556` **eventTypes.FEDERATED_IDENTITY_OVERRIDE_LINK.description**
-  - en: Federated identity link override
-  - zh: 覆寫聯邦身分綁定
-- `admin-ui:557` **eventTypes.FEDERATED_IDENTITY_OVERRIDE_LINK_ERROR.name**
-  - en: Federated identity link override error
-  - zh: 覆寫聯邦身分綁定發生錯誤
-- `admin-ui:558` **eventTypes.FEDERATED_IDENTITY_OVERRIDE_LINK_ERROR.description**
-  - en: Federated identity link override error
-  - zh: 覆寫聯邦身分綁定發生錯誤
-- `admin-ui:571` **eventTypes.FEDERATED_IDENTITY_LINK_ERROR.name**
-  - en: Federated identity link error
-  - zh: 連結聯邦身分發生錯誤
-- `admin-ui:615` **eventTypes.REMOVE_FEDERATED_IDENTITY.name**
-  - en: Remove federated identity
-  - zh: 移除聯邦身分
-- `admin-ui:630` **eventTypes.REMOVE_FEDERATED_IDENTITY.description**
-  - en: Remove federated identity
-  - zh: 移除聯邦身分
-- `admin-ui:673` **eventTypes.FEDERATED_IDENTITY_LINK.name**
-  - en: Federated identity link
-  - zh: 聯邦身分連結
-- `admin-ui:677` **eventTypes.REMOVE_FEDERATED_IDENTITY_ERROR.name**
-  - en: Remove federated identity error
-  - zh: 移除聯邦身分發生錯誤
-- `admin-ui:683` **eventTypes.REMOVE_FEDERATED_IDENTITY_ERROR.description**
-  - en: Remove federated identity error
-  - zh: 移除聯邦身分發生錯誤
-- `admin-ui:3540` **caseSensitiveOriginalUsernameHelp**
-  - en: If enabled, the original username from the identity provider is kept as is when federating users. Otherwise, the username from the identity provider is lower-cased and might not match the original value if it is case-sensitive. This setting only affects the username associated with the federated ide
-  - zh: 如果啟用，則在聯結使用者時，將保持身份提供者的原始使用者名稱不變。否則，身份提供者的使用者名稱將轉為小寫，如果區分大小寫，則可能與原始值不匹配。此設定僅影響與聯合身份相關聯的使用者名稱，因為伺服器中的使用者名稱始終為小寫。
-- `theme-baseaccount:193` **identityProviderAlreadyLinkedMessage**
-  - en: Federated identity returned by {0} is already linked to another user.
-  - zh: 由 {0} 回傳的聯邦身分已連結至另一個使用者。
-- `theme-baselogin:340` **identityProviderAlreadyLinkedMessage**
-  - en: Federated identity returned by {0} is already linked to another user.
-  - zh: {0} 回傳的聯邦身分已連結至其他使用者。
-
-## federation → 邦聯（18 條不一致）
-
-> 用於連結外部服務 (Google, Facebook, etc.)
-
-- `admin-ui:2001` **userFedDeleteConfirm**
-  - en: If you delete this user federation provider, all associated data will be removed.
-  - zh: 如果您刪除此使用者聯邦提供者，所有相關資料都將被移除。
-- `admin-ui:71` **userFederation**
-  - en: User federation
-  - zh: 使用者聯邦
-- `admin-ui:2481` **createUserProviderSuccess**
-  - en: User federation provider successfully created
-  - zh: 使用者聯邦提供者已成功建立
-- `admin-ui:2490` **userProviderSaveSuccess**
-  - en: User federation provider successfully saved
-  - zh: 使用者聯邦提供者已成功儲存
-- `admin-ui:2491` **addKerberosWizardTitle**
-  - en: Add Kerberos user federation provider
-  - zh: 新增 Kerberos 使用者聯邦提供者
-- `admin-ui:2614` **orderChangeErrorUserFed**
-  - en: Could not change the priority order of user federation providers {{error}}
-  - zh: 無法更改使用者聯邦提供者的優先順序：{{error}}
-- `admin-ui:2743` **createUserProviderError**
-  - en: User federation provider could not be created: {{error}}
-  - zh: 無法創建使用者聯邦提供者：{{error}}
-- `admin-ui:1451` **orderChangeSuccessUserFed**
-  - en: Successfully changed the priority order of user federation providers
-  - zh: 成功更改使用者聯邦提供者的優先順序
-- `admin-ui:1452` **userProviderSaveError**
-  - en: User federation provider could not be saved: {{error}}
-  - zh: 使用者聯邦提供者無法儲存：{{error}}
-- `admin-ui:2064` **federationLink**
-  - en: Federation link
-  - zh: 聯邦連結
-- `admin-ui:2852` **targetHelp**
-  - en: Destination field for the mapper. LOCAL (default) means that the changes are applied to the username stored in the local database upon user import. BROKER_ID and BROKER_USERNAME means that the changes are stored into the ID or username used for federation user lookup, respectively.
-  - zh: 映射器的目標欄位。LOCAL（預設值）表示更改將應用於導入使用者時存儲在本地資料庫中的使用者名稱。BROKER_ID 和 BROKER_USERNAME 分別表示更改存儲到用於聯邦使用者查找的 ID 或使用者名稱中。
-- `admin-ui:2912` **userFedDeletedSuccess**
-  - en: The user federation provider has been deleted.
-  - zh: 使用者聯邦提供者已被刪除。
-- `admin-ui:2921` **userFedDisableConfirmTitle**
-  - en: Disable user federation provider?
-  - zh: 禁用使用者聯邦提供者？
-- `admin-ui:3120` **userFedDisableConfirm**
-  - en: If you disable this user federation provider, it will not be considered for queries and imported users will be disabled and read-only until the provider is enabled again.
-  - zh: 如果您停用此使用者聯合提供者，將不會考慮其查詢，且匯入的使用者將被停用且唯讀，直到該提供者再次啟用為止。
-- `admin-ui:72` **userFederationExplain**
-  - en: User federation provides access to external databases and directories, such as LDAP and Active Directory.
-  - zh: 使用者聯邦提供對外部資料庫和目錄（例如 LDAP 和 Active Directory）的存取。
-- `admin-ui:3247` **userFedDeleteError**
-  - en: Could not delete user federation provider: '{{error}}'
-  - zh: 無法刪除使用者聯合提供者：「{{error}}」
-- `admin-ui:3416` **saveError**
-  - en: User federation provider could not be saved: {{error}}
-  - zh: 無法儲存使用者聯盟提供者：{{error}}
-- `admin-ui:87` **welcomeText**
-  - en: Keycloak provides user federation, strong authentication, user management, fine-grained authorization, and more. Add authentication to applications and secure services with minimum effort. No need to deal with storing users or authenticating users.
-  - zh: Keycloak 提供使用者聯邦、強式驗證、使用者管理、細緻授權等功能。只需最少的設定，即可為應用程式新增驗證並保護服務。無需自行處理使用者儲存或驗證作業。
-
-## Invalid password: Can not contain the username. → 無效的密碼：不可包含使用者名稱。（1 條不一致）
-
-- `theme-baselogin:290` **invalidPasswordNotContainsUsernameMessage**
-  - en: Invalid password: Can not contain the username.
-  - zh: 密碼無效：不可包含使用者名稱。
-
-## Invalid password: maximum length {0}. → 無效的密碼：最長長度為 {0}。（1 條不一致）
-
-- `theme-baselogin:284` **invalidPasswordMaxLengthMessage**
-  - en: Invalid password: maximum length {0}.
-  - zh: 密碼無效：最長長度為 {0}。
-
-## Invalid password: minimum length {0}. → 無效的密碼：最短長度為 {0}。（1 條不一致）
-
-- `theme-baselogin:283` **invalidPasswordMinLengthMessage**
-  - en: Invalid password: minimum length {0}.
-  - zh: 密碼無效：最短長度為 {0}。
-
-## Invalid password: must not be equal to the email. → 無效的密碼：不可與電子信箱相同。（2 條不一致）
-
-- `theme-baseaccount:207` **invalidPasswordNotEmailMessage**
-  - en: Invalid password: must not be equal to the email.
-  - zh: 無效的密碼：不可與電子郵件相同。
-- `theme-baselogin:291` **invalidPasswordNotEmailMessage**
-  - en: Invalid password: must not be equal to the email.
-  - zh: 密碼無效：不可與電子郵件相同。
-
-## issuer → 簽發者（6 條不一致）
-
-- `account-ui:197` **verifiableCredentialsIssuerAlert**
-  - en: Was not able to retrieve the issuer information.
-  - zh: 無法獲取發行者資訊。
-- `admin-ui:256` **frontchannelLogoutSessionRequiredHelp**
-  - en: Specifying whether a sid (session ID) and iss (issuer) parameters are included in the Logout request when the Front-channel Logout URL is used.
-  - zh: 指定前端通道登出 URL 有設定的時候，登出請求中是否包含 sid（會話 ID）和 iss（發行者）參數。
-- `admin-ui:2989` **issuerHelp**
-  - en: The issuer identifier for the issuer of the response. If not provided, no validation will be performed.
-  - zh: 回應發行者的發行者識別碼。如果未提供，則不會執行任何驗證。
-- `admin-ui:2864` **oid4vcIssuerMetadata**
-  - en: OpenID4VCI Credential Issuer Metadata
-  - zh: OpenID4VCI 憑證發行者元資料
-- `admin-ui:2881` **identityProviderEntityIdHelp**
-  - en: The Entity ID used to validate the Issuer for received SAML assertions. If empty, no Issuer validation is performed.
-  - zh: 用於驗證接收到的 SAML 斷言的發行者的實體 ID。如果為空，則不執行發行者驗證。
-- `admin-ui:3375` **excludeIssuerFromAuthenticationResponse**
-  - en: Exclude Issuer From Authentication Response
-  - zh: 從認證回應中排除發行者
-
-## Length must be between {1} and {2}. → 長度必須介於 {1} 和 {2} 之間。（1 條不一致）
-
-- `theme-baselogin:230` **error-invalid-length**
-  - en: Length must be between {1} and {2}.
-  - zh: 長度必須在 {1} 到 {2} 之間。
-
-## mapper → 映射（1 條不一致）
-
-- `admin-ui:3746` **deleteErrorIdentityProvider**
-  - en: Could not delete identity provider mapper: '{{error}}'
-  - zh: 無法刪除身分提供者對應：{{error}}
-
-## metadata → 元資料（7 條不一致）
-
-- `admin-ui:2280` **attributeConsumingServiceNameHelp**
-  - en: Name of the Attribute Consuming Service profile to advertise in the SP metadata.
-  - zh: 要在 SP 中廣告的屬性消費服務設定檔名稱。
-- `admin-ui:2390` **signServiceProviderMetadataHelp**
-  - en: Enable/disable signature of the provider SAML metadata.
-  - zh: 啟用/禁用提供者 SAML 元數據的簽名。
-- `admin-ui:2631` **useMetadataDescriptorUrlHelp**
-  - en: If the switch is on, the certificates to validate signatures will be downloaded and cached from the given "Metadata descriptor URL". The "Reload keys" action can be used to refresh the certificates in the cache. If the switch is off, certificates from "Validating X509 certificates" option are used, 
-  - zh: 如果啟用，則用於驗證簽名的證書將從給定的「元數據描述符 URL」下載並緩存。可以使用「重新加載金鑰」操作來刷新緩存中的證書。如果關閉，則使用「驗證 X509 證書」選項中的證書，當 IDP 中更改時，需要手動更新它們。
-- `admin-ui:2632` **metadataDescriptorUrl**
-  - en: Metadata descriptor URL
-  - zh: 元數據描述符 URL
-- `admin-ui:2633` **metadataDescriptorUrlHelp**
-  - en: External URL where Identity Provider publishes the metadata information needed by the client (certificates, keys, other URLs,...).
-  - zh: 身份提供者發布應用程式所需的元數據信息（證書、金鑰、其他 URL 等）的外部 URL。
-- `admin-ui:2639` **importKeysErrorNoSigningCertificate**
-  - en: The option "signingCertificate" is not defined in the metadata.
-  - zh: 元數據中未定義選項「signingCertificate」。
-- `admin-ui:1578` **samlEntityDescriptorHelp**
-  - en: Allows you to load external IDP metadata from a config file or to download it from a URL.
-  - zh: 允許您從設定檔載入外部 IDP 的描述檔，或是從 URL 下載。
-
-## Mutual TLS → 相互 TLS（1 條不一致）
-
-> 常見簡寫為 mTLS
-
-- `admin-ui:2391` **oAuthMutual**
-  - en: OAuth 2.0 Mutual TLS Certificate Bound Access Tokens Enabled
-  - zh: 啟用 OAuth 2.0 互動式 TLS 憑證綁定存取權杖
-
-## Passkey → 通行金鑰（1 條不一致）
-
-> 翻譯參考： - Google：密碼金鑰 - 1password：通行金鑰 - Amazon：金鑰 - Microsoft：金鑰、安全性金鑰 - Discord：安全性金鑰
-
-- `admin-ui:3771` **webAuthnPolicyMediation**
-  - en: Passkey Mediation
-  - zh: Passkey 中介
-
-## Phone number → 電話號碼（3 條不一致）
-
-- `theme-baseaccount:285` **authenticatorChangePhone**
-  - en: Change Phone Number
-  - zh: 變更手機號碼
-- `theme-baseaccount:289` **smscodeIntroMessage**
-  - en: Enter your phone number and a verification code will be sent to your phone.
-  - zh: 輸入您的手機號碼，驗證碼將會發送到您的手機。
-- `theme-baseaccount:301` **enterYourPhoneNumber**
-  - en: Enter your phone number
-  - zh: 輸入您的手機號碼
-
-## policy → 政策（3 條不一致）
-
-- `admin-ui:3663` **repeatHelp**
-  - en: Specifies how the policy time restriction is defined. If 'Not Repeat', the policy is granted only between the start and expire times. If 'Repeat', you can additionally restrict the policy to specific recurring time periods such as month, day, hour, and minute ranges.
-  - zh: 指定如何定義策略時間限制。如果選擇「不重複」，則策略僅在開始和結束時間之間有效。如果選擇「重複」，可以進一步將策略限制在特定的重複時間區段內，例如按照月、日、小時、分鐘等範圍進行限制。
-- `admin-ui:3557` **permissionNameHelpText**
-  - en: A unique name for the permission. The name must not conflict with any existing permission or policy name.
-  - zh: 權限名稱必須唯一。該名稱不得與任何現有權限或策略名稱衝突。
-- `theme-baseadmin:25` **ldapErrorValidatePasswordPolicyAvailableForWritableOnly**
-  - en: Validate Password Policy is applicable only with WRITABLE edit mode
-  - zh: 驗證密碼策略僅適用於可寫入的編輯模式
-
-## protocol → 協定（9 條不一致）
-
-- `admin-ui:2585` **idpInitiatedSsoUrlNameHelp**
-  - en: URL fragment name to reference client when you want to do IDP Initiated SSO. Leaving this empty will disable IDP Initiated SSO. The URL you will reference from your browser will be: {server-root}/realms/{realm}/protocol/saml/clients/{client-url-name}.
-  - zh: URL 片段名稱，用於在您想要進行 IDP 啟動的 SSO 時引用應用程式。將此留空將禁用 IDP 啟動的 SSO。您將從瀏覽器引用的 URL 將是：{server-root}/realms/{realm}/protocol/saml/clients/{client-url-name}。
-- `admin-ui:2729` **generatedAccessTokenHelp**
-  - en: See the example access token, which will be generated and sent to the client when the selected user is authenticated. You can see claims and roles that the token will contain based on the effective protocol mappers and role scope mappings and also based on the claims and roles assigned to the actual
-  - zh: 查看示例訪問權杖，當選定的使用者通過身份驗證時，將生成並發送給應用程式。您可以根據有效的協議映射器和角色範圍映射以及分配給實際使用者的聲明和角色來查看權杖將包含的聲明和角色。
-- `admin-ui:3005` **emptyClientScopesInstructions**
-  - en: There are currently no client scopes linked to this client. You can add existing client scopes to this client to share protocol mappers and roles.
-  - zh: 目前沒有與此應用程式關聯的應用程式範圍。您可以將現有的應用程式範圍新增到此應用程式，以共用協議映射器和角色。
-- `admin-ui:338` **jwksUrlHelp**
-  - en: URL where identity provider keys in JWK format are stored. See the JWK specification for more details. If you use an external Keycloak identity provider, you can use a URL such as 'http://broker-keycloak:8180/realms/test/protocol/openid-connect/certs' assuming your brokered Keycloak is running on 'h
-  - zh: 身分提供者存放 JWK 格式的金鑰 URL。查閱 JWK 規範取得更多資訊。如果您使用外部 Keycloak 作為身分提供者，並假設您有一個 Keycloak 執行在「http://broker-keycloak:8180」並且有一個對應的領域叫做「test」，您可以使用像是「http://broker-keycloak:8180/realms/test/protocol/openid-connect/certs」的 URL。
-- `admin-ui:3091` **protocolMapper**
-  - en: Protocol...
-  - zh: 協議...
-- `admin-ui:3204` **generatedIdTokenHelp**
-  - en: See the example ID Token, which will be generated and sent to the client when the selected user is authenticated. You can see claims and roles that the token will contain based on the effective protocol mappers and role scope mappings and also based on the claims and roles assigned to the actual use
-  - zh: 請參閱範例 ID 權杖，該權杖將在所選使用者通過身份驗證後生成並發送給應用程式。您可以根據有效的協議映射器和角色範圍映射以及分配給實際使用者的聲明和角色來查看權杖將包含的聲明和角色。
-- `admin-ui:3296` **optimizeLookupHelp**
-  - en: When signing SAML documents in REDIRECT binding for SP that is secured by Keycloak adapter, should the ID of the signing key be included in SAML protocol message in <Extensions> element? This optimizes validation of the signature as the validating party uses a single key instead of trying every know
-  - zh: 在 REDIRECT 綁定中為由 Keycloak 適配器保護的 SP 簽署 SAML 文件時，是否應在 <Extensions> 元素中的 SAML 協議訊息中包含簽署金鑰的 ID？這優化了簽名的驗證，因為驗證方使用單一金鑰，而不是嘗試使用每個已知金鑰進行驗證。
-- `admin-ui:3299` **scopePermissions.clients.configure-description**
-  - en: Reduced management permissions for administrator. Cannot set scope, template, or protocol mappers.
-  - zh: 管理員的管理權限降低。無法設定範圍、範本或協議映射器。
-- `admin-ui:1166` **tokenTokenUrlHelp**
-  - en: Token endpoint for gathering tokens: keycloak example: http://localhost/auth/realms/my-realm/protocol/openid-connect/token
-  - zh: 用於生成權杖的端點，Keycloak 範例：http://localhost/auth/realms/my-realm/protocol/openid-connect/token
-
-## provider → 提供者（5 條不一致）
-
-- `admin-ui:881` **unlinkAccountConfirm**
-  - en: Are you sure you want to permanently unlink this account from {{provider}}?
-  - zh: 您確定要將此帳號與 {{provider}} 永久解除綁定？
-- `admin-ui:2385` **socialProfileJSONFieldPathHelp**
-  - en: Path of field in Social Provider User Profile JSON data to get value from. You can use dot notation for nesting and square brackets for array index. E.g. 'contact.address[0].country'.
-  - zh: 若要從社群提供商使用者個人資料 JSON 資料中取得值的欄位路徑。您可以使用點號表示法進行巢狀結構，並使用方括號表示陣列索引。例如「contact.address[0].country」。
-- `admin-ui:916` **guiOrderHelp**
-  - en: Specify order of the provider in GUI (such as in Consent page) as integer.
-  - zh: 使用整數來指定 GUI （例如在同意頁面）中的順序。
-- `admin-ui:2627` **linkAccountTitle**
-  - en: Link account to {{provider}}
-  - zh: 將帳戶連接到 {{provider}}
-- `admin-ui:1550` **unlinkAccountTitle**
-  - en: Unlink account from {{provider}}?
-  - zh: 確定要解除與 {{provider}} 的帳號連結嗎？
-
-## Realm → 領域（5 條不一致）
-
-> 在 Keycloak 專案中，realm 指的是一個包含使用者群體及應用程式群體的最大的組織，可以與其他組織進行乾淨的切割並共用相同的 Keycloak 實體。
-
-- `admin-ui:2585` **idpInitiatedSsoUrlNameHelp**
-  - en: URL fragment name to reference client when you want to do IDP Initiated SSO. Leaving this empty will disable IDP Initiated SSO. The URL you will reference from your browser will be: {server-root}/realms/{realm}/protocol/saml/clients/{client-url-name}.
-  - zh: URL 片段名稱，用於在您想要進行 IDP 啟動的 SSO 時引用應用程式。將此留空將禁用 IDP 啟動的 SSO。您將從瀏覽器引用的 URL 將是：{server-root}/realms/{realm}/protocol/saml/clients/{client-url-name}。
-- `admin-ui:1840` **shortVerificationUriTooltipHelp**
-  - en: If set, this value will be returned as verification_uri in the Device Authorization flow. This uri needs to redirect to {server-root}/realms/{realm}/device.
-  - zh: 如果設定，這個值將會在裝置授權流程中作為 verification_uri 回傳。這個 URI 需要重新導向到 {server-root}/realms/{realm}/device。
-- `admin-ui:3171` **permissionsListIntro**
-  - en: Edit the permission list by clicking the scope-name. It then redirects to the permission details page of the client named <1>{{realm}}</1>
-  - zh: 透過點擊範圍名稱來編輯權限列表。然後它會重定向到名為 <1>{{realm}}</1> 的應用程式的權限詳細資訊頁面
-- `admin-ui:1166` **tokenTokenUrlHelp**
-  - en: Token endpoint for gathering tokens: keycloak example: http://localhost/auth/realms/my-realm/protocol/openid-connect/token
-  - zh: 用於生成權杖的端點，Keycloak 範例：http://localhost/auth/realms/my-realm/protocol/openid-connect/token
-- `theme-baselogin:31` **realmChoice**
-  - en: Realm
-  - zh: Realm
-
-## refresh → 更新（5 條不一致）
-
-> 國家教育研究院  https://terms.naer.edu.tw/detail/241d0259db7135b172ae6fafdbd0e10e/?startswith=zh
-
-- `account-ui:42` **refreshPage**
-  - en: Refresh the page
-  - zh: 重新整理頁面
-- `account-ui:215` **refresh**
-  - en: Refresh
-  - zh: 重新整理
-- `admin-ui:1668` **offlineSessionIdleHelp**
-  - en: Time an offline session is allowed to be idle before it expires. You need to use offline token to refresh at least once within this period; otherwise offline session will expire.
-  - zh: 離線工作階段允許閒置的時間，超過此時間後即會過期。您需要在此期間內至少使用離線權杖來刷新一次；否則，離線工作階段將會過期。
-- `admin-ui:35` **refresh**
-  - en: Refresh
-  - zh: 重新整理
-- `admin-ui:2553` **retry**
-  - en: Press here to refresh and continue
-  - zh: 按此以重新整理並繼續
-
-## Refresh token → 更新權杖（5 條不一致）
-
-- `admin-ui:2791` **accessTokenLifespanImplicitFlowHelp**
-  - en: Max time before an access token issued during OpenID Connect Implicit Flow is expired. This value is recommended to be shorter than the SSO timeout. There is no possibility to refresh token during implicit flow, that's why there is a separate timeout different to 'Access Token Lifespan'.
-  - zh: 在 OpenID Connect 隱式流程期間發出的訪問權杖過期之前的最大時間。建議此值短於 SSO 超時。在隱式流期間無法刷新權杖，這就是為什麼有一個與「訪問權杖壽命」不同的單獨超時的原因。
-- `admin-ui:2883` **refreshTokenMaxReuseHelp**
-  - en: Maximum number of times a refresh token can be reused. When a different token is used, revocation is immediate.
-  - zh: 刷新權杖可以重複使用的最大次數。當使用不同的權杖時，將會立即撤銷。
-- `admin-ui:2891` **useRefreshTokenForClientCredentialsGrant**
-  - en: Use refresh tokens for client credentials grant
-  - zh: 對於應用程式憑證授予，使用刷新權杖
-- `admin-ui:2085` **oAuthDPoPHelp**
-  - en: This enables support for Demonstrating Proof-of-Possession (DPoP) bound tokens. For public clients, both access and refresh tokens are bound to the key stored on the client. In order to prove the possession of the key, the client must send a signed proof alongside the token. For confidential clients
-  - zh: 這啟用對綁定權杖的擁有權證明 (DPoP) 的支援。對於公眾應用程式，存取和刷新權杖都綁定到存儲在應用程式上的金鑰。為了證明金鑰的擁有權，應用程式必須與權杖一起發送已簽名的證明。對於機密應用程式，只有存取權杖是 DPoP 綁定的，因為根據規範，刷新權杖已經由相關的身份驗證要求發送方約束。
-- `admin-ui:1856` **revokeRefreshTokenHelp**
-  - en: If enabled, a refresh token can only be used up to 'Refresh Token Max Reuse' and it is revoked when a different token is used. Otherwise, refresh tokens are not revoked when used and can be used multiple times.
-  - zh: 如果啟用，則刷新權杖只能使用到「刷新權杖最大重用」並且在使用不同的權杖時會被撤銷。否則，刷新權杖在使用時不會被撤銷，並且可以多次使用。
-
-## remove → 移除（8 條不一致）
-
-> 不跟 delete 混用
-
-- `account-ui:110` **unShareAllConfirm**
-  - en: Are you sure you want to completely remove all shares?
-  - zh: 您確定要完全取消所有共用嗎？
-- `admin-ui:879` **removeMappingConfirm_other**
-  - en: Are you sure you want to remove {{count}} roles
-  - zh: 您確定要刪除 {{count}} 角色
-- `admin-ui:883` **removeConfirm_other**
-  - en: Are you sure you want to remove these groups?
-  - zh: 您確定要刪除這些群組？
-- `admin-ui:891` **removeMappingConfirm_one**
-  - en: Are you sure you want to remove this role?
-  - zh: 您確定要刪除這個角色？
-- `admin-ui:3142` **roleRemoveAssociatedRoleConfirm**
-  - en: Remove associated role?
-  - zh: 刪除相關角色？
-- `admin-ui:3319` **policyDeletedError**
-  - en: Could not remove the resource {{error}}
-  - zh: 無法刪除資源 {{error}}
-- `theme-baseaccount:219` **doRemoveSharing**
-  - en: Remove Sharing
-  - zh: 取消共享
-- `theme-baseaccount:220` **doRemoveRequest**
-  - en: Remove Request
-  - zh: 取消請求
-
 ## Session → 工作狀態（86 條不一致）
 
 - `account-ui:45` **currentSession**
@@ -2166,58 +1522,223 @@
   - en: Signature algorithm to use for the SAML identity provider metadata, if none the metadata is not signed.
   - zh: 用於 SAML 身分提供者元資料的簽名演算法，如果沒有則元資料不會被簽名。
 
-## token → 權杖（4 條不一致）
+## certificate → 憑證（21 條不一致）
 
-> 國家教育研究院 - https://terms.naer.edu.tw/detail/4fc5f9876aec29562f088628e1d8eef9/
+- `admin-ui:380` **signedJWTConfirm**
+  - en: Generate a private key and certificate for the client from the Keys tab.
+  - zh: 從金鑰頁面為應用程式產生一個私鑰及證書。
+- `admin-ui:342` **generateKeysDescription**
+  - en: If you generate new keys, you can download the keystore with the private key automatically and save it on your client's side. Keycloak server will save just the certificate and public key, but not the private key. Key generation is deprecated. Keys should be imported instead.
+  - zh: 如果您產生了新的金鑰，您可以使用私鑰自動的下載 keystore 並儲存到您的應用程式。Keycloak 伺服器將只會儲存證書及公鑰，不會儲存私鑰。已棄用產生金鑰。金鑰應該只透過匯入。
+- `admin-ui:2033` **useTruststoreSpiHelp**
+  - en: Specifies whether LDAP connection will use the Truststore SPI with the truststore configured in command-line options. 'Always' means that it will always use it. 'Never' means that it will not use it. Note that even if Keycloak truststore is not configured, the default java cacerts or certificate spe
+  - zh: 指定 LDAP 連線是否會使用在命令列選項中設定的 Truststore SPI 和信任庫。「總是」表示它將會總是使用它。「從不」表示它將不會使用它。請注意，即便沒有設定 Keycloak truststore，預設的 java cacerts 或由「javax.net.ssl.trustStore」屬性指定的證書將會被使用。
+- `admin-ui:2460` **realmCertificateAlias**
+  - en: Realm certificate alias
+  - zh: 領域證書別名
+- `admin-ui:300` **validity**
+  - en: Certificate expiration
+  - zh: 證書效期
+- `admin-ui:354` **validityHelp**
+  - en: Number of years the generated certificate is valid for.
+  - zh: 生成的證書能有效多少年。
+- `admin-ui:216` **oAuthMutualHelp**
+  - en: This enables support for OAuth 2.0 Mutual TLS Certificate Bound Access Tokens, which means that Keycloak binds an access token and a refresh token with an X.509 certificate of a token requesting client exchanged in mutual TLS between keycloak's Token Endpoint and this client. These tokens can be tre
+  - zh: 這項功能可支援 OAuth 2.0 相互 TLS 證書綁定存取權杖，亦即 Keycloak 會將存取權杖與更新權杖綁定至透過相互 TLS 交換的應用程式 X.509 證書（交換發生於 Keycloak 的權杖端點與該應用程式之間）。這些權杖可視為持有者金鑰（Holder-of-Key）權杖，而非持有者（Bearer）權杖。
+- `admin-ui:2631` **useMetadataDescriptorUrlHelp**
+  - en: If the switch is on, the certificates to validate signatures will be downloaded and cached from the given "Metadata descriptor URL". The "Reload keys" action can be used to refresh the certificates in the cache. If the switch is off, certificates from "Validating X509 certificates" option are used, 
+  - zh: 如果啟用，則用於驗證簽名的證書將從給定的「元數據描述符 URL」下載並緩存。可以使用「重新加載金鑰」操作來刷新緩存中的證書。如果關閉，則使用「驗證 X509 證書」選項中的證書，當 IDP 中更改時，需要手動更新它們。
+- `admin-ui:2633` **metadataDescriptorUrlHelp**
+  - en: External URL where Identity Provider publishes the metadata information needed by the client (certificates, keys, other URLs,...).
+  - zh: 身份提供者發布應用程式所需的元數據信息（證書、金鑰、其他 URL 等）的外部 URL。
+- `admin-ui:2637` **importKeysSuccess**
+  - en: Keys successfully re-imported. Please save the provider to store the new certificates.
+  - zh: 金鑰成功重新匯入。請保存提供者以存儲新的證書。
+- `admin-ui:1265` **certificate**
+  - en: Certificate
+  - zh: 證書
+- `admin-ui:2680` **importSuccess**
+  - en: New certificate imported
+  - zh: 已匯入新證書
+- `admin-ui:3000` **certificateHelp**
+  - en: Client Certificate for validate JWT issued by client and signed by Client private key from your keystore.
+  - zh: 用於驗證由應用程式簽發並由應用程式私鑰簽名的 JWT 的應用程式證書。
+- `admin-ui:2240` **samlclientSignatureCertificateHelp**
+  - en: Client Certificate of public key for validate SAML requests and responses signed by SAML client.
+  - zh: 應用程式證書的公鑰用於驗證從 SAML 應用簽署的 SAML 請求及回應。
+- `admin-ui:2241` **samlencryptAssertionsCertificateHelp**
+  - en: Client Certificate of public key for encrypt SAML assertions.
+  - zh: 應用程式證書的公鑰用於解密 SAML 斷言。
+- `admin-ui:426` **x509Certificate**
+  - en: X509 Certificate
+  - zh: X509 證書
+- `admin-ui:3093` **derFormattedHelp**
+  - en: Activate this if the certificate is DER formatted in LDAP and not PEM formatted.
+  - zh: 如果證書在 LDAP 中是 DER 格式而非 PEM 格式，請啟用此選項。
+- `admin-ui:332` **useJwksUrlHelp**
+  - en: If the switch is ON, identity provider public keys are downloaded from a given JWKS URL. The result is great flexibility because new keys are downloaded again when the identity provider generates a new keypair. If the switch is OFF, a public key (or certificate) from the Keycloak database is used; t
+  - zh: 如果啟用，身分提供者的公開金鑰會從給定的 JWKS URL 中下載。這樣能確保彈性的設定，因為當身分提供者重新產生了新的鑰匙對的時候，新的鑰匙將會重新下載。如果關閉，將會使用 Keycloak 資料庫中的公開金鑰（或證書），當身分提供者變動鑰匙對時，您會需要重新匯入新的金鑰進 Keycloak 的資料庫。
+- `admin-ui:3469` **jwtX509HeadersEnabledHelp**
+  - en: If enabled, the x5t (X.509 Certificate SHA-1 Thumbprint) header will be added to the JWT to reference the certificate used to sign it. Otherwise, the kid (Key ID) header will be used instead.
+  - zh: 如果啟用，x5t（X.509 證書 SHA-1 指紋）標頭將被添加到 JWT 中，以引用用於簽名的證書。否則，將使用 kid（密鑰 ID）標頭。
+- `admin-ui:3543` **validatingX509CertsHelp**
+  - en: The public certificates used by Keycloak to validate the signatures of SAML requests and responses from the external IDP when the Use metadata descriptor URL is OFF. Multiple certificates can be entered separated by commas (,). You can reimport certificates from the Metadata descriptor URL by clicki
+  - zh: Keycloak 用於驗證來自外部 IDP 的 SAML 請求和回應簽名的公用證書，當「使用元資料描述符 URL」關閉時。可以輸入多個以逗號 (,) 分隔的證書。您可以透過點擊身份提供者頁面上的「匯入金鑰」動作，從元資料描述符 URL 重新匯入證書。此動作會下載元資料端點中的當前證書，並將它們分配給此相同選項中的配置。點擊「儲存」以最終存儲重新匯入的證書。
+- `admin-ui:128` **clearCrlCacheHelp**
+  - en: Clears all entries from the CRL cache. The CRL cache improves the performance of the X.509 authenticator when Certificate Revocation List (CRL) are enabled. This action will clear all the CRL entries for all the realms.
+  - zh: 從 CRL 快取中清理所有項目。當證書撤銷清單 (CRL) 被啟用時，CRL 快取可以提升 X.509 驗證器的效能。這個操作將會清理掉所有領域中的 CRL 項目。
 
-- `admin-ui:544` **eventTypes.EXECUTE_ACTION_TOKEN.description**
-  - en: Not used; see Execute action token error
-  - zh: 未使用；參閱 Execute action token 錯誤
-- `admin-ui:2711` **ldapAttributeValueHelp**
-  - en: Value of the LDAP attribute, which will be added to the new user during registration. You can either hardcode any value like 'foo' but you can also use some special tokens. Only supported token right now is '${RANDOM}', which will be replaced with some randomly generated string.
-  - zh: LDAP 屬性的值，該屬性將在註冊期間添加到新使用者。您可以硬編碼任何值，例如「foo」，但您也可以使用一些特殊的標記。目前僅支持的標記是「${RANDOM}」，它將被替換為一些隨機生成的字符串。
-- `admin-ui:1017` **usermodel.clientRoleMapping.rolePrefix.tooltip**
-  - en: A prefix for each client role (optional). The special token ${client_id} can be used and this will be replaced by the actual client ID. This is useful especially when you are adding roles from all the clients (Hence 'Client ID' switch is unset) and need to present the client roles as a list, prefixe
-  - zh: 每個應用程式角色的前綴（選填）。可以使用特殊標記 ${client_id}，系統將會以實際的應用程式 ID 取代此標記。這在您從所有應用程式新增角色（即未開啟「應用程式 ID」切換開關）且需要以清單形式呈現，並標註來源應用程式 ID 的情境下非常有用。
-- `admin-ui:3238` **useLowerCaseBearerTypeHelp**
-  - en: If this is on, token responses will be set the with the type "bearer" in lower-case. By default, the server sets the type as "Bearer" as defined by RFC6750. This switch is deprecated and might be removed in future version.
-  - zh: 如果啟用此選項，則令牌回應的類型將設置為小寫的「bearer」。預設情況下，伺服器會根據 RFC6750 將類型設置為「Bearer」。此開關已棄用並且將會在未來版本中移除。
+## federation → 邦聯（18 條不一致）
 
-## user → 使用者（11 條不一致）
+> 用於連結外部服務 (Google, Facebook, etc.)
 
-- `admin-ui:453` **noDirectUsers**
-  - en: No direct users
-  - zh: 沒有直接角色
-- `admin-ui:2050` **editModeLdapHelp**
-  - en: READ_ONLY is a read-only LDAP store. WRITABLE means data will be synced back to LDAP on demand. UNSYNCED means user data will be imported, but not synced back to LDAP.
-  - zh: READ_ONLY 是唯讀的 LDAP 存儲。WRITABLE 意味著數據將根據需要同步回 LDAP。UNSYNCED 意味著用戶數據將被導入，但不會同步回 LDAP。
-- `admin-ui:3878` **parameterizedScopeType.user-delegation**
-  - en: User Delegation
-  - zh: 授權
-- `admin-ui:3498` **permanentLockoutHelp**
-  - en: Configures whether a user is temporarily or permanently disabled after too many login failures. Permanent lockout can be configured to occur after a number of login failures or after a number of temporary lockouts.
-  - zh: 配置用戶在多次登錄失敗後是暫時禁用還是永久禁用。永久鎖定可以配置為在一定次數的登錄失敗後或一定次數的臨時鎖定後發生。
-- `admin-ui:1137` **organizationRemovedSuccess**
-  - en: User removed from organizations
-  - zh: 成員從組織中移除
-- `admin-ui:1138` **organizationRemoveError**
-  - en: Could not remove user from organizations: {{error}}
-  - zh: 無法從組織中移除成員：{{error}}
-- `admin-ui:1139` **userAddedOrganizationError**
-  - en: Could not add organizations to the user: {{error}}
-  - zh: 無法添加成員到組織：{{error}}
-- `admin-ui:209` **loggedInAsTempAdminUser**
-  - en: You are logged in as a temporary admin user. To harden security, create a permanent admin account and delete the temporary one.
-  - zh: 您目前正在使用臨時管理員帳號進行登入。為了加強安全性，建立一個永久性的管理員帳號並刪除此帳號。
-- `admin-ui:1213` **temporaryAdmin**
-  - en: Temporary admin user account. Ensure it is replaced with a permanent admin user account as soon as possible.
-  - zh: 臨時管理員帳號。請確保儘快將其替換為永久管理員帳號。
-- `theme-baselogin:268` **updateProfileMessage**
-  - en: You need to update your user profile to activate your account.
-  - zh: 您需要更新個人資料以啟用帳號。
-- `theme-baselogin:475` **userDeletedSuccessfully**
-  - en: User deleted successfully
-  - zh: 帳戶已成功刪除
+- `admin-ui:2001` **userFedDeleteConfirm**
+  - en: If you delete this user federation provider, all associated data will be removed.
+  - zh: 如果您刪除此使用者聯邦提供者，所有相關資料都將被移除。
+- `admin-ui:71` **userFederation**
+  - en: User federation
+  - zh: 使用者聯邦
+- `admin-ui:2481` **createUserProviderSuccess**
+  - en: User federation provider successfully created
+  - zh: 使用者聯邦提供者已成功建立
+- `admin-ui:2490` **userProviderSaveSuccess**
+  - en: User federation provider successfully saved
+  - zh: 使用者聯邦提供者已成功儲存
+- `admin-ui:2491` **addKerberosWizardTitle**
+  - en: Add Kerberos user federation provider
+  - zh: 新增 Kerberos 使用者聯邦提供者
+- `admin-ui:2614` **orderChangeErrorUserFed**
+  - en: Could not change the priority order of user federation providers {{error}}
+  - zh: 無法更改使用者聯邦提供者的優先順序：{{error}}
+- `admin-ui:2743` **createUserProviderError**
+  - en: User federation provider could not be created: {{error}}
+  - zh: 無法創建使用者聯邦提供者：{{error}}
+- `admin-ui:1451` **orderChangeSuccessUserFed**
+  - en: Successfully changed the priority order of user federation providers
+  - zh: 成功更改使用者聯邦提供者的優先順序
+- `admin-ui:1452` **userProviderSaveError**
+  - en: User federation provider could not be saved: {{error}}
+  - zh: 使用者聯邦提供者無法儲存：{{error}}
+- `admin-ui:2064` **federationLink**
+  - en: Federation link
+  - zh: 聯邦連結
+- `admin-ui:2852` **targetHelp**
+  - en: Destination field for the mapper. LOCAL (default) means that the changes are applied to the username stored in the local database upon user import. BROKER_ID and BROKER_USERNAME means that the changes are stored into the ID or username used for federation user lookup, respectively.
+  - zh: 映射器的目標欄位。LOCAL（預設值）表示更改將應用於導入使用者時存儲在本地資料庫中的使用者名稱。BROKER_ID 和 BROKER_USERNAME 分別表示更改存儲到用於聯邦使用者查找的 ID 或使用者名稱中。
+- `admin-ui:2912` **userFedDeletedSuccess**
+  - en: The user federation provider has been deleted.
+  - zh: 使用者聯邦提供者已被刪除。
+- `admin-ui:2921` **userFedDisableConfirmTitle**
+  - en: Disable user federation provider?
+  - zh: 禁用使用者聯邦提供者？
+- `admin-ui:3120` **userFedDisableConfirm**
+  - en: If you disable this user federation provider, it will not be considered for queries and imported users will be disabled and read-only until the provider is enabled again.
+  - zh: 如果您停用此使用者聯合提供者，將不會考慮其查詢，且匯入的使用者將被停用且唯讀，直到該提供者再次啟用為止。
+- `admin-ui:72` **userFederationExplain**
+  - en: User federation provides access to external databases and directories, such as LDAP and Active Directory.
+  - zh: 使用者聯邦提供對外部資料庫和目錄（例如 LDAP 和 Active Directory）的存取。
+- `admin-ui:3247` **userFedDeleteError**
+  - en: Could not delete user federation provider: '{{error}}'
+  - zh: 無法刪除使用者聯合提供者：「{{error}}」
+- `admin-ui:3416` **saveError**
+  - en: User federation provider could not be saved: {{error}}
+  - zh: 無法儲存使用者聯盟提供者：{{error}}
+- `admin-ui:87` **welcomeText**
+  - en: Keycloak provides user federation, strong authentication, user management, fine-grained authorization, and more. Add authentication to applications and secure services with minimum effort. No need to deal with storing users or authenticating users.
+  - zh: Keycloak 提供使用者聯邦、強式驗證、使用者管理、細緻授權等功能。只需最少的設定，即可為應用程式新增驗證並保護服務。無需自行處理使用者儲存或驗證作業。
+
+## federated identity → 聯邦身分識別（15 條不一致）
+
+- `admin-ui:492` **eventTypes.FEDERATED_IDENTITY_LINK_ERROR.description**
+  - en: Federated identity link error
+  - zh: 聯邦身分綁定錯誤
+- `admin-ui:553` **eventTypes.FEDERATED_IDENTITY_LINK.description**
+  - en: Federated identity link
+  - zh: 連結聯邦身分
+- `admin-ui:555` **eventTypes.FEDERATED_IDENTITY_OVERRIDE_LINK.name**
+  - en: Federated identity link override
+  - zh: 覆寫聯邦身分綁定
+- `admin-ui:556` **eventTypes.FEDERATED_IDENTITY_OVERRIDE_LINK.description**
+  - en: Federated identity link override
+  - zh: 覆寫聯邦身分綁定
+- `admin-ui:557` **eventTypes.FEDERATED_IDENTITY_OVERRIDE_LINK_ERROR.name**
+  - en: Federated identity link override error
+  - zh: 覆寫聯邦身分綁定發生錯誤
+- `admin-ui:558` **eventTypes.FEDERATED_IDENTITY_OVERRIDE_LINK_ERROR.description**
+  - en: Federated identity link override error
+  - zh: 覆寫聯邦身分綁定發生錯誤
+- `admin-ui:571` **eventTypes.FEDERATED_IDENTITY_LINK_ERROR.name**
+  - en: Federated identity link error
+  - zh: 連結聯邦身分發生錯誤
+- `admin-ui:615` **eventTypes.REMOVE_FEDERATED_IDENTITY.name**
+  - en: Remove federated identity
+  - zh: 移除聯邦身分
+- `admin-ui:630` **eventTypes.REMOVE_FEDERATED_IDENTITY.description**
+  - en: Remove federated identity
+  - zh: 移除聯邦身分
+- `admin-ui:673` **eventTypes.FEDERATED_IDENTITY_LINK.name**
+  - en: Federated identity link
+  - zh: 聯邦身分連結
+- `admin-ui:677` **eventTypes.REMOVE_FEDERATED_IDENTITY_ERROR.name**
+  - en: Remove federated identity error
+  - zh: 移除聯邦身分發生錯誤
+- `admin-ui:683` **eventTypes.REMOVE_FEDERATED_IDENTITY_ERROR.description**
+  - en: Remove federated identity error
+  - zh: 移除聯邦身分發生錯誤
+- `admin-ui:3540` **caseSensitiveOriginalUsernameHelp**
+  - en: If enabled, the original username from the identity provider is kept as is when federating users. Otherwise, the username from the identity provider is lower-cased and might not match the original value if it is case-sensitive. This setting only affects the username associated with the federated ide
+  - zh: 如果啟用，則在聯結使用者時，將保持身份提供者的原始使用者名稱不變。否則，身份提供者的使用者名稱將轉為小寫，如果區分大小寫，則可能與原始值不匹配。此設定僅影響與聯合身份相關聯的使用者名稱，因為伺服器中的使用者名稱始終為小寫。
+- `theme-baseaccount:193` **identityProviderAlreadyLinkedMessage**
+  - en: Federated identity returned by {0} is already linked to another user.
+  - zh: 由 {0} 回傳的聯邦身分已連結至另一個使用者。
+- `theme-baselogin:340` **identityProviderAlreadyLinkedMessage**
+  - en: Federated identity returned by {0} is already linked to another user.
+  - zh: {0} 回傳的聯邦身分已連結至其他使用者。
+
+## assertion → 斷言（14 條不一致）
+
+- `admin-ui:2322` **attributeImporter**
+  - en: Import declared SAML attribute if it exists in assertion into the specified user property or attribute.
+  - zh: 如果在聲明中存在，則將已聲明的 SAML 屬性匯入指定的使用者屬性或屬性。
+- `admin-ui:2344` **friendlyName**
+  - en: Friendly name of attribute to search for in assertion. You can leave this blank and specify a name instead.
+  - zh: 要在聲明中搜尋的屬性的友好名稱。您可以將此留空，並改為指定名稱。
+- `admin-ui:157` **clientTypeHelp**
+  - en: 'OpenID Connect' allows Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server.'SAML' enables web-based authentication and authorization scenarios including cross-domain single sign-on (SSO) and uses security tokens containing assertions to pa
+  - zh: 「OpenID Connect」允許應用程式驗證根據授權伺服器所執行的驗證來確認終端使用者的身分。「SAML」支援以網頁為基礎的驗證與授權情境，包括跨網域單一登入（SSO），並使用包含聲明的安全權杖來傳遞資訊。
+- `admin-ui:2582` **encryptionAlgorithmHelp**
+  - en: Encryption algorithm, which is used by the SAML IDP for encryption of SAML documents, assertions or IDs. The corresponding decryption key for decrypting SAML document parts is chosen based on this configured algorithm and should be available in realm keys for the encryption (ENC) usage. If no algori
+  - zh: 加密演算法，由 SAML 身份提供者用於加密 SAML 文件、聲明或 ID。用於解密 SAML 文件部分的相應解密金鑰是根據此配置的演算法選擇的，並且應該在領域金鑰中可用於加密 (ENC) 用途。如果未配置任何演算法，則允許使用任何支援的演算法，並且根據 SAML 文件中配置的演算法選擇解密金鑰。
+- `admin-ui:2583` **masterSamlProcessingUrlHelp**
+  - en: If configured, this URL will be used for every binding to both the SP's Assertion Consumer and Single Logout Services. This can be individually overridden for each binding and service in the Fine Grain SAML Endpoint Configuration.
+  - zh: 如果已設定，則此 URL 將用於 SP 的聲明消費者和單一登出服務的每個綁定。這可以在細粒度 SAML 端點配置中的每個綁定和服務中單獨覆蓋。
+- `admin-ui:2483` **clientAssertionAudienceHelp**
+  - en: The audience to use for the client assertion. The default value is the IDP's token endpoint URL.
+  - zh: 用於應用程式聲明的受眾。預設值是 IDP 的權杖端點 URL。
+- `admin-ui:2974` **jwtAuthorizationGrantIdpEnabledHelp**
+  - en: Enable the identity provider to act as a trust provider to validate authorization grant JWT assertions according to RFC 7523.
+  - zh: 根據 RFC 7523，啟用使身分提供者能作為信任提供者來驗證 JWT 授予授權聲明。
+- `admin-ui:2975` **jwtAuthorizationGrantAssertionReuseAllowed**
+  - en: Allow assertion reuse
+  - zh: 允許複用聲明
+- `admin-ui:2976` **jwtAuthorizationGrantAssertionReuseAllowedHelp**
+  - en: If enabled, the jti claim is not required and assertions can be reused.
+  - zh: 如果啟用，jti 聲明不會是必填項目，且聲明能被複用。
+- `admin-ui:158` **clientsClientTypeHelp**
+  - en: 'OpenID Connect' allows Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server.'SAML' enables web-based authentication and authorization scenarios including cross-domain single sign-on (SSO) and uses security tokens containing assertions to pa
+  - zh: 「OpenID Connect」允許應用程式驗證根據授權伺服器所執行的驗證來確認終端使用者的身分。「SAML」支援以網頁為基礎的驗證與授權情境，包括跨網域單一登入（SSO），並使用包含聲明的安全權杖來傳遞資訊。
+- `admin-ui:2945` **wantAssertionsSigned**
+  - en: Want Assertions signed
+  - zh: 希望簽署聲明
+- `admin-ui:3162` **signAssertions**
+  - en: Sign assertions
+  - zh: 簽署聲明
+- `admin-ui:3518` **selectClientAssertionSigningAlg**
+  - en: Select client assertion signing algorithm
+  - zh: 選擇應用程式聲明簽署演算法
+- `admin-ui:3670` **allowClientIdAsAudience**
+  - en: Allows Client ID as audience for assertions
+  - zh: 允許將應用程式 ID 作為聲明中的受眾
 
 ## you → 您（14 條不一致）
 
@@ -2265,3 +1786,482 @@
 - `theme-baselogin:519` **traceIdSupportMessage**
   - en: If you contact support, please provide the following trace identifier: {0}
   - zh: 若需聯絡技術支援，請提供以下追蹤識別碼：{0}
+
+## authentication → 驗證（11 條不一致）
+
+- `account-ui:107` **basic-authentication**
+  - en: Basic authentication
+  - zh: 基本認證
+- `admin-ui:3346` **excludeSessionStateFromAuthenticationResponseHelp**
+  - en: If this is on, the parameter 'session_state' will not be included in OpenID Connect Authentication Response. It is useful if the client uses an older OIDC / OAuth2 adapter, which does not support the 'session_state' parameter. This switch is deprecated and might be removed in future version.
+  - zh: 如果啟用此選項，參數「session_state」將不包含在 OpenID Connect 認證回應中。當應用程式使用較舊的 OIDC / OAuth2 適配器且不支援「session_state」參數時，此選項非常有用。此開關已棄用並且將會在未來版本中移除。
+- `admin-ui:3375` **excludeIssuerFromAuthenticationResponse**
+  - en: Exclude Issuer From Authentication Response
+  - zh: 從認證回應中排除發行者
+- `admin-ui:365` **clientAuthentications.client_secret_basic**
+  - en: Client secret sent as HTTP Basic authentication
+  - zh: 使用 HTTP 基本認證傳送的應用程式金鑰
+- `admin-ui:2551` **clientAuthentications.client_secret_basic_unencoded**
+  - en: Client secret sent as HTTP Basic authentication without URL encoding (deprecated)
+  - zh: 使用 HTTP 基本認證傳送的應用程式金鑰，未經 URL 編碼（已棄用）
+- `admin-ui:3443` **excludeIssuerFromAuthenticationResponseHelp**
+  - en: If this is on, the parameter 'iss' will not be included in OpenID Connect Authentication Response. It is useful if the client uses an older OIDC / OAuth2 adapter, which does not support the 'iss' parameter. This switch is deprecated and might be removed in future version.
+  - zh: 如果啟用此選項，參數「iss」將不包含在 OpenID Connect 認證回應中。當應用程式使用較舊的 OIDC / OAuth2 適配器且不支援「iss」參數時，此選項非常有用。此開關已棄用並且將會在未來版本中移除。
+- `admin-ui:3448` **ssoServiceUrlHelp**
+  - en: The Url that must be used to send authentication requests (SAML AuthnRequest).
+  - zh: 必須用於發送認證請求（SAML AuthnRequest）的網址。
+- `admin-ui:3508` **loa-condition-level**
+  - en: Level of Authentication (LoA)
+  - zh: 認證等級 (LoA)
+- `admin-ui:3511` **loa-max-age.tooltip**
+  - en: Maximum age in seconds for this level of authentication to be valid. If the particular level is requested and user already authenticated with this level earlier than specified amount of seconds ago, he will not be asked to re-authenticate. But if he authenticated later than specified amount of secon
+  - zh: 此認證等級有效的最大秒數。如果請求特定等級，且使用者在指定秒數之前已使用此等級進行過認證，則不會要求他重新進行認證。但如果他在指定秒數之後進行了認證，則需要再次使用此等級重新進行認證。配置中的值 0 表示每當請求此等級時，使用者都需要使用此等級重新進行認證。
+- `theme-baseaccount:306` **authenticatorBackupCodesSetupTitle**
+  - en: Recovery Authentication Codes Setup
+  - zh: 復原代碼設定
+- `theme-baseaccount:310` **generateNewBackupCodes**
+  - en: Generate New Recovery Authentication Codes
+  - zh: 產生新的復原代碼
+
+## user → 使用者（11 條不一致）
+
+- `admin-ui:453` **noDirectUsers**
+  - en: No direct users
+  - zh: 沒有直接角色
+- `admin-ui:2050` **editModeLdapHelp**
+  - en: READ_ONLY is a read-only LDAP store. WRITABLE means data will be synced back to LDAP on demand. UNSYNCED means user data will be imported, but not synced back to LDAP.
+  - zh: READ_ONLY 是唯讀的 LDAP 存儲。WRITABLE 意味著數據將根據需要同步回 LDAP。UNSYNCED 意味著用戶數據將被導入，但不會同步回 LDAP。
+- `admin-ui:3878` **parameterizedScopeType.user-delegation**
+  - en: User Delegation
+  - zh: 授權
+- `admin-ui:3498` **permanentLockoutHelp**
+  - en: Configures whether a user is temporarily or permanently disabled after too many login failures. Permanent lockout can be configured to occur after a number of login failures or after a number of temporary lockouts.
+  - zh: 配置用戶在多次登錄失敗後是暫時禁用還是永久禁用。永久鎖定可以配置為在一定次數的登錄失敗後或一定次數的臨時鎖定後發生。
+- `admin-ui:1137` **organizationRemovedSuccess**
+  - en: User removed from organizations
+  - zh: 成員從組織中移除
+- `admin-ui:1138` **organizationRemoveError**
+  - en: Could not remove user from organizations: {{error}}
+  - zh: 無法從組織中移除成員：{{error}}
+- `admin-ui:1139` **userAddedOrganizationError**
+  - en: Could not add organizations to the user: {{error}}
+  - zh: 無法添加成員到組織：{{error}}
+- `admin-ui:209` **loggedInAsTempAdminUser**
+  - en: You are logged in as a temporary admin user. To harden security, create a permanent admin account and delete the temporary one.
+  - zh: 您目前正在使用臨時管理員帳號進行登入。為了加強安全性，建立一個永久性的管理員帳號並刪除此帳號。
+- `admin-ui:1213` **temporaryAdmin**
+  - en: Temporary admin user account. Ensure it is replaced with a permanent admin user account as soon as possible.
+  - zh: 臨時管理員帳號。請確保儘快將其替換為永久管理員帳號。
+- `theme-baselogin:268` **updateProfileMessage**
+  - en: You need to update your user profile to activate your account.
+  - zh: 您需要更新個人資料以啟用帳號。
+- `theme-baselogin:475` **userDeletedSuccessfully**
+  - en: User deleted successfully
+  - zh: 帳戶已成功刪除
+
+## adapter → 配接器（9 條不一致）
+
+- `admin-ui:2293` **effectiveRoleScopeMappingsHelp**
+  - en: Selected Optional Client Scopes, which will be used when issuing access token for this client. You can see above what value of OAuth Scope Parameter needs to be used when you want to have these optional client scopes applied when the initial OpenID Connect Authentication request will be sent from yo
+  - zh: 選定的選用應用程式範圍，將在為此應用程式發出存取權杖時使用。您可以在上方看到當您想要在從您的應用程式適配器發送初始 OpenID Connect 驗證請求時套用這些選用應用程式範圍時，需要使用的 OAuth 範圍參數值。
+- `admin-ui:2380` **disableSigningExplain**
+  - en: If you disable "{{key}}", the Keycloak database will be updated and you may need to download a new adapter for this client.
+  - zh: 如果您停用「{{key}}」，Keycloak 將會更新資料庫，您可能需要為此應用程式下載新的適配器。
+- `admin-ui:2599` **enableClientSignatureRequiredExplain**
+  - en: If you enable "{{key}}", the adapter of this client will be updated. You may need to download a new adapter for this client. You need to generate or import keys for this client otherwise the authentication will not work.
+  - zh: 如果您啟用「{{key}}」，則此應用程式的適配器將被更新。您可能需要為此應用程式下載新的適配器。否則，身份驗證將無法工作，您需要為此應用程式生成或導入金鑰。
+- `admin-ui:2698` **confirmClientSecretBody**
+  - en: If you regenerate the secret, the Keycloak database will be updated and you will need to download a new adapter for this client.
+  - zh: 如果您重新生成密鑰，Keycloak 數據庫將被更新，您需要為此應用程式下載新的適配器。
+- `admin-ui:237` **adminURLHelp**
+  - en: URL to the admin interface of the client. Set this if the client supports the adapter REST API. This REST API allows the auth server to push revocation policies and other administrative tasks. Usually this is set to the base URL of the client.
+  - zh: 應用程式的管理員介面 URL。如果應用程式支援使用 REST API，請設定此數值。REST API 允許驗證伺服器推送撤銷政策及其他管理類的任務。通常設定為這個應用程式的基礎 URL。
+- `admin-ui:1324` **changeAuthenticatorConfirm**
+  - en: If you change authenticator to {{clientAuthenticatorType}}, the Keycloak database will be updated and you may need to download a new adapter configuration for this client.
+  - zh: 如果您將驗證器更改為 {{clientAuthenticatorType}}，Keycloak 資料庫將會被更新，而您可能需要下載此應用程式的新適配器設定。
+- `admin-ui:3296` **optimizeLookupHelp**
+  - en: When signing SAML documents in REDIRECT binding for SP that is secured by Keycloak adapter, should the ID of the signing key be included in SAML protocol message in <Extensions> element? This optimizes validation of the signature as the validating party uses a single key instead of trying every know
+  - zh: 在 REDIRECT 綁定中為由 Keycloak 適配器保護的 SP 簽署 SAML 文件時，是否應在 <Extensions> 元素中的 SAML 協議訊息中包含簽署金鑰的 ID？這優化了簽名的驗證，因為驗證方使用單一金鑰，而不是嘗試使用每個已知金鑰進行驗證。
+- `admin-ui:3346` **excludeSessionStateFromAuthenticationResponseHelp**
+  - en: If this is on, the parameter 'session_state' will not be included in OpenID Connect Authentication Response. It is useful if the client uses an older OIDC / OAuth2 adapter, which does not support the 'session_state' parameter. This switch is deprecated and might be removed in future version.
+  - zh: 如果啟用此選項，參數「session_state」將不包含在 OpenID Connect 認證回應中。當應用程式使用較舊的 OIDC / OAuth2 適配器且不支援「session_state」參數時，此選項非常有用。此開關已棄用並且將會在未來版本中移除。
+- `admin-ui:3443` **excludeIssuerFromAuthenticationResponseHelp**
+  - en: If this is on, the parameter 'iss' will not be included in OpenID Connect Authentication Response. It is useful if the client uses an older OIDC / OAuth2 adapter, which does not support the 'iss' parameter. This switch is deprecated and might be removed in future version.
+  - zh: 如果啟用此選項，參數「iss」將不包含在 OpenID Connect 認證回應中。當應用程式使用較舊的 OIDC / OAuth2 適配器且不支援「iss」參數時，此選項非常有用。此開關已棄用並且將會在未來版本中移除。
+
+## protocol → 協定（9 條不一致）
+
+- `admin-ui:2585` **idpInitiatedSsoUrlNameHelp**
+  - en: URL fragment name to reference client when you want to do IDP Initiated SSO. Leaving this empty will disable IDP Initiated SSO. The URL you will reference from your browser will be: {server-root}/realms/{realm}/protocol/saml/clients/{client-url-name}.
+  - zh: URL 片段名稱，用於在您想要進行 IDP 啟動的 SSO 時引用應用程式。將此留空將禁用 IDP 啟動的 SSO。您將從瀏覽器引用的 URL 將是：{server-root}/realms/{realm}/protocol/saml/clients/{client-url-name}。
+- `admin-ui:2729` **generatedAccessTokenHelp**
+  - en: See the example access token, which will be generated and sent to the client when the selected user is authenticated. You can see claims and roles that the token will contain based on the effective protocol mappers and role scope mappings and also based on the claims and roles assigned to the actual
+  - zh: 查看示例訪問權杖，當選定的使用者通過身份驗證時，將生成並發送給應用程式。您可以根據有效的協議映射器和角色範圍映射以及分配給實際使用者的聲明和角色來查看權杖將包含的聲明和角色。
+- `admin-ui:3005` **emptyClientScopesInstructions**
+  - en: There are currently no client scopes linked to this client. You can add existing client scopes to this client to share protocol mappers and roles.
+  - zh: 目前沒有與此應用程式關聯的應用程式範圍。您可以將現有的應用程式範圍新增到此應用程式，以共用協議映射器和角色。
+- `admin-ui:338` **jwksUrlHelp**
+  - en: URL where identity provider keys in JWK format are stored. See the JWK specification for more details. If you use an external Keycloak identity provider, you can use a URL such as 'http://broker-keycloak:8180/realms/test/protocol/openid-connect/certs' assuming your brokered Keycloak is running on 'h
+  - zh: 身分提供者存放 JWK 格式的金鑰 URL。查閱 JWK 規範取得更多資訊。如果您使用外部 Keycloak 作為身分提供者，並假設您有一個 Keycloak 執行在「http://broker-keycloak:8180」並且有一個對應的領域叫做「test」，您可以使用像是「http://broker-keycloak:8180/realms/test/protocol/openid-connect/certs」的 URL。
+- `admin-ui:3091` **protocolMapper**
+  - en: Protocol...
+  - zh: 協議...
+- `admin-ui:3204` **generatedIdTokenHelp**
+  - en: See the example ID Token, which will be generated and sent to the client when the selected user is authenticated. You can see claims and roles that the token will contain based on the effective protocol mappers and role scope mappings and also based on the claims and roles assigned to the actual use
+  - zh: 請參閱範例 ID 權杖，該權杖將在所選使用者通過身份驗證後生成並發送給應用程式。您可以根據有效的協議映射器和角色範圍映射以及分配給實際使用者的聲明和角色來查看權杖將包含的聲明和角色。
+- `admin-ui:3296` **optimizeLookupHelp**
+  - en: When signing SAML documents in REDIRECT binding for SP that is secured by Keycloak adapter, should the ID of the signing key be included in SAML protocol message in <Extensions> element? This optimizes validation of the signature as the validating party uses a single key instead of trying every know
+  - zh: 在 REDIRECT 綁定中為由 Keycloak 適配器保護的 SP 簽署 SAML 文件時，是否應在 <Extensions> 元素中的 SAML 協議訊息中包含簽署金鑰的 ID？這優化了簽名的驗證，因為驗證方使用單一金鑰，而不是嘗試使用每個已知金鑰進行驗證。
+- `admin-ui:3299` **scopePermissions.clients.configure-description**
+  - en: Reduced management permissions for administrator. Cannot set scope, template, or protocol mappers.
+  - zh: 管理員的管理權限降低。無法設定範圍、範本或協議映射器。
+- `admin-ui:1166` **tokenTokenUrlHelp**
+  - en: Token endpoint for gathering tokens: keycloak example: http://localhost/auth/realms/my-realm/protocol/openid-connect/token
+  - zh: 用於生成權杖的端點，Keycloak 範例：http://localhost/auth/realms/my-realm/protocol/openid-connect/token
+
+## remove → 移除（8 條不一致）
+
+> 不跟 delete 混用
+
+- `account-ui:110` **unShareAllConfirm**
+  - en: Are you sure you want to completely remove all shares?
+  - zh: 您確定要完全取消所有共用嗎？
+- `admin-ui:879` **removeMappingConfirm_other**
+  - en: Are you sure you want to remove {{count}} roles
+  - zh: 您確定要刪除 {{count}} 角色
+- `admin-ui:883` **removeConfirm_other**
+  - en: Are you sure you want to remove these groups?
+  - zh: 您確定要刪除這些群組？
+- `admin-ui:891` **removeMappingConfirm_one**
+  - en: Are you sure you want to remove this role?
+  - zh: 您確定要刪除這個角色？
+- `admin-ui:3142` **roleRemoveAssociatedRoleConfirm**
+  - en: Remove associated role?
+  - zh: 刪除相關角色？
+- `admin-ui:3319` **policyDeletedError**
+  - en: Could not remove the resource {{error}}
+  - zh: 無法刪除資源 {{error}}
+- `theme-baseaccount:219` **doRemoveSharing**
+  - en: Remove Sharing
+  - zh: 取消共享
+- `theme-baseaccount:220` **doRemoveRequest**
+  - en: Remove Request
+  - zh: 取消請求
+
+## access token → 存取權杖（7 條不一致）
+
+> 參照國家教育研究院翻譯：https://terms.naer.edu.tw/detail/edb0778da6e12964146ee84c4a1e957f/  又因為 token 已採用「權杖」作為翻譯，因此這邊也一併使用權杖作為 token 的翻譯
+
+- `admin-ui:2591` **groupsClaimHelp**
+  - en: If defined, the policy will fetch user's groups from the given claim within an access token or ID token representing the identity asking permissions. If not defined, user's groups are obtained from your realm configuration.
+  - zh: 如果已定義，則該政策將從代表請求權限的身份的訪問權杖或 ID 權杖中的給定聲明中獲取使用者的群組。如果未定義，則從您的領域配置中獲取使用者的群組。
+- `admin-ui:2593` **oidcAttributeImporter**
+  - en: Import declared claim if it exists in ID, access token, or the claim set returned by the user profile endpoint into the specified user property or attribute.
+  - zh: 如果 ID、訪問權杖或使用者資訊端點返回的聲明集中存在聲明，則將其導入到指定的使用者屬性或屬性中。
+- `admin-ui:2617` **isAccessTokenJWTHelp**
+  - en: The Access Token received from the Identity Provider is a JWT and its claims will be accessible for mappers.
+  - zh: 從身份提供者收到的訪問權杖是 JWT，其聲明將可供映射器使用。
+- `admin-ui:2678` **generatedAccessToken**
+  - en: Generated access token
+  - zh: 已生成的訪問權杖
+- `admin-ui:2729` **generatedAccessTokenHelp**
+  - en: See the example access token, which will be generated and sent to the client when the selected user is authenticated. You can see claims and roles that the token will contain based on the effective protocol mappers and role scope mappings and also based on the claims and roles assigned to the actual
+  - zh: 查看示例訪問權杖，當選定的使用者通過身份驗證時，將生成並發送給應用程式。您可以根據有效的協議映射器和角色範圍映射以及分配給實際使用者的聲明和角色來查看權杖將包含的聲明和角色。
+- `admin-ui:2981` **templateHelp**
+  - en: Template to use to format the username to import. Substitutions are enclosed in ${}. For example: '${ALIAS}.${CLAIM.sub}'. ALIAS is the provider alias. CLAIM.<NAME> references an ID or Access token claim. The substitution can be converted to upper or lower case by appending |uppercase or |lowercase 
+  - zh: 用於格式化要導入的使用者名稱的模板。替換項用 ${} 括起來。例如：「${ALIAS}.${CLAIM.sub}」。ALIAS 是提供者別名。CLAIM.<NAME> 參考 ID 或訪問權杖聲明。通過在替換值後附加 |uppercase 或 |lowercase，可以將替換項轉換為大寫或小寫，例如，「${CLAIM.sub | lowercase}」。
+- `admin-ui:2791` **accessTokenLifespanImplicitFlowHelp**
+  - en: Max time before an access token issued during OpenID Connect Implicit Flow is expired. This value is recommended to be shorter than the SSO timeout. There is no possibility to refresh token during implicit flow, that's why there is a separate timeout different to 'Access Token Lifespan'.
+  - zh: 在 OpenID Connect 隱式流程期間發出的訪問權杖過期之前的最大時間。建議此值短於 SSO 超時。在隱式流期間無法刷新權杖，這就是為什麼有一個與「訪問權杖壽命」不同的單獨超時的原因。
+
+## client scope → 應用程式範圍（7 條不一致）
+
+- `account-ui:47` **scopeTypeHelp**
+  - en: Client scopes, which will be added as default scopes to each created client
+  - zh: 客戶端權限範圍，將作為每個新建客戶端的預設權限範圍
+- `account-ui:68` **scopeDescriptionHelp**
+  - en: Description of the client scope
+  - zh: 客戶端權限範圍的描述
+- `account-ui:81` **scopeNameHelp**
+  - en: Name of the client scope. Must be unique in the realm. Name should not contain space characters as it is used as value of scope parameter
+  - zh: 客戶端範圍的名稱。 在領域內必須是獨一無二的。 名稱不應包含空格字符，因為它被用於授權範圍的值
+- `account-ui:100` **rolesScope**
+  - en: If there is no role scope mapping defined, each user is permitted to use this client scope. If there are role scope mappings defined, the user must be a member of at least one of the roles.
+  - zh: 若未定義角色範圍對應時，使用者將被允許存取此客戶端範圍。若有定義角色範圍對應時，使用者必須是至少一個角色的成員。
+- `admin-ui:1908` **updateErrorClientScope**
+  - en: Could not update client scope: '{{error}}'
+  - zh: 無法更新客戶端範圍：「{{error}}」
+- `admin-ui:908` **scopeTypeHelp**
+  - en: Determines how the client scope is assigned to new clients. Default scopes are automatically included in token requests. Optional scopes are only included when explicitly requested. None means the scope must be manually added to each client.
+  - zh: 決定新應用程式如何分配範圍（scope）。預設範圍會自動包含在權杖請求中；選填範圍則僅在明確要求時才包含。若選擇「無」，則必須手動將範圍新增至每個客戶端。
+- `admin-ui:3297` **deleteClientScope_one**
+  - en: Delete client scope {{name}}
+  - zh: 刪除客戶端範圍 {{name}}
+
+## metadata → 元資料（7 條不一致）
+
+- `admin-ui:2280` **attributeConsumingServiceNameHelp**
+  - en: Name of the Attribute Consuming Service profile to advertise in the SP metadata.
+  - zh: 要在 SP 中廣告的屬性消費服務設定檔名稱。
+- `admin-ui:2390` **signServiceProviderMetadataHelp**
+  - en: Enable/disable signature of the provider SAML metadata.
+  - zh: 啟用/禁用提供者 SAML 元數據的簽名。
+- `admin-ui:2631` **useMetadataDescriptorUrlHelp**
+  - en: If the switch is on, the certificates to validate signatures will be downloaded and cached from the given "Metadata descriptor URL". The "Reload keys" action can be used to refresh the certificates in the cache. If the switch is off, certificates from "Validating X509 certificates" option are used, 
+  - zh: 如果啟用，則用於驗證簽名的證書將從給定的「元數據描述符 URL」下載並緩存。可以使用「重新加載金鑰」操作來刷新緩存中的證書。如果關閉，則使用「驗證 X509 證書」選項中的證書，當 IDP 中更改時，需要手動更新它們。
+- `admin-ui:2632` **metadataDescriptorUrl**
+  - en: Metadata descriptor URL
+  - zh: 元數據描述符 URL
+- `admin-ui:2633` **metadataDescriptorUrlHelp**
+  - en: External URL where Identity Provider publishes the metadata information needed by the client (certificates, keys, other URLs,...).
+  - zh: 身份提供者發布應用程式所需的元數據信息（證書、金鑰、其他 URL 等）的外部 URL。
+- `admin-ui:2639` **importKeysErrorNoSigningCertificate**
+  - en: The option "signingCertificate" is not defined in the metadata.
+  - zh: 元數據中未定義選項「signingCertificate」。
+- `admin-ui:1578` **samlEntityDescriptorHelp**
+  - en: Allows you to load external IDP metadata from a config file or to download it from a URL.
+  - zh: 允許您從設定檔載入外部 IDP 的描述檔，或是從 URL 下載。
+
+## issuer → 簽發者（6 條不一致）
+
+- `account-ui:197` **verifiableCredentialsIssuerAlert**
+  - en: Was not able to retrieve the issuer information.
+  - zh: 無法獲取發行者資訊。
+- `admin-ui:256` **frontchannelLogoutSessionRequiredHelp**
+  - en: Specifying whether a sid (session ID) and iss (issuer) parameters are included in the Logout request when the Front-channel Logout URL is used.
+  - zh: 指定前端通道登出 URL 有設定的時候，登出請求中是否包含 sid（會話 ID）和 iss（發行者）參數。
+- `admin-ui:2989` **issuerHelp**
+  - en: The issuer identifier for the issuer of the response. If not provided, no validation will be performed.
+  - zh: 回應發行者的發行者識別碼。如果未提供，則不會執行任何驗證。
+- `admin-ui:2864` **oid4vcIssuerMetadata**
+  - en: OpenID4VCI Credential Issuer Metadata
+  - zh: OpenID4VCI 憑證發行者元資料
+- `admin-ui:2881` **identityProviderEntityIdHelp**
+  - en: The Entity ID used to validate the Issuer for received SAML assertions. If empty, no Issuer validation is performed.
+  - zh: 用於驗證接收到的 SAML 斷言的發行者的實體 ID。如果為空，則不執行發行者驗證。
+- `admin-ui:3375` **excludeIssuerFromAuthenticationResponse**
+  - en: Exclude Issuer From Authentication Response
+  - zh: 從認證回應中排除發行者
+
+## provider → 提供者（5 條不一致）
+
+- `admin-ui:881` **unlinkAccountConfirm**
+  - en: Are you sure you want to permanently unlink this account from {{provider}}?
+  - zh: 您確定要將此帳號與 {{provider}} 永久解除綁定？
+- `admin-ui:2385` **socialProfileJSONFieldPathHelp**
+  - en: Path of field in Social Provider User Profile JSON data to get value from. You can use dot notation for nesting and square brackets for array index. E.g. 'contact.address[0].country'.
+  - zh: 若要從社群提供商使用者個人資料 JSON 資料中取得值的欄位路徑。您可以使用點號表示法進行巢狀結構，並使用方括號表示陣列索引。例如「contact.address[0].country」。
+- `admin-ui:916` **guiOrderHelp**
+  - en: Specify order of the provider in GUI (such as in Consent page) as integer.
+  - zh: 使用整數來指定 GUI （例如在同意頁面）中的順序。
+- `admin-ui:2627` **linkAccountTitle**
+  - en: Link account to {{provider}}
+  - zh: 將帳戶連接到 {{provider}}
+- `admin-ui:1550` **unlinkAccountTitle**
+  - en: Unlink account from {{provider}}?
+  - zh: 確定要解除與 {{provider}} 的帳號連結嗎？
+
+## Realm → 領域（5 條不一致）
+
+> 在 Keycloak 專案中，realm 指的是一個包含使用者群體及應用程式群體的最大的組織，可以與其他組織進行乾淨的切割並共用相同的 Keycloak 實體。
+
+- `admin-ui:2585` **idpInitiatedSsoUrlNameHelp**
+  - en: URL fragment name to reference client when you want to do IDP Initiated SSO. Leaving this empty will disable IDP Initiated SSO. The URL you will reference from your browser will be: {server-root}/realms/{realm}/protocol/saml/clients/{client-url-name}.
+  - zh: URL 片段名稱，用於在您想要進行 IDP 啟動的 SSO 時引用應用程式。將此留空將禁用 IDP 啟動的 SSO。您將從瀏覽器引用的 URL 將是：{server-root}/realms/{realm}/protocol/saml/clients/{client-url-name}。
+- `admin-ui:1840` **shortVerificationUriTooltipHelp**
+  - en: If set, this value will be returned as verification_uri in the Device Authorization flow. This uri needs to redirect to {server-root}/realms/{realm}/device.
+  - zh: 如果設定，這個值將會在裝置授權流程中作為 verification_uri 回傳。這個 URI 需要重新導向到 {server-root}/realms/{realm}/device。
+- `admin-ui:3171` **permissionsListIntro**
+  - en: Edit the permission list by clicking the scope-name. It then redirects to the permission details page of the client named <1>{{realm}}</1>
+  - zh: 透過點擊範圍名稱來編輯權限列表。然後它會重定向到名為 <1>{{realm}}</1> 的應用程式的權限詳細資訊頁面
+- `admin-ui:1166` **tokenTokenUrlHelp**
+  - en: Token endpoint for gathering tokens: keycloak example: http://localhost/auth/realms/my-realm/protocol/openid-connect/token
+  - zh: 用於生成權杖的端點，Keycloak 範例：http://localhost/auth/realms/my-realm/protocol/openid-connect/token
+- `theme-baselogin:31` **realmChoice**
+  - en: Realm
+  - zh: Realm
+
+## refresh → 更新（5 條不一致）
+
+> 國家教育研究院  https://terms.naer.edu.tw/detail/241d0259db7135b172ae6fafdbd0e10e/?startswith=zh
+
+- `account-ui:42` **refreshPage**
+  - en: Refresh the page
+  - zh: 重新整理頁面
+- `account-ui:215` **refresh**
+  - en: Refresh
+  - zh: 重新整理
+- `admin-ui:1668` **offlineSessionIdleHelp**
+  - en: Time an offline session is allowed to be idle before it expires. You need to use offline token to refresh at least once within this period; otherwise offline session will expire.
+  - zh: 離線工作階段允許閒置的時間，超過此時間後即會過期。您需要在此期間內至少使用離線權杖來刷新一次；否則，離線工作階段將會過期。
+- `admin-ui:35` **refresh**
+  - en: Refresh
+  - zh: 重新整理
+- `admin-ui:2553` **retry**
+  - en: Press here to refresh and continue
+  - zh: 按此以重新整理並繼續
+
+## Refresh token → 更新權杖（5 條不一致）
+
+- `admin-ui:2791` **accessTokenLifespanImplicitFlowHelp**
+  - en: Max time before an access token issued during OpenID Connect Implicit Flow is expired. This value is recommended to be shorter than the SSO timeout. There is no possibility to refresh token during implicit flow, that's why there is a separate timeout different to 'Access Token Lifespan'.
+  - zh: 在 OpenID Connect 隱式流程期間發出的訪問權杖過期之前的最大時間。建議此值短於 SSO 超時。在隱式流期間無法刷新權杖，這就是為什麼有一個與「訪問權杖壽命」不同的單獨超時的原因。
+- `admin-ui:2883` **refreshTokenMaxReuseHelp**
+  - en: Maximum number of times a refresh token can be reused. When a different token is used, revocation is immediate.
+  - zh: 刷新權杖可以重複使用的最大次數。當使用不同的權杖時，將會立即撤銷。
+- `admin-ui:2891` **useRefreshTokenForClientCredentialsGrant**
+  - en: Use refresh tokens for client credentials grant
+  - zh: 對於應用程式憑證授予，使用刷新權杖
+- `admin-ui:2085` **oAuthDPoPHelp**
+  - en: This enables support for Demonstrating Proof-of-Possession (DPoP) bound tokens. For public clients, both access and refresh tokens are bound to the key stored on the client. In order to prove the possession of the key, the client must send a signed proof alongside the token. For confidential clients
+  - zh: 這啟用對綁定權杖的擁有權證明 (DPoP) 的支援。對於公眾應用程式，存取和刷新權杖都綁定到存儲在應用程式上的金鑰。為了證明金鑰的擁有權，應用程式必須與權杖一起發送已簽名的證明。對於機密應用程式，只有存取權杖是 DPoP 綁定的，因為根據規範，刷新權杖已經由相關的身份驗證要求發送方約束。
+- `admin-ui:1856` **revokeRefreshTokenHelp**
+  - en: If enabled, a refresh token can only be used up to 'Refresh Token Max Reuse' and it is revoked when a different token is used. Otherwise, refresh tokens are not revoked when used and can be used multiple times.
+  - zh: 如果啟用，則刷新權杖只能使用到「刷新權杖最大重用」並且在使用不同的權杖時會被撤銷。否則，刷新權杖在使用時不會被撤銷，並且可以多次使用。
+
+## attribute → 屬性（4 條不一致）
+
+- `theme-baseaccount:169` **updateReadOnlyAttributesRejectedMessage**
+  - en: Update of read-only attribute rejected
+  - zh: 無法更新唯讀欄位
+- `theme-baseadmin:60` **error-user-attribute-required**
+  - en: Please specify attribute {0}.
+  - zh: 請提供 {0} 欄位。
+- `theme-baseadmin:61` **error-invalid-date**
+  - en: Attribute {0} is invalid date.
+  - zh: {0} 是無效的日期。
+- `theme-baseadmin:62` **error-user-attribute-read-only**
+  - en: Attribute {0} is read only.
+  - zh: {0} 欄位為唯讀。
+
+## token → 權杖（4 條不一致）
+
+> 國家教育研究院 - https://terms.naer.edu.tw/detail/4fc5f9876aec29562f088628e1d8eef9/
+
+- `admin-ui:544` **eventTypes.EXECUTE_ACTION_TOKEN.description**
+  - en: Not used; see Execute action token error
+  - zh: 未使用；參閱 Execute action token 錯誤
+- `admin-ui:2711` **ldapAttributeValueHelp**
+  - en: Value of the LDAP attribute, which will be added to the new user during registration. You can either hardcode any value like 'foo' but you can also use some special tokens. Only supported token right now is '${RANDOM}', which will be replaced with some randomly generated string.
+  - zh: LDAP 屬性的值，該屬性將在註冊期間添加到新使用者。您可以硬編碼任何值，例如「foo」，但您也可以使用一些特殊的標記。目前僅支持的標記是「${RANDOM}」，它將被替換為一些隨機生成的字符串。
+- `admin-ui:1017` **usermodel.clientRoleMapping.rolePrefix.tooltip**
+  - en: A prefix for each client role (optional). The special token ${client_id} can be used and this will be replaced by the actual client ID. This is useful especially when you are adding roles from all the clients (Hence 'Client ID' switch is unset) and need to present the client roles as a list, prefixe
+  - zh: 每個應用程式角色的前綴（選填）。可以使用特殊標記 ${client_id}，系統將會以實際的應用程式 ID 取代此標記。這在您從所有應用程式新增角色（即未開啟「應用程式 ID」切換開關）且需要以清單形式呈現，並標註來源應用程式 ID 的情境下非常有用。
+- `admin-ui:3238` **useLowerCaseBearerTypeHelp**
+  - en: If this is on, token responses will be set the with the type "bearer" in lower-case. By default, the server sets the type as "Bearer" as defined by RFC6750. This switch is deprecated and might be removed in future version.
+  - zh: 如果啟用此選項，則令牌回應的類型將設置為小寫的「bearer」。預設情況下，伺服器會根據 RFC6750 將類型設置為「Bearer」。此開關已棄用並且將會在未來版本中移除。
+
+## Phone number → 電話號碼（3 條不一致）
+
+- `theme-baseaccount:285` **authenticatorChangePhone**
+  - en: Change Phone Number
+  - zh: 變更手機號碼
+- `theme-baseaccount:289` **smscodeIntroMessage**
+  - en: Enter your phone number and a verification code will be sent to your phone.
+  - zh: 輸入您的手機號碼，驗證碼將會發送到您的手機。
+- `theme-baseaccount:301` **enterYourPhoneNumber**
+  - en: Enter your phone number
+  - zh: 輸入您的手機號碼
+
+## policy → 政策（3 條不一致）
+
+- `admin-ui:3663` **repeatHelp**
+  - en: Specifies how the policy time restriction is defined. If 'Not Repeat', the policy is granted only between the start and expire times. If 'Repeat', you can additionally restrict the policy to specific recurring time periods such as month, day, hour, and minute ranges.
+  - zh: 指定如何定義策略時間限制。如果選擇「不重複」，則策略僅在開始和結束時間之間有效。如果選擇「重複」，可以進一步將策略限制在特定的重複時間區段內，例如按照月、日、小時、分鐘等範圍進行限制。
+- `admin-ui:3557` **permissionNameHelpText**
+  - en: A unique name for the permission. The name must not conflict with any existing permission or policy name.
+  - zh: 權限名稱必須唯一。該名稱不得與任何現有權限或策略名稱衝突。
+- `theme-baseadmin:25` **ldapErrorValidatePasswordPolicyAvailableForWritableOnly**
+  - en: Validate Password Policy is applicable only with WRITABLE edit mode
+  - zh: 驗證密碼策略僅適用於可寫入的編輯模式
+
+## Claims → 聲明（2 條不一致）
+
+- `admin-ui:2985` **defaultACRValuesHelp**
+  - en: Default values to be used as voluntary ACR in case that there is no explicit ACR requested by 'claims' or 'acr_values' parameter in the OIDC request.
+  - zh: 在 OIDC 請求中，如果沒有明確通過「claims」或「acr_values」參數請求 ACR，則用作自願 ACR 的預設值。
+- `admin-ui:2986` **minimumACRValueHelp**
+  - en: Minimum ACR to be enforced by Keycloak. Overrides lower ACRs explicitly requested by 'acr_values' or 'claims', unless they are marked as essential.
+  - zh: Keycloak 要強制執行的最低 ACR。會覆蓋透過「acr_values」或「claims」明確請求還低的 ACR，除非它們被標記為必要。
+
+## default → 預設（2 條不一致）
+
+- `admin-ui:2215` **allow-default-scopes.label**
+  - en: Allow Default Scopes
+  - zh: 允許默認範圍
+- `admin-ui:3590` **kubernetesIssuerUrlHelp**
+  - en: Optional issuer of the Kubernetes service account tokens. If omitted, Keycloak resolves it from the issuer discovery URL when configured; otherwise, it uses the default Kubernetes issuer.
+  - zh: Kubernetes 服務帳號權杖的簽發者
+
+## Invalid password: must not be equal to the email. → 無效的密碼：不可與電子信箱相同。（2 條不一致）
+
+- `theme-baseaccount:207` **invalidPasswordNotEmailMessage**
+  - en: Invalid password: must not be equal to the email.
+  - zh: 無效的密碼：不可與電子郵件相同。
+- `theme-baselogin:291` **invalidPasswordNotEmailMessage**
+  - en: Invalid password: must not be equal to the email.
+  - zh: 密碼無效：不可與電子郵件相同。
+
+## authorization → 授權（1 條不一致）
+
+- `admin-ui:3669` **clientSecretAuthenticationAllowedMethodHelp**
+  - en: Allowed method for client secret authentication. If set to client_secret_basic, then client secret needs to be sent in the HTTP 'Authorization: Basic' header when authenticating this client. When set to client_secret_post, then client secret needs to be sent as a parameter in the request body togeth
+  - zh: 應用程式密鑰認證的允許方法。如果設定為 client_secret_basic，則在對該應用程式進行驗證時，需要在 HTTP 的「Authorization: Basic」標頭中傳送應用程式金鑰。如果設定為 client_secret_post，則需要在請求正文中將應用程式金鑰與 client_id 一起作為參數傳送。如果設定為空，則允許同時使用 Authorization 標頭和請求正文參數。
+
+## Bluetooth → 藍芽（1 條不一致）
+
+- `theme-baselogin:62` **bluetooth**
+  - en: Bluetooth
+  - zh: 藍牙
+
+## cookie → cookie（1 條不一致）
+
+- `theme-baselogin:324` **cookieNotFoundMessage**
+  - en: Restart login cookie not found. It may have expired; it may have been deleted or cookies are disabled in your browser. If cookies are disabled then enable them. Click Back to Application to login again.
+  - zh: 找不到重新登入的 Cookie。可能已過期、被刪除，或瀏覽器已停用 Cookie。若 Cookie 已停用，請將其啟用。請點擊「返回應用程式」以重新登入。
+
+## Invalid password: Can not contain the username. → 無效的密碼：不可包含使用者名稱。（1 條不一致）
+
+- `theme-baselogin:290` **invalidPasswordNotContainsUsernameMessage**
+  - en: Invalid password: Can not contain the username.
+  - zh: 密碼無效：不可包含使用者名稱。
+
+## Invalid password: maximum length {0}. → 無效的密碼：最長長度為 {0}。（1 條不一致）
+
+- `theme-baselogin:284` **invalidPasswordMaxLengthMessage**
+  - en: Invalid password: maximum length {0}.
+  - zh: 密碼無效：最長長度為 {0}。
+
+## Invalid password: minimum length {0}. → 無效的密碼：最短長度為 {0}。（1 條不一致）
+
+- `theme-baselogin:283` **invalidPasswordMinLengthMessage**
+  - en: Invalid password: minimum length {0}.
+  - zh: 密碼無效：最短長度為 {0}。
+
+## Length must be between {1} and {2}. → 長度必須介於 {1} 和 {2} 之間。（1 條不一致）
+
+- `theme-baselogin:230` **error-invalid-length**
+  - en: Length must be between {1} and {2}.
+  - zh: 長度必須在 {1} 到 {2} 之間。
+
+## mapper → 映射（1 條不一致）
+
+- `admin-ui:3746` **deleteErrorIdentityProvider**
+  - en: Could not delete identity provider mapper: '{{error}}'
+  - zh: 無法刪除身分提供者對應：{{error}}
+
+## Mutual TLS → 相互 TLS（1 條不一致）
+
+> 常見簡寫為 mTLS
+
+- `admin-ui:2391` **oAuthMutual**
+  - en: OAuth 2.0 Mutual TLS Certificate Bound Access Tokens Enabled
+  - zh: 啟用 OAuth 2.0 互動式 TLS 憑證綁定存取權杖
+
+## Passkey → 通行金鑰（1 條不一致）
+
+> 翻譯參考： - Google：密碼金鑰 - 1password：通行金鑰 - Amazon：金鑰 - Microsoft：金鑰、安全性金鑰 - Discord：安全性金鑰
+
+- `admin-ui:3771` **webAuthnPolicyMediation**
+  - en: Passkey Mediation
+  - zh: Passkey 中介

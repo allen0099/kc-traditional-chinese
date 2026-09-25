@@ -1,69 +1,515 @@
 level,check,component,key,line,message,en,zh_Hant
+warn,tw-term,account-ui,invalidEmailMessage,37,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,'{{0}}': Invalid email address.,{{0}}：無效的電子郵件地址。
+info,punct,account-ui,clientDescriptionHelp,46,全形標點後多了空白,Specifies description of the client. For example 'My Client for TimeSheets'. Supports keys for localized values as well. For example: ${my_client_description},指定客戶端的描述。 例如「我的時間表客戶端」。 也支援 i18n 鍵值。 例如：${my_client_description}
+info,punct,account-ui,scopeNameHelp,81,全形標點後多了空白,Name of the client scope. Must be unique in the realm. Name should not contain space characters as it is used as value of scope parameter,客戶端範圍的名稱。 在領域內必須是獨一無二的。 名稱不應包含空格字符，因為它被用於授權範圍的值
+warn,tw-term,account-ui,error-invalid-email,83,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Invalid email address.,無效的電子郵件地址。
+info,tw-term,account-ui,aliasHelp,155,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Name of the configuration,配置名稱
+warn,tw-term,account-ui,error-non-ascii-local-part-email,219,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Local part of the address must contain only ASCII characters.,電子郵件地址的名稱部分僅允許包含 ASCII 字元。
+info,tw-term,account-ui,verifiableCredentialsConfigAlert,198,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Was not able to retrieve the credential configuration.,無法獲取憑證配置。
+info,tw-term,account-ui,verifiableCredentialsSelectionDefault,200,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Select a credential configuration.,選擇憑證配置。
+warn,tw-term,account-ui,emailScopeConsentText,202,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Email address,電子郵件地址
+warn,tw-term,account-ui,addressScopeConsentText,203,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Address,地址
+info,tw-term,account-ui,theme.keycloak.v3.account.description,237,「優化」→「最佳化」,"Refined, v3 is more cohesive and dynamic. (Default for Account)",v3 版本經過優化，更具凝聚力且更具動態性。(預設給帳號介面)
+info,punct,account-ui,theme.keycloak.v3.account.description,237,括號內含中文，建議使用全形括號（）,"Refined, v3 is more cohesive and dynamic. (Default for Account)",v3 版本經過優化，更具凝聚力且更具動態性。(預設給帳號介面)
 error,tw-term,admin-ui,secretHasExpired,1954,「密鑰」→「金鑰」,"Secret has expired, please generate a new one by clicking the ""Regenerate"" button above",密鑰已過期，請透過點擊上方的「重新產生」按鈕重產生密鑰
+warn,tw-term,admin-ui,policyRolesHelp,2258,「設置」→「設定」,"Click on 'Add roles' to include accepted roles for this policy. Checking the 'required field' checkbox on a role indicates that the selected role MUST be present while evaluating policy, regardless of other roles. Leaving all relevant roles for the policy unchecked is the equivalent of setting a decision strategy of 'Affirmative'.",點擊「新增角色」來加入此政策的接受角色。在角色上勾選「必要欄位」勾選方塊表示在評估政策時，該角色必須存在，無論其他角色如何。將所有相關角色保持未勾選相當於設置「肯定」的決策策略。
+info,tw-term,admin-ui,openIdConnectCompatibilityModesHelp,2259,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,This section is used to configure settings for backward compatibility with older OpenID Connect / OAuth 2 adaptors. It is useful especially if your client uses an older version of Keycloak / RH-SSO adapter.,這個區段用於配置與較舊的 OpenID Connect / OAuth 2 配接器的往前兼容設定。這在您的應用程式使用較舊版本的 Keycloak / RH-SSO 配接器時特別有用。
 error,tw-term,admin-ui,openIdConnectCompatibilityModesHelp,2259,「兼容」→「相容」,This section is used to configure settings for backward compatibility with older OpenID Connect / OAuth 2 adaptors. It is useful especially if your client uses an older version of Keycloak / RH-SSO adapter.,這個區段用於配置與較舊的 OpenID Connect / OAuth 2 配接器的往前兼容設定。這在您的應用程式使用較舊版本的 Keycloak / RH-SSO 配接器時特別有用。
 error,tw-term,admin-ui,secretRotated,794,「密鑰」→「金鑰」,Secret rotated,已輪替密鑰
+warn,tw-term,admin-ui,cibaIntervalHelp,1816,「設置」→「設定」,"The minimum amount of time in seconds that the CD (Consumption Device) must wait between polling requests to the token endpoint. If set to 0, the CD must use 5 as the default value according to the CIBA specification.",CD（消費裝置）在對權杖端點進行輪詢請求之間必須等待的最短時間（以秒為單位）。如果設置為 0，則 CD 必須根據 CIBA 規範使用 5 作為預設值。
+info,tw-term,admin-ui,rolesPermissionsHint,1959,「項目」→「專案／項目」（project 應為「專案」）,Determines if fine grained permissions are enabled for managing this role. Disabling will delete all current permissions that have been set up.,決定是否使用細緻授權管理這個角色。取消該項目會導致所有目前已設定好的授權被刪除。
 error,tw-term,admin-ui,invalidateRotatedSecret,1963,「密鑰」→「金鑰」,Invalidate rotated secret?,廢止輪替密鑰?
+warn,punct,admin-ui,invalidateRotatedSecret,1963,中文後使用半形標點：?,Invalidate rotated secret?,廢止輪替密鑰?
+warn,tw-term,admin-ui,offlineSessionIdleHelp,1668,「刷新」→「重新整理」,Time an offline session is allowed to be idle before it expires. You need to use offline token to refresh at least once within this period; otherwise offline session will expire.,離線工作階段允許閒置的時間，超過此時間後即會過期。您需要在此期間內至少使用離線權杖來刷新一次；否則，離線工作階段將會過期。
+info,tw-term,admin-ui,unmanagedAttributesHelpText,1380,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"Unmanaged attributes are user attributes not explicitly defined in the user profile configuration. By default, unmanaged attributes are `Disabled` and are not available from any context such as registration, account, and the administration console. By setting `Enabled`, unmanaged attributes are fully recognized by the server and accessible through all contexts, useful if you are starting migrating an existing realm to the declarative user profile and you don't have yet all user attributes defined in the user profile configuration. By setting `Only administrators can write`, unmanaged attributes can be managed only through the administration console and API, useful if you have already defined any custom attribute that can be managed by users but you are unsure about adding other attributes that should only be managed by administrators. By setting `Only administrators can view`, unmanaged attributes are read-only and only available through the administration console and API.",無法管理的屬性是使用者設定檔中未明確定義的使用者屬性。預設情況下，無法管理的屬性為「禁用」，且在任何情境中（例如註冊、帳戶和管理控制台）都無法使用。透過設定「啟用」，伺服器會完全識別無法管理的屬性，並可透過所有情境存取。如果您要開始將現有領域遷移到聲明式使用者設定檔，但尚未在使用者設定檔配置中定義所有使用者屬性，這會很有用。透過設定「只有管理員能寫入」，無法管理的屬性只能透過管理控制台和 API 進行管理。如果您已經定義任何可由使用者管理的自訂屬性，但不確定是否要新增只能由管理員管理的其他屬性，這會很有用。透過設定「只有管理員能檢視」，無法管理的屬性為唯讀，且只能透過管理控制台和 API 使用。
+info,punct,admin-ui,bindTypeHelp,2006,括號內含中文，建議使用全形括號（）,Type of the authentication method used during LDAP bind operation. It is used in most of the requests sent to the LDAP server. Currently only 'none' (anonymous LDAP authentication) or 'simple' (bind credential + bind password authentication) mechanisms are available.,在 LDAP 綁定操作中使用的身份驗證方法類型。它用於發送到 LDAP 伺服器的大多數請求。目前僅提供 none (匿名 LDAP 身份驗證) 或 simple (綁定憑證 + 綁定密碼身份驗證) 機制。
+warn,tw-term,admin-ui,validatingPublicKeyIdHelp,2292,「設置」→「設定」,"Explicit ID of the validating public key given above if the key ID. Leave blank if the key above should be used always, regardless of key ID specified by external IDP; set it if the key should only be used for verifying if the key ID from external IDP matches.",如果是金鑰 ID，則為上面給出的驗證金鑰的顯式 ID。如果應始終使用上面的金鑰，則可以留空，不需要管外部 IDP 指定的金鑰 ID；如果金鑰應僅用於驗證外部 IDP 的金鑰 ID 是否匹配，則設置它。
 error,tw-term,admin-ui,allow-default-scopes.label,2215,「默認」→「預設」,Allow Default Scopes,允許默認範圍
 error,tw-term,admin-ui,minuteHelp,2296,「字段」→「欄位」,"Defines the minute when the policy MUST be granted. You can also provide a range by filling the second field. In this case, permission is granted only if the current minute is between or equal to the two values you provided.",定義政策必須授予的分鐘。您還可以通過填寫第二個字段來提供範圍。在這種情況下，僅當當前分鐘在您提供的兩個值之間或等於這兩個值時，才授予權限。
+info,tw-term,admin-ui,topLevelFlowTypeHelp,1385,「項目」→「專案／項目」（project 應為「專案」）,What kind of top level flow is it? Type 'client' is used for authentication of clients (applications) when generic is for users and everything else.,甚麼類型的頂層流程？「應用程式」類型用於應用程式的驗證，而「通用」則用於使用者及其他所有項目。
 error,tw-term,admin-ui,createIdentityProviderError,2302,「創建」→「建立」,Could not create the identity provider: {{error}},無法創建身份提供者：{{error}}
+info,tw-term,admin-ui,noUsersFoundErrorStorage,2306,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"No users found, could be due to wrongly configured federated provider {{error}}",未找到使用者，可能是由於錯誤配置的聯邦提供者造成的 {{error}}
+warn,tw-term,admin-ui,userNotYetConfirmedNewEmail,2257,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,The user has not confirmed the new email address {{email}}.,使用者尚未確認這個新的電子信箱地址 {{email}}。
+info,tw-term,admin-ui,artifactBindingResponseHelp,2324,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"Indicates whether to respond to requests using ARTIFACT binding. If false, the HTTP-POST binding configuration will be evaluated.",指示是否使用 ARTIFACT 綁定來回應請求。如果為否，則將評估 HTTP-POST 綁定配置。
+info,tw-term,admin-ui,identityProvidersPermissionsHint,1958,「項目」→「專案／項目」（project 應為「專案」）,Determines if fine grained permissions are enabled for managing this role. Disabling will delete all current permissions that have been set up.,決定是否使用細緻授權管理這個角色。取消該項目會導致所有目前已設定好的授權被刪除。
+info,tw-term,admin-ui,attributeConsumingServiceIndexHelp,2329,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Index of the Attribute Consuming Service profile to request during authentication.,在身份驗證期間請求的屬性消費服務配置文件的索引。
 error,tw-term,admin-ui,createIdentityProviderSuccess,2341,「創建」→「建立」,Identity provider successfully created,成功創建身份提供者
+info,tw-term,admin-ui,maxLifespanHelp,1403,「項目」→「專案／項目」（project 應為「專案」）,Max lifespan of cache entry in milliseconds,快取項目的最大生命週期（以毫秒為單位）
 error,tw-term,admin-ui,confirmClientSecretTitle,1955,「密鑰」→「金鑰」,Regenerate secret for this client?,重新生成此應用程式的密鑰？
+info,tw-term,admin-ui,newClientProfileName,2353,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Client profile name,應用程式配置文件名稱
+info,tw-term,admin-ui,fineGrainSamlEndpointConfig,2373,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Fine Grain SAML Endpoint Configuration,SAML 端點精細配置
+info,tw-term,admin-ui,deleteClientProfileConfirm,2389,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,This action will permanently delete the profile {{profileName}}. This cannot be undone.,此操作將永久刪除配置檔 {{profileName}}。此操作無法還原。
+warn,tw-term,admin-ui,signServiceProviderMetadataHelp,2390,「數據」→「資料」,Enable/disable signature of the provider SAML metadata.,啟用/禁用提供者 SAML 元數據的簽名。
+info,tw-term,admin-ui,updateClientProfilesError,2393,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Could not update client profiles: {{error}},無法更新應用程式配置檔：{{error}}
+info,tw-term,admin-ui,encryptionAlgorithmHelp,2582,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"Encryption algorithm, which is used by the SAML IDP for encryption of SAML documents, assertions or IDs. The corresponding decryption key for decrypting SAML document parts is chosen based on this configured algorithm and should be available in realm keys for the encryption (ENC) usage. If no algorithm is configured, any supported algorithm is allowed and the decryption key is chosen based on the algorithm configured in the SAML document.",加密演算法，由 SAML 身份提供者用於加密 SAML 文件、聲明或 ID。用於解密 SAML 文件部分的相應解密金鑰是根據此配置的演算法選擇的，並且應該在領域金鑰中可用於加密 (ENC) 用途。如果未配置任何演算法，則允許使用任何支援的演算法，並且根據 SAML 文件中配置的演算法選擇解密金鑰。
+info,tw-term,admin-ui,masterSamlProcessingUrlHelp,2583,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"If configured, this URL will be used for every binding to both the SP's Assertion Consumer and Single Logout Services. This can be individually overridden for each binding and service in the Fine Grain SAML Endpoint Configuration.",如果已設定，則此 URL 將用於 SP 的聲明消費者和單一登出服務的每個綁定。這可以在細粒度 SAML 端點配置中的每個綁定和服務中單獨覆蓋。
 error,tw-term,admin-ui,clientSecretAuthenticationAllowedMethodHelp,3669,「密鑰」→「金鑰」,"Allowed method for client secret authentication. If set to client_secret_basic, then client secret needs to be sent in the HTTP 'Authorization: Basic' header when authenticating this client. When set to client_secret_post, then client secret needs to be sent as a parameter in the request body together with client_id. When empty, both Authorization header and request body parameters are allowed.",應用程式密鑰認證的允許方法。如果設定為 client_secret_basic，則在對該應用程式進行驗證時，需要在 HTTP 的「Authorization: Basic」標頭中傳送應用程式金鑰。如果設定為 client_secret_post，則需要在請求正文中將應用程式金鑰與 client_id 一起作為參數傳送。如果設定為空，則允許同時使用 Authorization 標頭和請求正文參數。
 error,tw-term,admin-ui,userInfoResponseEncryptionContentEncryptionAlgorithmHelp,2588,「響應」→「回應」,"JWA Algorithm used for content encryption in encrypting User Info Endpoint responses. If User Info response encryption key management algorithm is specified, the default for this value is A128CBC-HS256.",用於加密使用者資訊端點響應的內容加密的 JWA 演算法。如果指定了使用者資訊響應加密金鑰管理演算法，則此值的預設值為 A128CBC-HS256。
+info,tw-term,admin-ui,addClientProfileSuccess,2024,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,New client profile added,已成功建立應用程式配置檔
+warn,tw-term,admin-ui,validRequestURIsHelp,2589,「支持」→「支援」（「支持」在台灣多指 support（擁護））,"List of valid URIs that can be used as values of the 'request_uri' parameter during an OpenID Connect authentication request. No support exists for the same capabilities as for Valid Redirect URIs. For example, wildcards or relative paths.",可以用作 OpenID Connect 身份驗證請求期間「request_uri」參數值的有效 URI 列表。對於有效的重定向 URI，則不支持相同的功能。例如，通配符或相對路徑。
+info,tw-term,admin-ui,groupsClaimHelp,2591,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"If defined, the policy will fetch user's groups from the given claim within an access token or ID token representing the identity asking permissions. If not defined, user's groups are obtained from your realm configuration.",如果已定義，則該政策將從代表請求權限的身份的訪問權杖或 ID 權杖中的給定聲明中獲取使用者的群組。如果未定義，則從您的領域配置中獲取使用者的群組。
+info,tw-term,admin-ui,ldapAdvancedSettingsDescription,2426,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,This section contains all the other options for more fine-grained configuration of the LDAP storage provider.,此區域包含 LDAP 儲存提供者的所有其他選項，以進行更細緻的配置。
 error,tw-term,admin-ui,oidcAttributeImporter,2593,「導入」→「匯入」,"Import declared claim if it exists in ID, access token, or the claim set returned by the user profile endpoint into the specified user property or attribute.",如果 ID、訪問權杖或使用者資訊端點返回的聲明集中存在聲明，則將其導入到指定的使用者屬性或屬性中。
+info,tw-term,admin-ui,introduction,135,「項目」→「專案／項目」（project 應為「專案」）,"If you want to leave this page and manage this realm, please click the corresponding menu items in the left navigation bar.",如果您想離開這畫面並管理目前領域，請點擊左邊導航欄中對應的目錄項目。
 error,tw-term,admin-ui,clientPkceRequiredHelp,3687,「密鑰」→「金鑰」,"Require Proof Key for Code Exchange (PKCE) to protect against authorization code interception attacks. Public clients (client authentication disabled) should always require PKCE as they cannot securely store client secrets. It is also recommended for confidential clients as an additional layer of security. If not required, Keycloak only uses PKCE when the client includes a code challenge and method in its authorization request.",為了避免授權代碼攔截攻擊，Keycloak 要求使用代碼交換驗證金鑰 (PKCE) 。公開的應用程式 (未使用應用程式身分授權) 應該總是要求使用 PKCE，因為它們無法安全的儲存應用程式密鑰。也建議機密應用程式也使用此方式作為額外的一層安全性。如果不是強制要求，Keycloak 只會在應用程式在其授權請求中包含代碼驗證及方法時才使用 PKCE。
+info,punct,admin-ui,clientPkceRequiredHelp,3687,括號內含中文，建議使用全形括號（）,"Require Proof Key for Code Exchange (PKCE) to protect against authorization code interception attacks. Public clients (client authentication disabled) should always require PKCE as they cannot securely store client secrets. It is also recommended for confidential clients as an additional layer of security. If not required, Keycloak only uses PKCE when the client includes a code challenge and method in its authorization request.",為了避免授權代碼攔截攻擊，Keycloak 要求使用代碼交換驗證金鑰 (PKCE) 。公開的應用程式 (未使用應用程式身分授權) 應該總是要求使用 PKCE，因為它們無法安全的儲存應用程式密鑰。也建議機密應用程式也使用此方式作為額外的一層安全性。如果不是強制要求，Keycloak 只會在應用程式在其授權請求中包含代碼驗證及方法時才使用 PKCE。
+warn,tw-term,admin-ui,testConnectionHint.withoutEmail,1073,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,To test the connection you must first configure an e-mail address for the current user ({{userName}}).,為了測試連線，您必須為目前的使用者 {{userName}} 設定一組電子郵件地址。
+info,tw-term,admin-ui,redirectURIHelp,1421,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,The redirect uri to use when configuring the identity provider.,在配置身份提供者時要使用的重導向 URI。
+warn,tw-term,admin-ui,requestObjectRequiredHelp,2596,「設置」→「設定」,"Specifies if the client needs to provide a request object with their authorization requests, and what method they can use for this. If set to ""not required"", providing a request object is optional. In all other cases, providing a request object is mandatory. If set to ""request"", the request object must be provided by value. If set to ""request_uri"", the request object must be provided by reference. If set to ""request or request_uri"", either method can be used.",指定應用程式是否需要在其授權請求中提供請求對象，以及他們可以使用的方法。如果設置為「非必要」，則提供請求對象是可選的。在所有其他情況下，提供請求對象是強制性的。如果設置為「僅限請求」，則必須通過值提供請求對象。如果設置為「僅限請求 URI」，則必須通過引用提供請求對象。如果設置為「請求或請求 URI」，則可以使用任一方法。
+warn,tw-term,admin-ui,requestObjectRequiredHelp,2596,「對象」→「物件」,"Specifies if the client needs to provide a request object with their authorization requests, and what method they can use for this. If set to ""not required"", providing a request object is optional. In all other cases, providing a request object is mandatory. If set to ""request"", the request object must be provided by value. If set to ""request_uri"", the request object must be provided by reference. If set to ""request or request_uri"", either method can be used.",指定應用程式是否需要在其授權請求中提供請求對象，以及他們可以使用的方法。如果設置為「非必要」，則提供請求對象是可選的。在所有其他情況下，提供請求對象是強制性的。如果設置為「僅限請求」，則必須通過值提供請求對象。如果設置為「僅限請求 URI」，則必須通過引用提供請求對象。如果設置為「請求或請求 URI」，則可以使用任一方法。
+info,tw-term,admin-ui,jwtAuthorizationGrantAssertionReuseAllowedHelp,2976,「項目」→「專案／項目」（project 應為「專案」）,"If enabled, the jti claim is not required and assertions can be reused.",如果啟用，jti 聲明不會是必填項目，且聲明能被複用。
+info,tw-term,admin-ui,onDragMove,2494,「項目」→「專案／項目」（project 應為「專案」）,Dragging item {{item}},正在拖動項目 {{item}}
 error,tw-term,admin-ui,enableClientSignatureRequiredExplain,2599,「導入」→「匯入」,"If you enable ""{{key}}"", the adapter of this client will be updated. You may need to download a new adapter for this client. You need to generate or import keys for this client otherwise the authentication will not work.",如果您啟用「{{key}}」，則此應用程式的適配器將被更新。您可能需要為此應用程式下載新的適配器。否則，身份驗證將無法工作，您需要為此應用程式生成或導入金鑰。
+info,tw-term,admin-ui,fineGrainSamlEndpointConfigHelp,2497,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,This section to configure exact URLs for Assertion Consumer and Single Logout Service.,此部分用於配置斷言消費者和單一登出服務的確切 URL。
+warn,tw-term,admin-ui,loginWithEmailHelpText,1097,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Allow users to log in with their email address.,允許使用者透過他們的電子信箱地址登入。
+warn,tw-term,admin-ui,firstBrokerLoginFlowAliasOverrideHelp,2600,「登錄」→「登入」（「登錄」在台灣指 register/record，login 應為「登入」）,"Alias of authentication flow, which is triggered after the first login with this identity provider. The term 'First Login' means that no Keycloak account is currently linked to the authenticated identity provider account.",身份提供者首次登錄後觸發的身份驗證流程的別名。「首次登錄」意味著當前沒有 Keycloak 帳戶連接到已驗證的身份提供者帳戶。
+info,tw-term,admin-ui,cachePolicyHelp,1779,「項目」→「專案／項目」（project 應為「專案」）,Cache Policy for this storage provider. 'DEFAULT' is whatever the default settings are for the global cache. 'EVICT_DAILY' is a time of day every day that the cache will be invalidated. 'EVICT_WEEKLY' is a day of the week and time the cache will be invalidated. 'MAX_LIFESPAN' is the time in milliseconds that will be the lifespan of a cache entry.,此儲存提供者的快取政策。「DEFAULT」是全域快取的預設設定。「EVICT_DAILY」是每天的某個時間，屆時快取將會失效。「EVICT_WEEKLY」是每週的某一天和時間，屆時快取將會失效。「MAX_LIFESPAN」是快取項目的壽命，以毫秒為單位。
+warn,tw-term,admin-ui,attributesHelp,2605,「設置」→「設定」,"Name and (regex) value of the attributes to search for in token. The configured name of an attribute is searched in SAML attribute name and attribute friendly name fields. Every given attribute description must be met to set the role. If the attribute is an array, then the value must be contained in the array. If an attribute can be found several times, then one match is sufficient.",要在權杖中搜索的屬性的名稱和（正則表達式）值。配置的屬性名稱會在 SAML 屬性名稱和屬性友好名稱欄位中進行搜索。必須滿足每個給定的屬性描述才能設置角色。如果屬性是數組，則該值必須包含在數組中。如果可以多次找到屬性，則匹配一次即可。
+info,tw-term,admin-ui,attributesHelp,2605,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"Name and (regex) value of the attributes to search for in token. The configured name of an attribute is searched in SAML attribute name and attribute friendly name fields. Every given attribute description must be met to set the role. If the attribute is an array, then the value must be contained in the array. If an attribute can be found several times, then one match is sufficient.",要在權杖中搜索的屬性的名稱和（正則表達式）值。配置的屬性名稱會在 SAML 屬性名稱和屬性友好名稱欄位中進行搜索。必須滿足每個給定的屬性描述才能設置角色。如果屬性是數組，則該值必須包含在數組中。如果可以多次找到屬性，則匹配一次即可。
+info,tw-term,admin-ui,deleteClientPolicyProfileSuccess,2608,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Profile successfully removed from the policy.,成功從政策中移除配置檔。
 error,tw-term,admin-ui,createClientProfileSuccess,2612,「創建」→「建立」,New client profile created,成功創建新的應用程式配置檔
+info,tw-term,admin-ui,createClientProfileSuccess,2612,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,New client profile created,成功創建新的應用程式配置檔
+warn,tw-term,admin-ui,policyProvider.role,2615,「對象」→「物件」,Define conditions for your permissions where a set of one or more roles is permitted to access an object.,定義您的權限條件，其中允許一組一個或多個角色訪問對象。
+warn,tw-term,admin-ui,testConnectionHint.withoutEmailAction,1074,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Configure e-mail address,設定電子郵件地址
+warn,tw-term,admin-ui,syncLDAPGroupsSuccessful,2621,「數據」→「資料」,Data successfully synced {{result}},數據已成功同步 {{result}}
 error,tw-term,admin-ui,invalidateRotatedSuccess,1964,「密鑰」→「金鑰」,Rotated secret successfully removed,成功移除輪替密鑰
 error,tw-term,admin-ui,reloadKeys,2630,「加載」→「載入」,Reload keys,重新加載金鑰
+warn,tw-term,admin-ui,useMetadataDescriptorUrlHelp,2631,「數據」→「資料」,"If the switch is on, the certificates to validate signatures will be downloaded and cached from the given ""Metadata descriptor URL"". The ""Reload keys"" action can be used to refresh the certificates in the cache. If the switch is off, certificates from ""Validating X509 certificates"" option are used, they need to be manually updated when changed in the IDP.",如果啟用，則用於驗證簽名的證書將從給定的「元數據描述符 URL」下載並緩存。可以使用「重新加載金鑰」操作來刷新緩存中的證書。如果關閉，則使用「驗證 X509 證書」選項中的證書，當 IDP 中更改時，需要手動更新它們。
+warn,tw-term,admin-ui,useMetadataDescriptorUrlHelp,2631,「刷新」→「重新整理」,"If the switch is on, the certificates to validate signatures will be downloaded and cached from the given ""Metadata descriptor URL"". The ""Reload keys"" action can be used to refresh the certificates in the cache. If the switch is off, certificates from ""Validating X509 certificates"" option are used, they need to be manually updated when changed in the IDP.",如果啟用，則用於驗證簽名的證書將從給定的「元數據描述符 URL」下載並緩存。可以使用「重新加載金鑰」操作來刷新緩存中的證書。如果關閉，則使用「驗證 X509 證書」選項中的證書，當 IDP 中更改時，需要手動更新它們。
 error,tw-term,admin-ui,useMetadataDescriptorUrlHelp,2631,「加載」→「載入」,"If the switch is on, the certificates to validate signatures will be downloaded and cached from the given ""Metadata descriptor URL"". The ""Reload keys"" action can be used to refresh the certificates in the cache. If the switch is off, certificates from ""Validating X509 certificates"" option are used, they need to be manually updated when changed in the IDP.",如果啟用，則用於驗證簽名的證書將從給定的「元數據描述符 URL」下載並緩存。可以使用「重新加載金鑰」操作來刷新緩存中的證書。如果關閉，則使用「驗證 X509 證書」選項中的證書，當 IDP 中更改時，需要手動更新它們。
+warn,tw-term,admin-ui,metadataDescriptorUrl,2632,「數據」→「資料」,Metadata descriptor URL,元數據描述符 URL
+warn,tw-term,admin-ui,metadataDescriptorUrlHelp,2633,「信息」→「訊息／資訊」,"External URL where Identity Provider publishes the metadata information needed by the client (certificates, keys, other URLs,...).",身份提供者發布應用程式所需的元數據信息（證書、金鑰、其他 URL 等）的外部 URL。
+warn,tw-term,admin-ui,metadataDescriptorUrlHelp,2633,「數據」→「資料」,"External URL where Identity Provider publishes the metadata information needed by the client (certificates, keys, other URLs,...).",身份提供者發布應用程式所需的元數據信息（證書、金鑰、其他 URL 等）的外部 URL。
+info,punct,admin-ui,samlClientMetadataDescriptorUrlHelp,1982,括號內含中文，建議使用全形括號（）,"External URL where Service Provider publishes the metadata information needed by the server (certificates, keys, other URLs,...).",服務提供者發布伺服器所需的元資料資訊 (憑證、金鑰、其他 URL …) 的外部 URL。
 error,tw-term,admin-ui,reloadKeysSuccess,2634,「加載」→「載入」,Keys successfully reloaded,金鑰成功重新加載
 error,tw-term,admin-ui,reloadKeysError,2635,「加載」→「載入」,Error reloading keys. {{error}},重新加載金鑰時出錯：{{error}}
 error,tw-term,admin-ui,reloadKeysSuccessButFalse,2636,「加載」→「載入」,"The reload was not executed, maybe the time between request was too short.",未執行重新加載，可能是請求之間的時間太短。
+warn,tw-term,admin-ui,importKeysSuccess,2637,「保存」→「儲存」,Keys successfully re-imported. Please save the provider to store the new certificates.,金鑰成功重新匯入。請保存提供者以存儲新的證書。
+warn,tw-term,admin-ui,importKeysErrorNoSigningCertificate,2639,「數據」→「資料」,"The option ""signingCertificate"" is not defined in the metadata.",元數據中未定義選項「signingCertificate」。
+info,tw-term,admin-ui,managePriorityInfo,2644,「程序」→「程式」（program 應為「程式」；procedure 可用「程序」）,Priority is the order of providers when doing a user lookup. You can drag the row handlers to change the priorities.,優先順序是在進行使用者查找時提供者的順序。您可以拖動行處理程序以更改優先順序。
 error,tw-term,admin-ui,flowCreateError,2647,「創建」→「建立」,Could not create flow: {{error}},無法創建流程：{{error}}
+warn,tw-term,admin-ui,validatorDeletedSuccess,2649,「保存」→「儲存」,Success! User Profile configuration has been saved.,成功！使用者配置已保存。
+info,tw-term,admin-ui,validatorDeletedSuccess,2649,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Success! User Profile configuration has been saved.,成功！使用者配置已保存。
+info,tw-term,admin-ui,clientProfile,1762,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Client profile details,應用程式配置檔詳細資訊
 error,tw-term,admin-ui,client-updater-source-groups.tooltip,2662,「創建」→「建立」,"Path of groups to check. The condition evaluates to true if the entity who creates or updates the client is a member of one or more of the specified groups. Configured groups are specified by their full path, for example /topGroup/level2group. No support for group hierarchy is used here.",檢查群組的路徑。創建或更新應用程式的實體是否為一個或多個指定群組的成員，如果是，則條件評估為 true。配置的群組由其完整路徑決定，例如「/topGroup/level2group」。此處不使用群組層次結構的支持。
+warn,tw-term,admin-ui,client-updater-source-groups.tooltip,2662,「支持」→「支援」（「支持」在台灣多指 support（擁護））,"Path of groups to check. The condition evaluates to true if the entity who creates or updates the client is a member of one or more of the specified groups. Configured groups are specified by their full path, for example /topGroup/level2group. No support for group hierarchy is used here.",檢查群組的路徑。創建或更新應用程式的實體是否為一個或多個指定群組的成員，如果是，則條件評估為 true。配置的群組由其完整路徑決定，例如「/topGroup/level2group」。此處不使用群組層次結構的支持。
+info,tw-term,admin-ui,client-updater-source-groups.tooltip,2662,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"Path of groups to check. The condition evaluates to true if the entity who creates or updates the client is a member of one or more of the specified groups. Configured groups are specified by their full path, for example /topGroup/level2group. No support for group hierarchy is used here.",檢查群組的路徑。創建或更新應用程式的實體是否為一個或多個指定群組的成員，如果是，則條件評估為 true。配置的群組由其完整路徑決定，例如「/topGroup/level2group」。此處不使用群組層次結構的支持。
+warn,tw-term,admin-ui,ldapRolesDnHelp,2664,「保存」→「儲存」,"LDAP DN where roles of this tree are saved. For example, 'ou=finance,dc=example,dc=org'.","保存此樹的角色的 LDAP DN。例如，「ou=finance,dc=example,dc=org」。"
 error,tw-term,admin-ui,createClientScopeError,2667,「創建」→「建立」,Could not create client scope: '{{error}}',無法創建應用程式範圍：{{error}}
 error,tw-term,admin-ui,client-updater-source-roles.tooltip,2669,「創建」→「建立」,"The condition is checked during client registration or update request; it evaluates to true if the entity (usually a user) is creating or updating client is a member of the specified role. To reference the realm role, you can use the realm role name such as 'my_realm_role'. To reference the client role, you can use the client_id.role_name; for example, 'my_client.my_client_role' refers to the client role 'my_client_role' of the client 'my_client'.",在應用程式註冊或更新請求期間檢查條件；如果創建或更新應用程式的實體（通常是使用者）是指定角色的成員，則評估為 true。要引用領域角色，您可以使用領域角色名稱，例如「my_realm_role」。要引用應用程式角色，您可以使用 client_id.role_name；例如，「my_client.my_client_role」指的是應用程式「my_client」的應用程式角色「my_client_role」。
+warn,tw-term,admin-ui,editModeLdapHelp,2050,「用戶」→「使用者」（「用戶端」為合法用語）,"READ_ONLY is a read-only LDAP store. WRITABLE means data will be synced back to LDAP on demand. UNSYNCED means user data will be imported, but not synced back to LDAP.",READ_ONLY 是唯讀的 LDAP 存儲。WRITABLE 意味著數據將根據需要同步回 LDAP。UNSYNCED 意味著用戶數據將被導入，但不會同步回 LDAP。
+warn,tw-term,admin-ui,editModeLdapHelp,2050,「數據」→「資料」,"READ_ONLY is a read-only LDAP store. WRITABLE means data will be synced back to LDAP on demand. UNSYNCED means user data will be imported, but not synced back to LDAP.",READ_ONLY 是唯讀的 LDAP 存儲。WRITABLE 意味著數據將根據需要同步回 LDAP。UNSYNCED 意味著用戶數據將被導入，但不會同步回 LDAP。
 error,tw-term,admin-ui,editModeLdapHelp,2050,「導入」→「匯入」,"READ_ONLY is a read-only LDAP store. WRITABLE means data will be synced back to LDAP on demand. UNSYNCED means user data will be imported, but not synced back to LDAP.",READ_ONLY 是唯讀的 LDAP 存儲。WRITABLE 意味著數據將根據需要同步回 LDAP。UNSYNCED 意味著用戶數據將被導入，但不會同步回 LDAP。
+info,tw-term,admin-ui,deleteClientProfileConfirmTitle,2675,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Delete profile?,刪除配置檔？
+warn,tw-term,admin-ui,saveSuccess,2677,「保存」→「儲存」,User federation provider successfully saved,使用者邦聯提供者已成功保存
+warn,tw-term,admin-ui,requestObjectEncryptionHelp,2679,「設置」→「設定」,"JWE algorithm, which a client needs to use when sending an OIDC request object specified by 'request' or 'request_uri' parameters. If set to 'any', encryption is optional and any algorithm is allowed.",JWE 演算法，應用程式在發送由「request」或「request_uri」參數指定的 OIDC 請求對象時需要使用該演算法。如果設置為「任何」，則加密是可選的，並允許使用任何演算法。
+warn,tw-term,admin-ui,requestObjectEncryptionHelp,2679,「對象」→「物件」,"JWE algorithm, which a client needs to use when sending an OIDC request object specified by 'request' or 'request_uri' parameters. If set to 'any', encryption is optional and any algorithm is allowed.",JWE 演算法，應用程式在發送由「request」或「request_uri」參數指定的 OIDC 請求對象時需要使用該演算法。如果設置為「任何」，則加密是可選的，並允許使用任何演算法。
+warn,tw-term,admin-ui,invalidJsonError,2682,「信息」→「訊息／資訊」,"Unable to save user profile, the provided information is not valid JSON: {{error}}",無法儲存使用者設定，提供的信息不是有效的 JSON：{{error}}
+warn,tw-term,admin-ui,invalidJsonClientProfilesError,2683,「信息」→「訊息／資訊」,"Unable to save client profiles, the provided information is not valid JSON: {{error}}",無法儲存應用程式設定，提供的信息不是有效的 JSON：{{error}}
+warn,tw-term,admin-ui,invalidJsonClientPoliciesError,2684,「信息」→「訊息／資訊」,"Unable to save client policies, the provided information is not valid JSON: {{error}}",無法儲存應用程式政策，提供的信息不是有效的 JSON：{{error}}
 error,tw-term,admin-ui,noScopeCreateHint,2690,「創建」→「建立」,You'll need to create an authorization scope first.,您需要先創建授權範圍。
+warn,tw-term,admin-ui,confirmClientSecretBody,2698,「數據」→「資料」,"If you regenerate the secret, the Keycloak database will be updated and you will need to download a new adapter for this client.",如果您重新生成密鑰，Keycloak 數據庫將被更新，您需要為此應用程式下載新的適配器。
 error,tw-term,admin-ui,confirmClientSecretBody,2698,「密鑰」→「金鑰」,"If you regenerate the secret, the Keycloak database will be updated and you will need to download a new adapter for this client.",如果您重新生成密鑰，Keycloak 數據庫將被更新，您需要為此應用程式下載新的適配器。
 error,tw-term,admin-ui,displayDescriptionHintHelp,1268,「界面」→「介面」,A text that should be used as a tooltip when rendering user-facing forms.,在呈現使用者界面表單時應用的工具提示文本。
 error,tw-term,admin-ui,chooseResources,2704,「導入」→「匯入」,Choose the resources you want to import,選擇您要導入的資源
+warn,tw-term,admin-ui,assertionLifespanHelp,2710,「設置」→「設定」,"Lifespan set in the SAML assertion conditions. After that time the assertion will be invalid. The ""SessionNotOnOrAfter"" attribute is not modified and continue using the ""SSO Session Max"" time defined at realm level.",SAML 斷言條件中設置的壽命。超過該時間後，斷言將無效。「SessionNotOnOrAfter」屬性不會被修改，並繼續使用在領域級別定義的「SSO Session Max」時間。
+warn,tw-term,admin-ui,ldapAttributeValueHelp,2711,「支持」→「支援」（「支持」在台灣多指 support（擁護））,"Value of the LDAP attribute, which will be added to the new user during registration. You can either hardcode any value like 'foo' but you can also use some special tokens. Only supported token right now is '${RANDOM}', which will be replaced with some randomly generated string.",LDAP 屬性的值，該屬性將在註冊期間添加到新使用者。您可以硬編碼任何值，例如「foo」，但您也可以使用一些特殊的標記。目前僅支持的標記是「${RANDOM}」，它將被替換為一些隨機生成的字符串。
 error,tw-term,admin-ui,noKeys,2716,「密鑰」→「金鑰」,No keys,沒有密鑰
+warn,tw-term,admin-ui,activeHelp,2717,「設置」→「設定」,Set if the keys can be used for signing,設置密鑰是否可以用於簽名
 error,tw-term,admin-ui,activeHelp,2717,「密鑰」→「金鑰」,Set if the keys can be used for signing,設置密鑰是否可以用於簽名
+warn,tw-term,admin-ui,setToNowError,2720,「設置」→「設定」,Error! Failed to set notBefore to current date and time: {{error}},錯誤！無法將 notBefore 設置為當前日期和時間：{{error}}
+warn,tw-term,admin-ui,webAuthnPolicyAcceptableAaguidsHelp,2730,「標識」→「識別碼」,"The list of allowed AAGUIDs of which an authenticator can be registered. An AAGUID is a 128-bit identifier indicating the authenticator's type (e.g., make and model). This option needs the Attestation conveyance preference to be configured (normally `Direct`) to ensure a trusted AAGUID is passed. Default attestation `None` is not reliable, and can anonymize the AAGUID to zero value.",可註冊驗證器的允許 AAGUID 清單。AAGUID 是 128 位元的標識符，用於標示驗證器的類型（例如：製造商與型號）。此選項需要配置「證明傳遞偏好」(Attestation conveyance preference)（通常為 `Direct`），以確保傳遞的是受信任的 AAGUID。預設的證明 `None` 不具可靠性，且可能會將 AAGUID 匿名化為零值。
+info,tw-term,admin-ui,webAuthnPolicyAcceptableAaguidsHelp,2730,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"The list of allowed AAGUIDs of which an authenticator can be registered. An AAGUID is a 128-bit identifier indicating the authenticator's type (e.g., make and model). This option needs the Attestation conveyance preference to be configured (normally `Direct`) to ensure a trusted AAGUID is passed. Default attestation `None` is not reliable, and can anonymize the AAGUID to zero value.",可註冊驗證器的允許 AAGUID 清單。AAGUID 是 128 位元的標識符，用於標示驗證器的類型（例如：製造商與型號）。此選項需要配置「證明傳遞偏好」(Attestation conveyance preference)（通常為 `Direct`），以確保傳遞的是受信任的 AAGUID。預設的證明 `None` 不具可靠性，且可能會將 AAGUID 匿名化為零值。
+warn,tw-term,admin-ui,sectorIdentifierUri.tooltip,2731,「支持」→「支援」（「支持」在台灣多指 support（擁護））,Providers that use pairwise sub values and support Dynamic Client Registration SHOULD use the sector_identifier_uri parameter. It provides a way for a group of websites under common administrative control to have consistent pairwise sub values independent of the individual domain names. It also provides a way for Clients to change redirect_uri domains without having to reregister all their users.,使用成對子值並支持動態應用程式註冊的提供者應使用 sector_identifier_uri 參數。它為在共同管理控制下的一組網站提供了一種方法，以便獨立於各個域名擁有一致的成對子值。它還為應用程式提供了一種更改 redirect_uri 域而無需重新註冊所有使用者的方法。
+warn,tw-term,admin-ui,contextualInfo,2733,「信息」→「訊息／資訊」,Contextual Information,上下文信息
+warn,tw-term,admin-ui,syncModeHelp,2734,「登錄」→「登入」（「登錄」在台灣指 register/record，login 應為「登入」）,"Default sync mode for all mappers. The sync mode determines when user data is synced using the mappers. Three possible values exist: 'legacy' to keep the behavior before this option was introduced, 'import' to import the user only once, specifically during the first login of the user with this identity provider, and force' to always update the user at every login with this identity provider.",所有映射器的預設同步模式。同步模式決定何時使用映射器同步使用者資料。存在三個可能的值：「legacy」以保持在引入此選項之前的行為，「import」僅導入使用者一次，特別是在使用此身份提供者首次登錄使用者期間，以及「force」以在每次使用此身份提供者登錄時始終更新使用者。
 error,tw-term,admin-ui,syncModeHelp,2734,「導入」→「匯入」,"Default sync mode for all mappers. The sync mode determines when user data is synced using the mappers. Three possible values exist: 'legacy' to keep the behavior before this option was introduced, 'import' to import the user only once, specifically during the first login of the user with this identity provider, and force' to always update the user at every login with this identity provider.",所有映射器的預設同步模式。同步模式決定何時使用映射器同步使用者資料。存在三個可能的值：「legacy」以保持在引入此選項之前的行為，「import」僅導入使用者一次，特別是在使用此身份提供者首次登錄使用者期間，以及「force」以在每次使用此身份提供者登錄時始終更新使用者。
+info,punct,admin-ui,xContentTypeOptionsHelp,1695,全形標點後多了空白,The default value prevents Internet Explorer and Google Chrome from MIME-sniffing a response away from the declared content-type. <formattedlink>Learn more</formattedlink>,預設值可防止 Internet Explorer 和 Google Chrome 從宣告的內容類型中進行 MIME 嗅探回應。 <formattedlink>了解更多</formattedlink>
+warn,tw-term,admin-ui,privateKeyMask,2740,「設置」→「設定」,PRIVATE KEY NOT SET UP OR KNOWN,未設置或未知的私鑰
 error,tw-term,admin-ui,addExecutorSuccess,2741,「創建」→「建立」,Success! Executor created successfully,成功！執行者創建成功
 error,tw-term,admin-ui,useDiscoveryEndpointHelp,1525,「加載」→「載入」,"If this setting is enabled, the discovery endpoint will be used to fetch the provider config. Keycloak can load the config from the endpoint and automatically update the config if the source has any updates.",如果啟用此設定，將使用探索端點來擷取提供者配置。Keycloak 可以從該端點加載配置，並在來源有任何更新時自動更新配置。
+info,tw-term,admin-ui,useDiscoveryEndpointHelp,1525,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"If this setting is enabled, the discovery endpoint will be used to fetch the provider config. Keycloak can load the config from the endpoint and automatically update the config if the source has any updates.",如果啟用此設定，將使用探索端點來擷取提供者配置。Keycloak 可以從該端點加載配置，並在來源有任何更新時自動更新配置。
 error,tw-term,admin-ui,createUserProviderError,2743,「創建」→「建立」,User federation provider could not be created: {{error}},無法創建使用者聯邦提供者：{{error}}
 error,tw-term,admin-ui,userModelAttributeNameHelp,2747,「導入」→「匯入」,Name of the model attribute to be added when importing user from LDAP,在從 LDAP 導入使用者時要添加的模型屬性名稱
 error,tw-term,admin-ui,templateHelp,2981,「導入」→「匯入」,"Template to use to format the username to import. Substitutions are enclosed in ${}. For example: '${ALIAS}.${CLAIM.sub}'. ALIAS is the provider alias. CLAIM.<NAME> references an ID or Access token claim. The substitution can be converted to upper or lower case by appending |uppercase or |lowercase to the substituted value, for example, '${CLAIM.sub | lowercase}.",用於格式化要導入的使用者名稱的模板。替換項用 ${} 括起來。例如：「${ALIAS}.${CLAIM.sub}」。ALIAS 是提供者別名。CLAIM.<NAME> 參考 ID 或訪問權杖聲明。通過在替換值後附加 |uppercase 或 |lowercase，可以將替換項轉換為大寫或小寫，例如，「${CLAIM.sub | lowercase}」。
+warn,tw-term,admin-ui,mapperSaveError,2751,「保存」→「儲存」,Error saving mapper: {{error}},保存映射器時出錯：{{error}}
 error,tw-term,admin-ui,createClientError,2753,「創建」→「建立」,Could not create client: '{{error}}',無法創建應用程式：{{error}}
 error,tw-term,admin-ui,clientAuthentications.client_secret_post,363,「密鑰」→「金鑰」,Client secret sent in the request body,在請求主體中傳送的應用程式密鑰
+info,tw-term,admin-ui,executorsHelpText,2760,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"Executors, which will be applied for this client profile",將應用於此應用程式配置檔的執行者
+info,tw-term,admin-ui,authenticationAliasHelp,2761,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Name of the configuration,配置名稱
+info,punct,admin-ui,contentSecurityPolicyHelp,1698,全形標點後多了空白,Default value prevents pages from being included by non-origin iframes. <formattedlink>Learn more</formattedlink>,預設值可防止非來源 iframe 包含頁面。 <formattedlink>了解更多</formattedlink>
 error,tw-term,admin-ui,roleCreated,2772,「創建」→「建立」,Role created,角色已創建
+info,tw-term,admin-ui,groupsPathHelp,2992,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"Keycloak group path the LDAP groups are added to. For example if value '/Applications/App1' is used, then LDAP groups will be available in Keycloak under group 'App1', which is child of top level group 'Applications'. The default value is '/' so LDAP groups will be mapped to the Keycloak groups at the top level. The configured group path must already exist in the Keycloak when creating this mapper.",Keycloak 群組路徑，LDAP 群組將新增到該路徑。例如，如果使用值「/Applications/App1」，則 LDAP 群組將在 Keycloak 中的頂層群組「Applications」的子群組「App1」下可用。預設值為「/」，因此 LDAP 群組將映射到頂層的 Keycloak 群組。在建立此映射器時，必須已在 Keycloak 中存在已配置的群組路徑。
+info,tw-term,admin-ui,extendToChildren,2781,「項目」→「專案／項目」（project 應為「專案」）,Extend to children,擴展到子項目
+info,tw-term,admin-ui,deleteClientPolicyProfileError,2782,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Could not delete profile from the policy: {{error}},無法從政策中刪除配置檔：{{error}}
+warn,tw-term,admin-ui,hideOnLoginPage,2784,「登錄」→「登入」（「登錄」在台灣指 register/record，login 應為「登入」）,Hide on login page,在登錄頁面上隱藏
 error,tw-term,admin-ui,couldNotCreateGroup,2785,「創建」→「建立」,Could not create group {{error}},無法創建群組：{{error}}
 error,tw-term,admin-ui,saveRealmSuccess,2788,「創建」→「建立」,Realm created successfully,領域創建成功
 error,tw-term,admin-ui,createScopeSuccess,2789,「創建」→「建立」,Authorization scope created successfully,授權範圍創建成功
+warn,tw-term,admin-ui,accessTokenLifespanImplicitFlowHelp,2791,「刷新」→「重新整理」,"Max time before an access token issued during OpenID Connect Implicit Flow is expired. This value is recommended to be shorter than the SSO timeout. There is no possibility to refresh token during implicit flow, that's why there is a separate timeout different to 'Access Token Lifespan'.",在 OpenID Connect 隱式流程期間發出的訪問權杖過期之前的最大時間。建議此值短於 SSO 超時。在隱式流期間無法刷新權杖，這就是為什麼有一個與「訪問權杖壽命」不同的單獨超時的原因。
+warn,spacing,admin-ui,usernameLdapAttributeHelp,2063,中文與英數字之間缺少空白,"Name of the LDAP attribute, which is mapped as Keycloak username. For many LDAP server vendors it can be 'uid'. For Active directory it can be 'sAMAccountName' or 'cn'. The attribute should be filled for all LDAP user records you want to import from LDAP to Keycloak.",LDAP 屬性名稱，對應到 Keycloak 使用者名稱。對於許多 LDAP 伺服器供應商來說，它可以是「uid」。對於 Active Directory，它可以是「sAMAccountName」或「cn」。您想要從 LDAP匯入到 Keycloak 的所有 LDAP 使用者記錄都應該填寫此屬性。
+info,tw-term,admin-ui,clientProfilesSubTab,2802,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Client profiles subtab,應用程式配置檔子標籤
+info,tw-term,admin-ui,emptyRealmBasedIdps,2805,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,No realm based identity providers are configured for this realm.,此領域未配置基於領域的身份提供者。
 error,tw-term,admin-ui,forceArtifactBindingHelp,2814,「響應」→「回應」,Should response messages be returned to the client through the SAML ARTIFACT binding system?,是否應通過 SAML ARTIFACT 綁定系統將響應消息返回給應用程式？
+warn,tw-term,admin-ui,serviceProviderEntityIdHelp,1532,「標識」→「識別碼」,The Entity ID that will be used to uniquely identify this SAML Service Provider.,將用於唯一標識此 SAML 服務提供者的實體 ID。
+info,tw-term,admin-ui,noAdminUrlSet,2828,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,No push sent. No admin URI configured or no registered cluster nodes available,未發送推送。未配置管理 URI 或無可用的已註冊集群節點
 error,tw-term,admin-ui,encryptionKeysConfigExplain,3001,「導入」→「匯入」,"If you enable the ""Encrypt assertions"" below, the SAML assertions will be encrypted with the client's public key. If the client provides a SP Metadata Descriptor URL with signing and encryption keys, you can enable automatic management of keys with the option ""Use metadata descriptor URL"" in the ""Signature and Encryption"" section of the ""Settings"" tab. You can also configure manually the encryption key by generating or importing it on activation. When this option is enabled, the encryption details can be modified in the ""Settings"" tab, section ""Signature and Encryption"".",如果您啟用下面的「加密斷言」，則 SAML 斷言將使用應用程式的公鑰進行加密。如果應用程式提供帶有簽名和加密金鑰的 SP 元資料描述符 URL，您可以在「設定」標籤的「簽名和加密」部分中使用「使用元資料描述符 URL」選項來啟用金鑰的自動管理。您也可以在啟用時手動生成或導入來配置加密金鑰。啟用此選項後，可以在「設定」標籤的「簽名和加密」部分修改加密詳細資訊。
+info,tw-term,admin-ui,encryptionKeysConfigExplain,3001,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"If you enable the ""Encrypt assertions"" below, the SAML assertions will be encrypted with the client's public key. If the client provides a SP Metadata Descriptor URL with signing and encryption keys, you can enable automatic management of keys with the option ""Use metadata descriptor URL"" in the ""Signature and Encryption"" section of the ""Settings"" tab. You can also configure manually the encryption key by generating or importing it on activation. When this option is enabled, the encryption details can be modified in the ""Settings"" tab, section ""Signature and Encryption"".",如果您啟用下面的「加密斷言」，則 SAML 斷言將使用應用程式的公鑰進行加密。如果應用程式提供帶有簽名和加密金鑰的 SP 元資料描述符 URL，您可以在「設定」標籤的「簽名和加密」部分中使用「使用元資料描述符 URL」選項來啟用金鑰的自動管理。您也可以在啟用時手動生成或導入來配置加密金鑰。啟用此選項後，可以在「設定」標籤的「簽名和加密」部分修改加密詳細資訊。
 error,tw-term,admin-ui,createScopeBasedPermission,2836,「創建」→「建立」,Create scope-based permission,創建基於範圍的權限
+info,punct,admin-ui,userLdapFilterHelp,2072,括號內含中文，建議使用全形括號（）,Additional LDAP filter for filtering searched users. Leave this empty if you don't need an additional filter. Make sure that it starts with '(' and ends with ')'.,用於篩選搜尋到的使用者的其他 LDAP 篩選條件。如果您不需要其他篩選條件，請將此欄位留空。確保它以「(」開頭並以「)」結尾。
 error,tw-term,admin-ui,usernameTemplateImporter,2843,「導入」→「匯入」,Format the username to import.,格式化要導入的使用者名稱。
 error,tw-term,admin-ui,targetHelp,2852,「導入」→「匯入」,"Destination field for the mapper. LOCAL (default) means that the changes are applied to the username stored in the local database upon user import. BROKER_ID and BROKER_USERNAME means that the changes are stored into the ID or username used for federation user lookup, respectively.",映射器的目標欄位。LOCAL（預設值）表示更改將應用於導入使用者時存儲在本地資料庫中的使用者名稱。BROKER_ID 和 BROKER_USERNAME 分別表示更改存儲到用於聯邦使用者查找的 ID 或使用者名稱中。
+warn,tw-term,admin-ui,addressClaim.formatted.label,971,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,User Attribute Name for Formatted Address,格式化地址的使用者屬性名稱
 error,tw-term,admin-ui,createPolicySuccess,2860,「創建」→「建立」,Successfully created the policy,成功創建政策
+info,tw-term,admin-ui,encryptionKeysConfig,2862,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Encryption keys config,加密金鑰配置
+info,tw-term,admin-ui,updateClientProfileSuccess,2863,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Client profile updated successfully,應用程式配置檔更新成功
+info,tw-term,admin-ui,forceNameIdFormatHelp,2865,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Ignore requested NameID subject format and use Admin UI configured one.,忽略請求的 NameID 主體格式，並使用管理員 UI 配置的格式。
+warn,tw-term,admin-ui,saveProviderError,2867,「保存」→「儲存」,Error saving provider: {{error}},無法保存提供者：{{error}}
+info,punct,admin-ui,ldapFilterHelp,3008,括號內含中文，建議使用全形括號（）,LDAP Filter adds an additional custom filter to the whole query for retrieve LDAP groups. Leave this empty if no additional filtering is needed and you want to retrieve all groups from LDAP. Otherwise make sure that filter starts with '(' and ends with ')'.,LDAP 篩選器會向檢索 LDAP 群組的整個查詢新增額外的自訂篩選器。如果不需要額外的篩選並且您想要從 LDAP 檢索所有群組，請將此留空。否則，請確保篩選器以「(」開頭並以「)」結尾。
+warn,tw-term,admin-ui,validatorDeletedError,2878,「保存」→「儲存」,Error saving User Profile: {{error}},無法保存使用者個人資料：{{error}}
 error,tw-term,admin-ui,createClientScopeSuccess,2880,「創建」→「建立」,Client scope created,應用程式範圍已創建
+warn,tw-term,admin-ui,fromDisplayNameHelp,1173,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,A user-friendly name for the 'From' address (optional).,一個使用者友善的名字用於「寄件者」地址 (選擇性)。
+info,punct,admin-ui,fromDisplayNameHelp,1173,括號內含中文，建議使用全形括號（）,A user-friendly name for the 'From' address (optional).,一個使用者友善的名字用於「寄件者」地址 (選擇性)。
+warn,tw-term,admin-ui,refreshTokenMaxReuseHelp,2883,「刷新」→「重新整理」,"Maximum number of times a refresh token can be reused. When a different token is used, revocation is immediate.",刷新權杖可以重複使用的最大次數。當使用不同的權杖時，將會立即撤銷。
+info,tw-term,admin-ui,importConfig,2886,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Import config from file,從檔案匯入配置
+warn,tw-term,admin-ui,replyToDisplayNameHelp,1174,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,A user-friendly name for the 'Reply-To' address (optional).,一個使用者友善的名字用於「回覆給」地址 (選擇性)。
+info,punct,admin-ui,replyToDisplayNameHelp,1174,括號內含中文，建議使用全形括號（）,A user-friendly name for the 'Reply-To' address (optional).,一個使用者友善的名字用於「回覆給」地址 (選擇性)。
 error,tw-term,admin-ui,signingKeysConfigExplain,3014,「導入」→「匯入」,"If you enable the ""Client signature required"" below, the client should sign their SAML requests and responses and the signature will be validated by the server. If the client provides a SP Metadata Descriptor URL with signing and encryption keys, you can enable automatic management of keys with the option ""Use metadata descriptor URL"" in the ""Signature and Encryption"" section of the ""Settings"" tab. You can also configure manually the signing key by generating or importing it on activation.",如果您啟用下面的「需要應用程式簽名」，則應用程式應簽署其 SAML 請求和回應，並且伺服器將驗證該簽名。如果應用程式提供帶有簽名和加密金鑰的 SP 元資料描述符 URL，您可以在「設定」標籤的「簽名和加密」部分中使用「使用元資料描述符 URL」選項來啟用金鑰的自動管理。您也可以在啟用時手動生成或導入來配置簽名金鑰。
+info,tw-term,admin-ui,signingKeysConfigExplain,3014,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"If you enable the ""Client signature required"" below, the client should sign their SAML requests and responses and the signature will be validated by the server. If the client provides a SP Metadata Descriptor URL with signing and encryption keys, you can enable automatic management of keys with the option ""Use metadata descriptor URL"" in the ""Signature and Encryption"" section of the ""Settings"" tab. You can also configure manually the signing key by generating or importing it on activation.",如果您啟用下面的「需要應用程式簽名」，則應用程式應簽署其 SAML 請求和回應，並且伺服器將驗證該簽名。如果應用程式提供帶有簽名和加密金鑰的 SP 元資料描述符 URL，您可以在「設定」標籤的「簽名和加密」部分中使用「使用元資料描述符 URL」選項來啟用金鑰的自動管理。您也可以在啟用時手動生成或導入來配置簽名金鑰。
+info,tw-term,admin-ui,enabledWhenTooltip,1904,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"Specifies when the attribute is available. When scopes are used, the attribute is available when at least one of the configured scopes is applied in the login request. Both default and optional scopes of the current request are evaluated. In the Admin Console and Account Console contexts, scopes are not evaluated and the attribute is always available (if not further restricted by permissions).",指定屬性何時可用。當使用範圍時，當在登入請求中套用至少一個已配置的範圍時，該屬性是可用的。目前請求的預設和選擇性範圍都會被評估。在管理主控台和帳戶主控台情境中，不會評估範圍，並且該屬性始終可用（如果沒有進一步受到權限的限制）。
+warn,tw-term,admin-ui,useRefreshTokenForClientCredentialsGrant,2891,「刷新」→「重新整理」,Use refresh tokens for client credentials grant,對於應用程式憑證授予，使用刷新權杖
+warn,tw-term,admin-ui,notBeforeHelp,3018,「設置」→「設定」,"Revoke any tokens issued before this time for this client. To push the policy, you should set an effective admin URL in the Settings tab first.",撤銷在此時間之前為此應用程式簽發的任何權杖。要推送該政策，您應該先在「設定」標籤中設置有效的管理 URL。
 error,tw-term,admin-ui,invalidateRotatedSecretExplain,1965,「密鑰」→「金鑰」,"After invalidating rotated secret, the rotated secret will be removed automatically",廢止輪替密鑰之後，輪替密鑰會被自動移除
+warn,tw-term,admin-ui,scopeName,2916,「標識」→「識別碼」,"A unique name for this scope. The name can be used to uniquely identify a scope, useful when querying for a specific scope.",此範圍的唯一名稱。該名稱可用於唯一標識範圍，在查詢特定範圍時非常有用。
 error,tw-term,admin-ui,mapperCreateError,2919,「創建」→「建立」,Error creating mapper: {{error}},無法創建映射器：{{error}}
 error,tw-term,admin-ui,pkceEnabledHelp,2924,「密鑰」→「金鑰」,Use PKCE (Proof of Key-code exchange) for IdP Brokering,對 IdP 代理使用 PKCE（密鑰代碼交換證明）
 error,placeholder,admin-ui,passwordHelp,1172,缺少 ${vault.ID}；多出 ${valut.ID},"SMTP password. This field is able to obtain its value from vault, use ${vault.ID} format.",SMTP 密碼。這個欄位可使用來自 vault 的數值，使用 ${valut.ID} 格式。
+warn,tw-term,admin-ui,oAuthDPoPHelp,2085,「刷新」→「重新整理」,"This enables support for Demonstrating Proof-of-Possession (DPoP) bound tokens. For public clients, both access and refresh tokens are bound to the key stored on the client. In order to prove the possession of the key, the client must send a signed proof alongside the token. For confidential clients, only access tokens are DPoP bound because, following the specification, refresh tokens are already sender-constrained by the associated authentication requirement.",這啟用對綁定權杖的擁有權證明 (DPoP) 的支援。對於公眾應用程式，存取和刷新權杖都綁定到存儲在應用程式上的金鑰。為了證明金鑰的擁有權，應用程式必須與權杖一起發送已簽名的證明。對於機密應用程式，只有存取權杖是 DPoP 綁定的，因為根據規範，刷新權杖已經由相關的身份驗證要求發送方約束。
+warn,tw-term,admin-ui,unsavedChangesConfirm,2939,「保存」→「儲存」,You have unsaved changes. Do you really want to leave the page?,您有未保存的更改。您確定要離開此頁面嗎？
+warn,tw-term,admin-ui,roleSaveSuccess,2946,「保存」→「儲存」,The role has been saved,角色已成功保存
+info,tw-term,admin-ui,permissionsEnabledHelp,1960,「項目」→「專案／項目」（project 應為「專案」）,Determines if fine grained permissions are enabled for managing this role. Disabling deletes all current permissions.,決定是否使用細緻授權管理這個角色。取消該項目會刪除所有目前的授權。
+info,tw-term,admin-ui,clientScopesConditionTooltip,3058,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,The list of expected client scopes. Condition evaluates to true if specified client request matches some of the client scopes. It depends also whether it should be default or optional client scope based on the 'Scope Type' configured.,預期應用程式範圍的清單。如果指定的應用程式請求符合某些應用程式範圍，則條件評估結果為 true。這還取決於根據所配置的「範圍類型」它應該是預設還是可選的應用程式範圍。
+warn,tw-term,admin-ui,copyInitialAccessToken,311,「保存」→「儲存」,Please copy and paste the initial access token before closing as it can not be retrieved later.,在關閉對話框前請妥善保存此初始存取權杖，您稍後將無法再度獲取此權杖。
+warn,tw-term,admin-ui,readOnlyHelp,3077,「保存」→「儲存」,Read-only attribute that is imported from LDAP to UserModel but is not saved back to LDAP when the user is updated in Keycloak.,從 LDAP 匯入到 UserModel 的唯讀屬性，但在 Keycloak 中更新使用者時不會保存回 LDAP。
+warn,tw-term,admin-ui,requestObjectEncodingHelp,3079,「設置」→「設定」,"JWE algorithm, which the client needs to use when encrypting the content of the OIDC request object specified by the 'request' or 'request_uri' parameters. If set to 'any', any algorithm is allowed.",JWE 演算法，應用程式在加密由「request」或「request_uri」參數指定的 OIDC 請求物件內容時需要使用該演算法。如果設置為「any」，則允許使用任何演算法。
+warn,tw-term,admin-ui,passwordPoliciesHelp.notEmail,1560,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,The password cannot match the email address of the user.,密碼不能與使用者的電子郵件地址相符。
+warn,tw-term,admin-ui,duplicateEmailsHelpText,1098,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Allow multiple users to have the same email address. Changing this setting will also clear the user's cache. It is recommended to manually update email constraints of existing users in the database after switching off support for duplicate email addresses.,允許多個使用者使用相同的電子信箱地址。變更這個設定也會清除使用者快取。建議在關閉此功能後手動更新目前資料庫中存在的使用者的電子信箱關聯。
+info,punct,admin-ui,moveGroupError,3123,全形標點後多了空白,Could not move group: {{error}},無法移動群組： {{error}}
+info,tw-term,admin-ui,validateAttributeName,3136,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Attribute configuration without a name is not allowed.,不允許沒有名稱的屬性配置。
+warn,tw-term,admin-ui,policyProvider.group,3145,「對象」→「物件」,Define conditions for your permissions where a set of one or more groups (and their hierarchies) is permitted to access an object.,定義您的權限條件，其中允許一組一個或多個群組（及其層級）訪問對象。
+warn,tw-term,admin-ui,updatedUserProfileError,3146,「保存」→「儲存」,User Profile configuration hasn't been saved: {{error}},使用者設定檔配置未保存：{{error}}
+info,tw-term,admin-ui,updatedUserProfileError,3146,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,User Profile configuration hasn't been saved: {{error}},使用者設定檔配置未保存：{{error}}
+info,punct,admin-ui,xFrameOptionsHelp,1331,全形標點後多了空白,Default value prevents pages from being included by non-origin iframes. <formattedlink>Learn more</formattedlink>,預設值會阻止頁面被非原始 iframe 所引用。 <formattedlink>了解更多</formattedlink>
+info,tw-term,admin-ui,client-scopes-condition.tooltip,3175,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,The list of expected client scopes. Condition evaluates to true if specified client request matches some of the client scopes. It depends also whether it should be default or optional client scope based on the 'Scope Type' configured.,預期應用程式範圍的清單。如果指定的應用程式請求符合某些應用程式範圍，則條件評估結果為 true。這還取決於根據所配置的「範圍類型」它應該是預設還是可選的應用程式範圍。
+warn,tw-term,admin-ui,fullNameLdapReadOnlyHelp,3180,「保存」→「儲存」,"For Read-only, data is imported from LDAP to the Keycloak database, but it is not saved back to LDAP when the user is updated in Keycloak.",對於唯讀模式，資料會從 LDAP 匯入到 Keycloak 資料庫，但在 Keycloak 中更新使用者時不會保存回 LDAP。
+warn,tw-term,admin-ui,requiredUserActionsHelp,1575,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Require an action when the user logs in. 'Verify email' sends an email to the user to verify that user's email address. 'Update profile' requires the user to enter new personal information. 'Update password' requires the user to enter a new password. 'Configure OTP' requires setup of a mobile password generator.,在使用者登入時要求執行某個操作。「驗證電子郵件」會傳送一封電子郵件給使用者以驗證其電子郵件地址。「更新個人資料」要求使用者輸入新的個人資訊。「更新密碼」要求使用者輸入新密碼。「設定 OTP」要求設定行動密碼產生器。
+warn,tw-term,admin-ui,requestObjectSignatureAlgorithmHelp,3181,「設置」→「設定」,"JWA algorithm, which the client needs to use when sending an OIDC request object specified by the 'request' or 'request_uri' parameters. If set to 'any', the Request object can be signed by any algorithm (including 'none').",JWA 演算法，應用程式在發送由「request」或「request_uri」參數指定的 OIDC 請求物件時需要使用該演算法。如果設置為「any」，則請求物件可以由任何演算法（包括「none」）簽署。
 error,tw-term,admin-ui,clientSecretError,3184,「密鑰」→「金鑰」,Could not regenerate client secret due to: {{error}},無法重新生成應用程式密鑰，原因：{{error}}
+warn,tw-term,admin-ui,frontendUrlHelp,736,「主機名」→「主機名稱」,Set the frontend URL for the realm. Use in combination with the default hostname provider to override the base URL for frontend requests for a specific realm.,設定領域的前端 URL。與預設主機名稱提供者結合使用來覆寫特定領域的前端請求的基本 URL。
+info,tw-term,admin-ui,CONFIGURE_TOTP,3209,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Configure OTP (CONFIGURE_TOTP),配置 OTP（CONFIGURE_TOTP）
+warn,tw-term,admin-ui,setup,452,「設置」→「設定」,Setup,設置
+warn,tw-term,admin-ui,revokeRefreshTokenHelp,1856,「刷新」→「重新整理」,"If enabled, a refresh token can only be used up to 'Refresh Token Max Reuse' and it is revoked when a different token is used. Otherwise, refresh tokens are not revoked when used and can be used multiple times.",如果啟用，則刷新權杖只能使用到「刷新權杖最大重用」並且在使用不同的權杖時會被撤銷。否則，刷新權杖在使用時不會被撤銷，並且可以多次使用。
+warn,tw-term,admin-ui,useLowerCaseBearerTypeHelp,3238,「設置」→「設定」,"If this is on, token responses will be set the with the type ""bearer"" in lower-case. By default, the server sets the type as ""Bearer"" as defined by RFC6750. This switch is deprecated and might be removed in future version.",如果啟用此選項，則令牌回應的類型將設置為小寫的「bearer」。預設情況下，伺服器會根據 RFC6750 將類型設置為「Bearer」。此開關已棄用並且將會在未來版本中移除。
 error,tw-term,admin-ui,useLowerCaseBearerTypeHelp,3238,「令牌」→「權杖」,"If this is on, token responses will be set the with the type ""bearer"" in lower-case. By default, the server sets the type as ""Bearer"" as defined by RFC6750. This switch is deprecated and might be removed in future version.",如果啟用此選項，則令牌回應的類型將設置為小寫的「bearer」。預設情況下，伺服器會根據 RFC6750 將類型設置為「Bearer」。此開關已棄用並且將會在未來版本中移除。
+info,tw-term,admin-ui,clientProfilesHelpItem,3243,「項目」→「專案／項目」（project 應為「專案」）,Client profiles help item,應用程式設定檔說明項目
+info,tw-term,admin-ui,fullNameLdapWriteOnlyHelp,3246,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"For Write-only, data is propagated to LDAP when a user is created or updated in Keycloak. But this mapper is not used to propagate data from LDAP back into Keycloak. This setting is useful if you configured separate firstName and lastName attribute mappers and you want to use those to read the attribute from LDAP into Keycloak.",對於僅寫入模式，當在 Keycloak 中建立或更新使用者時，資料會傳播到 LDAP。但此映射器不會用於將資料從 LDAP 傳回到 Keycloak。如果您配置了單獨的 firstName 和 lastName 屬性映射器，並且想要使用這些映射器將屬性從 LDAP 讀取到 Keycloak，則此設定非常有用。
+warn,tw-term,admin-ui,displayOrderHelp,1463,「登錄」→「登入」（「登錄」在台灣指 register/record，login 應為「登入」）,"Number defining the order of the providers in GUI (for example, on the Login page). The lowest number will be applied first.",定義提供者在 GUI 中的順序的數字（例如，在登錄頁面上）。最小的數字將顯示在最前面。
+info,tw-term,admin-ui,allowed-client-scopes.tooltip,3268,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"List of the allowed client scopes, which can be used on a newly registered client. Attempt to register client with some client scope, which is not allowed, will be rejected. By default, the list is either empty or contains just realm default client scopes (based on 'Allow Default Scopes' configuration property)",新註冊的應用程式允許使用的應用程式範圍清單。嘗試使用不被允許的某些應用程式範圍來註冊應用程式將被拒絕。預設情況下，清單為空或僅包含領域預設的應用程式範圍（基於「允許預設範圍」配置屬性）
+info,tw-term,admin-ui,executorsHelpItem,3269,「項目」→「專案／項目」（project 應為「專案」）,Executors help item,執行者說明項目
+info,tw-term,admin-ui,updatedCredentialMoveSuccess,3283,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,User Credential configuration has been saved,使用者憑證配置已儲存
+info,tw-term,admin-ui,createAttributeSuccess,3285,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Success! User Profile configuration has been saved.,成功！使用者設定檔配置已儲存。
+info,tw-term,admin-ui,requiredWhenTooltip,3289,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"When scopes are used, attribute is required when at least one of configured scopes is applied in the login request. Both default and optional scopes of current request are evaluated. In the admin console and account console contexts, scopes are not evaluated and attribute is not required.",當使用範圍時，當登入請求中套用至少一個已配置的範圍時，屬性為必填。評估當前請求的預設和可選範圍。在管理控制台和帳戶控制台上下文中，不評估範圍，屬性不是必填。
+info,tw-term,admin-ui,max-clients.tooltip,3291,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,It will not be allowed to register a new client if count of existing clients in realm is same or bigger than the configured limit.,如果領域中現有應用程式的數量與配置的限制相同或更大，則不允許註冊新應用程式。
+info,tw-term,admin-ui,optimizeLookupHelp,3296,「優化」→「最佳化」,"When signing SAML documents in REDIRECT binding for SP that is secured by Keycloak adapter, should the ID of the signing key be included in SAML protocol message in <Extensions> element? This optimizes validation of the signature as the validating party uses a single key instead of trying every known key for validation.",在 REDIRECT 綁定中為由 Keycloak 適配器保護的 SP 簽署 SAML 文件時，是否應在 <Extensions> 元素中的 SAML 協議訊息中包含簽署金鑰的 ID？這優化了簽名的驗證，因為驗證方使用單一金鑰，而不是嘗試使用每個已知金鑰進行驗證。
+warn,tw-term,admin-ui,ipAddress,749,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,IP address,IP 地址
+info,tw-term,admin-ui,chooseAPolicyTypeInstructions,3306,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Choose one policy type from the list below and then you can configure a new policy for authorization. There are some types and description.,從下面的清單中選擇一種政策類型，然後您可以為授權配置新政策。有一些類型和描述。
 error,tw-term,admin-ui,createClientConditionError,2109,「創建」→「建立」,Error creating condition: {{error}},創建條件時出錯：{{error}}
 error,tw-term,admin-ui,invalidateRotatedError,1966,「密鑰」→「金鑰」,Could not remove rotated secret: {{error}},無法移除輪替密鑰：{{error}}
+warn,tw-term,admin-ui,client-updater-trusted-hosts.tooltip,3362,「主機名」→「主機名稱」,"List of Hosts, which are trusted. In case that client registration/update request comes from the host/domain specified in this configuration, condition evaluates to true. You can use hostnames or IP addresses. If you use star at the beginning (for example '*.example.com' ) then whole domain example.com will be trusted.",受信任的主機清單。如果來自此設定中指定的主機/網域的應用程式註冊/更新請求，則條件將評估為 true。您可以使用主機名稱或 IP 位址。如果在開頭使用星號（例如「*.example.com」），則整個網域 example.com 將被信任。
+info,tw-term,admin-ui,addExecutionTitle,3367,「項目」→「專案／項目」（project 應為「專案」）,Add an execution,新增執行項目
 error,tw-term,admin-ui,clientSecretSuccess,3368,「密鑰」→「金鑰」,Client secret regenerated,應用程式密鑰已重新產生
+info,tw-term,admin-ui,groupsPermissionsHint,1962,「項目」→「專案／項目」（project 應為「專案」）,Determines if fine grained permissions are enabled for managing this role. Disabling will delete all current permissions that have been set up.,決定是否使用細緻授權控管該身份組。取消該項目對導致所有已設定的授權被刪除。
+warn,tw-term,admin-ui,resourceSaveError,3377,「保存」→「儲存」,Could not persist resource due to {{error}},因 {{error}} 而無法保存資源
+info,punct,admin-ui,envelopeFromHelp,1175,括號內含中文，建議使用全形括號（）,An email address used for bounces (optional).,用於 bounces 的電子信箱位置 (選擇性)。
+warn,tw-term,admin-ui,allowutf8Help,1068,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,"Enable to allow UTF-8 characters in the local part of the email address. This should only be enabled if the mail server supports UTF-8 via the SMTPUTF8 extension. If disabled, domain names containing UTF-8 characters will be encoded using punycode, and addresses containing UTF-8 characters in the local part of the address will return an error.",啟用來允許在電子郵件地址中的域內部分使用 UTF-8 字元。這應該只有當郵件伺服器使用 SMTPUTF8 擴展提供 UTF-8 支援的時候啟用。如果禁用，域名如果包含 UTF-8 字元將會使用國際化域名編碼 (punycode) 進行編碼，域內部分如果包含 UTF-8 將會回傳一個錯誤。
+info,punct,admin-ui,acrToLoAMappingHelp,1595,括號內含中文，建議使用全形括號（）,"Define which ACR (Authentication Context Class Reference) value is mapped to which LoA (Level of Authentication). The ACR can be any value, whereas the LoA must be numeric.",定義哪個 ACR (驗證上下文類別參考) 值對應到哪個 LoA (驗證層級)。ACR 可以是任何值，而 LoA 必須是數字。
+info,tw-term,admin-ui,onDragStart,3324,「項目」→「專案／項目」（project 應為「專案」）,Dragging started for item {{item}},開始拖動 {{item}} 項目
+warn,tw-term,admin-ui,doNotStoreUsersHelp,3408,「保存」→「儲存」,"When enabled, users from this broker are not persisted in internal database.",啟用後，來自此代理的使用者不會被保存在內部資料庫中。
+info,tw-term,admin-ui,ssfTransmitterAuthMethodHelp,3795,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"How to authenticate with the SSF Transmitter. Use 'Static Token' to provide a pre-configured bearer token, or 'Client Credentials' to obtain tokens dynamically using the OAuth2 client_credentials grant.",如何與 SSF 傳送端（Transmitter）進行身分驗證。使用「靜態權杖」提供預先配置的 Bearer 權杖，或使用「客戶端憑證」透過 OAuth2 client_credentials 授權動態獲取權杖。
+info,tw-term,admin-ui,ssfStreamUpdatedAtHelp,3803,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"Timestamp of the most recent change to this SSF stream, including status and configuration updates.",此 SSF 串流最近一次變更的時間戳，包含狀態與配置更新。
+info,tw-term,admin-ui,updatedUserProfileSuccess,3412,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,User Profile configuration has been saved,使用者設定檔配置已儲存
+info,punct,admin-ui,lookAroundHelp,1607,括號內含中文，建議使用全形括號（）,How far around (extra token periods or counts) should the server look just in case the token generator and server are out of time sync or counter sync?,伺服器應該在多遠的範圍內 (額外的權杖週期或計數) 進行搜尋，以防止權杖產生器和伺服器之間的時間不同步或計數不同步？
+warn,tw-term,admin-ui,trusted-hosts.tooltip,3418,「主機名」→「主機名稱」,"List of Hosts, which are trusted and are allowed to invoke Client Registration Service and/or be used as values of Client URIs. You can use hostnames or IP addresses. If you use star at the beginning (for example '*.example.com' ) then whole domain example.com will be trusted.",受信任的主機清單，允許調用應用程式註冊服務和/或用作應用程式 URI 的值。您可以使用主機名稱或 IP 位址。如果在開頭使用星號（例如「*.example.com」），則整個網域 example.com 將被信任。
+info,tw-term,admin-ui,krbPrincipalAttributeHelp,2116,「項目」→「專案／項目」（project 應為「專案」）,"Name of the LDAP attribute, which refers to Kerberos principal. This is used to lookup appropriate LDAP user after successful Kerberos/SPNEGO authentication in Keycloak. When this is empty, the LDAP user will be looked based on LDAP username corresponding to the first part of his Kerberos principal. For instance, for principal 'john@KEYCLOAK.ORG', it will assume that LDAP username is 'john'.",LDAP 屬性的名稱，該屬性參照 Kerberos 主體。這用於在 Keycloak 中成功進行 Kerberos/SPNEGO 驗證後查找適當的 LDAP 使用者。當此項目為空時，LDAP 使用者將根據其 Kerberos 主體的第一部分對應的 LDAP 使用者名稱來查找。例如，對於主體「john@KEYCLOAK.ORG」，它將假設 LDAP 使用者名稱為「john」。
+info,tw-term,admin-ui,client-roles-condition.tooltip,3427,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"Client roles, which will be checked during this condition evaluation. Condition evaluates to true if client has at least one client role with the name as the client roles specified in the configuration.",應用程式角色，將在此條件評估期間進行檢查。如果應用程式具有與配置中指定的應用程式角色相同名稱的至少一個應用程式角色，則條件將評估為 true。
+info,tw-term,admin-ui,client-attributes-condition.tooltip,3434,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"Client attributes, that will be checked during this condition evaluation. Condition evaluates to true if the client has all client attributes with the name and value as the client attributes specified in the configuration.",在此條件評估期間將檢查的應用程式屬性。如果應用程式具有與配置中指定的應用程式屬性相同名稱和值的所有應用程式屬性，則條件將評估為 true。
+info,tw-term,admin-ui,clientRolesConditionTooltip,3451,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"Client roles, which will be checked during this condition evaluation. Condition evaluates to true if client has at least one client role with the name as the client roles specified in the configuration.",應用程式角色，將在此條件評估期間進行檢查。如果應用程式具有與配置中指定的應用程式角色相同名稱的至少一個應用程式角色，則條件將評估為 true。
+info,punct,admin-ui,strictTransportSecurityHelp,1727,括號內含中文，建議使用全形括號（）,"The Strict-Transport-Security HTTP header tells browsers to always use HTTPS. Once a browser sees this header, it will only visit the site over HTTPS for the time specified (1 year) at max-age, including the subdomains. <formattedlink>Learn more</formattedlink>",Strict-Transport-Security HTTP 標頭告訴瀏覽器始終使用 HTTPS。一旦瀏覽器看到此標頭，它將僅在指定的時間 (1 年) 內通過 HTTPS 訪問該網站，包括子網域。<formattedlink>進一步了解</formattedlink>
 error,tw-term,admin-ui,clientAssertionSigningAlgHelp,1612,「密鑰」→「金鑰」,"Signature algorithm to create JWT assertion as client authentication. In the case of JWT signed with private key or JWT signed with client secret, it is required. If no algorithm is specified, the following algorithm is adapted. RS256 is adapted in the case of JWT signed with private key. HS256 is adapted in the case of JWT signed with client secret.",用於建立 JWT 斷言作為應用程式驗證的簽名演算法。在使用私鑰簽署的 JWT 或使用應用程式密鑰簽署的 JWT 時，均需要此演算法。如果未指定演算法，則會使用以下演算法：在使用私鑰簽署的 JWT 時，會使用 RS256；在使用應用程式密鑰簽署的 JWT 時，會使用 HS256。
 error,tw-term,admin-ui,jwtX509HeadersEnabledHelp,3469,「密鑰」→「金鑰」,"If enabled, the x5t (X.509 Certificate SHA-1 Thumbprint) header will be added to the JWT to reference the certificate used to sign it. Otherwise, the kid (Key ID) header will be used instead.",如果啟用，x5t（X.509 證書 SHA-1 指紋）標頭將被添加到 JWT 中，以引用用於簽名的證書。否則，將使用 kid（密鑰 ID）標頭。
+info,tw-term,admin-ui,emptyConditions,3476,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,No conditions configured,未配置任何條件
+warn,tw-term,admin-ui,emailInvalid,3489,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,You must enter a valid email.,您必須輸入有效的電子郵件地址。
 error,tw-term,admin-ui,clientSecretHelp,1473,「密鑰」→「金鑰」,"The client secret registered with the identity provider. This field is able to obtain its value from vault, use ${vault.ID} format.",應用程式在身分提供者中註冊的密鑰。此欄位能夠從保險庫取得其值，使用 ${vault.ID} 格式。
 error,tw-term,admin-ui,oidcClientSecretHelp,3688,「密鑰」→「金鑰」,"The client secret registered with the client. This field is able to obtain its value from vault, use ${vault.ID} format.",該應用程式密鑰已被註冊到應用程式。這個欄位可以從資料庫中存取值，使用 ${vault.ID} 格式。
+info,punct,admin-ui,regexGroupsNotAllowed,3872,括號內含中文，建議使用全形括號（）,Regex must not contain groups (parentheses).,正則不可以包含群組 (括號)。
+warn,tw-term,admin-ui,verifyEmailHelpText,1089,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Require user to verify their email address after initial login or after address changes are submitted.,要求使用者在初次登入或電子信箱地址有更新後驗證他們的電子信箱地址。
+info,punct,admin-ui,referrerPolicyHelp,2237,全形標點後多了空白,Default value prevents pages from being included. <formattedlink>Learn more</formattedlink>,預設值避免了頁面被包含。 <formattedlink>了解更多</formattedlink>
+warn,tw-term,admin-ui,permanentLockoutHelp,3498,「登錄」→「登入」（「登錄」在台灣指 register/record，login 應為「登入」）,Configures whether a user is temporarily or permanently disabled after too many login failures. Permanent lockout can be configured to occur after a number of login failures or after a number of temporary lockouts.,配置用戶在多次登錄失敗後是暫時禁用還是永久禁用。永久鎖定可以配置為在一定次數的登錄失敗後或一定次數的臨時鎖定後發生。
+warn,tw-term,admin-ui,permanentLockoutHelp,3498,「用戶」→「使用者」（「用戶端」為合法用語）,Configures whether a user is temporarily or permanently disabled after too many login failures. Permanent lockout can be configured to occur after a number of login failures or after a number of temporary lockouts.,配置用戶在多次登錄失敗後是暫時禁用還是永久禁用。永久鎖定可以配置為在一定次數的登錄失敗後或一定次數的臨時鎖定後發生。
+info,tw-term,admin-ui,permanentLockoutHelp,3498,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Configures whether a user is temporarily or permanently disabled after too many login failures. Permanent lockout can be configured to occur after a number of login failures or after a number of temporary lockouts.,配置用戶在多次登錄失敗後是暫時禁用還是永久禁用。永久鎖定可以配置為在一定次數的登錄失敗後或一定次數的臨時鎖定後發生。
+info,tw-term,admin-ui,emptyExecutors,3501,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,No executors configured,未配置任何執行器
+warn,tw-term,admin-ui,error-invalid-email,1870,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Invalid email address.,無效的電子郵件地址。
+warn,tw-term,admin-ui,error-non-ascii-local-part-email,1069,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Local part of the address must contain only ASCII characters.,電子郵件地址中的域內部分只允許出現 ASCII 字元。
+warn,tw-term,admin-ui,invalidEmailMessage,1889,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,'{{0}}': Invalid email address.,「{{0}}」：無效的電子郵件地址。
+info,tw-term,admin-ui,authenticatorRefConfig.value.help,3504,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"Add a custom reference name for the authenticator. When this authenticator is successfully completed during an authentication flow, the Authentication Method Reference (AMR) protocol mapper will use this value to populate the amr claim of the generated tokens. Note, the AMR protocol must be configured for the given client to populate the AMR claim.",為驗證器新增自訂參考名稱。當在驗證流程中成功完成此驗證器時，Authentication Method Reference (AMR) 協定映射器將使用此值來填充所產生權杖的 amr 聲明。請注意，必須為給定的應用程式配置 AMR 協定才能填充 AMR 聲明。
+info,tw-term,admin-ui,loa-max-age.tooltip,3511,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"Maximum age in seconds for this level of authentication to be valid. If the particular level is requested and user already authenticated with this level earlier than specified amount of seconds ago, he will not be asked to re-authenticate. But if he authenticated later than specified amount of seconds ago, he will need to re-authenticate with this level again. Value 0 in the configuration means that user is always required to re-authenticate with this level whenever this level is requested.",此認證等級有效的最大秒數。如果請求特定等級，且使用者在指定秒數之前已使用此等級進行過認證，則不會要求他重新進行認證。但如果他在指定秒數之後進行了認證，則需要再次使用此等級重新進行認證。配置中的值 0 表示每當請求此等級時，使用者都需要使用此等級重新進行認證。
+info,tw-term,admin-ui,ssfTransmitterEnabledHelp,3827,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"If enabled, this realm acts as a Shared Signals Framework (SSF) Transmitter and exposes the SSF Configuration Metadata endpoint. Disabling for a realm with active streams will delete queued events for those receivers on save; pause or delete the streams first if you want receivers notified via a stream-updated SET before going silent.","若啟用，此領域將作為共用訊號框架（Shared Signals Framework, SSF）傳送端，並公開 SSF 配置元資料端點。若針對擁有活動串流的領域關閉此功能，儲存時將刪除該接收端的排隊事件；若您希望在停止服務前透過「串流更新」的 SET 通知接收端，請先暫停或刪除這些串流。"
+warn,tw-term,admin-ui,ssfTransmitterDisableConfirmBulletReceivers,3833,「運行」→「執行」,Receivers are not notified that streams went silent. They simply stop seeing events.,接收端不會收到串流停止運行的通知，而是直接停止接收事件。
+info,punct,admin-ui,ssfPendingFieldDecodedSet,3859,括號內含中文，建議使用全形括號（）,Security Event Token (decoded),安全事件權杖 (已解碼)
+warn,tw-term,admin-ui,senderEnvelopePlaceholder,1147,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Sender envelope email address,寄件者信封地址 (envelope address)
+info,punct,admin-ui,smtpPortPlaceholder,1148,括號內含中文，建議使用全形括號（）,SMTP port (defaults to 25),SMTP 連接埠 (預設為 25)
+warn,tw-term,admin-ui,organizationAliasHelp,3541,「標識」→「識別碼」,"The alias uniquely identifies an organization using a format that is mainly targeted for referencing the organization internally. For instance, when issuing organization-related claims into tokens or when in a custom theme.",別名使用主要用於在內部引用組織的格式來唯一標識組織。例如，在向權杖發出與組織相關的聲明或在自訂主題中時。
+info,tw-term,admin-ui,validatingX509CertsHelp,3543,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"The public certificates used by Keycloak to validate the signatures of SAML requests and responses from the external IDP when the Use metadata descriptor URL is OFF. Multiple certificates can be entered separated by commas (,). You can reimport certificates from the Metadata descriptor URL by clicking the Import Keys action on the identity provider page. This action downloads the current certificates in the metadata endpoint and assigns them to the config in this same option. Click Save to definitely store the re-imported certificates.","Keycloak 用於驗證來自外部 IDP 的 SAML 請求和回應簽名的公用證書，當「使用元資料描述符 URL」關閉時。可以輸入多個以逗號 (,) 分隔的證書。您可以透過點擊身份提供者頁面上的「匯入金鑰」動作，從元資料描述符 URL 重新匯入證書。此動作會下載元資料端點中的當前證書，並將它們分配給此相同選項中的配置。點擊「儲存」以最終存儲重新匯入的證書。"
+info,tw-term,admin-ui,clearRealmCacheHelp,125,「項目」→「專案／項目」（project 應為「專案」）,This will clear entries for all realms.,這將會清除所有領域中的項目。
+info,tw-term,admin-ui,clearUserCacheHelp,126,「項目」→「專案／項目」（project 應為「專案」）,This will clear entries for all realms.,這將會清除所有領域中的項目。
+info,tw-term,admin-ui,clearKeysCacheHelp,127,「項目」→「專案／項目」（project 應為「專案」）,Clears all entries from the cache of external public keys. These are keys of external clients or identity providers. This will clear all entries for all realms.,從外部公開金鑰快取中清理所有項目。這些是外部應用程式或身分提供者的金鑰。這將會清除所有領域中的項目。
+info,tw-term,admin-ui,clearCrlCacheHelp,128,「項目」→「專案／項目」（project 應為「專案」）,Clears all entries from the CRL cache. The CRL cache improves the performance of the X.509 authenticator when Certificate Revocation List (CRL) are enabled. This action will clear all the CRL entries for all the realms.,從 CRL 快取中清理所有項目。當證書撤銷清單 (CRL) 被啟用時，CRL 快取可以提升 X.509 驗證器的效能。這個操作將會清理掉所有領域中的 CRL 項目。
+info,punct,admin-ui,policyTypeHelpText,3570,括號內含中文，建議使用全形括號（）,"Specifies the access control method used to evaluate whether a permission should be granted or denied (e.g. 'User' matches specific users, 'Group' matches group members, 'Role' matches users with assigned roles).",指定用於評估是否應授予或拒絕權限的存取控制方法 (例如，「使用者」匹配特定使用者，「群組」匹配群組成員，「角色」匹配具有已分配角色的使用者)。
+warn,spacing,admin-ui,removeInvalidUsersHelp,2123,中文與英數字之間缺少空白,"Remove users from the local database if they are not available from the user storage when executing searches. If this is true, users no longer available from their corresponding user storage will be deleted from the local database whenever trying to look up users. If false, then users previously imported from the user storage will be kept in the local database, as read-only and disabled, even if that user is no longer available from the user storage. For example, user was deleted directly from LDAP or the `Users DN` is invalid. Note that this behavior will only happen when the user is not yet cached.",在執行搜尋時，如果使用者無法從使用者存放區取得，則會從本機資料庫中移除該使用者。如果此選項為 true，則在嘗試查找使用者時，將從其對應的使用者存放區中不再可用的使用者從本機資料庫中刪除。如果為 false，則先前從使用者存放區匯入的使用者將保留在本機資料庫中，以唯讀和已停用的狀態，即使該使用者不再可從使用者存放區取得。例如，使用者是直接從 LDAP刪除的或 `Users DN` 無效。請注意，只有在使用者尚未快取時，才會發生此行為。
+warn,tw-term,admin-ui,forbiddenAdminConsole,2165,「登錄」→「登入」（「登錄」在台灣指 register/record，login 應為「登入」）,"You do not have permission to access this resource, sign in with a user that has permission, or contact your administrator.",您沒有權限存取此資源，請使用具有權限的使用者進行登錄，或聯繫您的管理員。
 error,tw-term,admin-ui,authTokenClientSecret,1171,「密鑰」→「金鑰」,Auth Token Client Secret,驗證權杖應用程式密鑰
+info,tw-term,admin-ui,openIdVerifiableCredentialsHelp,2180,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,This section is used to configure settings related to OpenID for Verifiable Credential Issuance (OID4VCI).,此區域用於配置與可驗證憑證發行 (OID4VCI) 相關的設定。
+warn,tw-term,admin-ui,enableDeflateCompressionHelp,3661,「支持」→「支援」（「支持」在台灣多指 support（擁護））,"If enabled, the DEF compression algorithm is supported for credential requests. This allows clients to compress their requests to reduce payload size.",如果啟用此功能，則憑證請求將支持 DEF 壓縮算法。這允許應用程式壓縮請求以減少請求大小。
+info,punct,admin-ui,credentialSigningAlgorithmHelp,3677,括號內含中文，建議使用全形括號（）,"Signing algorithm used to select the active realm key for signing credentials (e.g., ""ES256""). If not specified, the active key will be selected using the realm's default algorithm. This option is disabled if a specific 'Signing Key ID' is selected.",用於選擇用於簽發憑證的活動域金鑰 (active realm key) 的簽章演算法 (例如「ES256」)。如果未指定，將使用領域預設的演算法選擇活動金鑰 (active key)。如果選擇了特定的「簽署金鑰 ID」，則此選項將被停用。
+info,punct,admin-ui,hashAlgorithmHelp,3675,括號內含中文，建議使用全形括號（）,"Hash algorithm used for SD-JWT credentials (for example ""SHA-256""). Defaults to ""SHA-256"" if not specified.",用於 SD-JWT 憑證的雜湊演算法 (例如「SHA-256」)。預設是「SHA-256」。
+info,punct,admin-ui,verifiableCredentialTypeHelp,3620,全形標點後多了空白,The credential type identifier for SD-JWT and ISO mDoc format credentials. This value is used in the vct claim of an issued SD-JWT credential and as the doctype of an issued ISO mDoc credential. Required for SD-JWT and ISO mDoc formats.,SD-JWT 及 ISO mDoc 格式憑證的憑證類型識別碼。數值將用於一個已經簽署 SD-JWT 憑證的 VCT 聲明以及已簽署的 ISO mDoc 憑證的 doctype。 SD-JWT 及 ISO mDoc 格式憑證必須包含此識別碼。
+info,punct,admin-ui,tokenJwsTypeHelp,3622,括號內含中文，建議使用全形括號（）,"The type value written into the typ header of the JWT. If empty, a format-specific default is used (""dc+sd-jwt"" for SD-JWT VC and ""vc+jwt"" for JWT VC). Can be set to custom values if required by the wallet or system.",寫入 typ 標頭的 JWT 類型的類型值。如果留空，將會使用與格式關聯的預設值 (SD-JWT VC 用「dc+sd-jwt」以及 JWT VC 用「vc+jwt」)。如果錢包或系統需要的話可以設定為自訂值。
+info,punct,admin-ui,visibleClaimsHelp,3624,括號內含中文，建議使用全形括號（）,"Comma-separated list of claims that are always disclosed in the SD-JWT body (e.g., ""id,iat,nbf,exp,jti,given_name""). Defaults to ""id,iat,nbf,exp,jti"". Only applicable for SD-JWT format.","用逗號分隔的聲明列表，這些聲明總是顯示在 SD-JWT 主體中 (例如「id,iat,nbf,exp,jti,given_name」)。預設是「id,iat,nbf,exp,jti」。只適用於 SD-JWT 格式。"
+info,punct,admin-ui,useDefaultKey,3627,括號內含中文，建議使用全形括號（）,Use default (realm's active signing key),使用預設值 (領域啟用的簽署金鑰)
+warn,tw-term,admin-ui,claimDisplayNamePlaceholder,3631,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,"e.g., Email Address",例如，電子郵件地址
+info,punct,admin-ui,smtpConnectionTimeoutHelp,3642,括號內含中文，建議使用全形括號（）,The timeout in milliseconds for connecting to the SMTP server.,連線 SMTP 伺服器的逾時時間 (毫秒)。
+info,punct,admin-ui,smtpSocketReadTimeoutHelp,3648,括號內含中文，建議使用全形括號（）,The timeout in milliseconds for reading from the SMTP server.,從 SMTP 伺服器讀取資料的逾時時間 (單位/毫秒)。
+info,punct,admin-ui,smtpSocketWriteTimeoutHelp,3651,括號內含中文，建議使用全形括號（）,The timeout in milliseconds for writing to the SMTP server.,向 SMTP 伺服器寫入資料的逾時時間 (單位/毫秒)。
+info,punct,admin-ui,theme.keycloak.v2.admin.description,3760,括號內含中文，建議使用全形括號（）,"Cleaner and more modern, v2 supports automatic light/dark mode switching. (Default for Admin)",更加乾淨及現代化，V2 支援自動切換亮色/暗色模式。(預設給管理介面)
+info,punct,admin-ui,scimApiEnabledHelp,3764,括號內含中文，建議使用全形括號（）,"If enabled, exposes realm resources through an API based on the System for Cross-domain Identity Management (SCIM) specification, namely RFC7643 and RFC7644.",如果啟用，將會基於跨領域身分識別管理系統 (SCIM) 規範 (即 RFC7643 及 RFC7644) 並透過 API 暴露領域資源。
+warn,tw-term,theme-baseaccount,address,51,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Address,地址
+warn,tw-term,theme-baseaccount,emailScopeConsentText,66,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Email address,電子郵件地址
+warn,tw-term,theme-baseaccount,addressScopeConsentText,67,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Address,地址
+info,tw-term,theme-baseaccount,role_view-consent,83,「項目」→「專案／項目」（project 應為「專案」）,View consents,檢視同意項目
+info,tw-term,theme-baseaccount,role_manage-consent,93,「項目」→「專案／項目」（project 應為「專案」）,Manage consents,管理同意項目
+info,tw-term,theme-baseaccount,totpManualStep3,142,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Use the following configuration values if the application allows setting them:,若應用程式允許設定，請使用下列配置值：
+warn,tw-term,theme-baseaccount,invalidEmailMessage,163,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Invalid email address.,無效的電子郵件地址。
+warn,tw-term,theme-baseaccount,error-invalid-email,346,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Invalid email address.,無效的電子郵件地址。
+warn,tw-term,theme-baseaccount,error-non-ascii-local-part-email,360,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Local part of the address must contain only ASCII characters.,電子郵件地址中的域內部分只允許出現 ASCII 字元。
+info,tw-term,theme-baseadmin,ldapErrorInvalidCustomFilter,15,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,"Custom configured LDAP filter does not start with ""("" or does not end with "")"".",自訂配置的 LDAP 過濾器不以 “(” 開頭或不以 “)” 結尾。
+info,punct,theme-baseadmin,ldapErrorInvalidCustomFilter,15,括號內含中文，建議使用全形括號（）,"Custom configured LDAP filter does not start with ""("" or does not end with "")"".",自訂配置的 LDAP 過濾器不以 “(” 開頭或不以 “)” 結尾。
+warn,tw-term,theme-baseadmin,error-invalid-email,51,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Invalid email address.,無效的電子郵件地址。
+warn,tw-term,theme-baseadmin,error-non-ascii-local-part-email,72,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Local part of the address must contain only ASCII characters.,電子郵件地址的名稱部分僅允許包含 ASCII 字元。
 error,tw-term,theme-baseadmin,workflowConditionTypesIncompatible,88,「兼容」→「相容」,Provided condition types ({0}) are not compatible with workflow type ({1}).,提供的條件類型 ({0}) 與工作流程類型 ({1}) 不兼容。
+warn,tw-term,theme-baseadmin,workflowStepUsesRequired,89,「設置」→「設定」,Step ''uses'' cannot be null or empty.,「使用」步驟不能為未設置或留空。
+warn,tw-term,theme-baseadmin,workflowNameEmpty,93,「設置」→「設定」,Workflow name cannot be null or empty.,工作流程名稱不可為未設置或留空。
+info,punct,theme-baseadmin,workflowResourceTypeNotSupported,100,括號內含中文，建議使用全形括號（）,Resource type ''{0}'' is not supported for this workflow (supports {1}).,資源類型「{0}」在此工作流程中不支援 (只支援 {1})。
 error,tw-term,theme-baseadmin,workflowStepsIncompatible,102,「兼容」→「相容」,Steps provided are not compatible with each other.,提供的步驟不兼容其他的步驟。
+warn,tw-term,theme-baseadmin,workflowExpressionEmpty,116,「設置」→「設定」,Expression cannot be null or empty.,表達式不能為未設置或留空。
+info,punct,theme-baseadmin,workflowExpressionInvalid,119,全形標點後多了空白,"Invalid expression: {0}
+Error details:
+{1}","無效的表達式：{0}
+詳細錯誤：
+{1}"
+warn,tw-term,theme-baseemail,emailVerificationBody,2,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,"Someone has created a {2} account with this email address. If this was you, click the link below to verify your email address
+
+{0}
+
+This link will expire within {3}.
+
+If you didn''t create this account, just ignore this message.","有人使用了這個電子郵件地址建立了一個 {2} 帳號。如果這是您的操作，請點擊下列連結驗證您的電子郵件地址
+
+{0}
+
+此連結將在 {3} 內失效。
+
+如果這不是您的操作，請忽略此訊息。"
+info,punct,theme-baseemail,emailVerificationBody,2,全形標點後多了空白,"Someone has created a {2} account with this email address. If this was you, click the link below to verify your email address
+
+{0}
+
+This link will expire within {3}.
+
+If you didn''t create this account, just ignore this message.","有人使用了這個電子郵件地址建立了一個 {2} 帳號。如果這是您的操作，請點擊下列連結驗證您的電子郵件地址
+
+{0}
+
+此連結將在 {3} 內失效。
+
+如果這不是您的操作，請忽略此訊息。"
+warn,tw-term,theme-baseemail,emailVerificationBodyHtml,3,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,"<p>Someone has created a {2} account with this email address. If this was you, click the link below to verify your email address</p><p><a href=""{0}"">Link to e-mail address verification</a></p><p>This link will expire within {3}.</p><p>If you didn''t create this account, just ignore this message.</p>","<p>有人使用了這個電子郵件地址建立了一個 {2} 帳號。如果這是您的操作，請點擊下列連結驗證您的電子郵件地址</p><p><a href=""{0}"">驗證電子郵件地址連結</a></p><p>此連結將在 {3} 內失效。</p><p>如果您沒有建立帳號，請忽略此訊息。</p>"
+info,punct,theme-baseemail,orgInviteBody,5,全形標點後多了空白,"You were invited to join the ""{3}"" organization. Click the link below to join.
+
+{0}
+
+This link will expire within {4}.
+
+If you don''t want to join the organization, just ignore this message.","您已被邀請參加「{3}」組織。點擊下列連結加入。
+
+{0}
+
+此連結將在 {4} 內失效。
+
+如果您不想加入組織，請忽略此訊息。"
+info,punct,theme-baseemail,orgInviteBodyPersonalized,7,全形標點後多了空白,"Hi, ""{5}"" ""{6}"".
+
+ You were invited to join the ""{3}"" organization. Click the link below to join.
+
+{0}
+
+This link will expire within {4}.
+
+If you don''t want to join the organization, just ignore this message.","哈囉，""{5}"" ""{6}""。
+
+ 您已被邀請參加「{3}」組織。點擊下列連結加入。
+
+{0}
+
+此連結將在 {4} 內失效。
+
+如果您不想加入組織，請忽略此訊息。"
+info,punct,theme-baseemail,orgInviteBodyPersonalizedHtml,8,全形標點後多了空白,"<p>Hi, {5} {6}.</p><p>You were invited to join the {3} organization. Click the link below to join. </p><p><a href=""{0}"">Link to join the organization</a></p><p>This link will expire within {4}.</p><p>If you don''t want to join the organization, just ignore this message.</p>","<p>哈囉，{5} {6}。</p><p>您已被邀請參加「{3}」組織。點擊下列連結加入。</p><p><a href=""{0}"">點此連結加入組織</a></p><p>此連結將在 {4} 內失效。</p><p>如果您不想加入組織，請忽略此訊息。</p>"
+warn,tw-term,theme-baseemail,emailUpdateConfirmationBody,10,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,"To update your {2} account with email address {1}, click the link below
+
+{0}
+
+This link will expire within {3}.
+
+If you don''t want to proceed with this modification, just ignore this message.","為了更新您的 {2} 帳號的電子郵件地址 {1}，請點擊下列連結
+
+{0}
+
+此連結將在 {3} 內失效。
+
+如果您不想進行這個修改，請忽略此訊息。"
+info,punct,theme-baseemail,emailUpdateConfirmationBody,10,全形標點後多了空白,"To update your {2} account with email address {1}, click the link below
+
+{0}
+
+This link will expire within {3}.
+
+If you don''t want to proceed with this modification, just ignore this message.","為了更新您的 {2} 帳號的電子郵件地址 {1}，請點擊下列連結
+
+{0}
+
+此連結將在 {3} 內失效。
+
+如果您不想進行這個修改，請忽略此訊息。"
+warn,tw-term,theme-baseemail,emailUpdateConfirmationBodyHtml,11,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,"<p>To update your {2} account with email address {1}, click the link below</p><p><a href=""{0}"">{0}</a></p><p>This link will expire within {3}.</p><p>If you don''t want to proceed with this modification, just ignore this message.</p>","<p>為了更新您的 {2} 帳號的電子郵件地址 {1}，請點擊下列連結</p><p><a href=""{0}"">{0}</a></p><p>此連結將在 {3} 內失效。</p><p>如果您不想進行這個修改，請忽略此訊息。</p>"
+info,punct,theme-baseemail,identityProviderLinkBody,16,全形標點後多了空白,"Someone wants to link your ""{1}"" account with ""{0}"" account of user {2} . If this was you, click the link below to link accounts
+
+{3}
+
+This link will expire within {5}.
+
+If you didn''t initiate this process or don''t want to link account, just ignore this message. If you link accounts, you will be able to login to {1} through {0}.","有人試圖連結您的 ""{1}"" 帳號與使用者 {2} 的 ""{0}"" 帳號。如果這是您的操作，請點擊下列連結連結帳號
+
+{3}
+
+此連結將在 {5} 內失效。
+
+如果這不是您的操作，請忽略此訊息。如果您連結帳號，您將能夠透過 {0} 登入 {1}。"
+info,punct,theme-baseemail,passwordResetBody,19,全形標點後多了空白,"Someone just requested to change your {2} account''s credentials. If this was you, click on the link below to reset them.
+
+{0}
+
+This link and code will expire within {3}.
+
+If you don''t want to reset your credentials, just ignore this message and nothing will be changed.","有人剛剛要求更改您的 {2} 帳號憑證。如果這是您本人的操作，請點擊下方連結進行重設。
+
+{0}
+
+此連結和代碼將在 {3} 內失效。
+
+如果您不想重新設定密碼，請直接忽略此訊息，您的帳戶不會有任何變更。"
+info,tw-term,theme-baseemail,executeActionsBody,22,「程序」→「程式」（program 應為「程式」；procedure 可用「程序」）,"Your administrator has just requested that you update your {2} account by performing the following action(s): {3}. Click on the link below to start this process.
+
+{0}
+
+This link will expire within {4}.
+
+If you are unaware that your administrator has requested this, just ignore this message and nothing will be changed.","您的管理員剛剛要求您更新您的 {2} 帳號，透過執行以下動作：{3}。點擊下列連結開始此程序。
+
+{0}
+
+此連結將在 {4} 內失效。
+
+如果您不清楚管理員有提出此要求，請忽略此訊息，系統不會有任何變更。"
+info,punct,theme-baseemail,executeActionsBody,22,全形標點後多了空白,"Your administrator has just requested that you update your {2} account by performing the following action(s): {3}. Click on the link below to start this process.
+
+{0}
+
+This link will expire within {4}.
+
+If you are unaware that your administrator has requested this, just ignore this message and nothing will be changed.","您的管理員剛剛要求您更新您的 {2} 帳號，透過執行以下動作：{3}。點擊下列連結開始此程序。
+
+{0}
+
+此連結將在 {4} 內失效。
+
+如果您不清楚管理員有提出此要求，請忽略此訊息，系統不會有任何變更。"
+info,tw-term,theme-baseemail,executeActionsBodyHtml,23,「程序」→「程式」（program 應為「程式」；procedure 可用「程序」）,"<p>Your administrator has just requested that you update your {2} account by performing the following action(s): {3}. Click on the link below to start this process.</p><p><a href=""{0}"">Link to account update</a></p><p>This link will expire within {4}.</p><p>If you are unaware that your administrator has requested this, just ignore this message and nothing will be changed.</p>","<p>您的管理員剛剛要求您更新您的 {2} 帳號，透過執行以下動作：{3}。點擊下列連結開始此程序。</p><p><a href=""{0}"">更新帳號連結</a></p><p>此連結將在 {4} 內失效。</p><p>如果您不清楚管理員有提出此要求，請忽略此訊息，系統不會有任何變更。</p>"
+info,tw-term,theme-baseemail,verifiableCredentialOfferBody,72,「程序」→「程式」（program 應為「程式」；procedure 可用「程序」）,"Your administrator has just informed you that in your {2} account you can claim verifiable credential ""{3}"" to your digital wallet. Click on the link below to start this process.
+
+{0}
+
+This link will expire within {4}.
+
+If the link is expired already, you might be still able to claim your {3} by some other means (For example by using {2} account console).","您的管理員已通知您，可以在 {2} 帳號中領取可驗證憑證「{3}」至您的數位錢包。請點擊下方連結開始領取程序。
+
+{0}
+
+此連結將在 {4} 內過期。
+
+若連結已過期，您仍可能透過其他方式領取 {3}（例如：使用 {2} 帳戶控制台）。"
+info,punct,theme-baseemail,verifiableCredentialOfferBody,72,全形標點後多了空白,"Your administrator has just informed you that in your {2} account you can claim verifiable credential ""{3}"" to your digital wallet. Click on the link below to start this process.
+
+{0}
+
+This link will expire within {4}.
+
+If the link is expired already, you might be still able to claim your {3} by some other means (For example by using {2} account console).","您的管理員已通知您，可以在 {2} 帳號中領取可驗證憑證「{3}」至您的數位錢包。請點擊下方連結開始領取程序。
+
+{0}
+
+此連結將在 {4} 內過期。
+
+若連結已過期，您仍可能透過其他方式領取 {3}（例如：使用 {2} 帳戶控制台）。"
+info,tw-term,theme-baseemail,verifiableCredentialOfferBodyHtml,73,「程序」→「程式」（program 應為「程式」；procedure 可用「程序」）,"<p>Your administrator has just informed you that in your {2} account you can claim verifiable credential <b>{3}</b> to your digital wallet. Click on the link below to start this process.</p><p><a href=""{0}"">Link to claim {3}</a></p><p>This link will expire within {4}.</p><p>If the link is expired already, you might be still able to claim your {3} by some other means (For example by using {2} account console).</p>","<p>您的管理員已通知您，可以在 {2} 帳號中領取可驗證憑證 <b>{3}</b> 至您的數位錢包。請點擊下方連結開始領取程序。</p><p><a href=""{0}"">領取 {3} 的連結</a></p><p>此連結將在 {4} 內過期。</p><p>若連結已過期，您仍可能透過其他方式領取 {3}（例如：使用 {2} 帳戶控制台）。</p>"
+warn,tw-term,theme-baseemail,emailVerificationBodyCode,63,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,"Please verify your email address by entering in the following code.
+
+{0}
+
+.","請輸入以下代碼以驗證您的電子郵件地址。
+
+{0}
+
+."
+info,punct,theme-baseemail,emailVerificationBodyCode,63,全形標點後多了空白,"Please verify your email address by entering in the following code.
+
+{0}
+
+.","請輸入以下代碼以驗證您的電子郵件地址。
+
+{0}
+
+."
+warn,tw-term,theme-baseemail,emailVerificationBodyCodeHtml,64,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,<p>Please verify your email address by entering in the following code.</p><p><b>{0}</b></p>,<p>請輸入以下代碼以驗證您的電子郵件地址。</p><p><b>{0}</b></p>
+warn,tw-term,theme-baselogin,address,94,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Address,地址
+warn,tw-term,theme-baselogin,addressScopeConsentText,111,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Address,地址
+info,tw-term,theme-baselogin,loginTotpManualStep3,124,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Use the following configuration values if the application allows setting them:,若應用程式允許設定，請使用以下配置值：
+info,tw-term,theme-baselogin,pageExpiredMsg1,170,「程序」→「程式」（program 應為「程式」；procedure 可用「程序」）,To restart the login process,重新啟動登入程序
+info,tw-term,theme-baselogin,pageExpiredMsg2,171,「程序」→「程式」（program 應為「程式」；procedure 可用「程序」）,To continue the login process,繼續登入程序
+info,tw-term,theme-baselogin,error-reset-otp-missing-id,247,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Please choose an OTP configuration.,請選擇 OTP 配置。
+warn,tw-term,theme-baselogin,error-non-ascii-local-part-email,492,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,Local part of the address must contain only ASCII characters.,電子郵件地址中的域內部分只允許出現 ASCII 字元。
+info,punct,theme-baselogin,console-accept-terms,379,全形標點後多了空白,Accept Terms? [y/n]:,接受服務條款？ [y/n]：
+info,tw-term,theme-baselogin,otp-reset-description,397,「配置」→「設定」（台灣亦使用「配置」，視語境決定）,Which OTP configuration should be removed?,欲移除哪一個 OTP 配置？
+warn,tw-term,theme-baselogin,recovery-code-config-warning-message,416,「保存」→「儲存」,"Make sure to print, download, or copy them to a password manager and keep them safe. Canceling this setup will remove these recovery codes from your account.",請務必列印、下載或複製至密碼管理器中並妥善保存。取消此設定將從您的帳號中移除這些復原驗證碼。
+info,punct,theme-baselogin,webauthn-registration-init-label,440,括號內含中文，建議使用全形括號（）,Passkey (Default Label),通行金鑰(預設標籤)
+info,punct,theme-baselogin,webauthn-error-registration-attachment-mismatch,525,括號內含中文，建議使用全形括號（）,Your organization requires a different type of security key (invalid Authenticator Attachment ''{0}''). Please use the correct type.,您的組織要求使用不同類型的安全金鑰 (無效的驗證器附件「{0}」)。請使用正確的類型。
+warn,tw-term,theme-baselogin,emailVerificationPending,507,「地址」→「位址／網址」（IP/記憶體用「位址」，網頁用「網址」，住址可保留）,"A verification email was sent to {0}. You can submit without changes to resend the verification email, or enter a different email address.",已寄送驗證郵件至 {0}。您可以直接提交以重新發送，或輸入不同的電子郵件地址。
