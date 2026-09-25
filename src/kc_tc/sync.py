@@ -7,7 +7,7 @@ from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 
-from .common import (LANG, PROJECT, TRANS_DIR, Conflict, api_list, api_request, components, load_baseline,
+from .common import (LANG, PROJECT, ROOT, TRANS_DIR, Conflict, api_list, api_request, components, load_baseline,
                      insert_value, load_needs_edit, load_values, parse_properties, save_baseline, save_needs_edit,
                      unescape, write_values, zh_path)
 
@@ -133,42 +133,65 @@ def mark_synced(component: str, values: dict[str, str]) -> None:
 
 # ---------------------------------------------------------------- 檢閱（等候檢閱 → 已核可）
 
+REVIEW_FILE = ROOT / ".cache" / "review.json"   # 本地檢閱狀態，不進 git
+
+
 @dataclass
 class ReviewItem:
     component: str
     key: str
     en: str
-    remote: str          # 載入時 Weblate 上的譯文
+    remote: str                  # 載入時 Weblate 上的譯文
     unit_url: str
     web_url: str
-    local: str | None    # 本地譯文（與 remote 不同表示本地有未上傳的修改）
-    done: bool = False   # 已核可
+    reviewed: str | None = None  # 本地標記已檢閱時的譯文，批次核可時上傳這個值
+    local: str | None = None     # 本地譯文（不存檔，顯示前由 refresh_local 更新）
 
     @property
     def id(self) -> str:
         return f"{self.component}\x1f{self.key}"
 
 
-def fetch_review(token: str | None, only: list[str] | None = None) -> list[ReviewItem]:
-    """Weblate 上等候檢閱（state 20）的字串，每個組件 1 次請求。"""
+def load_review() -> list[ReviewItem] | None:
+    """讀取本地檢閱清單；還沒從 Weblate 載入過時回傳 None。"""
+    if not REVIEW_FILE.exists():
+        return None
+    return [ReviewItem(**d) for d in json.loads(REVIEW_FILE.read_text(encoding="utf-8"))["items"]]
+
+
+def save_review(items: list[ReviewItem]) -> None:
+    REVIEW_FILE.parent.mkdir(exist_ok=True)
+    data = [{k: v for k, v in vars(r).items() if k != "local"} for r in items]
+    REVIEW_FILE.write_text(json.dumps({"items": data}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+
+
+def refresh_local(items: list[ReviewItem]) -> None:
+    local = {comp: load_values(zh_path(comp)) for comp in {r.component for r in items}}
+    for r in items:
+        r.local = local[r.component].get(r.key)
+
+
+def fetch_review(token: str | None, old: list[ReviewItem] | None = None) -> list[ReviewItem]:
+    """Weblate 上等候檢閱（state 20）的字串，每個組件 1 次請求。
+    Weblate 譯文沒變的字串保留原本的已檢閱標記。"""
+    marks = {r.id: r for r in old or []}
     out = []
     for comp in components():
-        if only and comp not in only:
-            continue
         units = api_list(f"translations/{PROJECT}/{comp}/{LANG}/units/?q=state:translated&page_size=1000", token)
-        local = load_values(zh_path(comp))
         for u in units:
-            key = u["context"].replace("\\", "")
-            out.append(ReviewItem(comp, key, (u["source"] or [""])[0], (u["target"] or [""])[0],
-                                  u["url"], u["web_url"], local.get(key)))
+            r = ReviewItem(comp, u["context"].replace("\\", ""), (u["source"] or [""])[0], (u["target"] or [""])[0],
+                           u["url"], u["web_url"])
+            if (m := marks.get(r.id)) and m.remote == r.remote:
+                r.reviewed = m.reviewed
+            out.append(r)
     out.sort(key=lambda r: (r.component, r.key))
     return out
 
 
 def approve(r: ReviewItem, value: str, token: str) -> None:
-    """確認 Weblate 現值與載入時相同後，以 value 為譯文設為已核可，並同步基準。"""
+    """確認 Weblate 現值是載入時的譯文（或已是 value）後，以 value 為譯文設為已核可，並同步基準。"""
     u = json.loads(api_request(r.unit_url, token))
-    if (u["target"] or [""])[0] != r.remote:
+    if (u["target"] or [""])[0] not in (r.remote, value):
         raise Conflict("Weblate 上的譯文在載入後被修改，請重新載入")
     # Weblate 要求 state 與 target 一起送
     api_request(r.unit_url, token, method="PATCH", data={"target": [value], "state": STATES["approved"]})
@@ -177,7 +200,7 @@ def approve(r: ReviewItem, value: str, token: str) -> None:
         needs = load_needs_edit()
         if needs.get(r.component, {}).pop(r.key, None) is not None:
             save_needs_edit(needs)
-    r.remote, r.done = value, True
+    r.remote = value
 
 
 # ---------------------------------------------------------------- pull 合併

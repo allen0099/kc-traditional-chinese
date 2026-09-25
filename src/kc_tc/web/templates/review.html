@@ -3,16 +3,24 @@
 {% block main %}
 <div class="page">
   {% if not has_token %}
-  <div class="flash error">找不到 API key：請在專案根目錄的 <code>.env</code> 設定 <code>WEBLATE_TOKEN=…</code>。</div>
+  <div class="flash error">找不到 API key：請在專案根目錄的 <code>.env</code> 設定 <code>WEBLATE_TOKEN=…</code>，否則只能在本地檢閱，不能核可上傳。</div>
   {% endif %}
   <form class="filters" hx-get="/review" hx-target="#review-area" hx-push-url="true"
         hx-trigger="change, input changed delay:400ms from:input[name=q], submit">
     <div class="full">
-      {% if loaded %}Weblate 上等候檢閱：<b>{{ by_comp.values() | sum }}</b> 條
+      {% if loaded %}Weblate 上等候檢閱：<b>{{ by_comp.values() | sum }}</b> 條，本地已檢閱 <b>{{ n_reviewed }}</b> 條
       {% for comp, n in by_comp.items() %}<span class="badge">{{ comp }} {{ n }}</span>{% endfor %}{% endif %}
-      <p class="hint">載入 Weblate 上狀態為「等候檢閱」的字串（每個組件 1 次 API 請求）。按「核可」會把編輯框內的譯文上傳並設為「已核可」，
-        譯文有修改時也會寫入本地 <code>zh_Hant.properties</code> 並更新 <code>baseline/</code>。</p>
+      <p class="hint">① 從 Weblate 載入等候檢閱的清單（每個組件 1 次 API 請求，存在 <code>.cache/review.json</code>）
+        ② 在本地逐條檢閱，修改譯文或按「標記已檢閱」，這一步不連線 Weblate
+        ③ 按「核可已檢閱的字串」一次上傳並設為「已核可」。</p>
     </div>
+    <label>狀態
+      <select name="status">
+        <option value="todo" {{ 'selected' if status == 'todo' }}>未檢閱</option>
+        <option value="reviewed" {{ 'selected' if status == 'reviewed' }}>已檢閱</option>
+        <option value="" {{ 'selected' if not status }}>全部</option>
+      </select>
+    </label>
     <label>組件
       <select name="component">
         <option value="">全部</option>
@@ -22,9 +30,12 @@
     <label class="grow">搜尋
       <input type="search" name="q" value="{{ q }}" placeholder="key、英文或譯文">
     </label>
-    <label><input type="checkbox" name="only_issues" value="1" {{ 'checked' if only_issues }}> 只看有 lint 問題或本地已修改</label>
+    <label><input type="checkbox" name="only_issues" value="1" {{ 'checked' if only_issues }}> 只看有 lint 問題或已修改</label>
     <button type="button" class="{{ '' if loaded else 'primary' }}" hx-post="/review/load" hx-target="#review-area"
-            hx-indicator="#review-loading">{{ '重新載入' if loaded else '從 Weblate 載入' }}</button>
+            hx-indicator="#review-loading"
+            {% if loaded %}hx-confirm="重新從 Weblate 載入？譯文沒變的字串會保留已檢閱標記。"{% endif %}>{{ '重新載入' if loaded else '從 Weblate 載入' }}</button>
+    {% if loaded %}<button type="button" class="primary" hx-post="/review/approve" hx-target="#review-area" hx-swap="afterbegin"
+            hx-confirm="將本地已檢閱的 {{ n_reviewed }} 條上傳到 Weblate 並設為「已核可」？" {{ 'disabled' if not n_reviewed or not has_token }}>核可已檢閱的 {{ n_reviewed }} 條</button>{% endif %}
     <span id="review-loading" class="loading htmx-indicator">查詢中…</span>
   </form>
   <div id="review-area">

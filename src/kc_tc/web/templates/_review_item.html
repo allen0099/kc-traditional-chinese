@@ -1,10 +1,11 @@
-<form class="prop {{ 'saved' if r.done }} {{ 'has-warn' if error or issues or pending }}" hx-post="/review/approve" hx-swap="outerHTML">
+{% set reviewed = r.reviewed is not none %}
+<form class="prop {{ 'saved' if reviewed and not stale }} {{ 'has-warn' if error or issues or stale }}" hx-post="/review/mark" hx-swap="outerHTML">
   <div class="prop-head">
-    {% if not r.done %}<input type="checkbox" name="pick" value="{{ r.id }}" form="approve-many"
-      {{ 'disabled' if pending }} onchange="countPicked()" title="{{ '本地已修改，請逐條核可' if pending }}">{% endif %}
+    {% if not reviewed %}<input type="checkbox" name="pick" value="{{ r.id }}" form="mark-many" onchange="countPicked()">{% endif %}
     <span><b>{{ r.component }}</b> <code>{{ r.key }}</code></span>
-    {% if r.done %}<span class="badge state-30">已核可</span>{% else %}<span class="badge state-20">等候檢閱</span>{% endif %}
-    {% if pending %}<span class="badge candidate">本地已修改，未上傳</span>{% endif %}
+    {% if reviewed %}<span class="badge ok">已檢閱，待核可</span>{% else %}<span class="badge state-20">等候檢閱</span>{% endif %}
+    {% if pending %}<span class="badge candidate">已修改，核可時一併上傳</span>{% endif %}
+    {% if stale %}<span class="badge variant">檢閱後本地又修改</span>{% endif %}
     <span class="spacer"></span>
     <a href="{{ r.web_url }}" target="_blank" rel="noopener">Weblate ↗</a>
   </div>
@@ -14,9 +15,6 @@
   {% if hints %}<div class="hints">{% for t in hints %}<span class="badge ok" title="{{ t.note }}">{{ t.en }} → {{ t.ok | join("／") }}</span>{% endfor %}</div>{% endif %}
   {% if pending %}{% set before, after = diff_html(r.remote, value) %}
   <div class="diff"><div class="before">{{ before }}</div><div class="after">{{ after }}</div></div>{% endif %}
-  {% if r.done %}
-  <div class="zh">{{ r.remote }}</div>
-  {% else %}
   <textarea name="value" class="edit" rows="{{ [2, (r.en | length // 60) + 1] | max }}"
             hx-post="/translate/check" hx-trigger="input changed delay:500ms" hx-target="next .lint" hx-swap="innerHTML"
             hx-include="closest form"
@@ -24,9 +22,9 @@
   <div class="lint">{% include "_translate_lint.html" %}</div>
   {% if error %}<p class="warn">⚠ {{ error }}</p>{% endif %}
   <div class="actions">
-    {% if need_force %}<label><input type="checkbox" name="force" value="1"> 仍要核可</label>{% endif %}
-    <button type="submit" class="primary">核可</button>
-    <small class="hint">Ctrl+Enter 核可；修改譯文後核可會一併上傳</small>
+    {% if need_force %}<label><input type="checkbox" name="force" value="1"> 仍要標記</label>{% endif %}
+    <button type="submit" class="primary">{{ '更新' if reviewed else '標記已檢閱' }}</button>
+    {% if reviewed %}<button type="button" hx-post="/review/unmark" hx-include="closest form" hx-target="closest form" hx-swap="outerHTML">取消標記</button>{% endif %}
+    <small class="hint">Ctrl+Enter 標記；只存本地，修改的譯文會寫入 zh_Hant.properties</small>
   </div>
-  {% endif %}
 </form>

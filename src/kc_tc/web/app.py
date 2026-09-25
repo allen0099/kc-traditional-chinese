@@ -525,27 +525,35 @@ def push_progress(request: Request):
 
 
 # ---------------------------------------------------------------- 檢閱 Weblate 上等候檢閱的字串
+# 流程：從 Weblate 載入清單（存到 .cache/review.json）→ 本地逐條檢閱、標記 → 批次核可上傳
 
 class ApproveJob:
-    """背景批次核可（同時只允許一個）。"""
+    """背景批次核可已檢閱的字串（同時只允許一個）。"""
 
     def __init__(self, items: list[sync.ReviewItem]):
         self.items = items
-        self.done: list[tuple[sync.ReviewItem, str, str]] = []   # (item, ok/fail, 訊息)
+        self.done: list[tuple[sync.ReviewItem, str, str]] = []   # (item, ok/skip/fail, 訊息)
         self.finished = False
 
     def run(self, token: str) -> None:
         def one(r: sync.ReviewItem) -> None:
+            if r.local is not None and r.local != r.reviewed:
+                self.done.append((r, "skip", "檢閱後本地譯文又被修改，請重新檢閱"))
+                return
             try:
-                sync.approve(r, r.remote, token)
+                sync.approve(r, r.reviewed, token)
             except urllib.error.HTTPError as e:
                 self.done.append((r, "fail", http_error_text(e)))
             except Exception as e:  # noqa: BLE001 — 顯示在網頁上
                 self.done.append((r, "fail", str(e)))
             else:
+                with REVIEW_LOCK:   # 核可成功就離開清單
+                    REVIEW["items"] = [x for x in REVIEW["items"] if x.id != r.id]
+                    sync.save_review(REVIEW["items"])
                 self.done.append((r, "ok", ""))
 
         try:
+            sync.refresh_local(self.items)
             with ThreadPoolExecutor(sync.UPLOAD_WORKERS) as pool:
                 list(pool.map(one, self.items))
         finally:
@@ -553,6 +561,14 @@ class ApproveJob:
 
 
 REVIEW: dict = {"items": None, "job": None}
+REVIEW_LOCK = threading.Lock()
+
+
+def review_items() -> list[sync.ReviewItem] | None:
+    with REVIEW_LOCK:
+        if REVIEW["items"] is None:
+            REVIEW["items"] = sync.load_review()
+        return REVIEW["items"]
 
 
 def review_item_ctx(r: sync.ReviewItem, value: str | None = None, **extra) -> dict:
@@ -563,91 +579,125 @@ def review_item_ctx(r: sync.ReviewItem, value: str | None = None, **extra) -> di
     hints = [t for t in store.get().terms.values() if t.ok and t.matches(r.en)]
     hints.sort(key=lambda t: t.en.lower())
     ctx = {"r": r, "p": p, "value": value, "hints": hints, "issues": lint_issues(p, value) if value.strip() else [],
-           "pending": r.local is not None and r.local != r.remote, "error": ""}
+           "pending": value != r.remote, "stale": r.reviewed is not None and value != r.reviewed, "error": ""}
     return ctx | extra
 
 
 def find_review(component: str, key: str) -> sync.ReviewItem | None:
-    return next((r for r in REVIEW["items"] or [] if r.component == component and r.key == key), None)
+    return next((r for r in review_items() or [] if r.component == component and r.key == key), None)
 
 
 @app.get("/review", response_class=HTMLResponse)
-def review_page(request: Request, component: str = "", q: str = "", only_issues: str = "", limit: int = 50):
-    items = REVIEW["items"]
-    ctx = {"loaded": items is not None, "component": component, "q": q, "only_issues": only_issues, "limit": limit,
-           "has_token": bool(load_token()), "ratelimit": RATELIMIT, "job": REVIEW["job"]}
-    todo = [r for r in items or [] if not r.done]
+def review_page(request: Request, component: str = "", q: str = "", status: str = "todo", only_issues: str = "",
+                limit: int = 50):
+    items = review_items()
+    ctx = {"loaded": items is not None, "component": component, "q": q, "status": status, "only_issues": only_issues,
+           "limit": limit, "has_token": bool(load_token()), "ratelimit": RATELIMIT, "job": REVIEW["job"]}
+    items = list(items or [])
+    sync.refresh_local(items)
     by_comp = defaultdict(int)
-    for r in todo:
+    for r in items:
         by_comp[r.component] += 1
+    n_reviewed = sum(r.reviewed is not None for r in items)
     if component:
-        todo = [r for r in todo if r.component == component]
+        items = [r for r in items if r.component == component]
+    if status:
+        items = [r for r in items if (r.reviewed is not None) == (status == "reviewed")]
     if q:
         ql = q.lower()
-        todo = [r for r in todo if any(ql in s.lower() for s in (r.key, r.en, r.remote, r.local or ""))]
-    ctxs = [review_item_ctx(r) for r in todo]
+        items = [r for r in items if any(ql in s.lower() for s in (r.key, r.en, r.remote, r.local or ""))]
+    ctxs = [review_item_ctx(r) for r in items]
     if only_issues:
         ctxs = [c for c in ctxs if c["issues"] or c["pending"]]
-    ctx.update(items=ctxs[:limit], total=len(ctxs), by_comp=dict(sorted(by_comp.items())))
+    ctx.update(items=ctxs[:limit], total=len(ctxs), by_comp=dict(sorted(by_comp.items())), n_reviewed=n_reviewed)
     tpl = "review.html" if "hx-request" not in request.headers else "_review_list.html"
     return render(request, tpl, **ctx)
 
 
 @app.post("/review/load")
 def review_load(request: Request):
-    token = load_token()
+    """從 Weblate 重新載入等候檢閱的清單（保留譯文沒變的已檢閱標記）。"""
+    if (job := REVIEW["job"]) and not job.finished:
+        return HTMLResponse('<div class="flash error">核可工作進行中，請稍後再載入</div>')
     try:
-        REVIEW["items"] = sync.fetch_review(token)
+        items = sync.fetch_review(load_token(), review_items())
     except urllib.error.HTTPError as e:
         return HTMLResponse(f'<div class="flash error">查詢 Weblate 失敗：{escape(http_error_text(e))}</div>')
+    with REVIEW_LOCK:
+        REVIEW["items"] = items
+        sync.save_review(items)
     return HTMLResponse("", headers={"HX-Refresh": "true"})
 
 
-@app.post("/review/approve", response_class=HTMLResponse)
-def review_approve(request: Request, component: str = Form(...), key: str = Form(...), value: str = Form(""),
-                   force: str = Form("")):
-    """核可單條；譯文有修改時先寫入本地再上傳。"""
-    r, token = find_review(component, key), load_token()
+def save_local(r: sync.ReviewItem, value: str) -> None:
+    local = load_values(zh_path(r.component)).get(r.key)
+    if local is None:
+        insert_value(r.component, r.key, value)
+    elif local != value:
+        write_values(r.component, {r.key: (local, value)})
+    r.local = value
+
+
+@app.post("/review/mark", response_class=HTMLResponse)
+def review_mark(request: Request, component: str = Form(...), key: str = Form(...), value: str = Form(""),
+                force: str = Form("")):
+    """標記已檢閱（只存本地）；譯文有修改時寫入本地 zh_Hant.properties。"""
+    r = find_review(component, key)
     if r is None:
         return PlainTextResponse("清單已過期，請重新載入", status_code=404)
     value = value.replace("\r\n", "\n")
     ctx = review_item_ctx(r, value)
-    if not token:
-        ctx["error"] = "找不到 API key，請在 .env 設定 WEBLATE_TOKEN"
-    elif not value.strip():
-        ctx["error"] = "譯文是空的"
-    elif any(lv == "error" for lv, _, _ in ctx["issues"]) and not force:
-        ctx.update(error="有 error 等級的問題，未核可。確認無誤請勾選「仍要核可」。", need_force=True)
-    else:
-        try:
-            local = load_values(zh_path(component)).get(key)
-            if local is None:
-                insert_value(component, key, value)
-            elif local != value:
-                write_values(component, {key: (local, value)})
-            r.local = value
-            sync.approve(r, value, token)
-        except urllib.error.HTTPError as e:
-            ctx["error"] = f"核可失敗：{http_error_text(e)}"
-        except Conflict as e:
-            ctx["error"] = str(e)
-        ctx = review_item_ctx(r, value, error=ctx["error"])
-    return render(request, "_review_item.html", **ctx)
+    if not value.strip():
+        return render(request, "_review_item.html", **(ctx | {"error": "譯文是空的"}))
+    if any(lv == "error" for lv, _, _ in ctx["issues"]) and not force:
+        return render(request, "_review_item.html",
+                      **(ctx | {"error": "有 error 等級的問題，未標記。確認無誤請勾選「仍要標記」。", "need_force": True}))
+    try:
+        save_local(r, value)
+    except Conflict as e:
+        return render(request, "_review_item.html", **(ctx | {"error": str(e)}))
+    with REVIEW_LOCK:
+        r.reviewed = value
+        sync.save_review(REVIEW["items"])
+    return render(request, "_review_item.html", **review_item_ctx(r, value))
 
 
-@app.post("/review/approve-many", response_class=HTMLResponse)
-async def review_approve_many(request: Request):
-    form = await request.form(max_fields=100_000)
+@app.post("/review/unmark", response_class=HTMLResponse)
+def review_unmark(request: Request, component: str = Form(...), key: str = Form(...)):
+    r = find_review(component, key)
+    if r is None:
+        return PlainTextResponse("清單已過期，請重新載入", status_code=404)
+    with REVIEW_LOCK:
+        r.reviewed = None
+        sync.save_review(REVIEW["items"])
+    sync.refresh_local([r])
+    return render(request, "_review_item.html", **review_item_ctx(r))
+
+
+@app.post("/review/mark-many")
+async def review_mark_many(request: Request):
+    """把勾選的字串以目前譯文標記為已檢閱（只存本地）。"""
+    ids = set((await request.form(max_fields=100_000)).getlist("pick"))
+    items = [r for r in review_items() or [] if r.id in ids]
+    sync.refresh_local(items)
+    with REVIEW_LOCK:
+        for r in items:
+            r.reviewed = r.local if r.local is not None else r.remote
+        sync.save_review(REVIEW["items"])
+    return HTMLResponse("", headers={"HX-Refresh": "true"})
+
+
+@app.post("/review/approve", response_class=HTMLResponse)
+def review_approve(request: Request):
+    """把已檢閱的字串批次上傳到 Weblate 並設為已核可。"""
     token, job = load_token(), REVIEW["job"]
     if not token:
         return HTMLResponse('<div class="flash error">找不到 API key，請在 .env 設定 WEBLATE_TOKEN</div>')
     if job and not job.finished:
         return HTMLResponse('<div class="flash error">已有核可工作進行中</div>')
-    ids = set(form.getlist("pick"))
-    # 本地有未上傳修改的字串不批次核可，以免核可到舊譯文
-    picked = [r for r in REVIEW["items"] or [] if r.id in ids and not r.done and r.local in (None, r.remote)]
+    picked = [r for r in review_items() or [] if r.reviewed is not None]
     if not picked:
-        return HTMLResponse('<div class="flash error">沒有勾選任何項目</div>')
+        return HTMLResponse('<div class="flash error">沒有已檢閱的字串</div>')
     REVIEW["job"] = job = ApproveJob(picked)
     threading.Thread(target=job.run, args=(token,), daemon=True).start()
     return render(request, "_review_progress.html", job=job, ratelimit=RATELIMIT)
