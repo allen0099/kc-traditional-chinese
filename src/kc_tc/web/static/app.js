@@ -41,6 +41,30 @@ function countPicked() {
 document.addEventListener("DOMContentLoaded", countPicked);
 document.addEventListener("htmx:afterSwap", countPicked);
 
+// 上傳確認：勾選項目在 Weblate 的檢閱狀態高於要上傳的狀態時（例如已核可 → 等候檢閱）特別警告
+document.addEventListener("htmx:confirm", (e) => {
+  if (e.detail.question !== "push") return;
+  e.preventDefault();
+  const form = e.detail.elt;
+  const sel = form.querySelector("select[name=state]");
+  const opt = sel.selectedOptions[0];
+  const target = Number(opt.dataset.num);
+  const picked = [...form.querySelectorAll("input[name=pick]:checked")];
+  const labels = { 10: "需要編輯", 20: "等候檢閱", 30: "已核可" };
+  const down = picked.filter((cb) => cb.dataset.state !== "" && Number(cb.dataset.state) > target);
+  let msg = `用您的 Weblate 帳號上傳 ${picked.length} 條，檢閱狀態設為「${opt.textContent.trim()}」？`;
+  if (down.length) {
+    const byState = {};
+    down.forEach((cb) => (byState[cb.dataset.state] = (byState[cb.dataset.state] || 0) + 1));
+    const summary = Object.entries(byState).map(([s, n]) => `${labels[s] || s} ${n} 條`).join("、");
+    const sample = down.slice(0, 5).map((cb) => "  • " + cb.dataset.key).join("\n");
+    msg = `⚠ 降級警告：其中 ${down.length} 條在 Weblate 上的狀態較高（${summary}），` +
+      `上傳後會變成「${opt.textContent.trim()}」。\n\n${sample}${down.length > 5 ? "\n  …" : ""}\n\n` +
+      `若要維持原狀態，請取消並把檢閱狀態改為「已核可」。\n仍要上傳嗎？`;
+  }
+  if (confirm(msg)) e.detail.issueRequest(true);
+});
+
 // htmx 預設不顯示錯誤回應，改為跳出提示
 document.addEventListener("htmx:responseError", (e) => {
   const xhr = e.detail.xhr;

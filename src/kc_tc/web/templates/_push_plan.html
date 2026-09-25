@@ -8,8 +8,7 @@
 {% if not plan %}
 <p class="empty">沒有需要上傳的項目。</p>
 {% else %}
-<form hx-post="/push/apply" hx-target="#push-area"
-      hx-confirm="用您的 Weblate 帳號上傳勾選的譯文？">
+<form id="push-form" hx-post="/push/apply" hx-target="#push-area" hx-confirm="push">
   <input type="hidden" name="plan_id" value="{{ plan_id }}">
   <div class="toolbar sticky">
     <span>可上傳 <b>{{ n_push }}</b>{% if n_conf %}，<span class="warn">衝突 <b>{{ n_conf }}</b></span>{% endif %}{% if n_miss %}，Weblate 無此 key {{ n_miss }}{% endif %}
@@ -18,7 +17,7 @@
     <label>檢閱狀態
       <select name="state">
         {% for value, label in states.items() %}
-        <option value="{{ value }}" {{ 'selected' if value == 'translated' }}>{{ label }}</option>
+        <option value="{{ value }}" data-num="{{ state_nums[value] }}" {{ 'selected' if value == 'translated' }}>{{ label }}</option>
         {% endfor %}
       </select>
     </label>
@@ -37,6 +36,7 @@
   <div class="prop {{ 'has-warn' if c.status != 'push' }}">
     <div class="prop-head">
       <label><input type="checkbox" name="pick" value="{{ i }}" onchange="countPicked()"
+             data-key="{{ c.component }} {{ c.key }}" data-state="{{ c.remote_state if c.remote_state is not none else '' }}"
              {{ 'checked' if c.status == 'push' }} {{ 'disabled' if c.status == 'missing' }}>
         <b>{{ c.component }}</b> <code>{{ c.key }}</code></label>
       {% if c.remote_state is not none %}<span class="badge state-{{ c.remote_state }}" title="Weblate 目前的檢閱狀態">{{ remote_states.get(c.remote_state, c.remote_state) }}</span>{% endif %}

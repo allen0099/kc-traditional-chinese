@@ -327,7 +327,7 @@ def push_compare(request: Request, component: str = Form("")):
     PUSH["plan"], PUSH["plan_id"] = plan, uuid.uuid4().hex
     return render(request, "_push_plan.html", plan=plan, plan_id=PUSH["plan_id"], synced=synced,
                   has_token=bool(token), ratelimit=RATELIMIT, states=sync.STATE_LABELS,
-                  remote_states=sync.REMOTE_STATE_LABELS)
+                  remote_states=sync.REMOTE_STATE_LABELS, state_nums=sync.STATES)
 
 
 @app.post("/push/apply", response_class=HTMLResponse)
