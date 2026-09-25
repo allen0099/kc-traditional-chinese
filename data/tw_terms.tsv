@@ -36,7 +36,7 @@
 對象	物件	warn
 回調	回呼	warn
 端口	連接埠	error
-地址	位址／網址	warn	IP/記憶體用「位址」，網頁用「網址」，住址可保留
+(?<!郵件)地址	位址／網址	warn	IP/記憶體用「位址」，網頁用「網址」；電子郵件地址、住址可保留	^(?!.*\b(ip|mac|memory|network|server|host|bind|url|web)\b)
 異步	非同步	error
 賬	帳	error
 文檔	文件	error
@@ -44,7 +44,7 @@
 請求頭	請求標頭	warn
 標識	識別碼	warn
 憑據	憑證	warn
-主機名	主機名稱	warn
+主機名(?!稱)	主機名稱	warn
 用戶名	使用者名稱	error
 帳戶名	帳號名稱	info
 配置	設定	info	台灣亦使用「配置」，視語境決定
