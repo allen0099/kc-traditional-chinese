@@ -7,7 +7,7 @@
       "translated_percent": 100.0,
       "translated": 242,
       "total": 242,
-      "last_change": "2026-09-25T21:42:49.745811+02:00",
+      "last_change": "2026-09-25T23:07:17.898260+02:00",
       "url": "https://hosted.weblate.org/translate/keycloak/account-ui/zh_Hant/"
     },
     "theme-baseemail": {
@@ -17,7 +17,7 @@
       "translated_percent": 100.0,
       "translated": 68,
       "total": 68,
-      "last_change": "2026-09-25T21:59:15.564024+02:00",
+      "last_change": "2026-09-25T23:22:55.247637+02:00",
       "url": "https://hosted.weblate.org/translate/keycloak/theme-baseemail/zh_Hant/"
     },
     "theme-baselogin": {
@@ -27,7 +27,7 @@
       "translated_percent": 100.0,
       "translated": 525,
       "total": 525,
-      "last_change": "2026-09-25T21:59:17.777905+02:00",
+      "last_change": "2026-09-25T23:22:57.754507+02:00",
       "url": "https://hosted.weblate.org/translate/keycloak/theme-baselogin/zh_Hant/"
     },
     "theme-baseaccount": {
@@ -37,7 +37,7 @@
       "translated_percent": 100.0,
       "translated": 385,
       "total": 385,
-      "last_change": "2026-09-25T21:59:20.020546+02:00",
+      "last_change": "2026-09-25T23:23:00.113041+02:00",
       "url": "https://hosted.weblate.org/translate/keycloak/theme-baseaccount/zh_Hant/"
     },
     "theme-baseadmin": {
@@ -47,19 +47,19 @@
       "translated_percent": 100.0,
       "translated": 117,
       "total": 117,
-      "last_change": "2026-09-25T21:59:22.217538+02:00",
+      "last_change": "2026-09-25T23:23:02.381074+02:00",
       "url": "https://hosted.weblate.org/translate/keycloak/theme-baseadmin/zh_Hant/"
     },
     "admin-ui": {
       "name": "Admin UI",
       "filemask": "js/apps/admin-ui/maven-resources-community/theme/keycloak.v2/admin/messages/messages_*.properties",
       "repo_file": "js/apps/admin-ui/maven-resources-community/theme/keycloak.v2/admin/messages/messages_zh_Hant.properties",
-      "translated_percent": 93.2,
-      "translated": 3962,
+      "translated_percent": 100.0,
+      "translated": 4248,
       "total": 4248,
-      "last_change": "2026-09-25T21:59:30.500655+02:00",
+      "last_change": "2026-09-25T23:23:15.839373+02:00",
       "url": "https://hosted.weblate.org/translate/keycloak/admin-ui/zh_Hant/"
     }
   },
-  "pulled_at": "2026-09-25T20:01:18+00:00"
+  "pulled_at": "2026-09-25T21:24:51+00:00"
 }
