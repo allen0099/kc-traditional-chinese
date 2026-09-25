@@ -7,7 +7,7 @@
   {% endif %}
 
   <form class="filters" hx-post="/push/compare" hx-target="#push-area" hx-indicator="#push-loading">
-    <div>
+    <div class="full">
       本地尚未上傳的修改：<b>{{ n_local }}</b> 條
       {% for comp, n in by_comp.items() %}<span class="badge">{{ comp }} {{ n }}</span>{% endfor %}
       <p class="hint">以 <code>baseline/</code>（上次與 Weblate 同步時的譯文）為基準；比對會查詢 Weblate 現值，每個組件 1 次 API 請求。</p>
@@ -18,7 +18,7 @@
         {% for comp in by_comp %}<option>{{ comp }}</option>{% endfor %}
       </select>
     </label>
-    <label>搜尋
+    <label class="grow">搜尋
       <input type="search" name="q" placeholder="key、英文或譯文（只用於預覽）"
              hx-get="/push/local" hx-include="closest form" hx-target="#push-area"
              hx-trigger="input changed delay:400ms, search"

@@ -100,11 +100,15 @@ mark.cand { background: var(--cand-bg); color: var(--cand); }
 .filters legend { font-weight: 600; margin-bottom: .3rem; }
 .filters label { display: flex; gap: .4rem; align-items: center; }
 .filters select { width: auto; }
+.filters .full { flex-basis: 100%; }
+.filters label.grow { flex: 1; min-width: 16rem; white-space: nowrap; }
 .chips { display: flex; flex-wrap: wrap; gap: .4rem; }
 .chip { border: 1px solid var(--line); border-radius: 999px; padding: .15rem .7rem; cursor: pointer; background: #fff; }
 .chip input { width: auto; }
 .toolbar { display: flex; gap: .5rem; align-items: center; padding: .6rem 0; }
 .toolbar.sticky { position: sticky; top: 0; background: var(--bg); z-index: 1; border-bottom: 1px solid var(--line); }
+.toolbar label { display: flex; gap: .4rem; align-items: center; white-space: nowrap; }
+.toolbar select { width: auto; }
 .prop { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: .7rem .9rem; margin: .6rem 0; }
 .prop.has-warn { border-color: #f59e0b; }
 .prop-head { display: flex; gap: .5rem; align-items: center; margin-bottom: .4rem; }
