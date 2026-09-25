@@ -59,30 +59,6 @@
       "total": 4248,
       "last_change": "2026-09-25T21:59:30.500655+02:00",
       "url": "https://hosted.weblate.org/translate/keycloak/admin-ui/zh_Hant/"
-    },
-    "keycloak-e-mail-theme": {
-      "name": "Keycloak E-mail theme",
-      "filemask": "themes/src/main/resources-community/theme/keycloak/email/messages/messages_*.properties",
-      "translated_percent": 0,
-      "missing": true
-    },
-    "keycloak-welcome-theme": {
-      "name": "Keycloak Welcome theme",
-      "filemask": "themes/src/main/resources-community/theme/keycloak/welcome/messages/messages_*.properties",
-      "translated_percent": 0,
-      "missing": true
-    },
-    "keycloak-login-theme": {
-      "name": "Keycloak Login theme",
-      "filemask": "themes/src/main/resources-community/theme/keycloak/login/messages/messages_*.properties",
-      "translated_percent": 0,
-      "missing": true
-    },
-    "keycloak-v2-login-theme": {
-      "name": "Keycloak v2 Login theme",
-      "filemask": "themes/src/main/resources-community/theme/keycloak.v2/login/messages/messages_*.properties",
-      "translated_percent": 0,
-      "missing": true
     }
   },
   "pulled_at": "2026-09-25T20:01:18+00:00"
