@@ -41,6 +41,13 @@ function countPicked() {
 document.addEventListener("DOMContentLoaded", countPicked);
 document.addEventListener("htmx:afterSwap", countPicked);
 
+// htmx 預設不顯示錯誤回應，改為跳出提示
+document.addEventListener("htmx:responseError", (e) => {
+  const xhr = e.detail.xhr;
+  alert(`請求失敗（HTTP ${xhr.status}）：\n${xhr.responseText.slice(0, 500)}`);
+});
+document.addEventListener("htmx:sendError", () => alert("無法連線到伺服器，請確認 kc-tc serve 仍在執行。"));
+
 // 離開前提醒未儲存的詞彙變更
 window.addEventListener("beforeunload", (e) => {
   const el = document.getElementById("dirty");

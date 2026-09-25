@@ -214,7 +214,7 @@ def replace_page(request: Request, term: list[str] = [], component: str = ""):
 
 @app.post("/replace/apply", response_class=HTMLResponse)
 async def replace_apply(request: Request):
-    form = await request.form()
+    form = await request.form(max_fields=100_000)   # 每條建議 5 個欄位，預設上限 1000 不夠用
     ids = form.getlist("pick")
     by_comp: dict[str, dict[str, tuple[str, str]]] = defaultdict(dict)
     for i in ids:
