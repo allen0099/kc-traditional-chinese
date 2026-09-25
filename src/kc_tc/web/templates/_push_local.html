@@ -1,0 +1,17 @@
+<p class="hint">本地預覽：以 <code>baseline/</code> 為基準列出 <b>{{ changes | length }}</b> 條修改{% if q %}（符合「{{ q }}」）{% endif %}，未查詢 Weblate。要上傳請按「比對 Weblate」。</p>
+{% if not changes %}
+<p class="empty">沒有符合的修改。</p>
+{% endif %}
+{% for c in changes %}
+<div class="prop">
+  <div class="prop-head">
+    <span><b>{{ c.component }}</b> <code>{{ c.key }}</code></span>
+    {% if not c.base %}<span class="badge">新翻譯</span>{% endif %}
+    <span class="spacer"></span>
+    <a href="{{ weblate_url(c) }}" target="_blank" rel="noopener">Weblate ↗</a>
+  </div>
+  <div class="en">{{ c.en }}</div>
+  {% set before, after = diff_html(c.base, c.local) %}
+  <div class="diff"><div class="before">{{ before }}</div><div class="after">{{ after }}</div></div>
+</div>
+{% endfor %}

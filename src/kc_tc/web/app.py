@@ -330,6 +330,17 @@ def push_page(request: Request):
     return render(request, "push.html", **push_ctx())
 
 
+@app.get("/push/local", response_class=HTMLResponse)
+def push_local(request: Request, component: str = "", q: str = ""):
+    """本地預覽：基準 → 本地的差異，不連線 Weblate。"""
+    changes = sync.local_changes([component] if component else None)
+    if q:
+        ql = q.lower()
+        changes = [c for c in changes if any(ql in s.lower() for s in (c.key, c.en, c.base, c.local))]
+    changes.sort(key=lambda c: (c.component, c.key))
+    return render(request, "_push_local.html", changes=changes, q=q)
+
+
 @app.post("/push/compare", response_class=HTMLResponse)
 def push_compare(request: Request, component: str = Form("")):
     token = load_token()

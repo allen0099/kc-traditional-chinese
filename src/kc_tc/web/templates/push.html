@@ -18,6 +18,14 @@
         {% for comp in by_comp %}<option>{{ comp }}</option>{% endfor %}
       </select>
     </label>
+    <label>搜尋
+      <input type="search" name="q" placeholder="key、英文或譯文（只用於預覽）"
+             hx-get="/push/local" hx-include="closest form" hx-target="#push-area"
+             hx-trigger="input changed delay:400ms, search"
+             onkeydown="if (event.key === 'Enter') event.preventDefault()">
+    </label>
+    <button type="button" hx-get="/push/local" hx-include="closest form" hx-target="#push-area"
+            {{ 'disabled' if not n_local }}>本地預覽</button>
     <button type="submit" class="primary" {{ 'disabled' if not n_local }}>比對 Weblate</button>
     <span id="push-loading" class="loading htmx-indicator">查詢中…</span>
   </form>
