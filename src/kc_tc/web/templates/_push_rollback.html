@@ -1,0 +1,9 @@
+<div class="prop rolled-back">
+  <div class="prop-head">
+    <span><b>{{ component }}</b> <code>{{ key }}</code></span>
+    {% if error %}<span class="warn">⚠ {{ error }}</span>
+    {% elif base is none %}<span class="badge">已刪除新翻譯</span>
+    {% else %}<span class="badge">已退回上次同步的譯文</span>{% endif %}
+  </div>
+  {% if not error and local %}<p class="hint">退回前的本地值：{{ local }}</p>{% endif %}
+</div>

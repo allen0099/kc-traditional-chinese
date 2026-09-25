@@ -141,3 +141,7 @@ ins { background: var(--ins); text-decoration: none; color: var(--ok); font-weig
 .lint-info { color: var(--muted); }
 .en-diff .before::before { content: "英文舊原文"; }
 .en-diff .after::before { content: "英文新原文"; }
+
+/* 上傳：退回 */
+button.small { padding: .1rem .5rem; font-size: .8rem; }
+.prop.rolled-back { opacity: .6; }

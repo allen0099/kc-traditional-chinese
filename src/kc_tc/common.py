@@ -200,6 +200,18 @@ def write_values(component: str, changes: dict[str, tuple[str, str]], path: Path
     path.write_text(out + ("\n" if text.endswith("\n") else ""), encoding="utf-8")
 
 
+def remove_value(component: str, key: str) -> None:
+    """刪除 zh_Hant.properties 中的 key（含續行）；key 不存在時拋出 Conflict。"""
+    path = zh_path(component)
+    e = parse_properties(path).get(key)
+    if e is None:
+        raise Conflict(f"{component}: 找不到 {key}")
+    text = path.read_text(encoding="utf-8")
+    lines = text.splitlines()
+    del lines[e.line - 1:e.end]
+    path.write_text("\n".join(lines) + ("\n" if text.endswith("\n") else ""), encoding="utf-8")
+
+
 def insert_value(component: str, key: str, value: str, path: Path | None = None) -> None:
     """新增 zh_Hant.properties 中尚不存在的 key，依 en.properties 的順序插在前一個已存在的 key 之後
     （與 Weblate 產生的檔案順序一致）；key 已存在時拋出 Conflict。"""

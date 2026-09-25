@@ -8,6 +8,9 @@
     <span><b>{{ c.component }}</b> <code>{{ c.key }}</code></span>
     {% if not c.base %}<span class="badge">新翻譯</span>{% endif %}
     <span class="spacer"></span>
+    <button type="button" class="danger small" hx-post="/push/rollback?component={{ c.component | urlencode }}&key={{ c.key | urlencode }}"
+            hx-params="none" hx-target="closest .prop" hx-swap="outerHTML"
+            hx-confirm="{{ '刪除這條新翻譯？' if not c.base else '退回上次同步的譯文？本地修改會被捨棄。' }}">退回</button>
     <a href="{{ weblate_url(c) }}" target="_blank" rel="noopener">Weblate ↗</a>
   </div>
   <div class="en">{{ c.en }}</div>

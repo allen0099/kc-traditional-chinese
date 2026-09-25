@@ -19,7 +19,7 @@ from markupsafe import Markup, escape
 from .. import lint, sync
 from ..common import (GLOSSARY_CSV, LANG, PROJECT, RATELIMIT, TRANS_DIR, WEBLATE, Conflict, Pair,
                       insert_value, load_baseline, load_glossary, load_needs_edit, load_pairs, load_token,
-                      load_values, save_glossary,
+                      load_values, remove_value, save_glossary,
                       split_alts, write_values, zh_path)
 from ..terms import (NgramIndex, Term, TermStat, analyze, group_by_translation, load_terms,
                      norm_key, propose_replacements, term_regex)
@@ -428,6 +428,24 @@ def push_local(request: Request, component: str = "", q: str = ""):
         changes = [c for c in changes if any(ql in s.lower() for s in (c.key, c.en, c.base, c.local))]
     changes.sort(key=lambda c: (c.component, c.key))
     return render(request, "_push_local.html", changes=changes, q=q)
+
+
+@app.post("/push/rollback", response_class=HTMLResponse)
+def push_rollback(request: Request, component: str, key: str):
+    """把本地譯文退回上次同步時的值（新翻譯則刪除），從待上傳清單移除。"""
+    base = load_baseline(component) or {}
+    local = load_values(zh_path(component)).get(key)
+    try:
+        if key not in base:
+            remove_value(component, key)
+        elif local is None:
+            insert_value(component, key, base[key])
+        elif local != base[key]:
+            write_values(component, {key: (local, base[key])})
+    except Conflict as e:
+        return render(request, "_push_rollback.html", component=component, key=key, error=str(e))
+    return render(request, "_push_rollback.html", component=component, key=key, base=base.get(key),
+                  local=local or "")
 
 
 @app.post("/push/compare", response_class=HTMLResponse)
