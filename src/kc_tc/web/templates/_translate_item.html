@@ -18,7 +18,7 @@
   {% endif %}
   {% if hints %}<div class="hints">{% for t in hints %}<span class="badge ok" title="{{ t.note }}">{{ t.en }} → {{ t.ok | join("／") }}</span>{% endfor %}</div>{% endif %}
   <textarea name="value" class="edit" rows="{{ [2, (p.en | length // 60) + 1] | max }}"
-            hx-post="/translate/check" hx-trigger="input changed delay:500ms" hx-target="next .lint"
+            hx-post="/translate/check" hx-trigger="input changed delay:500ms" hx-target="next .lint" hx-swap="innerHTML"
             hx-include="closest form"
             onkeydown="if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) { event.preventDefault(); this.form.requestSubmit(); }">{{ value }}</textarea>
   <div class="lint">{% include "_translate_lint.html" %}</div>
