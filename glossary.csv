@@ -2,7 +2,6 @@ en,zh_Hant,variants,note
 access token,存取權杖,,參照國家教育研究院翻譯：https://terms.naer.edu.tw/detail/edb0778da6e12964146ee84c4a1e957f/  又因為 token 已採用「權杖」作為翻譯，因此這邊也一併使用權杖作為 token 的翻譯
 adapter,配接器,,
 assertion,斷言,,
-assertions,斷言,,
 attribute,屬性,,
 authentication,驗證,,
 authorization,授權,,
@@ -12,7 +11,6 @@ certificate,憑證,,
 Claims,聲明,,
 Client,客戶端,,Applications → 應用程式 Clients → 客戶端
 client scope,應用程式範圍,,
-Clients,客戶端,,Applications → 應用程式 Clients → 客戶端
 cookie,cookie,,
 default,預設,,
 Direct grant,直接授權,,
@@ -25,29 +23,21 @@ Gender,性別,,
 Given name,名字,,
 Google Authenticator,Google Authenticator,,
 Introspect,內省,,
-Invalid password: Can not contain the username.,無效的密碼：不可包含使用者名稱。,,
-Invalid password: maximum length {0}.,無效的密碼：最長長度為 {0}。,,
-Invalid password: minimum length {0}.,無效的密碼：最短長度為 {0}。,,
-Invalid password: must not be equal to the email.,無效的密碼：不可與電子信箱相同。,,
 issuer,簽發者,,
 Kerberos,Kerberos,,
 Last name,姓氏,,
-Length must be between {1} and {2}.,長度必須介於 {1} 和 {2} 之間。,,
 mapper,映射,,
 metadata,元資料,,
 Microsoft Authenticator,Microsoft Authenticator,,
 Mutual TLS,相互 TLS,,常見簡寫為 mTLS
 NFC,NFC,,
 Passkey,通行金鑰,,翻譯參考： - Google：密碼金鑰 - 1password：通行金鑰 - Amazon：金鑰 - Microsoft：金鑰、安全性金鑰 - Discord：安全性金鑰
-Passkeys,通行金鑰,,
 Phone number,電話號碼,,
 policy,政策,,
 Privacy policy,隱私權政策,,
-privacy policy.,隱私權政策,,
 protocol,協定,,
 provider,提供者,,
 Realm,領域,,在 Keycloak 專案中，realm 指的是一個包含使用者群體及應用程式群體的最大的組織，可以與其他組織進行乾淨的切割並共用相同的 Keycloak 實體。
-realms,領域,,
 record,記錄,,
 refresh,更新,,國家教育研究院  https://terms.naer.edu.tw/detail/241d0259db7135b172ae6fafdbd0e10e/?startswith=zh
 Refresh token,更新權杖,,
@@ -55,10 +45,8 @@ remove,移除,,不跟 delete 混用
 Session,工作狀態,,
 Signature,簽章,,https://terms.naer.edu.tw/detail/72201d47c32b83a440af2550421eff52/?startswith=zh&seq=6
 token,權杖,,國家教育研究院 - https://terms.naer.edu.tw/detail/4fc5f9876aec29562f088628e1d8eef9/
-token,權杖,,
 USB,USB,,
 user,使用者,,
 user label,使用者標籤,,
 WebAuthn,WebAuthn,,專有技術名詞不翻譯
 X-Robots-Tag,X-Robots-Tag,,
-you,您,,「您」和「你」基本上是相同含義，選一個統一就好
