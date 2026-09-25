@@ -53,3 +53,5 @@
 兼容	相容	error
 優化	最佳化	info
 高級	進階	warn
+身份	身分	warn	教育部標準用字
+配置(檔|文件)	設定檔	warn	profile 譯「設定檔」，見詞彙表
