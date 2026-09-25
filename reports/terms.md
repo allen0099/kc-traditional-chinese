@@ -11,7 +11,6 @@
 | federation | 邦聯 | 22 | 4 | 0 | 18 | 18% | 使用者聯(16) 用者聯邦(13) 者聯邦提(11) 聯邦提供(11) 聯邦(15) |
 | federated identity | 聯邦身分識別 | 17 | 2 | 0 | 15 | 12% | 聯邦身分(14) 身分綁定(5) 邦身分綁(5) 寫聯邦身(4) 移除聯邦(4) |
 | assertion | 斷言 | 46 | 32 | 0 | 14 | 70% | 聲明(14) 聲明的(4) 根據(4) 單一登(3) 聲明中(3) |
-| you | 您 | 347 | 333 | 0 | 14 | 96% | 寄送重設(2) 密碼的指(2) 將寄送重(2) 指令郵件(2) 擇要用於(2) |
 | authentication | 驗證 | 122 | 111 | 0 | 11 | 91% | 認證(9) 基本認證(3) 認證回應(3) 證回應中(3) 已棄用(3) |
 | user | 使用者 | 531 | 520 | 0 | 11 | 98% | 臨時(3) 理員帳號(2) 管理員帳(2) 時管理員(2) 臨時管理(2) |
 | adapter | 配接器 | 13 | 4 | 0 | 9 | 31% | 適配器(8) 為此應用(4) 此應用程(5) 下載新的(3) 式下載新(3) |
@@ -31,14 +30,9 @@
 | policy | 政策 | 110 | 107 | 0 | 3 | 97% | 策略僅(2) 策略(3) 一步將策(1) 不得與任(1) 之間有效(1) |
 | Claims | 聲明 | 16 | 14 | 0 | 2 | 88% | 明確(2) 們被標記(1) 制執行的(1) 則用作自(1) 參數請求(1) |
 | default | 預設 | 114 | 112 | 0 | 2 | 98% | 允許默認(1) 務帳號權(1) 帳號權杖(1) 杖的簽發(1) 的簽發者(1) |
-| Invalid password: must not be equal to the email. | 無效的密碼：不可與電子信箱相同。 | 3 | 1 | 0 | 2 | 33% | 子郵件相(2) 與電子郵(2) 郵件相同(2) 不可與電(2) 可與電子(2) |
 | authorization | 授權 | 88 | 87 | 0 | 1 | 99% |  |
 | Bluetooth | 藍芽 | 1 | 0 | 0 | 1 | 0% |  |
 | cookie | cookie | 1 | 0 | 0 | 1 | 0% |  |
-| Invalid password: Can not contain the username. | 無效的密碼：不可包含使用者名稱。 | 3 | 2 | 0 | 1 | 67% |  |
-| Invalid password: maximum length {0}. | 無效的密碼：最長長度為 {0}。 | 3 | 2 | 0 | 1 | 67% |  |
-| Invalid password: minimum length {0}. | 無效的密碼：最短長度為 {0}。 | 3 | 2 | 0 | 1 | 67% |  |
-| Length must be between {1} and {2}. | 長度必須介於 {1} 和 {2} 之間。 | 1 | 0 | 0 | 1 | 0% |  |
 | mapper | 映射 | 58 | 57 | 0 | 1 | 98% |  |
 | Mutual TLS | 相互 TLS | 2 | 1 | 0 | 1 | 50% |  |
 | Passkey | 通行金鑰 | 37 | 36 | 0 | 1 | 97% |  |
@@ -55,8 +49,7 @@
 | Last name | 姓氏 | 8 | 8 | 0 | 0 | 100% |  |
 | Microsoft Authenticator | Microsoft Authenticator | 3 | 3 | 0 | 0 | 100% |  |
 | NFC | NFC | 1 | 1 | 0 | 0 | 100% |  |
-| Privacy policy | 隱私權政策 | 1 | 1 | 0 | 0 | 100% |  |
-| privacy policy. | 隱私權政策 | 1 | 1 | 0 | 0 | 100% |  |
+| Privacy policy | 隱私權政策 | 2 | 2 | 0 | 0 | 100% |  |
 | record | 記錄 | 13 | 13 | 0 | 0 | 100% |  |
 | USB | USB | 1 | 1 | 0 | 0 | 100% |  |
 | user label | 使用者標籤 | 5 | 5 | 0 | 0 | 100% |  |
@@ -1740,53 +1733,6 @@
   - en: Allows Client ID as audience for assertions
   - zh: 允許將應用程式 ID 作為聲明中的受眾
 
-## you → 您（14 條不一致）
-
-> 「您」和「你」基本上是相同含義，選一個統一就好
-
-- `admin-ui:2002` **directGrantHelp**
-  - en: Select the flow you want to use for direct grant authentication.
-  - zh: 選擇要用於直接授權驗證的流程。
-- `admin-ui:2039` **browserFlowHelp**
-  - en: Select the flow you want to use for browser authentication.
-  - zh: 選擇要用於瀏覽器驗證的流程。
-- `admin-ui:2628` **userSessionAttributeHelp**
-  - en: Name of user session attribute you want to hardcode
-  - zh: 要硬編碼的使用者工作階段屬性名稱
-- `admin-ui:3663` **repeatHelp**
-  - en: Specifies how the policy time restriction is defined. If 'Not Repeat', the policy is granted only between the start and expire times. If 'Repeat', you can additionally restrict the policy to specific recurring time periods such as month, day, hour, and minute ranges.
-  - zh: 指定如何定義策略時間限制。如果選擇「不重複」，則策略僅在開始和結束時間之間有效。如果選擇「重複」，可以進一步將策略限制在特定的重複時間區段內，例如按照月、日、小時、分鐘等範圍進行限制。
-- `admin-ui:2983` **authorizationEncryptedResponseAlgHelp**
-  - en: JWA Algorithm used for key management in encrypting the authorization response when the response mode is jwt. This option is needed if you want encrypted authorization response. If left empty, the authorization response is just signed, but not encrypted.
-  - zh: 用於加密授權回應時的金鑰管理 JWA 演算法，當回應模式為 jwt 時需要此選項。如果留空，授權回應僅簽署但不加密。
-- `theme-baselogin:491` **emailVerifySendCooldown**
-  - en: You must wait {0} seconds before resending the verification email.
-  - zh: 請等待 {0} 秒後再重新寄送驗證郵件。
-- `theme-baselogin:166` **emailInstruction**
-  - en: Enter your username or email address and we will send you instructions on how to create a new password.
-  - zh: 輸入 使用者名稱 或 電子郵件，我們將寄送重設密碼的指令郵件。
-- `theme-baselogin:167` **emailInstructionUsername**
-  - en: Enter your username and we will send you instructions on how to create a new password.
-  - zh: 輸入使用者名稱，我們將寄送重設密碼的指令郵件。
-- `theme-baselogin:351` **differentUserAuthenticated**
-  - en: You are already authenticated as different user ''{0}'' in this session. Please sign out first.
-  - zh: 本工作階段已以使用者「{0}」身分驗證。請先登出再繼續。
-- `theme-baselogin:516` **credentialOfferStep2**
-  - en: Continue with login to the application once you successfully obtained {0} to your wallet.
-  - zh: 成功將 {0} 加入錢包後，請繼續登入應用程式。
-- `theme-baselogin:468` **finalDeletionConfirmation**
-  - en: If you delete your account, it cannot be restored. To keep your account, click Cancel.
-  - zh: 刪除帳號後將無法復原。若要保留帳號，請點擊取消。
-- `theme-baselogin:481` **logoutConfirmHeader**
-  - en: Do you want to log out?
-  - zh: 確認要登出嗎？
-- `theme-baselogin:483` **readOnlyUsernameMessage**
-  - en: You can''t update your username as it is read-only.
-  - zh: 使用者名稱為唯讀欄位，無法更新。
-- `theme-baselogin:519` **traceIdSupportMessage**
-  - en: If you contact support, please provide the following trace identifier: {0}
-  - zh: 若需聯絡技術支援，請提供以下追蹤識別碼：{0}
-
 ## authentication → 驗證（11 條不一致）
 
 - `account-ui:107` **basic-authentication**
@@ -2193,15 +2139,6 @@
   - en: Optional issuer of the Kubernetes service account tokens. If omitted, Keycloak resolves it from the issuer discovery URL when configured; otherwise, it uses the default Kubernetes issuer.
   - zh: Kubernetes 服務帳號權杖的簽發者
 
-## Invalid password: must not be equal to the email. → 無效的密碼：不可與電子信箱相同。（2 條不一致）
-
-- `theme-baseaccount:207` **invalidPasswordNotEmailMessage**
-  - en: Invalid password: must not be equal to the email.
-  - zh: 無效的密碼：不可與電子郵件相同。
-- `theme-baselogin:291` **invalidPasswordNotEmailMessage**
-  - en: Invalid password: must not be equal to the email.
-  - zh: 密碼無效：不可與電子郵件相同。
-
 ## authorization → 授權（1 條不一致）
 
 - `admin-ui:3669` **clientSecretAuthenticationAllowedMethodHelp**
@@ -2219,30 +2156,6 @@
 - `theme-baselogin:324` **cookieNotFoundMessage**
   - en: Restart login cookie not found. It may have expired; it may have been deleted or cookies are disabled in your browser. If cookies are disabled then enable them. Click Back to Application to login again.
   - zh: 找不到重新登入的 Cookie。可能已過期、被刪除，或瀏覽器已停用 Cookie。若 Cookie 已停用，請將其啟用。請點擊「返回應用程式」以重新登入。
-
-## Invalid password: Can not contain the username. → 無效的密碼：不可包含使用者名稱。（1 條不一致）
-
-- `theme-baselogin:290` **invalidPasswordNotContainsUsernameMessage**
-  - en: Invalid password: Can not contain the username.
-  - zh: 密碼無效：不可包含使用者名稱。
-
-## Invalid password: maximum length {0}. → 無效的密碼：最長長度為 {0}。（1 條不一致）
-
-- `theme-baselogin:284` **invalidPasswordMaxLengthMessage**
-  - en: Invalid password: maximum length {0}.
-  - zh: 密碼無效：最長長度為 {0}。
-
-## Invalid password: minimum length {0}. → 無效的密碼：最短長度為 {0}。（1 條不一致）
-
-- `theme-baselogin:283` **invalidPasswordMinLengthMessage**
-  - en: Invalid password: minimum length {0}.
-  - zh: 密碼無效：最短長度為 {0}。
-
-## Length must be between {1} and {2}. → 長度必須介於 {1} 和 {2} 之間。（1 條不一致）
-
-- `theme-baselogin:230` **error-invalid-length**
-  - en: Length must be between {1} and {2}.
-  - zh: 長度必須在 {1} 到 {2} 之間。
 
 ## mapper → 映射（1 條不一致）
 

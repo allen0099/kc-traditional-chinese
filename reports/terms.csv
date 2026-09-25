@@ -549,20 +549,6 @@ assertion,斷言,other,,admin-ui,wantAssertionsSigned,2945,Want Assertions signe
 assertion,斷言,other,,admin-ui,signAssertions,3162,Sign assertions,簽署聲明
 assertion,斷言,other,,admin-ui,selectClientAssertionSigningAlg,3518,Select client assertion signing algorithm,選擇應用程式聲明簽署演算法
 assertion,斷言,other,,admin-ui,allowClientIdAsAudience,3670,Allows Client ID as audience for assertions,允許將應用程式 ID 作為聲明中的受眾
-you,您,other,,admin-ui,directGrantHelp,2002,Select the flow you want to use for direct grant authentication.,選擇要用於直接授權驗證的流程。
-you,您,other,,admin-ui,browserFlowHelp,2039,Select the flow you want to use for browser authentication.,選擇要用於瀏覽器驗證的流程。
-you,您,other,,admin-ui,userSessionAttributeHelp,2628,Name of user session attribute you want to hardcode,要硬編碼的使用者工作階段屬性名稱
-you,您,other,,admin-ui,repeatHelp,3663,"Specifies how the policy time restriction is defined. If 'Not Repeat', the policy is granted only between the start and expire times. If 'Repeat', you can additionally restrict the policy to specific recurring time periods such as month, day, hour, and minute ranges.",指定如何定義策略時間限制。如果選擇「不重複」，則策略僅在開始和結束時間之間有效。如果選擇「重複」，可以進一步將策略限制在特定的重複時間區段內，例如按照月、日、小時、分鐘等範圍進行限制。
-you,您,other,,admin-ui,authorizationEncryptedResponseAlgHelp,2983,"JWA Algorithm used for key management in encrypting the authorization response when the response mode is jwt. This option is needed if you want encrypted authorization response. If left empty, the authorization response is just signed, but not encrypted.",用於加密授權回應時的金鑰管理 JWA 演算法，當回應模式為 jwt 時需要此選項。如果留空，授權回應僅簽署但不加密。
-you,您,other,,theme-baselogin,emailVerifySendCooldown,491,You must wait {0} seconds before resending the verification email.,請等待 {0} 秒後再重新寄送驗證郵件。
-you,您,other,,theme-baselogin,emailInstruction,166,Enter your username or email address and we will send you instructions on how to create a new password.,輸入 使用者名稱 或 電子郵件，我們將寄送重設密碼的指令郵件。
-you,您,other,,theme-baselogin,emailInstructionUsername,167,Enter your username and we will send you instructions on how to create a new password.,輸入使用者名稱，我們將寄送重設密碼的指令郵件。
-you,您,other,,theme-baselogin,differentUserAuthenticated,351,You are already authenticated as different user ''{0}'' in this session. Please sign out first.,本工作階段已以使用者「{0}」身分驗證。請先登出再繼續。
-you,您,other,,theme-baselogin,credentialOfferStep2,516,Continue with login to the application once you successfully obtained {0} to your wallet.,成功將 {0} 加入錢包後，請繼續登入應用程式。
-you,您,other,,theme-baselogin,finalDeletionConfirmation,468,"If you delete your account, it cannot be restored. To keep your account, click Cancel.",刪除帳號後將無法復原。若要保留帳號，請點擊取消。
-you,您,other,,theme-baselogin,logoutConfirmHeader,481,Do you want to log out?,確認要登出嗎？
-you,您,other,,theme-baselogin,readOnlyUsernameMessage,483,You can''t update your username as it is read-only.,使用者名稱為唯讀欄位，無法更新。
-you,您,other,,theme-baselogin,traceIdSupportMessage,519,"If you contact support, please provide the following trace identifier: {0}",若需聯絡技術支援，請提供以下追蹤識別碼：{0}
 authentication,驗證,other,,account-ui,basic-authentication,107,Basic authentication,基本認證
 authentication,驗證,other,,admin-ui,excludeSessionStateFromAuthenticationResponseHelp,3346,"If this is on, the parameter 'session_state' will not be included in OpenID Connect Authentication Response. It is useful if the client uses an older OIDC / OAuth2 adapter, which does not support the 'session_state' parameter. This switch is deprecated and might be removed in future version.",如果啟用此選項，參數「session_state」將不包含在 OpenID Connect 認證回應中。當應用程式使用較舊的 OIDC / OAuth2 適配器且不支援「session_state」參數時，此選項非常有用。此開關已棄用並且將會在未來版本中移除。
 authentication,驗證,other,,admin-ui,excludeIssuerFromAuthenticationResponse,3375,Exclude Issuer From Authentication Response,從認證回應中排除發行者
@@ -676,15 +662,9 @@ Claims,聲明,other,,admin-ui,defaultACRValuesHelp,2985,Default values to be use
 Claims,聲明,other,,admin-ui,minimumACRValueHelp,2986,"Minimum ACR to be enforced by Keycloak. Overrides lower ACRs explicitly requested by 'acr_values' or 'claims', unless they are marked as essential.",Keycloak 要強制執行的最低 ACR。會覆蓋透過「acr_values」或「claims」明確請求還低的 ACR，除非它們被標記為必要。
 default,預設,other,,admin-ui,allow-default-scopes.label,2215,Allow Default Scopes,允許默認範圍
 default,預設,other,,admin-ui,kubernetesIssuerUrlHelp,3590,"Optional issuer of the Kubernetes service account tokens. If omitted, Keycloak resolves it from the issuer discovery URL when configured; otherwise, it uses the default Kubernetes issuer.",Kubernetes 服務帳號權杖的簽發者
-Invalid password: must not be equal to the email.,無效的密碼：不可與電子信箱相同。,other,,theme-baseaccount,invalidPasswordNotEmailMessage,207,Invalid password: must not be equal to the email.,無效的密碼：不可與電子郵件相同。
-Invalid password: must not be equal to the email.,無效的密碼：不可與電子信箱相同。,other,,theme-baselogin,invalidPasswordNotEmailMessage,291,Invalid password: must not be equal to the email.,密碼無效：不可與電子郵件相同。
 authorization,授權,other,,admin-ui,clientSecretAuthenticationAllowedMethodHelp,3669,"Allowed method for client secret authentication. If set to client_secret_basic, then client secret needs to be sent in the HTTP 'Authorization: Basic' header when authenticating this client. When set to client_secret_post, then client secret needs to be sent as a parameter in the request body together with client_id. When empty, both Authorization header and request body parameters are allowed.",應用程式密鑰認證的允許方法。如果設定為 client_secret_basic，則在對該應用程式進行驗證時，需要在 HTTP 的「Authorization: Basic」標頭中傳送應用程式金鑰。如果設定為 client_secret_post，則需要在請求正文中將應用程式金鑰與 client_id 一起作為參數傳送。如果設定為空，則允許同時使用 Authorization 標頭和請求正文參數。
 Bluetooth,藍芽,other,,theme-baselogin,bluetooth,62,Bluetooth,藍牙
 cookie,cookie,other,,theme-baselogin,cookieNotFoundMessage,324,Restart login cookie not found. It may have expired; it may have been deleted or cookies are disabled in your browser. If cookies are disabled then enable them. Click Back to Application to login again.,找不到重新登入的 Cookie。可能已過期、被刪除，或瀏覽器已停用 Cookie。若 Cookie 已停用，請將其啟用。請點擊「返回應用程式」以重新登入。
-Invalid password: Can not contain the username.,無效的密碼：不可包含使用者名稱。,other,,theme-baselogin,invalidPasswordNotContainsUsernameMessage,290,Invalid password: Can not contain the username.,密碼無效：不可包含使用者名稱。
-Invalid password: maximum length {0}.,無效的密碼：最長長度為 {0}。,other,,theme-baselogin,invalidPasswordMaxLengthMessage,284,Invalid password: maximum length {0}.,密碼無效：最長長度為 {0}。
-Invalid password: minimum length {0}.,無效的密碼：最短長度為 {0}。,other,,theme-baselogin,invalidPasswordMinLengthMessage,283,Invalid password: minimum length {0}.,密碼無效：最短長度為 {0}。
-Length must be between {1} and {2}.,長度必須介於 {1} 和 {2} 之間。,other,,theme-baselogin,error-invalid-length,230,Length must be between {1} and {2}.,長度必須在 {1} 到 {2} 之間。
 mapper,映射,other,,admin-ui,deleteErrorIdentityProvider,3746,Could not delete identity provider mapper: '{{error}}',無法刪除身分提供者對應：{{error}}
 Mutual TLS,相互 TLS,other,,admin-ui,oAuthMutual,2391,OAuth 2.0 Mutual TLS Certificate Bound Access Tokens Enabled,啟用 OAuth 2.0 互動式 TLS 憑證綁定存取權杖
 Passkey,通行金鑰,other,,admin-ui,webAuthnPolicyMediation,3771,Passkey Mediation,Passkey 中介
