@@ -7,7 +7,7 @@
       "translated_percent": 100.0,
       "translated": 242,
       "total": 242,
-      "last_change": "2026-09-25T23:07:17.898260+02:00",
+      "last_change": "2026-09-26T02:42:53.420621+02:00",
       "url": "https://hosted.weblate.org/translate/keycloak/account-ui/zh_Hant/"
     },
     "theme-baseemail": {
@@ -15,9 +15,9 @@
       "filemask": "themes/src/main/resources-community/theme/base/email/messages/messages_*.properties",
       "repo_file": "themes/src/main/resources-community/theme/base/email/messages/messages_zh_Hant.properties",
       "translated_percent": 100.0,
-      "translated": 68,
-      "total": 68,
-      "last_change": "2026-09-25T23:22:55.247637+02:00",
+      "translated": 73,
+      "total": 73,
+      "last_change": "2026-09-29T07:46:56.394600+02:00",
       "url": "https://hosted.weblate.org/translate/keycloak/theme-baseemail/zh_Hant/"
     },
     "theme-baselogin": {
@@ -27,7 +27,7 @@
       "translated_percent": 100.0,
       "translated": 525,
       "total": 525,
-      "last_change": "2026-09-25T23:22:57.754507+02:00",
+      "last_change": "2026-09-26T02:42:46.268674+02:00",
       "url": "https://hosted.weblate.org/translate/keycloak/theme-baselogin/zh_Hant/"
     },
     "theme-baseaccount": {
@@ -37,7 +37,7 @@
       "translated_percent": 100.0,
       "translated": 385,
       "total": 385,
-      "last_change": "2026-09-25T23:23:00.113041+02:00",
+      "last_change": "2026-09-26T02:42:48.989420+02:00",
       "url": "https://hosted.weblate.org/translate/keycloak/theme-baseaccount/zh_Hant/"
     },
     "theme-baseadmin": {
@@ -45,21 +45,21 @@
       "filemask": "themes/src/main/resources-community/theme/base/admin/messages/messages_*.properties",
       "repo_file": "themes/src/main/resources-community/theme/base/admin/messages/messages_zh_Hant.properties",
       "translated_percent": 100.0,
-      "translated": 117,
-      "total": 117,
-      "last_change": "2026-09-25T23:23:02.381074+02:00",
+      "translated": 118,
+      "total": 118,
+      "last_change": "2026-09-29T03:59:13.831293+02:00",
       "url": "https://hosted.weblate.org/translate/keycloak/theme-baseadmin/zh_Hant/"
     },
     "admin-ui": {
       "name": "Admin UI",
       "filemask": "js/apps/admin-ui/maven-resources-community/theme/keycloak.v2/admin/messages/messages_*.properties",
       "repo_file": "js/apps/admin-ui/maven-resources-community/theme/keycloak.v2/admin/messages/messages_zh_Hant.properties",
-      "translated_percent": 100.0,
+      "translated_percent": 99.8,
       "translated": 4248,
-      "total": 4248,
-      "last_change": "2026-09-25T23:23:15.839373+02:00",
+      "total": 4253,
+      "last_change": "2026-09-30T06:29:35.046739+02:00",
       "url": "https://hosted.weblate.org/translate/keycloak/admin-ui/zh_Hant/"
     }
   },
-  "pulled_at": "2026-09-25T21:24:51+00:00"
+  "pulled_at": "2026-09-30T04:32:03+00:00"
 }
