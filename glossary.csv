@@ -3,7 +3,7 @@ access token,存取權杖,,參照國家教育研究院翻譯：https://terms.nae
 account,帳號,帳戶,Account Console 譯「帳號主控台」；service account 譯「服務帳號」,
 adapter,配接器,,,
 assertion,斷言,聲明,SAML 斷言、用戶端斷言、JWT 斷言；「聲明」是 claim 的譯名，不可混用,
-attestation,證明,聲明|驗證,裝置／金鑰由製造商簽章證明其型號與來源（WebAuthn attestation、OID4VCI key attestation）；attestation statement 譯「證明聲明」、conveyance preference 譯「證明傳達偏好」；不可譯「驗證」（authentication）或「聲明」（claim）
+attestation,證明,聲明|驗證,裝置／金鑰由製造商簽章證明其型號與來源（WebAuthn attestation、OID4VCI key attestation）；attestation statement 譯「證明聲明」、conveyance preference 譯「證明傳達偏好」；不可譯「驗證」（authentication）或「聲明」（claim）,
 attribute,屬性,,,
 authentication,驗證,,,
 authorization,授權,,,
@@ -20,7 +20,7 @@ client secret,用戶端密鑰,應用程式密鑰|應用程式金鑰|客戶端密
 consent,同意,,使用者對用戶端存取資料的同意,
 console,主控台,控制台,Admin Console、Account Console 等；console application 譯「主控台應用程式」（Microsoft 台灣用語）,
 cookie,cookie,,,
-credential,認證資訊,憑據|驗證資訊,使用者／用戶端的 credential（密碼、OTP、WebAuthn、client credentials）；參照 Windows「認證管理員」。與 certificate（憑證）區分；OID4VC 的 credential 例外譯「憑證」，見 verifiable credential,
+credential,認證資訊,憑據|驗證資訊,使用者／用戶端的 credential（密碼、OTP、WebAuthn、client credentials）；參照 Windows「認證管理員」。與 certificate（憑證）區分；OID4VC 的 credential 例外譯「憑證」，見 verifiable credential,52
 credential issuer,發行者,簽發者|核發者,OID4VC；對齊數位憑證皮夾「發行端」。issue a credential 譯「發行」，issued credentials 譯「已發行的憑證」,
 credential offer,憑證領取邀請,憑證提供|發行要約|憑證要約,OID4VCI credential offer；credential offer URI 在登入頁簡稱「領取 URL」,
 dark mode,深色模式,暗色模式,light mode 譯「淺色模式」,
@@ -30,6 +30,7 @@ descriptor,描述元,描述符,SAML 描述元（descriptor）,
 detached signature,分離式簽章,分離簽章,FAPI：ID Token as detached signature,
 Direct grant,直接授權,,,
 domain,網域,域名,組織網域（organization domain）；realm 是「領域」，勿混用,
+domain name,網域名稱,,,
 email,電子郵件,電子信箱|電子信件,email address 譯「電子郵件地址」,
 event,事件,活動,,
 executor,執行器,執行者,用戶端政策（client policies）的 executor，與 condition（條件）搭配,
@@ -50,7 +51,7 @@ instructions,說明,指令,「指令」是 command,
 Introspect,內省,檢視,Token Introspection 譯「權杖內省」,
 issuer,簽發者,,OID4VC 的 issuer 譯「發行者」（見 credential issuer）,
 Kerberos,Kerberos,,,
-key,金鑰,秘鑰|鑰匙,加密用的 key；secret 另譯「密鑰」；key-value 的 key 譯「鍵」,
+key,金鑰,秘鑰|鑰匙,加密用的 key；secret 另譯「密鑰」；key-value 的 key 譯「鍵」,23
 key attestation,金鑰證明,,OID4VCI；proof 譯「持有證明」,
 key pair,金鑰對,金鑰組|鑰匙對|密鑰對,參照 AWS 台灣；JWKS（key set）另譯「金鑰組」不受影響,
 keystore,keystore,金鑰庫|密鑰庫,Java 專有名詞不翻譯,
@@ -62,7 +63,7 @@ mapper,映射器,映射,mapping 譯「映射」；protocol mapper 譯「協定�
 metadata,元資料,,,
 Microsoft Authenticator,Microsoft Authenticator,,,
 Mutual TLS,相互 TLS,,常見簡寫為 mTLS,
-NFC,NFC,,,
+NFC,NFC,,,0
 Parameterized scope,參數化範圍,動態範圍|參數化作用域,,
 Passkey,通行金鑰,,翻譯參考： - Google：密碼金鑰 - 1password：通行金鑰 - Amazon：金鑰 - Microsoft：金鑰、安全性金鑰 - Discord：安全性金鑰,
 permission,權限,,authorization 譯「授權」,
@@ -72,7 +73,7 @@ pre-authorized code,預先授權碼,預授權碼,OID4VCI pre-authorized code gra
 priority,優先順序,權重,weight 才譯「權重」,
 Privacy policy,隱私權政策,,,
 private key,私鑰,私密金鑰|私有金鑰|私人金鑰,簡短且台灣技術文件常見；與公鑰成對,
-profile,設定檔,配置檔|配置文件,Keycloak 功能類的 profile：用戶端設定檔（client profile）、使用者設定檔（User Profile 功能）、SAML 服務設定檔。使用者自己的 profile（Update Profile、帳戶頁）譯「個人資料」,
+profile,設定檔,配置檔|配置文件,Keycloak 功能類的 profile：用戶端設定檔（client profile）、使用者設定檔（User Profile 功能）、SAML 服務設定檔。使用者自己的 profile（Update Profile、帳戶頁）譯「個人資料」,28
 protocol,協定,,,
 provider,提供者,,,
 public key,公鑰,公開金鑰|公有金鑰|公用金鑰,簡短且台灣技術文件常見；與私鑰成對,
@@ -108,6 +109,6 @@ user storage,使用者儲存,使用者存放區,UserStorageProvider 譯「使用
 user verification,使用者驗證,使用者認證,WebAuthn UV,
 vault,保險庫,資料庫|保存庫,${vault.ID} 取值來源,
 verifiable credential,可驗證憑證,可驗證的憑證,OID4VC；參照台灣數位憑證皮夾。VC 功能區塊內單獨出現的 credential 也譯「憑證」,
-WebAuthn,WebAuthn,,專有技術名詞不翻譯,
+WebAuthn,WebAuthn,,專有技術名詞不翻譯,0
 wildcard,萬用字元,通配符,,
 X-Robots-Tag,X-Robots-Tag,,,0
