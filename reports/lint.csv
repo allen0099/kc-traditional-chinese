@@ -1,3 +1,3 @@
 level,check,component,key,line,message,en,zh_Hant
-warn,weblate,admin-ui,deleteNodeBody,860,end_question：譯文以問號結尾，原文沒有,"Are you sure you want to permanently delete the node ""{{node}}""",您確定要永久刪除節點「{{node}}」嗎？
-warn,weblate,admin-ui,deleteConfirmExecutionMessage,861,end_stop：原文以句號結尾，譯文沒有,"Are you sure you want to permanently delete the execution ""<1>{{name}}</1>"".",您確定要永久刪除執行項目「<1>{{name}}</1>」嗎？
+warn,weblate,admin-ui,deleteNodeBody,864,end_question：譯文以問號結尾，原文沒有,"Are you sure you want to permanently delete the node ""{{node}}""",您確定要永久刪除節點「{{node}}」嗎？
+warn,weblate,admin-ui,deleteConfirmExecutionMessage,865,end_stop：原文以句號結尾，譯文沒有,"Are you sure you want to permanently delete the execution ""<1>{{name}}</1>"".",您確定要永久刪除執行項目「<1>{{name}}</1>」嗎？
